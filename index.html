@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Darwin Colmenares — Full-Stack Developer & Data Analyst</title>
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
     <meta name="description" content="Portafolio de Darwin Colmenares. Full-Stack Developer & Data Analyst. Contador Público + Ingeniero Informático.">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Mono:ital,wght@0,300;0,400;1,300&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
@@ -21,9 +21,9 @@
             --accent-glow: rgba(240, 165, 0, 0.08);
             --accent-dim: #b87d00;
             --text-primary: #f0ece4;
-            --text-secondary: #a09a90;
-            --text-muted: #6a6560;
-            --text-dim: #3a3835;
+            --text-secondary: #c8c2b8;
+            --text-muted: #908a80;
+            --text-dim: #5a5550;
             --success: #4ade80;
             --blue: #60a5fa;
             --font-display: 'Syne', sans-serif;
@@ -99,12 +99,42 @@
 
         .nav-toggle {
             display: none; flex-direction: column; gap: 5px;
-            background: none; border: none; cursor: pointer; padding: 4px;
+            background: none; border: none; cursor: pointer;
+            padding: 4px; z-index: 1002;
         }
         .nav-toggle span {
             display: block; width: 24px; height: 1.5px;
-            background: var(--text-primary); transition: all 0.3s;
+            background: var(--text-primary);
+            transition: all 0.3s; transform-origin: center;
         }
+        .nav-toggle.open span:nth-child(1) { transform: rotate(45deg) translate(4px, 4px); }
+        .nav-toggle.open span:nth-child(2) { opacity: 0; }
+        .nav-toggle.open span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
+
+        /* Mobile menu overlay */
+        .mobile-menu {
+            display: none;
+            position: fixed; inset: 0; z-index: 1001;
+            background: rgba(11, 11, 11, 0.97);
+            backdrop-filter: blur(30px);
+            flex-direction: column;
+            align-items: center; justify-content: center; gap: 2rem;
+            opacity: 0; transition: opacity 0.35s ease;
+        }
+        .mobile-menu.visible { display: flex; opacity: 1; }
+
+        .mobile-menu a {
+            font-family: var(--font-display); font-size: 1.8rem;
+            font-weight: 700; color: var(--text-primary);
+            text-decoration: none; letter-spacing: -0.02em;
+            transition: color 0.3s ease; position: relative;
+        }
+        .mobile-menu a::before {
+            content: attr(data-n); font-family: var(--font-mono);
+            font-size: 0.65rem; font-weight: 400; color: var(--accent);
+            letter-spacing: 0.15em; position: absolute; top: -1.2rem; left: 0;
+        }
+        .mobile-menu a:hover { color: var(--accent); }
 
         /* ===== HERO ===== */
         .hero {
@@ -123,8 +153,7 @@
             background-image:
                 linear-gradient(var(--border) 1px, transparent 1px),
                 linear-gradient(90deg, var(--border) 1px, transparent 1px);
-            background-size: 60px 60px;
-            opacity: 0.3;
+            background-size: 60px 60px; opacity: 0.3;
             mask-image: radial-gradient(ellipse at 80% 70%, black 0%, transparent 65%);
             -webkit-mask-image: radial-gradient(ellipse at 80% 70%, black 0%, transparent 65%);
         }
@@ -239,9 +268,7 @@
             transition: all 0.3s ease;
         }
         .hc-item:hover { border-color: var(--accent); color: var(--accent); }
-        .hc-dot {
-            width: 6px; height: 6px; border-radius: 50%; flex-shrink: 0;
-        }
+        .hc-dot { width: 6px; height: 6px; border-radius: 50%; flex-shrink: 0; }
 
         .hc-deco {
             position: absolute; bottom: -14px; right: -14px;
@@ -272,9 +299,7 @@
         /* ===== SECTIONS ===== */
         .sec { padding: 8rem 3rem; max-width: 1400px; margin: 0 auto; }
 
-        .sec-head {
-            display: flex; align-items: center; gap: 2rem; margin-bottom: 4rem;
-        }
+        .sec-head { display: flex; align-items: center; gap: 2rem; margin-bottom: 4rem; }
         .sec-n {
             font-family: var(--font-mono); font-size: 0.7rem;
             color: var(--accent); letter-spacing: 0.1em;
@@ -293,9 +318,7 @@
         /* ===== ABOUT ===== */
         .about-g { display: grid; grid-template-columns: 1.4fr 0.6fr; gap: 6rem; }
 
-        .about-body p {
-            color: var(--text-secondary); margin-bottom: 1.5rem; max-width: 620px;
-        }
+        .about-body p { color: var(--text-secondary); margin-bottom: 1.5rem; max-width: 620px; }
         .about-body p strong { color: var(--text-primary); font-weight: 400; }
 
         .about-quote {
@@ -317,10 +340,7 @@
             font-size: 0.7rem; color: var(--text-muted);
             transition: all 0.3s ease; cursor: default;
         }
-        .tag:hover {
-            border-color: var(--accent); color: var(--accent);
-            transform: translateY(-2px);
-        }
+        .tag:hover { border-color: var(--accent); color: var(--accent); transform: translateY(-2px); }
 
         .stk-group { margin-bottom: 2rem; }
 
@@ -342,9 +362,7 @@
         }
 
         /* ===== PROJECTS ===== */
-        .proj-filter {
-            display: flex; gap: 0.5rem; margin-bottom: 3rem; flex-wrap: wrap;
-        }
+        .proj-filter { display: flex; gap: 0.5rem; margin-bottom: 3rem; flex-wrap: wrap; }
         .filter-btn {
             padding: 0.5rem 1.2rem; background: transparent;
             border: 1px solid var(--border); color: var(--text-muted);
@@ -352,9 +370,7 @@
             letter-spacing: 0.1em; text-transform: uppercase;
             cursor: pointer; transition: all 0.3s ease;
         }
-        .filter-btn:hover, .filter-btn.active {
-            border-color: var(--accent); color: var(--accent);
-        }
+        .filter-btn:hover, .filter-btn.active { border-color: var(--accent); color: var(--accent); }
         .filter-btn.active { background: var(--accent-glow); }
 
         .proj-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 2rem; }
@@ -412,21 +428,15 @@
             color: var(--text-muted); font-size: 0.78rem;
             margin-bottom: 1.2rem; line-height: 1.7; flex: 1;
         }
-        .proj-feat {
-            list-style: none; margin-bottom: 1.2rem;
-        }
+        .proj-feat { list-style: none; margin-bottom: 1.2rem; }
         .proj-feat li {
             font-family: var(--font-mono); font-size: 0.68rem;
             color: var(--text-muted); padding: 0.2rem 0;
             display: flex; align-items: flex-start; gap: 0.5rem;
         }
-        .proj-feat li::before {
-            content: '→'; color: var(--accent); flex-shrink: 0;
-        }
+        .proj-feat li::before { content: '→'; color: var(--accent); flex-shrink: 0; }
 
-        .proj-techs {
-            display: flex; flex-wrap: wrap; gap: 0.35rem; margin-bottom: 1.5rem;
-        }
+        .proj-techs { display: flex; flex-wrap: wrap; gap: 0.35rem; margin-bottom: 1.5rem; }
         .proj-techs span {
             padding: 0.25rem 0.65rem; background: var(--bg);
             border: 1px solid var(--border); font-family: var(--font-mono);
@@ -443,21 +453,14 @@
         .proj-links a:hover { color: var(--accent); }
         .proj-links a svg { width: 14px; height: 14px; }
 
-        /* Featured project - full width */
+        /* Featured project */
         .proj-card.featured {
             grid-column: 1 / -1;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
+            display: grid; grid-template-columns: 1fr 1fr;
         }
-        .proj-card.featured .proj-img {
-            height: 100%; min-height: 300px;
-        }
-        .proj-card.featured .proj-body {
-            padding: 3rem;
-        }
-        .proj-card.featured .proj-name {
-            font-size: 1.6rem;
-        }
+        .proj-card.featured .proj-img { height: 100%; min-height: 300px; }
+        .proj-card.featured .proj-body { padding: 3rem; }
+        .proj-card.featured .proj-name { font-size: 1.6rem; }
 
         /* ===== EXPERIENCE ===== */
         .tl { position: relative; padding-left: 3rem; }
@@ -493,9 +496,7 @@
             font-family: var(--font-mono); font-size: 0.8rem;
             color: var(--text-secondary); margin-bottom: 0.8rem;
         }
-        .tl-desc {
-            color: var(--text-muted); font-size: 0.8rem; max-width: 560px;
-        }
+        .tl-desc { color: var(--text-muted); font-size: 0.8rem; max-width: 560px; }
 
         /* ===== CONTACT ===== */
         .contact-sec {
@@ -521,9 +522,7 @@
             color: var(--text-muted); font-size: 0.88rem;
             max-width: 480px; margin: 0 auto 3.5rem;
         }
-        .contact-g {
-            display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap;
-        }
+        .contact-g { display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap; }
         .contact-c {
             display: flex; align-items: center; gap: 0.7rem;
             padding: 0.9rem 1.6rem; border: 1px solid var(--border);
@@ -562,7 +561,7 @@
             to { opacity: 1; transform: translateY(0); }
         }
 
-                /* ===== RESPONSIVE ===== */
+        /* ===== RESPONSIVE ===== */
         @media (max-width: 1100px) {
             .proj-grid { grid-template-columns: 1fr; }
             .proj-card.featured { grid-template-columns: 1fr; }
@@ -590,10 +589,7 @@
             .stat-bl { flex: 1; min-width: 120px; }
             .stat-v { font-size: 2rem; }
 
-            .about-quote {
-                font-size: 1rem;
-                padding: 1rem 1.2rem;
-            }
+            .about-quote { font-size: 1rem; padding: 1rem 1.2rem; }
 
             .scroll-h { display: none; }
             .sec-rule { display: none; }
@@ -618,13 +614,8 @@
             .hero-name { font-size: clamp(2rem, 9vw, 3rem); }
             .hero-sub { font-size: 0.75rem; max-width: 100%; margin-bottom: 1.8rem; }
 
-            .hero-actions {
-                flex-direction: column; align-items: stretch;
-            }
-            .btn-p, .btn-o {
-                justify-content: center; width: 100%;
-                padding: 0.8rem 1.2rem;
-            }
+            .hero-actions { flex-direction: column; align-items: stretch; }
+            .btn-p, .btn-o { justify-content: center; width: 100%; padding: 0.8rem 1.2rem; }
 
             .hc-grid { grid-template-columns: 1fr; }
             .hc-identity { gap: 1rem; }
@@ -644,9 +635,7 @@
             .proj-filter { gap: 0.35rem; }
             .filter-btn { padding: 0.4rem 0.9rem; font-size: 0.62rem; }
 
-            .proj-card.featured {
-                display: flex; flex-direction: column;
-            }
+            .proj-card.featured { display: flex; flex-direction: column; }
             .proj-card.featured .proj-body { padding: 1.5rem; }
             .proj-card.featured .proj-name { font-size: 1.3rem; }
 
@@ -661,10 +650,7 @@
             .contact-tx { font-size: 0.8rem; }
 
             .contact-g { flex-direction: column; align-items: stretch; }
-            .contact-c {
-                justify-content: center; padding: 0.8rem 1rem;
-                font-size: 0.72rem;
-            }
+            .contact-c { justify-content: center; padding: 0.8rem 1rem; font-size: 0.72rem; }
 
             .ft-links { flex-wrap: wrap; justify-content: center; }
         }
@@ -682,8 +668,19 @@
         <li><a href="https://github.com/darwinjcn" target="_blank" data-n="04">GitHub</a></li>
     </ul>
     <a href="#contact" class="nav-cta">Contactar</a>
-    <button class="nav-toggle" aria-label="Menu"><span></span><span></span><span></span></button>
+    <button class="nav-toggle" id="navToggle" aria-label="Menu">
+        <span></span><span></span><span></span>
+    </button>
 </nav>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobileMenu">
+    <a href="#about" data-n="01">Sobre mi</a>
+    <a href="#projects" data-n="02">Proyectos</a>
+    <a href="#experience" data-n="03">Trayectoria</a>
+    <a href="#contact" data-n="04">Contacto</a>
+    <a href="https://github.com/darwinjcn" target="_blank" data-n="05">GitHub</a>
+</div>
 
 <!-- HERO -->
 <section class="hero" id="home">
@@ -1208,16 +1205,24 @@
     }, { threshold: 0.1 });
     document.querySelectorAll('[data-anim]').forEach(el => obs.observe(el));
 
-    // Smooth scroll
+    // Smooth scroll + close menu
+    function closeMobileMenu() {
+        mobileMenu.classList.remove('visible');
+        toggle.classList.remove('open');
+    }
+
     document.querySelectorAll('a[href^="#"]').forEach(a => {
         a.addEventListener('click', e => {
             e.preventDefault();
             const t = document.querySelector(a.getAttribute('href'));
-            if (t) t.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            if (t) {
+                t.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                closeMobileMenu();
+            }
         });
     });
 
-    // Nav hide/show
+    // Nav hide/show on scroll
     let last = 0;
     const navEl = document.querySelector('nav');
     window.addEventListener('scroll', () => {
@@ -1233,13 +1238,31 @@
             btn.classList.add('active');
             const cat = btn.dataset.filter;
             document.querySelectorAll('.proj-card').forEach(card => {
-                if (cat === 'all' || card.dataset.cat === cat) {
-                    card.style.display = '';
-                } else {
-                    card.style.display = 'none';
-                }
+                card.style.display = (cat === 'all' || card.dataset.cat === cat) ? '' : 'none';
             });
         });
+    });
+
+    // Mobile menu
+    const toggle = document.getElementById('navToggle');
+    const mobileMenu = document.getElementById('mobileMenu');
+
+    toggle.addEventListener('click', () => {
+        const isOpen = mobileMenu.classList.contains('visible');
+        if (isOpen) {
+            closeMobileMenu();
+        } else {
+            mobileMenu.classList.add('visible');
+            toggle.classList.add('open');
+        }
+    });
+
+    mobileMenu.addEventListener('click', (e) => {
+        if (e.target === mobileMenu) closeMobileMenu();
+    });
+
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') closeMobileMenu();
     });
 </script>
 </body>
