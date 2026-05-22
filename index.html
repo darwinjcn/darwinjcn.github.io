@@ -1,0 +1,1166 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Darwin Colmenares — Full-Stack Developer & Data Analyst</title>
+    <meta name="description" content="Portafolio de Darwin Colmenares. Full-Stack Developer & Data Analyst. Contador Público + Ingeniero Informático.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Mono:ital,wght@0,300;0,400;1,300&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --bg: #0b0b0b;
+            --bg-elevated: #111111;
+            --surface: #161616;
+            --border: #1e1e1e;
+            --accent: #f0a500;
+            --accent-glow: rgba(240, 165, 0, 0.08);
+            --accent-dim: #b87d00;
+            --text-primary: #f0ece4;
+            --text-secondary: #a09a90;
+            --text-muted: #6a6560;
+            --text-dim: #3a3835;
+            --success: #4ade80;
+            --blue: #60a5fa;
+            --font-display: 'Syne', sans-serif;
+            --font-serif: 'Instrument Serif', serif;
+            --font-mono: 'DM Mono', monospace;
+        }
+
+        html { scroll-behavior: smooth; scrollbar-width: thin; scrollbar-color: var(--accent-dim) var(--bg); }
+
+        body {
+            background: var(--bg);
+            color: var(--text-primary);
+            font-family: var(--font-mono);
+            font-weight: 300;
+            font-size: 15px;
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        ::selection { background: var(--accent); color: var(--bg); }
+
+        body::after {
+            content: '';
+            position: fixed;
+            inset: 0;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");
+            opacity: 0.025;
+            pointer-events: none;
+            z-index: 9999;
+        }
+
+        /* ===== NAV ===== */
+        nav {
+            position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+            padding: 0 3rem; height: 68px;
+            display: flex; justify-content: space-between; align-items: center;
+            backdrop-filter: blur(24px);
+            background: rgba(11,11,11,0.8);
+            border-bottom: 1px solid var(--border);
+            transition: transform 0.4s ease;
+        }
+
+        .nav-logo {
+            font-family: var(--font-display); font-weight: 800; font-size: 1rem;
+            letter-spacing: -0.02em; color: var(--text-primary); text-decoration: none;
+        }
+        .nav-logo span { color: var(--accent); }
+
+        .nav-links { display: flex; gap: 2.2rem; list-style: none; }
+
+        .nav-links a {
+            font-family: var(--font-mono); font-size: 0.7rem;
+            letter-spacing: 0.18em; text-transform: uppercase;
+            color: var(--text-muted); text-decoration: none;
+            transition: color 0.3s ease; position: relative;
+        }
+        .nav-links a::before {
+            content: attr(data-n); margin-right: 0.35em;
+            color: var(--accent); opacity: 0; transition: opacity 0.3s;
+            font-size: 0.62rem;
+        }
+        .nav-links a:hover { color: var(--text-primary); }
+        .nav-links a:hover::before { opacity: 1; }
+
+        .nav-cta {
+            padding: 0.55rem 1.3rem; border: 1px solid var(--accent);
+            color: var(--accent) !important; font-family: var(--font-mono);
+            font-size: 0.68rem; letter-spacing: 0.12em; text-transform: uppercase;
+            text-decoration: none; transition: all 0.3s ease;
+        }
+        .nav-cta:hover { background: var(--accent); color: var(--bg) !important; }
+        .nav-cta::before { display: none !important; }
+
+        .nav-toggle {
+            display: none; flex-direction: column; gap: 5px;
+            background: none; border: none; cursor: pointer; padding: 4px;
+        }
+        .nav-toggle span {
+            display: block; width: 24px; height: 1.5px;
+            background: var(--text-primary); transition: all 0.3s;
+        }
+
+        /* ===== HERO ===== */
+        .hero {
+            min-height: 100vh; display: flex; align-items: center;
+            padding: 7rem 3rem 4rem; position: relative; overflow: hidden;
+        }
+        .hero::before {
+            content: ''; position: absolute; top: -30%; right: -15%;
+            width: 800px; height: 800px;
+            background: radial-gradient(circle, var(--accent-glow) 0%, transparent 65%);
+            pointer-events: none;
+        }
+        .hero::after {
+            content: ''; position: absolute; bottom: 0; right: 0;
+            width: 40%; height: 60%;
+            background-image:
+                linear-gradient(var(--border) 1px, transparent 1px),
+                linear-gradient(90deg, var(--border) 1px, transparent 1px);
+            background-size: 60px 60px;
+            opacity: 0.3;
+            mask-image: radial-gradient(ellipse at 80% 70%, black 0%, transparent 65%);
+            -webkit-mask-image: radial-gradient(ellipse at 80% 70%, black 0%, transparent 65%);
+        }
+
+        .hero-inner {
+            max-width: 1400px; width: 100%; margin: 0 auto;
+            display: grid; grid-template-columns: 1.15fr 0.85fr;
+            gap: 5rem; align-items: center; position: relative; z-index: 1;
+        }
+
+        .hero-text { opacity: 0; animation: fadeUp 0.8s ease forwards 0.2s; }
+
+        .hero-badge {
+            display: inline-flex; align-items: center; gap: 0.6rem;
+            padding: 0.4rem 1rem; border: 1px solid var(--border);
+            font-family: var(--font-mono); font-size: 0.68rem;
+            letter-spacing: 0.08em; color: var(--text-muted); margin-bottom: 2rem;
+        }
+        .hero-badge .dot {
+            width: 7px; height: 7px; background: var(--success);
+            border-radius: 50%; animation: pulse 2s ease infinite;
+        }
+        @keyframes pulse {
+            0%,100% { opacity: 1; box-shadow: 0 0 0 0 rgba(74,222,128,0.4); }
+            50% { opacity: 0.6; box-shadow: 0 0 0 8px rgba(74,222,128,0); }
+        }
+
+        .hero-name {
+            font-family: var(--font-display);
+            font-size: clamp(3rem, 6.5vw, 5.5rem);
+            font-weight: 800; line-height: 0.95; letter-spacing: -0.04em;
+            margin-bottom: 0.5rem;
+        }
+        .hero-name em {
+            font-family: var(--font-serif); font-weight: 400;
+            font-style: italic; color: var(--accent);
+        }
+
+        .hero-sub {
+            font-family: var(--font-mono); font-size: 0.85rem;
+            color: var(--text-muted); margin-bottom: 2.5rem;
+            max-width: 480px; line-height: 1.8;
+        }
+        .hero-sub strong { color: var(--text-primary); font-weight: 400; }
+
+        .hero-actions { display: flex; gap: 1.2rem; align-items: center; flex-wrap: wrap; }
+
+        .btn-p {
+            display: inline-flex; align-items: center; gap: 0.7rem;
+            padding: 0.9rem 2rem; background: var(--accent); color: var(--bg);
+            font-family: var(--font-mono); font-size: 0.7rem; font-weight: 400;
+            letter-spacing: 0.14em; text-transform: uppercase;
+            text-decoration: none; border: none; cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .btn-p:hover { letter-spacing: 0.22em; transform: translateX(3px); }
+
+        .btn-o {
+            display: inline-flex; align-items: center; gap: 0.5rem;
+            padding: 0.9rem 1.6rem; border: 1px solid var(--border);
+            color: var(--text-secondary); font-family: var(--font-mono);
+            font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase;
+            text-decoration: none; transition: all 0.3s ease;
+        }
+        .btn-o:hover { border-color: var(--accent); color: var(--accent); }
+        .btn-o svg { width: 15px; height: 15px; }
+
+        /* Hero card */
+        .hero-card-wrap {
+            opacity: 0; animation: fadeUp 0.8s ease forwards 0.5s;
+            position: relative;
+        }
+        .hero-card {
+            background: var(--surface); border: 1px solid var(--border);
+            padding: 2rem; position: relative; overflow: hidden;
+        }
+        .hero-card::before {
+            content: ''; position: absolute; top: 0; left: 0; right: 0;
+            height: 3px; background: linear-gradient(90deg, var(--accent), transparent 80%);
+        }
+
+        .hc-identity {
+            display: flex; align-items: center; gap: 1.2rem; margin-bottom: 1.8rem;
+        }
+        .hc-avatar {
+            width: 64px; height: 64px; border-radius: 50%;
+            background: linear-gradient(135deg, var(--accent) 0%, var(--accent-dim) 100%);
+            display: flex; align-items: center; justify-content: center;
+            font-family: var(--font-display); font-size: 1.4rem;
+            font-weight: 800; color: var(--bg); flex-shrink: 0;
+        }
+        .hc-info h3 {
+            font-family: var(--font-display); font-size: 1rem;
+            font-weight: 700; margin-bottom: 0.15rem;
+        }
+        .hc-info p {
+            font-family: var(--font-mono); font-size: 0.68rem;
+            color: var(--accent); letter-spacing: 0.04em;
+        }
+
+        .hc-label {
+            font-family: var(--font-mono); font-size: 0.6rem;
+            letter-spacing: 0.2em; text-transform: uppercase;
+            color: var(--text-dim); margin-bottom: 0.8rem;
+        }
+        .hc-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.4rem; }
+        .hc-item {
+            padding: 0.5rem 0.8rem; background: var(--bg);
+            border: 1px solid var(--border); font-family: var(--font-mono);
+            font-size: 0.7rem; color: var(--text-muted);
+            display: flex; align-items: center; gap: 0.45rem;
+            transition: all 0.3s ease;
+        }
+        .hc-item:hover { border-color: var(--accent); color: var(--accent); }
+        .hc-dot {
+            width: 6px; height: 6px; border-radius: 50%; flex-shrink: 0;
+        }
+
+        .hc-deco {
+            position: absolute; bottom: -14px; right: -14px;
+            width: 90px; height: 90px; border: 1px solid var(--accent);
+            opacity: 0.08; z-index: -1;
+        }
+
+        /* Scroll */
+        .scroll-h {
+            position: absolute; bottom: 2.5rem; left: 3rem;
+            display: flex; align-items: center; gap: 1rem;
+            font-family: var(--font-mono); font-size: 0.6rem;
+            letter-spacing: 0.2em; text-transform: uppercase;
+            color: var(--text-dim); opacity: 0;
+            animation: fadeUp 0.6s ease forwards 1.5s; z-index: 1;
+        }
+        .scroll-h .ln {
+            width: 40px; height: 1px; background: var(--text-dim);
+            position: relative; overflow: hidden;
+        }
+        .scroll-h .ln::after {
+            content: ''; position: absolute; top: 0; left: -100%;
+            width: 100%; height: 100%; background: var(--accent);
+            animation: sBar 2s ease infinite;
+        }
+        @keyframes sBar { 0%{left:-100%} 50%,100%{left:100%} }
+
+        /* ===== SECTIONS ===== */
+        .sec { padding: 8rem 3rem; max-width: 1400px; margin: 0 auto; }
+
+        .sec-head {
+            display: flex; align-items: center; gap: 2rem; margin-bottom: 4rem;
+        }
+        .sec-n {
+            font-family: var(--font-mono); font-size: 0.7rem;
+            color: var(--accent); letter-spacing: 0.1em;
+        }
+        .sec-t {
+            font-family: var(--font-display);
+            font-size: clamp(1.8rem, 3.5vw, 3rem);
+            font-weight: 800; letter-spacing: -0.03em;
+        }
+        .sec-t em {
+            font-family: var(--font-serif); font-weight: 400;
+            font-style: italic; color: var(--accent);
+        }
+        .sec-rule { flex: 1; height: 1px; background: var(--border); }
+
+        /* ===== ABOUT ===== */
+        .about-g { display: grid; grid-template-columns: 1.4fr 0.6fr; gap: 6rem; }
+
+        .about-body p {
+            color: var(--text-secondary); margin-bottom: 1.5rem; max-width: 620px;
+        }
+        .about-body p strong { color: var(--text-primary); font-weight: 400; }
+
+        .about-quote {
+            padding: 1.5rem 2rem; border-left: 2px solid var(--accent);
+            background: var(--accent-glow); margin: 2rem 0;
+            font-family: var(--font-serif); font-size: 1.1rem;
+            font-style: italic; color: var(--text-primary); line-height: 1.6;
+        }
+
+        .stk-label {
+            font-family: var(--font-mono); font-size: 0.6rem;
+            letter-spacing: 0.2em; text-transform: uppercase;
+            color: var(--text-dim); margin-bottom: 1rem;
+        }
+        .stk-tags { display: flex; flex-wrap: wrap; gap: 0.45rem; }
+        .tag {
+            padding: 0.4rem 0.85rem; background: var(--surface);
+            border: 1px solid var(--border); font-family: var(--font-mono);
+            font-size: 0.7rem; color: var(--text-muted);
+            transition: all 0.3s ease; cursor: default;
+        }
+        .tag:hover {
+            border-color: var(--accent); color: var(--accent);
+            transform: translateY(-2px);
+        }
+
+        .stk-group { margin-bottom: 2rem; }
+
+        .about-side { display: flex; flex-direction: column; gap: 2.5rem; }
+
+        .stat-bl {
+            border-left: 2px solid var(--border); padding-left: 1.5rem;
+            transition: border-color 0.3s;
+        }
+        .stat-bl:hover { border-color: var(--accent); }
+        .stat-v {
+            font-family: var(--font-display); font-size: 2.8rem;
+            font-weight: 800; line-height: 1; letter-spacing: -0.03em;
+        }
+        .stat-l {
+            font-family: var(--font-mono); font-size: 0.6rem;
+            letter-spacing: 0.18em; text-transform: uppercase;
+            color: var(--text-dim); margin-top: 0.4rem;
+        }
+
+        /* ===== PROJECTS ===== */
+        .proj-filter {
+            display: flex; gap: 0.5rem; margin-bottom: 3rem; flex-wrap: wrap;
+        }
+        .filter-btn {
+            padding: 0.5rem 1.2rem; background: transparent;
+            border: 1px solid var(--border); color: var(--text-muted);
+            font-family: var(--font-mono); font-size: 0.68rem;
+            letter-spacing: 0.1em; text-transform: uppercase;
+            cursor: pointer; transition: all 0.3s ease;
+        }
+        .filter-btn:hover, .filter-btn.active {
+            border-color: var(--accent); color: var(--accent);
+        }
+        .filter-btn.active { background: var(--accent-glow); }
+
+        .proj-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 2rem; }
+
+        .proj-card {
+            background: var(--bg-elevated); border: 1px solid var(--border);
+            overflow: hidden; transition: all 0.4s ease;
+            opacity: 0; transform: translateY(25px);
+            display: flex; flex-direction: column;
+        }
+        .proj-card.vis {
+            opacity: 1; transform: translateY(0);
+            transition: opacity 0.6s ease, transform 0.6s ease, border-color 0.4s ease;
+        }
+        .proj-card:hover { border-color: var(--accent); }
+
+        .proj-img {
+            height: 200px; position: relative; overflow: hidden;
+            display: flex; align-items: center; justify-content: center;
+        }
+        .proj-img-bg {
+            position: absolute; inset: 0;
+            display: flex; flex-direction: column;
+            align-items: center; justify-content: center;
+            transition: transform 0.5s ease;
+        }
+        .proj-card:hover .proj-img-bg { transform: scale(1.05); }
+
+        .proj-img-bg::before {
+            content: ''; position: absolute; inset: 0;
+            background-image:
+                linear-gradient(var(--border) 1px, transparent 1px),
+                linear-gradient(90deg, var(--border) 1px, transparent 1px);
+            background-size: 30px 30px; opacity: 0.35;
+        }
+        .proj-icon { font-size: 2.5rem; z-index: 1; margin-bottom: 0.3rem; }
+        .proj-num {
+            font-family: var(--font-display); font-size: 4rem;
+            font-weight: 800; color: var(--text-dim); opacity: 0.12; z-index: 1;
+        }
+
+        .proj-body { padding: 2rem; flex: 1; display: flex; flex-direction: column; }
+
+        .proj-cat {
+            font-family: var(--font-mono); font-size: 0.6rem;
+            letter-spacing: 0.2em; text-transform: uppercase;
+            color: var(--accent); margin-bottom: 0.7rem;
+        }
+        .proj-name {
+            font-family: var(--font-display); font-size: 1.35rem;
+            font-weight: 700; letter-spacing: -0.02em;
+            margin-bottom: 0.6rem; line-height: 1.25;
+        }
+        .proj-desc {
+            color: var(--text-muted); font-size: 0.78rem;
+            margin-bottom: 1.2rem; line-height: 1.7; flex: 1;
+        }
+        .proj-feat {
+            list-style: none; margin-bottom: 1.2rem;
+        }
+        .proj-feat li {
+            font-family: var(--font-mono); font-size: 0.68rem;
+            color: var(--text-muted); padding: 0.2rem 0;
+            display: flex; align-items: flex-start; gap: 0.5rem;
+        }
+        .proj-feat li::before {
+            content: '→'; color: var(--accent); flex-shrink: 0;
+        }
+
+        .proj-techs {
+            display: flex; flex-wrap: wrap; gap: 0.35rem; margin-bottom: 1.5rem;
+        }
+        .proj-techs span {
+            padding: 0.25rem 0.65rem; background: var(--bg);
+            border: 1px solid var(--border); font-family: var(--font-mono);
+            font-size: 0.62rem; color: var(--text-muted);
+        }
+
+        .proj-links { display: flex; gap: 1.2rem; margin-top: auto; }
+        .proj-links a {
+            font-family: var(--font-mono); font-size: 0.7rem;
+            color: var(--text-muted); text-decoration: none;
+            display: inline-flex; align-items: center; gap: 0.35rem;
+            transition: color 0.3s;
+        }
+        .proj-links a:hover { color: var(--accent); }
+        .proj-links a svg { width: 14px; height: 14px; }
+
+        /* Featured project - full width */
+        .proj-card.featured {
+            grid-column: 1 / -1;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+        }
+        .proj-card.featured .proj-img {
+            height: 100%; min-height: 300px;
+        }
+        .proj-card.featured .proj-body {
+            padding: 3rem;
+        }
+        .proj-card.featured .proj-name {
+            font-size: 1.6rem;
+        }
+
+        /* ===== EXPERIENCE ===== */
+        .tl { position: relative; padding-left: 3rem; }
+        .tl::before {
+            content: ''; position: absolute; top: 0; left: 0;
+            bottom: 0; width: 1px; background: var(--border);
+        }
+        .tl-item {
+            position: relative; padding-bottom: 3.5rem;
+            opacity: 0; transform: translateY(20px);
+        }
+        .tl-item.vis {
+            opacity: 1; transform: translateY(0);
+            transition: opacity 0.5s ease, transform 0.5s ease;
+        }
+        .tl-item::before {
+            content: ''; position: absolute; left: -3rem; top: 6px;
+            width: 9px; height: 9px; background: var(--accent);
+            transform: translateX(-4px); transition: box-shadow 0.3s;
+        }
+        .tl-item:hover::before { box-shadow: 0 0 0 5px var(--accent-glow); }
+
+        .tl-date {
+            font-family: var(--font-mono); font-size: 0.62rem;
+            letter-spacing: 0.18em; text-transform: uppercase;
+            color: var(--accent); margin-bottom: 0.4rem;
+        }
+        .tl-role {
+            font-family: var(--font-display); font-size: 1.2rem;
+            font-weight: 700; color: var(--text-primary); margin-bottom: 0.2rem;
+        }
+        .tl-co {
+            font-family: var(--font-mono); font-size: 0.8rem;
+            color: var(--text-secondary); margin-bottom: 0.8rem;
+        }
+        .tl-desc {
+            color: var(--text-muted); font-size: 0.8rem; max-width: 560px;
+        }
+
+        /* ===== CONTACT ===== */
+        .contact-sec {
+            text-align: center; padding: 10rem 3rem 6rem;
+            max-width: 900px; margin: 0 auto;
+        }
+        .contact-ey {
+            font-family: var(--font-mono); font-size: 0.7rem;
+            letter-spacing: 0.25em; text-transform: uppercase;
+            color: var(--accent); margin-bottom: 1.5rem;
+        }
+        .contact-h {
+            font-family: var(--font-display);
+            font-size: clamp(2.5rem, 5vw, 4.5rem);
+            font-weight: 800; letter-spacing: -0.04em;
+            line-height: 1.1; margin-bottom: 1.5rem;
+        }
+        .contact-h em {
+            font-family: var(--font-serif); font-weight: 400;
+            font-style: italic; color: var(--accent);
+        }
+        .contact-tx {
+            color: var(--text-muted); font-size: 0.88rem;
+            max-width: 480px; margin: 0 auto 3.5rem;
+        }
+        .contact-g {
+            display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap;
+        }
+        .contact-c {
+            display: flex; align-items: center; gap: 0.7rem;
+            padding: 0.9rem 1.6rem; border: 1px solid var(--border);
+            color: var(--text-secondary); text-decoration: none;
+            font-family: var(--font-mono); font-size: 0.76rem;
+            transition: all 0.3s ease;
+        }
+        .contact-c:hover {
+            border-color: var(--accent); color: var(--accent);
+            transform: translateY(-3px);
+        }
+        .contact-c svg { width: 17px; height: 17px; flex-shrink: 0; }
+
+        /* ===== FOOTER ===== */
+        footer {
+            padding: 3rem; display: flex;
+            justify-content: space-between; align-items: center;
+            border-top: 1px solid var(--border);
+            max-width: 1400px; margin: 0 auto;
+        }
+        footer p {
+            font-family: var(--font-mono); font-size: 0.62rem;
+            letter-spacing: 0.08em; color: var(--text-dim);
+        }
+        footer a { color: var(--accent); text-decoration: none; }
+        .ft-links { display: flex; gap: 1.5rem; }
+        .ft-links a {
+            color: var(--text-dim); font-family: var(--font-mono);
+            font-size: 0.62rem; text-decoration: none; transition: color 0.3s;
+        }
+        .ft-links a:hover { color: var(--accent); }
+
+        /* ===== ANIM ===== */
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 1100px) {
+            .proj-grid { grid-template-columns: 1fr; }
+            .proj-card.featured { grid-template-columns: 1fr; }
+            .proj-card.featured .proj-img { min-height: 220px; }
+        }
+
+        @media (max-width: 960px) {
+            nav { padding: 0 1.5rem; }
+            .nav-links, .nav-cta { display: none; }
+            .nav-toggle { display: flex; }
+            .hero { padding: 7rem 1.5rem 4rem; }
+            .hero-inner { grid-template-columns: 1fr; gap: 3rem; }
+            .hero::after { display: none; }
+            .sec { padding: 5rem 1.5rem; }
+            .contact-sec { padding: 6rem 1.5rem 4rem; }
+            .about-g { grid-template-columns: 1fr; gap: 3rem; }
+            .scroll-h { display: none; }
+            .sec-rule { display: none; }
+            footer { flex-direction: column; gap: 1rem; text-align: center; }
+        }
+
+        @media (max-width: 600px) {
+            .hc-grid { grid-template-columns: 1fr; }
+            .contact-g { flex-direction: column; align-items: center; }
+            .proj-card.featured { display: flex; flex-direction: column; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+    <a href="#home" class="nav-logo">darwin<span>.</span>dev</a>
+    <ul class="nav-links">
+        <li><a href="#about" data-n="01">Sobre mi</a></li>
+        <li><a href="#projects" data-n="02">Proyectos</a></li>
+        <li><a href="#experience" data-n="03">Trayectoria</a></li>
+        <li><a href="https://github.com/darwinjcn" target="_blank" data-n="04">GitHub</a></li>
+    </ul>
+    <a href="#contact" class="nav-cta">Contactar</a>
+    <button class="nav-toggle" aria-label="Menu"><span></span><span></span><span></span></button>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="home">
+    <div class="hero-inner">
+        <div class="hero-text">
+            <div class="hero-badge"><span class="dot"></span> Disponible para trabajar</div>
+            <h1 class="hero-name">Darwin<br>Colmenares</h1>
+            <p class="hero-sub">
+                <strong>Full-Stack Developer & Data Analyst.</strong>
+                Contador Público + Ingeniero Informático. Construyo soluciones técnicas
+                que responden a <strong>problemas reales de negocio</strong>.
+            </p>
+            <div class="hero-actions">
+                <a href="#projects" class="btn-p">
+                    Ver proyectos
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
+                </a>
+                <a href="https://github.com/darwinjcn" target="_blank" class="btn-o">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+                    GitHub
+                </a>
+                <a href="https://www.linkedin.com/in/darwin-colmenares/" target="_blank" class="btn-o">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+                    LinkedIn
+                </a>
+            </div>
+        </div>
+
+        <div class="hero-card-wrap">
+            <div class="hero-card">
+                <div class="hc-identity">
+                    <div class="hc-avatar">DC</div>
+                    <div class="hc-info">
+                        <h3>Darwin Colmenares</h3>
+                        <p>Full-Stack & Data Analyst</p>
+                    </div>
+                </div>
+                <div class="hc-label">Stack principal</div>
+                <div class="hc-grid">
+                    <div class="hc-item"><span class="hc-dot" style="background:#3776AB"></span>Python</div>
+                    <div class="hc-item"><span class="hc-dot" style="background:#092E20;border:1px solid #3a6a5a"></span>Django</div>
+                    <div class="hc-item"><span class="hc-dot" style="background:#FF2D20"></span>Laravel</div>
+                    <div class="hc-item"><span class="hc-dot" style="background:#61DAFB"></span>React</div>
+                    <div class="hc-item"><span class="hc-dot" style="background:#316192"></span>PostgreSQL</div>
+                    <div class="hc-item"><span class="hc-dot" style="background:#F2C811"></span>Power BI</div>
+                    <div class="hc-item"><span class="hc-dot" style="background:#3178C6"></span>TypeScript</div>
+                    <div class="hc-item"><span class="hc-dot" style="background:#2496ED"></span>Docker</div>
+                </div>
+            </div>
+            <div class="hc-deco"></div>
+        </div>
+    </div>
+    <div class="scroll-h"><div class="ln"></div> scroll</div>
+</section>
+
+<!-- ABOUT -->
+<section class="sec" id="about">
+    <div class="sec-head">
+        <span class="sec-n">01</span>
+        <h2 class="sec-t">Sobre <em>mi</em></h2>
+        <div class="sec-rule"></div>
+    </div>
+    <div class="about-g">
+        <div class="about-body">
+            <p>
+                Soy <strong>Darwin Colmenares</strong>, desarrollador Full-Stack y analista de datos
+                con una formación poco común: <strong>Contador Público</strong> e <strong>Ingeniero Informático</strong>.
+                Esa dualidad me permite hablar el lenguaje del negocio y traducirlo en sistemas técnicos que funcionan.
+            </p>
+            <div class="about-quote">
+                "Mi formación dual me permite diseñar desde el modelado de datos hasta la interfaz de usuario,
+                entendiendo tanto el lenguaje financiero como el técnico."
+            </div>
+            <p>
+                He desarrollado desde <strong>plataformas de gestión satelital</strong> para CANTV hasta
+                <strong>dashboards de Business Intelligence</strong> con Power BI. Trabajo con arquitecturas
+                backend robustas (Django, Laravel, Node.js), interfaces modernas (React, Angular, Ionic)
+                y transformo datos en <strong>decisiones estratégicas</strong>.
+            </p>
+
+            <div class="stk-group">
+                <div class="stk-label">Lenguajes & Core</div>
+                <div class="stk-tags">
+                    <span class="tag">Python</span>
+                    <span class="tag">JavaScript</span>
+                    <span class="tag">TypeScript</span>
+                    <span class="tag">PHP</span>
+                    <span class="tag">HTML / CSS</span>
+                    <span class="tag">SQL</span>
+                </div>
+            </div>
+            <div class="stk-group">
+                <div class="stk-label">Frameworks & Backend</div>
+                <div class="stk-tags">
+                    <span class="tag">Django</span>
+                    <span class="tag">Laravel</span>
+                    <span class="tag">React</span>
+                    <span class="tag">Angular</span>
+                    <span class="tag">Node.js</span>
+                    <span class="tag">Express</span>
+                    <span class="tag">Ionic</span>
+                </div>
+            </div>
+            <div class="stk-group">
+                <div class="stk-label">Bases de Datos & BI</div>
+                <div class="stk-tags">
+                    <span class="tag">PostgreSQL</span>
+                    <span class="tag">SQLite</span>
+                    <span class="tag">SQL Server</span>
+                    <span class="tag">BigQuery</span>
+                    <span class="tag">Power BI</span>
+                    <span class="tag">DAX</span>
+                    <span class="tag">Pandas</span>
+                </div>
+            </div>
+            <div class="stk-group">
+                <div class="stk-label">DevOps & Herramientas</div>
+                <div class="stk-tags">
+                    <span class="tag">Docker</span>
+                    <span class="tag">Git</span>
+                    <span class="tag">CI/CD</span>
+                    <span class="tag">GitHub Actions</span>
+                    <span class="tag">N8N</span>
+                    <span class="tag">PlantUML</span>
+                    <span class="tag">Mermaid</span>
+                    <span class="tag">SAP</span>
+                    <span class="tag">Jira</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="about-side">
+            <div class="stat-bl">
+                <div class="stat-v">2</div>
+                <div class="stat-l">Títulos profesionales</div>
+            </div>
+            <div class="stat-bl">
+                <div class="stat-v">7+</div>
+                <div class="stat-l">Proyectos en portafolio</div>
+            </div>
+            <div class="stat-bl">
+                <div class="stat-v">15+</div>
+                <div class="stat-l">Tecnologías manejadas</div>
+            </div>
+            <div class="stat-bl">
+                <div class="stat-v">CANTV</div>
+                <div class="stat-l">Experiencia corporativa</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- PROJECTS -->
+<section class="sec" id="projects">
+    <div class="sec-head">
+        <span class="sec-n">02</span>
+        <h2 class="sec-t">Proyectos <em>destacados</em></h2>
+        <div class="sec-rule"></div>
+    </div>
+
+    <div class="proj-filter">
+        <button class="filter-btn active" data-filter="all">Todos</button>
+        <button class="filter-btn" data-filter="fullstack">Full-Stack</button>
+        <button class="filter-btn" data-filter="frontend">Frontend</button>
+        <button class="filter-btn" data-filter="data">Data & BI</button>
+    </div>
+
+    <div class="proj-grid">
+
+        <!-- GCS - Featured -->
+        <article class="proj-card featured" data-anim data-cat="fullstack">
+            <div class="proj-img">
+                <div class="proj-img-bg" style="background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);">
+                    <div class="proj-icon">🛰️</div>
+                    <div class="proj-num">01</div>
+                </div>
+            </div>
+            <div class="proj-body">
+                <div class="proj-cat">Sistema Full-Stack · CANTV</div>
+                <h3 class="proj-name">Gestión de Contingencias Satelitales (GCS)</h3>
+                <p class="proj-desc">
+                    Plataforma web centralizada para la gestión operativa de contingencias en la
+                    infraestructura satelital de CANTV. Conecta las unidades operativas de
+                    <strong>Caracas, Camatagua y Baemari</strong>, garantizando trazabilidad y
+                    continuidad del servicio de telecomunicaciones nacional.
+                </p>
+                <ul class="proj-feat">
+                    <li>Gestión de usuarios con roles de operador y administrador</li>
+                    <li>Recuperación de contraseña por códigos SMTP</li>
+                    <li>Generación de reportes PDF con jsPDF</li>
+                    <li>Repositorio de documentos técnicos</li>
+                    <li>Trazabilidad completa de eventos por sede</li>
+                </ul>
+                <div class="proj-techs">
+                    <span>React</span><span>Laravel</span><span>PHP</span>
+                    <span>PostgreSQL</span><span>REST API</span><span>SCRUM</span>
+                </div>
+                <div class="proj-links">
+                    <a href="https://github.com/darwinjcn/gcs-project" target="_blank">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+                        Ver código
+                    </a>
+                </div>
+            </div>
+        </article>
+
+        <!-- Combustible -->
+        <article class="proj-card" data-anim data-cat="fullstack">
+            <div class="proj-img">
+                <div class="proj-img-bg" style="background: linear-gradient(135deg, #1a1a0e 0%, #2d2d1a 100%);">
+                    <div class="proj-icon">⛽</div>
+                    <div class="proj-num">02</div>
+                </div>
+            </div>
+            <div class="proj-body">
+                <div class="proj-cat">Sistema Full-Stack · UNETI</div>
+                <h3 class="proj-name">Sistema de Gestión de Combustible</h3>
+                <p class="proj-desc">
+                    Sistema web para el control de generadores eléctricos y consumo de combustible.
+                    Incluye documentación completa con diagramas UML (clases, arquitectura, secuencia, despliegue)
+                    y scripts de generación automática.
+                </p>
+                <ul class="proj-feat">
+                    <li>Diagramas UML con PlantUML y Mermaid</li>
+                    <li>API REST con Django REST Framework</li>
+                    <li>Frontend React con Material-UI</li>
+                    <li>Arquitectura de deployment documentada</li>
+                </ul>
+                <div class="proj-techs">
+                    <span>Django</span><span>React</span><span>PostgreSQL</span>
+                    <span>PlantUML</span><span>Mermaid</span>
+                </div>
+                <div class="proj-links">
+                    <a href="https://github.com/darwinjcn/sistema-gestion-combustible" target="_blank">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+                        Ver código
+                    </a>
+                </div>
+            </div>
+        </article>
+
+        <!-- Crypto Monitor -->
+        <article class="proj-card" data-anim data-cat="frontend">
+            <div class="proj-img">
+                <div class="proj-img-bg" style="background: linear-gradient(135deg, #0c1220 0%, #1a1040 100%);">
+                    <div class="proj-icon">📊</div>
+                    <div class="proj-num">03</div>
+                </div>
+            </div>
+            <div class="proj-body">
+                <div class="proj-cat">Aplicación Frontend · Angular</div>
+                <h3 class="proj-name">Crypto Monitor</h3>
+                <p class="proj-desc">
+                    Plataforma de monitoreo de criptoactivos en tiempo real con análisis estadístico
+                    avanzado. Actualización cada 200ms, sistema de alertas personalizadas y
+                    visualizaciones SVG interactivas.
+                </p>
+                <ul class="proj-feat">
+                    <li>Signals de Angular (WritableSignal & Computed)</li>
+                    <li>Web Workers para cálculos estadísticos en background</li>
+                    <li>SMA (Moving Average) y análisis de volatilidad</li>
+                    <li>Directiva personalizada: flash verde/rojo por cambio</li>
+                    <li>ChangeDetectionStrategy.OnPush optimizado</li>
+                </ul>
+                <div class="proj-techs">
+                    <span>Angular</span><span>TypeScript</span><span>Signals</span>
+                    <span>Web Workers</span><span>SVG</span><span>RxJS</span>
+                </div>
+                <div class="proj-links">
+                    <a href="https://github.com/darwinjcn/crypto-monitor" target="_blank">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+                        Ver código
+                    </a>
+                </div>
+            </div>
+        </article>
+
+        <!-- Node Express TS -->
+        <article class="proj-card" data-anim data-cat="fullstack">
+            <div class="proj-img">
+                <div class="proj-img-bg" style="background: linear-gradient(135deg, #0d1117 0%, #161b22 100%);">
+                    <div class="proj-icon">🧪</div>
+                    <div class="proj-num">04</div>
+                </div>
+            </div>
+            <div class="proj-body">
+                <div class="proj-cat">Laboratorio Técnico</div>
+                <h3 class="proj-name">Node Express TypeScript Logic</h3>
+                <p class="proj-desc">
+                    Laboratorio dividido en dos módulos: gestión de rutas dinámicas con Express y
+                    tipado estricto con TypeScript. Arquitectura dockerizada, patrones de escalabilidad
+                    y middleware personalizado.
+                </p>
+                <ul class="proj-feat">
+                    <li>Módulo 1: Rutas, middlewares y formularios POST</li>
+                    <li>Módulo 2: Enums, interfaces y API REST tipada</li>
+                    <li>Dockerfiles optimizados por módulo</li>
+                    <li>Documentación de arquitectura incluida</li>
+                </ul>
+                <div class="proj-techs">
+                    <span>Node.js</span><span>TypeScript</span><span>Express</span>
+                    <span>Docker</span>
+                </div>
+                <div class="proj-links">
+                    <a href="https://github.com/darwinjcn/node-express-typescript-logic" target="_blank">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+                        Ver código
+                    </a>
+                </div>
+            </div>
+        </article>
+
+        <!-- Power BI -->
+        <article class="proj-card" data-anim data-cat="data">
+            <div class="proj-img">
+                <div class="proj-img-bg" style="background: linear-gradient(135deg, #1a1800 0%, #2d2800 100%);">
+                    <div class="proj-icon">📈</div>
+                    <div class="proj-num">05</div>
+                </div>
+            </div>
+            <div class="proj-body">
+                <div class="proj-cat">Business Intelligence</div>
+                <h3 class="proj-name">Power BI — Portafolio de BI</h3>
+                <p class="proj-desc">
+                    Colección de dashboards enfocados en transformar datos complejos en decisiones
+                    estratégicas. Incluye análisis financiero P&L, expansión retail geoespacial,
+                    control de flota logística y análisis comercial.
+                </p>
+                <ul class="proj-feat">
+                    <li>Estado de Resultados: margen neto 20.7%, punto de equilibrio</li>
+                    <li>Expansión Retail: análisis geoespacial con mapeo</li>
+                    <li>Control de Flota: KPIs de rendimiento logístico</li>
+                    <li>Star Schema, DAX avanzado, Power Query ETL</li>
+                </ul>
+                <div class="proj-techs">
+                    <span>Power BI</span><span>DAX</span><span>M</span>
+                    <span>Star Schema</span><span>ETL</span>
+                </div>
+                <div class="proj-links">
+                    <a href="https://github.com/darwinjcn/powerbi-proyectos" target="_blank">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+                        Ver código
+                    </a>
+                </div>
+            </div>
+        </article>
+
+        <!-- Ionic App -->
+        <article class="proj-card" data-anim data-cat="frontend">
+            <div class="proj-img">
+                <div class="proj-img-bg" style="background: linear-gradient(135deg, #0e1a2e 0%, #1c2d4a 100%);">
+                    <div class="proj-icon">📱</div>
+                    <div class="proj-num">06</div>
+                </div>
+            </div>
+            <div class="proj-body">
+                <div class="proj-cat">Aplicación Móvil · Ionic</div>
+                <h3 class="proj-name">App Móvil Multiplataforma</h3>
+                <p class="proj-desc">
+                    Aplicación móvil híbrida con menú lateral deslizable y navegación estructurada.
+                    Diseño responsive adaptable a múltiples dispositivos con arquitectura
+                    basada en componentes de Angular.
+                </p>
+                <ul class="proj-feat">
+                    <li>Menú lateral con iconos y navegación</li>
+                    <li>3 secciones: Inicio, Info Personal, Contacto</li>
+                    <li>Formulario de envío de mensajes</li>
+                    <li>Responsive móvil y escritorio</li>
+                </ul>
+                <div class="proj-techs">
+                    <span>Ionic 8</span><span>Angular 18</span><span>TypeScript</span>
+                </div>
+                <div class="proj-links">
+                    <a href="https://github.com/darwinjcn/mi-app-ionic-app" target="_blank">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+                        Ver código
+                    </a>
+                </div>
+            </div>
+        </article>
+
+        <!-- Sistema Salud -->
+        <article class="proj-card" data-anim data-cat="fullstack">
+            <div class="proj-img">
+                <div class="proj-img-bg" style="background: linear-gradient(135deg, #1a0e0e 0%, #2d1a1a 100%);">
+                    <div class="proj-icon">🏥</div>
+                    <div class="proj-num">07</div>
+                </div>
+            </div>
+            <div class="proj-body">
+                <div class="proj-cat">Pasantía Profesional · CANTV NEA</div>
+                <h3 class="proj-name">Sistema de Gestión de Salud</h3>
+                <p class="proj-desc">
+                    Plataforma desarrollada durante pasantía profesional en CANTV para la gestión
+                    de servicios de salud y administración de usuarios con roles y permisos.
+                    Sistema orientado a optimizar procesos internos de la organización.
+                </p>
+                <ul class="proj-feat">
+                    <li>Gestión de usuarios, roles y permisos</li>
+                    <li>Datos serializados en JSON</li>
+                    <li>Interfaz web funcional con Django</li>
+                </ul>
+                <div class="proj-techs">
+                    <span>Python</span><span>Django</span><span>HTML</span>
+                    <span>JavaScript</span><span>SQLite</span>
+                </div>
+                <div class="proj-links">
+                    <a href="https://github.com/darwinjcn/sistema_salud" target="_blank">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+                        Ver código
+                    </a>
+                </div>
+            </div>
+        </article>
+
+    </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section class="sec" id="experience">
+    <div class="sec-head">
+        <span class="sec-n">03</span>
+        <h2 class="sec-t">Trayectoria <em>profesional</em></h2>
+        <div class="sec-rule"></div>
+    </div>
+
+    <div class="tl">
+        <div class="tl-item" data-anim>
+            <div class="tl-date">Desarrollo Full-Stack & BI</div>
+            <div class="tl-role">Full-Stack Developer & Data Analyst</div>
+            <div class="tl-co">Freelance / Proyectos universitarios y propios</div>
+            <div class="tl-desc">
+                Construcción de soluciones web completas para entornos reales:
+                plataformas de gestión satelital (CANTV), sistemas de control de combustible,
+                monitoreo financiero en tiempo real y dashboards de Business Intelligence.
+            </div>
+        </div>
+
+        <div class="tl-item" data-anim>
+            <div class="tl-date">Pasantía Profesional — Gerencia de Operaciones Satelitales</div>
+            <div class="tl-role">Desarrollador — Gestión de Contingencias Satelitales (GCS)</div>
+            <div class="tl-co">CANTV — Caracas, Camatagua, Baemari</div>
+            <div class="tl-desc">
+                Desarrollo de plataforma web centralizada para la gestión de contingencias
+                en infraestructura satelital. Sistema con roles, trazabilidad de eventos,
+                generación de PDFs y repositorio documental. Metodología SCRUM.
+            </div>
+        </div>
+
+        <div class="tl-item" data-anim>
+            <div class="tl-date">Pasantía — NEA CANTV</div>
+            <div class="tl-role">Desarrollador — Sistema de Gestión de Salud</div>
+            <div class="tl-co">CANTV — Núcleo de Evaluación y Análisis</div>
+            <div class="tl-desc">
+                Plataforma para la gestión de servicios de salud y administración
+                de usuarios con sistema de roles y permisos. Primera experiencia
+                en entorno corporativo con equipos multidisciplinarios.
+            </div>
+        </div>
+
+        <div class="tl-item" data-anim>
+            <div class="tl-date">Formación Académica</div>
+            <div class="tl-role">Contador Público + Ingeniero Informático</div>
+            <div class="tl-co">Doble titulación universitaria</div>
+            <div class="tl-desc">
+                Base sólida en contabilidad, finanzas y auditoría complementada con
+                ingeniería de software, bases de datos y análisis de sistemas.
+                Esta combinación define mi enfoque único como desarrollador que entiende
+                el negocio tanto como el código.
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact-sec" id="contact">
+    <div class="contact-ey">Hablemos</div>
+    <h2 class="contact-h">¿Tienes un proyecto<br><em>en mente?</em></h2>
+    <p class="contact-tx">
+        Estoy disponible para colaborar en nuevos proyectos, oportunidades laborales
+        o simplemente conversar sobre tecnología y datos.
+    </p>
+    <div class="contact-g">
+        <a href="mailto:colmenaresdarwin06@gmail.com" class="contact-c">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            colmenaresdarwin06@gmail.com
+        </a>
+        <a href="https://wa.me/584265152896" target="_blank" class="contact-c">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+            WhatsApp
+        </a>
+        <a href="https://www.linkedin.com/in/darwin-colmenares/" target="_blank" class="contact-c">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+            LinkedIn
+        </a>
+        <a href="https://github.com/darwinjcn" target="_blank" class="contact-c">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+            GitHub
+        </a>
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+    <p>Construido por <a href="https://github.com/darwinjcn" target="_blank">Darwin Colmenares</a> · 2024</p>
+    <div class="ft-links">
+        <a href="https://github.com/darwinjcn" target="_blank">GitHub</a>
+        <a href="https://www.linkedin.com/in/darwin-colmenares/" target="_blank">LinkedIn</a>
+        <a href="mailto:colmenaresdarwin06@gmail.com">Email</a>
+    </div>
+</footer>
+
+<script>
+    // Scroll reveal
+    const obs = new IntersectionObserver((entries) => {
+        entries.forEach((e, i) => {
+            if (e.isIntersecting) {
+                setTimeout(() => e.target.classList.add('vis'), i * 100);
+                obs.unobserve(e.target);
+            }
+        });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('[data-anim]').forEach(el => obs.observe(el));
+
+    // Smooth scroll
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+        a.addEventListener('click', e => {
+            e.preventDefault();
+            const t = document.querySelector(a.getAttribute('href'));
+            if (t) t.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        });
+    });
+
+    // Nav hide/show
+    let last = 0;
+    const navEl = document.querySelector('nav');
+    window.addEventListener('scroll', () => {
+        const c = window.scrollY;
+        navEl.style.transform = (c > last && c > 100) ? 'translateY(-100%)' : 'translateY(0)';
+        last = c;
+    }, { passive: true });
+
+    // Project filters
+    document.querySelectorAll('.filter-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+            document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            const cat = btn.dataset.filter;
+            document.querySelectorAll('.proj-card').forEach(card => {
+                if (cat === 'all' || card.dataset.cat === cat) {
+                    card.style.display = '';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        });
+    });
+</script>
+</body>
+</html>
