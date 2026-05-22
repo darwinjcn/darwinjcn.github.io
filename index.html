@@ -8,7 +8,8 @@
     <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Mono:ital,wght@0,300;0,400;1,300&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Syne:wght@400;600;700;800&family=DM+Mono:ital,wght@0,300;0,400;1,300;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
         *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
@@ -27,7 +28,7 @@
             --success: #4ade80;
             --blue: #60a5fa;
             --font-display: 'Syne', sans-serif;
-            --font-serif: 'Instrument Serif', serif;
+            --font-hero: 'Outfit', sans-serif;
             --font-mono: 'DM Mono', monospace;
         }
 
@@ -47,13 +48,37 @@
 
         body::after {
             content: '';
-            position: fixed;
-            inset: 0;
+            position: fixed; inset: 0;
             background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");
-            opacity: 0.02;
-            pointer-events: none;
-            z-index: 9999;
+            opacity: 0.02; pointer-events: none; z-index: 9999;
         }
+
+        /* Icon base styles */
+        .icon { width: 16px; text-align: center; font-size: 0.85rem; flex-shrink: 0; }
+        .icon-sm { width: 14px; text-align: center; font-size: 0.75rem; flex-shrink: 0; }
+
+        /* Brand colors */
+        .fa-python { color: #3776AB; }
+        .fa-laravel { color: #FF2D20; }
+        .fa-react { color: #61DAFB; }
+        .fa-angular { color: #DD0031; }
+        .fa-node-js { color: #339933; }
+        .fa-docker { color: #2496ED; }
+        .fa-git-alt { color: #F05032; }
+        .fa-github { color: var(--text-secondary); }
+        .fa-jira { color: #0052CC; }
+        .fa-php { color: #777BB4; }
+        .fa-js { color: #F7DF1E; }
+        .fa-html5 { color: #E34F26; }
+        .fa-css3-alt { color: #1572B6; }
+        .fa-database { color: #316192; }
+        .fa-chart-line { color: #F2C811; }
+        .fa-chart-pie { color: #F2C811; }
+        .fa-mobile-screen-button { color: #3880FF; }
+        .fa-building { color: var(--accent); }
+        .fa-diagram-project { color: #4ade80; }
+        .fa-cloud { color: #60a5fa; }
+        .fa-code { color: var(--accent); }
 
         /* ===== NAV ===== */
         nav {
@@ -67,7 +92,7 @@
         }
 
         .nav-logo {
-            font-family: var(--font-display); font-weight: 800; font-size: 1rem;
+            font-family: var(--font-hero); font-weight: 700; font-size: 1.05rem;
             letter-spacing: -0.02em; color: var(--text-primary); text-decoration: none;
         }
         .nav-logo span { color: var(--accent); }
@@ -111,7 +136,6 @@
         .nav-toggle.open span:nth-child(2) { opacity: 0; }
         .nav-toggle.open span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
 
-        /* Mobile menu overlay */
         .mobile-menu {
             display: none;
             position: fixed; inset: 0; z-index: 1001;
@@ -124,9 +148,9 @@
         .mobile-menu.visible { display: flex; opacity: 1; }
 
         .mobile-menu a {
-            font-family: var(--font-display); font-size: 1.8rem;
-            font-weight: 700; color: var(--text-primary);
-            text-decoration: none; letter-spacing: -0.02em;
+            font-family: var(--font-hero); font-size: 1.8rem;
+            font-weight: 600; color: var(--text-primary);
+            text-decoration: none; letter-spacing: -0.01em;
             transition: color 0.3s ease; position: relative;
         }
         .mobile-menu a::before {
@@ -182,14 +206,15 @@
         }
 
         .hero-name {
-            font-family: var(--font-display);
-            font-size: clamp(3rem, 6.5vw, 5.5rem);
+            font-family: var(--font-hero);
+            font-size: clamp(3.2rem, 7vw, 6rem);
             font-weight: 800; line-height: 0.95; letter-spacing: -0.04em;
             margin-bottom: 0.5rem; color: var(--text-primary);
         }
         .hero-name em {
-            font-family: var(--font-serif); font-weight: 400;
-            font-style: italic; color: var(--accent);
+            font-family: var(--font-hero); font-weight: 300;
+            font-style: normal; color: var(--accent);
+            letter-spacing: -0.02em;
         }
 
         .hero-sub {
@@ -221,7 +246,6 @@
         .btn-o:hover { border-color: var(--accent); color: var(--accent); }
         .btn-o svg { width: 15px; height: 15px; }
 
-        /* Hero card */
         .hero-card-wrap {
             opacity: 0; animation: fadeUp 0.8s ease forwards 0.5s;
             position: relative;
@@ -242,12 +266,12 @@
             width: 64px; height: 64px; border-radius: 50%;
             background: linear-gradient(135deg, var(--accent) 0%, var(--accent-dim) 100%);
             display: flex; align-items: center; justify-content: center;
-            font-family: var(--font-display); font-size: 1.4rem;
-            font-weight: 800; color: var(--bg); flex-shrink: 0;
+            font-family: var(--font-hero); font-size: 1.4rem;
+            font-weight: 700; color: var(--bg); flex-shrink: 0;
         }
         .hc-info h3 {
-            font-family: var(--font-display); font-size: 1.05rem;
-            font-weight: 700; margin-bottom: 0.15rem; color: var(--text-primary);
+            font-family: var(--font-hero); font-size: 1.05rem;
+            font-weight: 600; margin-bottom: 0.15rem; color: var(--text-primary);
         }
         .hc-info p {
             font-family: var(--font-mono); font-size: 0.7rem;
@@ -264,11 +288,12 @@
             padding: 0.5rem 0.8rem; background: var(--bg);
             border: 1px solid var(--border); font-family: var(--font-mono);
             font-size: 0.72rem; color: var(--text-secondary);
-            display: flex; align-items: center; gap: 0.45rem;
+            display: flex; align-items: center; gap: 0.55rem;
             transition: all 0.3s ease;
         }
         .hc-item:hover { border-color: var(--accent); color: var(--accent); }
-        .hc-dot { width: 6px; height: 6px; border-radius: 50%; flex-shrink: 0; }
+        .hc-item:hover .fa-brands,
+        .hc-item:hover .fa-solid { color: var(--accent) !important; }
 
         .hc-deco {
             position: absolute; bottom: -14px; right: -14px;
@@ -276,7 +301,6 @@
             opacity: 0.08; z-index: -1;
         }
 
-        /* Scroll */
         .scroll-h {
             position: absolute; bottom: 2.5rem; left: 3rem;
             display: flex; align-items: center; gap: 1rem;
@@ -305,13 +329,13 @@
             color: var(--accent); letter-spacing: 0.1em;
         }
         .sec-t {
-            font-family: var(--font-display);
+            font-family: var(--font-hero);
             font-size: clamp(1.8rem, 3.5vw, 3rem);
-            font-weight: 800; letter-spacing: -0.03em; color: var(--text-primary);
+            font-weight: 700; letter-spacing: -0.03em; color: var(--text-primary);
         }
         .sec-t em {
-            font-family: var(--font-serif); font-weight: 400;
-            font-style: italic; color: var(--accent);
+            font-family: var(--font-hero); font-weight: 400;
+            font-style: normal; color: var(--accent);
         }
         .sec-rule { flex: 1; height: 1px; background: var(--border); }
 
@@ -324,8 +348,10 @@
         .about-quote {
             padding: 1.5rem 2rem; border-left: 3px solid var(--accent);
             background: var(--accent-glow); margin: 2rem 0;
-            font-family: var(--font-serif); font-size: 1.15rem;
-            font-style: italic; color: var(--text-primary); line-height: 1.65;
+            font-family: var(--font-hero); font-size: 1.1rem;
+            font-weight: 300; font-style: normal;
+            color: var(--text-primary); line-height: 1.7;
+            letter-spacing: 0.01em;
         }
 
         .stk-label {
@@ -339,8 +365,11 @@
             border: 1px solid var(--border); font-family: var(--font-mono);
             font-size: 0.72rem; color: var(--text-secondary);
             transition: all 0.3s ease; cursor: default;
+            display: inline-flex; align-items: center; gap: 0.55rem;
         }
         .tag:hover { border-color: var(--accent); color: var(--accent); transform: translateY(-2px); }
+        .tag:hover .fa-brands,
+        .tag:hover .fa-solid { color: var(--accent) !important; }
 
         .stk-group { margin-bottom: 2rem; }
 
@@ -352,7 +381,7 @@
         }
         .stat-bl:hover { border-color: var(--accent); }
         .stat-v {
-            font-family: var(--font-display); font-size: 2.8rem;
+            font-family: var(--font-hero); font-size: 2.8rem;
             font-weight: 800; line-height: 1; letter-spacing: -0.03em;
             color: var(--text-primary);
         }
@@ -409,7 +438,7 @@
         }
         .proj-icon { font-size: 2.5rem; z-index: 1; margin-bottom: 0.3rem; }
         .proj-num {
-            font-family: var(--font-display); font-size: 4rem;
+            font-family: var(--font-hero); font-size: 4rem;
             font-weight: 800; color: var(--text-dim); opacity: 0.15; z-index: 1;
         }
 
@@ -421,8 +450,8 @@
             color: var(--accent); margin-bottom: 0.7rem;
         }
         .proj-name {
-            font-family: var(--font-display); font-size: 1.4rem;
-            font-weight: 700; letter-spacing: -0.02em;
+            font-family: var(--font-hero); font-size: 1.4rem;
+            font-weight: 600; letter-spacing: -0.02em;
             margin-bottom: 0.6rem; line-height: 1.25; color: var(--text-primary);
         }
         .proj-desc {
@@ -437,11 +466,14 @@
         }
         .proj-feat li::before { content: '→'; color: var(--accent); flex-shrink: 0; }
 
-        .proj-techs { display: flex; flex-wrap: wrap; gap: 0.35rem; margin-bottom: 1.5rem; }
+        .proj-techs {
+            display: flex; flex-wrap: wrap; gap: 0.35rem; margin-bottom: 1.5rem;
+        }
         .proj-techs span {
             padding: 0.28rem 0.7rem; background: var(--bg);
             border: 1px solid var(--border); font-family: var(--font-mono);
             font-size: 0.65rem; color: var(--text-secondary);
+            display: inline-flex; align-items: center; gap: 0.4rem;
         }
 
         .proj-links { display: flex; gap: 1.2rem; margin-top: auto; }
@@ -454,7 +486,6 @@
         .proj-links a:hover { color: var(--accent); }
         .proj-links a svg { width: 14px; height: 14px; }
 
-        /* Featured project */
         .proj-card.featured {
             grid-column: 1 / -1;
             display: grid; grid-template-columns: 1fr 1fr;
@@ -490,8 +521,8 @@
             color: var(--accent); margin-bottom: 0.4rem;
         }
         .tl-role {
-            font-family: var(--font-display); font-size: 1.25rem;
-            font-weight: 700; color: var(--text-primary); margin-bottom: 0.2rem;
+            font-family: var(--font-hero); font-size: 1.25rem;
+            font-weight: 600; color: var(--text-primary); margin-bottom: 0.2rem;
         }
         .tl-co {
             font-family: var(--font-mono); font-size: 0.82rem;
@@ -510,14 +541,14 @@
             color: var(--accent); margin-bottom: 1.5rem;
         }
         .contact-h {
-            font-family: var(--font-display);
+            font-family: var(--font-hero);
             font-size: clamp(2.5rem, 5vw, 4.5rem);
             font-weight: 800; letter-spacing: -0.04em;
             line-height: 1.1; margin-bottom: 1.5rem; color: var(--text-primary);
         }
         .contact-h em {
-            font-family: var(--font-serif); font-weight: 400;
-            font-style: italic; color: var(--accent);
+            font-family: var(--font-hero); font-weight: 300;
+            font-style: normal; color: var(--accent);
         }
         .contact-tx {
             color: var(--text-muted); font-size: 0.9rem;
@@ -556,7 +587,6 @@
         }
         .ft-links a:hover { color: var(--accent); }
 
-        /* ===== ANIM ===== */
         @keyframes fadeUp {
             from { opacity: 0; transform: translateY(30px); }
             to { opacity: 1; transform: translateY(0); }
@@ -577,7 +607,7 @@
             .hero { padding: 6rem 1.2rem 3rem; }
             .hero-inner { grid-template-columns: 1fr; gap: 2.5rem; }
             .hero::after { display: none; }
-            .hero-name { font-size: clamp(2.4rem, 10vw, 3.5rem); }
+            .hero-name { font-size: clamp(2.5rem, 10vw, 3.5rem); }
             .hero-sub { font-size: 0.82rem; }
             .hero-actions { gap: 0.8rem; }
             .btn-p, .btn-o { padding: 0.75rem 1.2rem; font-size: 0.68rem; }
@@ -590,7 +620,7 @@
             .stat-bl { flex: 1; min-width: 120px; }
             .stat-v { font-size: 2rem; }
 
-            .about-quote { font-size: 1.05rem; padding: 1rem 1.2rem; }
+            .about-quote { font-size: 1rem; padding: 1rem 1.2rem; }
 
             .scroll-h { display: none; }
             .sec-rule { display: none; }
@@ -626,6 +656,7 @@
             .sec-head { gap: 1rem; margin-bottom: 2.5rem; }
 
             .about-body p { font-size: 0.85rem; }
+            .about-quote { font-size: 0.95rem; }
 
             .stk-tags { gap: 0.35rem; }
             .tag { padding: 0.38rem 0.75rem; font-size: 0.68rem; }
@@ -726,14 +757,14 @@
                 </div>
                 <div class="hc-label">Stack principal</div>
                 <div class="hc-grid">
-                    <div class="hc-item"><span class="hc-dot" style="background:#3776AB"></span>Python</div>
-                    <div class="hc-item"><span class="hc-dot" style="background:#092E20;border:1px solid #3a6a5a"></span>Django</div>
-                    <div class="hc-item"><span class="hc-dot" style="background:#FF2D20"></span>Laravel</div>
-                    <div class="hc-item"><span class="hc-dot" style="background:#61DAFB"></span>React</div>
-                    <div class="hc-item"><span class="hc-dot" style="background:#316192"></span>PostgreSQL</div>
-                    <div class="hc-item"><span class="hc-dot" style="background:#F2C811"></span>Power BI</div>
-                    <div class="hc-item"><span class="hc-dot" style="background:#3178C6"></span>TypeScript</div>
-                    <div class="hc-item"><span class="hc-dot" style="background:#2496ED"></span>Docker</div>
+                    <div class="hc-item"><i class="fa-brands fa-python icon"></i>Python</div>
+                    <div class="hc-item"><i class="fa-brands fa-laravel icon"></i>Laravel</div>
+                    <div class="hc-item"><i class="fa-brands fa-react icon"></i>React</div>
+                    <div class="hc-item"><i class="fa-brands fa-angular icon"></i>Angular</div>
+                    <div class="hc-item"><i class="fa-solid fa-database icon"></i>PostgreSQL</div>
+                    <div class="hc-item"><i class="fa-solid fa-chart-line icon" style="color:#F2C811"></i>Power BI</div>
+                    <div class="hc-item"><i class="fa-brands fa-js icon"></i>TypeScript</div>
+                    <div class="hc-item"><i class="fa-brands fa-docker icon"></i>Docker</div>
                 </div>
             </div>
             <div class="hc-deco"></div>
@@ -770,50 +801,50 @@
             <div class="stk-group">
                 <div class="stk-label">Lenguajes & Core</div>
                 <div class="stk-tags">
-                    <span class="tag">Python</span>
-                    <span class="tag">JavaScript</span>
-                    <span class="tag">TypeScript</span>
-                    <span class="tag">PHP</span>
-                    <span class="tag">HTML / CSS</span>
-                    <span class="tag">SQL</span>
+                    <span class="tag"><i class="fa-brands fa-python icon-sm"></i> Python</span>
+                    <span class="tag"><i class="fa-brands fa-js icon-sm"></i> JavaScript</span>
+                    <span class="tag"><i class="fa-brands fa-js icon-sm" style="color:#3178C6"></i> TypeScript</span>
+                    <span class="tag"><i class="fa-brands fa-php icon-sm"></i> PHP</span>
+                    <span class="tag"><i class="fa-brands fa-html5 icon-sm"></i> HTML / CSS</span>
+                    <span class="tag"><i class="fa-solid fa-database icon-sm"></i> SQL</span>
                 </div>
             </div>
             <div class="stk-group">
                 <div class="stk-label">Frameworks & Backend</div>
                 <div class="stk-tags">
-                    <span class="tag">Django</span>
-                    <span class="tag">Laravel</span>
-                    <span class="tag">React</span>
-                    <span class="tag">Angular</span>
-                    <span class="tag">Node.js</span>
-                    <span class="tag">Express</span>
-                    <span class="tag">Ionic</span>
+                    <span class="tag"><i class="fa-brands fa-python icon-sm"></i> Django</span>
+                    <span class="tag"><i class="fa-brands fa-laravel icon-sm"></i> Laravel</span>
+                    <span class="tag"><i class="fa-brands fa-react icon-sm"></i> React</span>
+                    <span class="tag"><i class="fa-brands fa-angular icon-sm"></i> Angular</span>
+                    <span class="tag"><i class="fa-brands fa-node-js icon-sm"></i> Node.js</span>
+                    <span class="tag"><i class="fa-brands fa-node-js icon-sm"></i> Express</span>
+                    <span class="tag"><i class="fa-solid fa-mobile-screen-button icon-sm" style="color:#3880FF"></i> Ionic</span>
                 </div>
             </div>
             <div class="stk-group">
                 <div class="stk-label">Bases de Datos & BI</div>
                 <div class="stk-tags">
-                    <span class="tag">PostgreSQL</span>
-                    <span class="tag">SQLite</span>
-                    <span class="tag">SQL Server</span>
-                    <span class="tag">BigQuery</span>
-                    <span class="tag">Power BI</span>
-                    <span class="tag">DAX</span>
-                    <span class="tag">Pandas</span>
+                    <span class="tag"><i class="fa-solid fa-database icon-sm"></i> PostgreSQL</span>
+                    <span class="tag"><i class="fa-solid fa-database icon-sm"></i> SQLite</span>
+                    <span class="tag"><i class="fa-solid fa-database icon-sm"></i> SQL Server</span>
+                    <span class="tag"><i class="fa-solid fa-cloud icon-sm"></i> BigQuery</span>
+                    <span class="tag"><i class="fa-solid fa-chart-pie icon-sm" style="color:#F2C811"></i> Power BI</span>
+                    <span class="tag"><i class="fa-solid fa-chart-line icon-sm" style="color:#F2C811"></i> DAX</span>
+                    <span class="tag"><i class="fa-brands fa-python icon-sm"></i> Pandas</span>
                 </div>
             </div>
             <div class="stk-group">
                 <div class="stk-label">DevOps & Herramientas</div>
                 <div class="stk-tags">
-                    <span class="tag">Docker</span>
-                    <span class="tag">Git</span>
-                    <span class="tag">CI/CD</span>
-                    <span class="tag">GitHub Actions</span>
-                    <span class="tag">N8N</span>
-                    <span class="tag">PlantUML</span>
-                    <span class="tag">Mermaid</span>
-                    <span class="tag">SAP</span>
-                    <span class="tag">Jira</span>
+                    <span class="tag"><i class="fa-brands fa-docker icon-sm"></i> Docker</span>
+                    <span class="tag"><i class="fa-brands fa-git-alt icon-sm"></i> Git</span>
+                    <span class="tag"><i class="fa-solid fa-code icon-sm"></i> CI/CD</span>
+                    <span class="tag"><i class="fa-brands fa-github icon-sm"></i> GitHub Actions</span>
+                    <span class="tag"><i class="fa-solid fa-diagram-project icon-sm"></i> N8N</span>
+                    <span class="tag"><i class="fa-solid fa-diagram-project icon-sm"></i> PlantUML</span>
+                    <span class="tag"><i class="fa-solid fa-diagram-project icon-sm"></i> Mermaid</span>
+                    <span class="tag"><i class="fa-solid fa-building icon-sm"></i> SAP</span>
+                    <span class="tag"><i class="fa-brands fa-jira icon-sm"></i> Jira</span>
                 </div>
             </div>
         </div>
@@ -856,7 +887,6 @@
 
     <div class="proj-grid">
 
-        <!-- GCS - Featured -->
         <article class="proj-card featured" data-anim data-cat="fullstack">
             <div class="proj-img">
                 <div class="proj-img-bg" style="background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);">
@@ -881,8 +911,12 @@
                     <li>Trazabilidad completa de eventos por sede</li>
                 </ul>
                 <div class="proj-techs">
-                    <span>React</span><span>Laravel</span><span>PHP</span>
-                    <span>PostgreSQL</span><span>REST API</span><span>SCRUM</span>
+                    <span><i class="fa-brands fa-react icon-sm"></i> React</span>
+                    <span><i class="fa-brands fa-laravel icon-sm"></i> Laravel</span>
+                    <span><i class="fa-brands fa-php icon-sm"></i> PHP</span>
+                    <span><i class="fa-solid fa-database icon-sm"></i> PostgreSQL</span>
+                    <span><i class="fa-solid fa-code icon-sm"></i> REST API</span>
+                    <span><i class="fa-solid fa-diagram-project icon-sm"></i> SCRUM</span>
                 </div>
                 <div class="proj-links">
                     <a href="https://github.com/darwinjcn/gcs-project" target="_blank">
@@ -893,7 +927,6 @@
             </div>
         </article>
 
-        <!-- Combustible -->
         <article class="proj-card" data-anim data-cat="fullstack">
             <div class="proj-img">
                 <div class="proj-img-bg" style="background: linear-gradient(135deg, #1a1a0e 0%, #2d2d1a 100%);">
@@ -916,8 +949,11 @@
                     <li>Arquitectura de deployment documentada</li>
                 </ul>
                 <div class="proj-techs">
-                    <span>Django</span><span>React</span><span>PostgreSQL</span>
-                    <span>PlantUML</span><span>Mermaid</span>
+                    <span><i class="fa-brands fa-python icon-sm"></i> Django</span>
+                    <span><i class="fa-brands fa-react icon-sm"></i> React</span>
+                    <span><i class="fa-solid fa-database icon-sm"></i> PostgreSQL</span>
+                    <span><i class="fa-solid fa-diagram-project icon-sm"></i> PlantUML</span>
+                    <span><i class="fa-solid fa-diagram-project icon-sm"></i> Mermaid</span>
                 </div>
                 <div class="proj-links">
                     <a href="https://github.com/darwinjcn/sistema-gestion-combustible" target="_blank">
@@ -928,7 +964,6 @@
             </div>
         </article>
 
-        <!-- Crypto Monitor -->
         <article class="proj-card" data-anim data-cat="frontend">
             <div class="proj-img">
                 <div class="proj-img-bg" style="background: linear-gradient(135deg, #0c1220 0%, #1a1040 100%);">
@@ -952,8 +987,12 @@
                     <li>ChangeDetectionStrategy.OnPush optimizado</li>
                 </ul>
                 <div class="proj-techs">
-                    <span>Angular</span><span>TypeScript</span><span>Signals</span>
-                    <span>Web Workers</span><span>SVG</span><span>RxJS</span>
+                    <span><i class="fa-brands fa-angular icon-sm"></i> Angular</span>
+                    <span><i class="fa-brands fa-js icon-sm" style="color:#3178C6"></i> TypeScript</span>
+                    <span><i class="fa-solid fa-bolt icon-sm"></i> Signals</span>
+                    <span><i class="fa-solid fa-gears icon-sm"></i> Web Workers</span>
+                    <span><i class="fa-solid fa-vector-square icon-sm"></i> SVG</span>
+                    <span><i class="fa-solid fa-rotate icon-sm"></i> RxJS</span>
                 </div>
                 <div class="proj-links">
                     <a href="https://github.com/darwinjcn/crypto-monitor" target="_blank">
@@ -964,7 +1003,6 @@
             </div>
         </article>
 
-        <!-- Node Express TS -->
         <article class="proj-card" data-anim data-cat="fullstack">
             <div class="proj-img">
                 <div class="proj-img-bg" style="background: linear-gradient(135deg, #0d1117 0%, #161b22 100%);">
@@ -987,8 +1025,10 @@
                     <li>Documentación de arquitectura incluida</li>
                 </ul>
                 <div class="proj-techs">
-                    <span>Node.js</span><span>TypeScript</span><span>Express</span>
-                    <span>Docker</span>
+                    <span><i class="fa-brands fa-node-js icon-sm"></i> Node.js</span>
+                    <span><i class="fa-brands fa-js icon-sm" style="color:#3178C6"></i> TypeScript</span>
+                    <span><i class="fa-brands fa-node-js icon-sm"></i> Express</span>
+                    <span><i class="fa-brands fa-docker icon-sm"></i> Docker</span>
                 </div>
                 <div class="proj-links">
                     <a href="https://github.com/darwinjcn/node-express-typescript-logic" target="_blank">
@@ -999,7 +1039,6 @@
             </div>
         </article>
 
-        <!-- Power BI -->
         <article class="proj-card" data-anim data-cat="data">
             <div class="proj-img">
                 <div class="proj-img-bg" style="background: linear-gradient(135deg, #1a1800 0%, #2d2800 100%);">
@@ -1022,8 +1061,11 @@
                     <li>Star Schema, DAX avanzado, Power Query ETL</li>
                 </ul>
                 <div class="proj-techs">
-                    <span>Power BI</span><span>DAX</span><span>M</span>
-                    <span>Star Schema</span><span>ETL</span>
+                    <span><i class="fa-solid fa-chart-pie icon-sm" style="color:#F2C811"></i> Power BI</span>
+                    <span><i class="fa-solid fa-chart-line icon-sm" style="color:#F2C811"></i> DAX</span>
+                    <span><i class="fa-solid fa-code icon-sm"></i> M</span>
+                    <span><i class="fa-solid fa-database icon-sm"></i> Star Schema</span>
+                    <span><i class="fa-solid fa-arrows-rotate icon-sm"></i> ETL</span>
                 </div>
                 <div class="proj-links">
                     <a href="https://github.com/darwinjcn/powerbi-proyectos" target="_blank">
@@ -1034,7 +1076,6 @@
             </div>
         </article>
 
-        <!-- Ionic App -->
         <article class="proj-card" data-anim data-cat="frontend">
             <div class="proj-img">
                 <div class="proj-img-bg" style="background: linear-gradient(135deg, #0e1a2e 0%, #1c2d4a 100%);">
@@ -1057,7 +1098,9 @@
                     <li>Responsive móvil y escritorio</li>
                 </ul>
                 <div class="proj-techs">
-                    <span>Ionic 8</span><span>Angular 18</span><span>TypeScript</span>
+                    <span><i class="fa-solid fa-mobile-screen-button icon-sm" style="color:#3880FF"></i> Ionic 8</span>
+                    <span><i class="fa-brands fa-angular icon-sm"></i> Angular 18</span>
+                    <span><i class="fa-brands fa-js icon-sm" style="color:#3178C6"></i> TypeScript</span>
                 </div>
                 <div class="proj-links">
                     <a href="https://github.com/darwinjcn/mi-app-ionic-app" target="_blank">
@@ -1068,7 +1111,6 @@
             </div>
         </article>
 
-        <!-- Sistema Salud -->
         <article class="proj-card" data-anim data-cat="fullstack">
             <div class="proj-img">
                 <div class="proj-img-bg" style="background: linear-gradient(135deg, #1a0e0e 0%, #2d1a1a 100%);">
@@ -1090,8 +1132,11 @@
                     <li>Interfaz web funcional con Django</li>
                 </ul>
                 <div class="proj-techs">
-                    <span>Python</span><span>Django</span><span>HTML</span>
-                    <span>JavaScript</span><span>SQLite</span>
+                    <span><i class="fa-brands fa-python icon-sm"></i> Python</span>
+                    <span><i class="fa-brands fa-python icon-sm"></i> Django</span>
+                    <span><i class="fa-brands fa-html5 icon-sm"></i> HTML</span>
+                    <span><i class="fa-brands fa-js icon-sm"></i> JavaScript</span>
+                    <span><i class="fa-solid fa-database icon-sm"></i> SQLite</span>
                 </div>
                 <div class="proj-links">
                     <a href="https://github.com/darwinjcn/sistema_salud" target="_blank">
@@ -1200,7 +1245,6 @@
 </footer>
 
 <script>
-    // Scroll reveal
     const obs = new IntersectionObserver((entries) => {
         entries.forEach((e, i) => {
             if (e.isIntersecting) {
@@ -1211,7 +1255,6 @@
     }, { threshold: 0.1 });
     document.querySelectorAll('[data-anim]').forEach(el => obs.observe(el));
 
-    // Smooth scroll + close menu
     function closeMobileMenu() {
         mobileMenu.classList.remove('visible');
         toggle.classList.remove('open');
@@ -1228,7 +1271,6 @@
         });
     });
 
-    // Nav hide/show on scroll
     let last = 0;
     const navEl = document.querySelector('nav');
     window.addEventListener('scroll', () => {
@@ -1237,7 +1279,6 @@
         last = c;
     }, { passive: true });
 
-    // Project filters
     document.querySelectorAll('.filter-btn').forEach(btn => {
         btn.addEventListener('click', () => {
             document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
@@ -1249,18 +1290,13 @@
         });
     });
 
-    // Mobile menu
     const toggle = document.getElementById('navToggle');
     const mobileMenu = document.getElementById('mobileMenu');
 
     toggle.addEventListener('click', () => {
         const isOpen = mobileMenu.classList.contains('visible');
-        if (isOpen) {
-            closeMobileMenu();
-        } else {
-            mobileMenu.classList.add('visible');
-            toggle.classList.add('open');
-        }
+        if (isOpen) { closeMobileMenu(); }
+        else { mobileMenu.classList.add('visible'); toggle.classList.add('open'); }
     });
 
     mobileMenu.addEventListener('click', (e) => {
