@@ -13,426 +13,525 @@
     <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Syne:wght@400;600;700;800&family=DM+Mono:ital,wght@0,300;0,400;1,300;1,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Syne:wght@400;600;700;800&family=DM+Mono:ital,wght@0,300;0,400;1,300;1,400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
         *, *::before, *::after {
             margin: 0; padding: 0; box-sizing: border-box;
             -webkit-tap-highlight-color: transparent;
         }
-
         a:focus, button:focus, .filter-btn:focus, .nav-toggle:focus,
-        a:active, button:active {
-            outline: none;
-            box-shadow: none;
-        }
+        a:active, button:active { outline: none; box-shadow: none; }
 
         :root {
-            --bg: #0a0a0a;
-            --bg-elevated: #131313;
-            --surface: #1a1a1a;
-            --border: #2a2a2a;
-            --accent: #f5a623;
-            --accent-glow: rgba(245, 166, 35, 0.1);
-            --accent-dim: #c48500;
-            --text-primary: #f5f0e8;
-            --text-secondary: #d5cfc5;
-            --text-muted: #a8a298;
-            --text-dim: #78726a;
-            --success: #4ade80;
-            --blue: #60a5fa;
-            --font-display: 'Syne', sans-serif;
+            --bg: #050508;
+            --bg-layer: #0a0a10;
+            --surface: rgba(255,255,255,0.03);
+            --glass: rgba(255,255,255,0.04);
+            --glass-border: rgba(255,255,255,0.08);
+            --glass-hover: rgba(255,255,255,0.07);
+            --border: rgba(255,255,255,0.06);
+            --accent: #6c5ce7;
+            --accent-bright: #a29bfe;
+            --accent-warm: #fd79a8;
+            --accent-cyan: #00cec9;
+            --accent-gold: #ffeaa7;
+            --text-primary: #edf0f7;
+            --text-secondary: #b0b8c8;
+            --text-muted: #6b7280;
+            --success: #00b894;
+            --glow-accent: rgba(108,92,231,0.35);
+            --glow-cyan: rgba(0,206,201,0.3);
+            --glow-warm: rgba(253,121,168,0.25);
             --font-hero: 'Outfit', sans-serif;
             --font-mono: 'DM Mono', monospace;
+            --radius-sm: 10px;
+            --radius-md: 16px;
+            --radius-lg: 24px;
+            --radius-xl: 32px;
         }
 
-        html { scroll-behavior: smooth; scrollbar-width: thin; scrollbar-color: var(--accent-dim) var(--bg); }
+        html { scroll-behavior: smooth; scrollbar-width: thin; scrollbar-color: var(--accent) var(--bg); }
 
         body {
             background: var(--bg);
             color: var(--text-primary);
-            font-family: var(--font-mono);
-            font-weight: 300;
-            font-size: 15px;
-            line-height: 1.75;
+            font-family: var(--font-hero);
+            font-weight: 400;
+            font-size: 16px;
+            line-height: 1.7;
             overflow-x: hidden;
         }
 
-        ::selection { background: var(--accent); color: var(--bg); }
+        ::selection { background: var(--accent); color: #fff; }
 
+        /* Noise overlay */
         body::after {
             content: '';
             position: fixed; inset: 0;
-            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");
-            opacity: 0.02; pointer-events: none; z-index: 9999;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.7' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");
+            opacity: 0.015; pointer-events: none; z-index: 9999;
         }
 
-        .icon { width: 16px; text-align: center; font-size: 0.85rem; flex-shrink: 0; }
-        .icon-sm { width: 14px; text-align: center; font-size: 0.75rem; flex-shrink: 0; }
+        /* Ambient bg blobs */
+        .bg-blobs {
+            position: fixed; inset: 0; pointer-events: none; z-index: 0; overflow: hidden;
+        }
+        .bg-blobs .blob {
+            position: absolute; border-radius: 50%; filter: blur(120px); opacity: 0.4;
+            animation: blobDrift 20s ease-in-out infinite alternate;
+        }
+        .blob-1 { width: 600px; height: 600px; background: var(--accent); top: -15%; left: -10%; opacity: 0.12; }
+        .blob-2 { width: 500px; height: 500px; background: var(--accent-cyan); bottom: -10%; right: -10%; opacity: 0.08; animation-delay: -7s; }
+        .blob-3 { width: 400px; height: 400px; background: var(--accent-warm); top: 40%; left: 50%; opacity: 0.06; animation-delay: -14s; }
+        @keyframes blobDrift {
+            0% { transform: translate(0,0) scale(1); }
+            50% { transform: translate(40px,-30px) scale(1.08); }
+            100% { transform: translate(-20px,20px) scale(0.95); }
+        }
 
-        .fa-python { color: #3776AB; }
-        .fa-laravel { color: #FF2D20; }
-        .fa-react { color: #61DAFB; }
-        .fa-angular { color: #DD0031; }
-        .fa-node-js { color: #339933; }
-        .fa-docker { color: #2496ED; }
-        .fa-git-alt { color: #F05032; }
-        .fa-github { color: var(--text-secondary); }
-        .fa-jira { color: #0052CC; }
-        .fa-php { color: #777BB4; }
-        .fa-js { color: #F7DF1E; }
-        .fa-html5 { color: #E34F26; }
-        .fa-css3-alt { color: #1572B6; }
-        .fa-database { color: #316192; }
-        .fa-chart-line { color: #F2C811; }
-        .fa-chart-pie { color: #F2C811; }
-        .fa-mobile-screen-button { color: #3880FF; }
-        .fa-building { color: var(--accent); }
-        .fa-diagram-project { color: #4ade80; }
-        .fa-cloud { color: #60a5fa; }
-        .fa-code { color: var(--accent); }
+        /* Glass mixin */
+        .glass {
+            background: var(--glass);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border);
+            border-radius: var(--radius-lg);
+        }
+        .glass-sm {
+            background: var(--glass);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid var(--glass-border);
+            border-radius: var(--radius-md);
+        }
+
+        /* Gradient text */
+        .grad-text {
+            background: linear-gradient(135deg, var(--accent-bright), var(--accent-warm), var(--accent-cyan));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .grad-text-warm {
+            background: linear-gradient(135deg, var(--accent-gold), var(--accent-warm));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* Glow effects */
+        .glow-card {
+            position: relative; overflow: hidden;
+            transition: all 0.4s cubic-bezier(0.25,0.46,0.45,0.94);
+        }
+        .glow-card::before {
+            content: '';
+            position: absolute; top: -1px; left: -1px; right: -1px; bottom: -1px;
+            border-radius: inherit;
+            background: linear-gradient(135deg, transparent, rgba(108,92,231,0.15), transparent, rgba(0,206,201,0.1), transparent);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+            z-index: -1;
+        }
+        .glow-card:hover::before { opacity: 1; }
+        .glow-card:hover {
+            border-color: rgba(108,92,231,0.2);
+            transform: translateY(-4px);
+            box-shadow: 0 20px 60px rgba(108,92,231,0.08), 0 0 40px rgba(108,92,231,0.05);
+        }
 
         /* ===== NAV ===== */
         nav {
             position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
-            padding: 0 3rem; height: 68px;
+            padding: 0 2.5rem; height: 70px;
             display: flex; justify-content: space-between; align-items: center;
-            backdrop-filter: blur(24px);
-            background: rgba(10,10,10,0.85);
+            background: rgba(5,5,8,0.7);
+            backdrop-filter: blur(30px);
+            -webkit-backdrop-filter: blur(30px);
             border-bottom: 1px solid var(--border);
         }
 
         .nav-logo {
-            font-family: var(--font-hero); font-weight: 700; font-size: 1.05rem;
-            letter-spacing: -0.02em; color: var(--text-primary); text-decoration: none;
+            font-family: var(--font-hero); font-weight: 800; font-size: 1.15rem;
+            letter-spacing: -0.03em; color: var(--text-primary); text-decoration: none;
         }
-        .nav-logo span { color: var(--accent); }
+        .nav-logo span { color: var(--accent-bright); }
 
-        .nav-links { display: flex; gap: 2.2rem; list-style: none; }
-
+        .nav-links { display: flex; gap: 2rem; list-style: none; }
         .nav-links a {
-            font-family: var(--font-mono); font-size: 0.72rem;
-            letter-spacing: 0.16em; text-transform: uppercase;
+            font-family: var(--font-mono); font-size: 0.7rem;
+            letter-spacing: 0.14em; text-transform: uppercase;
             color: var(--text-muted); text-decoration: none;
-            transition: color 0.3s ease; position: relative;
+            transition: color 0.3s; position: relative;
         }
-        .nav-links a::before {
-            content: attr(data-n); margin-right: 0.35em;
-            color: var(--accent); opacity: 0; transition: opacity 0.3s;
-            font-size: 0.64rem;
+        .nav-links a::after {
+            content: ''; position: absolute; bottom: -4px; left: 0; width: 0; height: 1.5px;
+            background: linear-gradient(90deg, var(--accent), var(--accent-cyan));
+            transition: width 0.3s ease;
         }
         .nav-links a:hover { color: var(--text-primary); }
-        .nav-links a:hover::before { opacity: 1; }
+        .nav-links a:hover::after { width: 100%; }
 
         .nav-cta {
-            padding: 0.55rem 1.3rem; border: 1px solid var(--accent);
-            color: var(--accent) !important; font-family: var(--font-mono);
-            font-size: 0.7rem; letter-spacing: 0.12em; text-transform: uppercase;
-            text-decoration: none; transition: all 0.3s ease;
+            padding: 0.55rem 1.5rem;
+            background: linear-gradient(135deg, rgba(108,92,231,0.15), rgba(0,206,201,0.1));
+            border: 1px solid rgba(108,92,231,0.3);
+            color: var(--accent-bright) !important;
+            font-family: var(--font-mono); font-size: 0.7rem;
+            letter-spacing: 0.12em; text-transform: uppercase;
+            text-decoration: none; transition: all 0.3s; border-radius: 100px;
         }
-        .nav-cta:hover { background: var(--accent); color: var(--bg) !important; }
-        .nav-cta::before { display: none !important; }
+        .nav-cta:hover {
+            background: linear-gradient(135deg, rgba(108,92,231,0.3), rgba(0,206,201,0.2));
+            box-shadow: 0 0 25px rgba(108,92,231,0.2);
+            color: #fff !important;
+        }
 
         .nav-toggle {
             display: none; flex-direction: column; gap: 5px;
-            background: none; border: none; cursor: pointer;
-            padding: 4px; z-index: 1002;
+            background: none; border: none; cursor: pointer; padding: 4px; z-index: 1002;
         }
         .nav-toggle span {
             display: block; width: 22px; height: 1.5px;
-            background: var(--text-primary);
-            transition: all 0.3s; transform-origin: center;
+            background: var(--text-primary); transition: all 0.3s; transform-origin: center;
         }
         .nav-toggle.open span:nth-child(1) { transform: rotate(45deg) translate(4px, 4px); }
         .nav-toggle.open span:nth-child(2) { opacity: 0; }
         .nav-toggle.open span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
 
-        /* ===== MOBILE DROPDOWN MENU ===== */
+        /* ===== MOBILE MENU ===== */
         .mobile-menu {
-            display: none;
-            position: fixed; top: 56px; left: 0; right: 0;
-            z-index: 999;
-            background: var(--surface);
+            display: none; position: fixed; top: 70px; left: 0; right: 0;
+            z-index: 999; background: rgba(5,5,8,0.95);
+            backdrop-filter: blur(30px); -webkit-backdrop-filter: blur(30px);
             border-bottom: 1px solid var(--border);
-            flex-direction: column;
-            max-height: 0;
-            overflow: hidden;
+            flex-direction: column; max-height: 0; overflow: hidden;
             transition: max-height 0.35s cubic-bezier(0.4, 0, 0.2, 1);
         }
-        .mobile-menu.visible {
-            display: flex;
-            max-height: 400px;
-        }
-
+        .mobile-menu.visible { display: flex; max-height: 500px; }
         .mobile-menu a {
-            display: block;
-            padding: 0.7rem 1.2rem;
+            display: block; padding: 0.8rem 1.5rem;
             font-family: var(--font-mono); font-size: 0.72rem;
             letter-spacing: 0.12em; text-transform: uppercase;
             color: var(--text-muted); text-decoration: none;
             border-bottom: 1px solid var(--border);
-            transition: color 0.2s ease, padding-left 0.2s ease;
+            transition: all 0.2s;
         }
         .mobile-menu a:last-child { border-bottom: none; }
-        .mobile-menu a:hover {
-            color: var(--accent);
-            padding-left: 1.8rem;
-        }
-        .mobile-menu a:active {
-            color: var(--accent);
-            background: transparent;
-        }
+        .mobile-menu a:hover { color: var(--accent-bright); padding-left: 2rem; }
+        .mobile-menu a:active { color: var(--accent-bright); background: transparent; }
 
         /* ===== HERO ===== */
         .hero {
-            min-height: 100vh; min-height: 100svh;
-            display: flex; align-items: center;
-            justify-content: center;
-            padding: 7rem 3rem 4rem; position: relative; overflow: hidden;
-        }
-        .hero::before {
-            content: ''; position: absolute; top: -30%; right: -15%;
-            width: 800px; height: 800px;
-            background: radial-gradient(circle, var(--accent-glow) 0%, transparent 65%);
-            pointer-events: none;
-        }
-        .hero::after {
-            content: ''; position: absolute; bottom: 0; right: 0;
-            width: 40%; height: 60%;
-            background-image:
-                linear-gradient(var(--border) 1px, transparent 1px),
-                linear-gradient(90deg, var(--border) 1px, transparent 1px);
-            background-size: 60px 60px; opacity: 0.3;
-            mask-image: radial-gradient(ellipse at 80% 70%, black 0%, transparent 65%);
-            -webkit-mask-image: radial-gradient(ellipse at 80% 70%, black 0%, transparent 65%);
+            min-height: 100vh; display: flex; align-items: center;
+            justify-content: center; padding: 7rem 2.5rem 4rem;
+            position: relative; z-index: 1; text-align: center;
         }
 
         .hero-inner {
-            max-width: 800px; width: 100%; margin: 0 auto;
-            text-align: center;
-            position: relative; z-index: 1;
-            opacity: 0; animation: fadeUp 0.8s ease forwards 0.2s;
+            max-width: 850px; width: 100%;
+            opacity: 0; animation: fadeUp 0.8s ease forwards 0.3s;
         }
 
         .hero-badge {
             display: inline-flex; align-items: center; gap: 0.6rem;
-            padding: 0.4rem 1rem; border: 1px solid var(--border);
+            padding: 0.45rem 1.2rem; margin-bottom: 2rem;
             font-family: var(--font-mono); font-size: 0.7rem;
-            letter-spacing: 0.08em; color: var(--text-muted); margin-bottom: 2rem;
+            letter-spacing: 0.08em; color: var(--text-muted);
         }
+
         .hero-badge .dot {
-            width: 7px; height: 7px; background: var(--success);
+            width: 8px; height: 8px; background: var(--success);
             border-radius: 50%; animation: pulse 2s ease infinite;
+            box-shadow: 0 0 10px rgba(0,184,148,0.5);
         }
         @keyframes pulse {
-            0%,100% { opacity: 1; box-shadow: 0 0 0 0 rgba(74,222,128,0.4); }
-            50% { opacity: 0.6; box-shadow: 0 0 0 8px rgba(74,222,128,0); }
+            0%,100% { opacity: 1; box-shadow: 0 0 0 0 rgba(0,184,148,0.4); }
+            50% { opacity: 0.6; box-shadow: 0 0 0 10px rgba(0,184,148,0); }
         }
 
         .hero-name {
             font-family: var(--font-hero);
-            font-size: clamp(3.2rem, 7vw, 6rem);
-            font-weight: 800; line-height: 0.95; letter-spacing: -0.04em;
-            margin-bottom: 1.5rem; color: var(--text-primary);
+            font-size: clamp(3.5rem, 8vw, 7rem);
+            font-weight: 900; line-height: 1; letter-spacing: -0.05em;
+            margin-bottom: 1.5rem;
+            white-space: nowrap;
         }
 
         .hero-sub {
-            font-family: var(--font-mono); font-size: 0.9rem;
-            color: var(--text-muted); margin-bottom: 2.5rem;
+            font-size: 1.05rem; font-weight: 300;
+            color: var(--text-secondary); margin-bottom: 2.5rem;
             max-width: 600px; margin-left: auto; margin-right: auto;
-            line-height: 1.85;
+            line-height: 1.8;
         }
-        .hero-sub strong { color: var(--text-primary); font-weight: 400; }
+        .hero-sub strong { color: var(--text-primary); font-weight: 500; }
 
         .hero-actions {
-            display: flex; gap: 1rem; align-items: center;
-            justify-content: center; flex-wrap: wrap;
+            display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;
         }
 
-        .btn-p {
+        .btn-primary {
             display: inline-flex; align-items: center; gap: 0.7rem;
-            padding: 0.9rem 2rem; background: var(--accent); color: var(--bg);
-            font-family: var(--font-mono); font-size: 0.72rem; font-weight: 400;
-            letter-spacing: 0.14em; text-transform: uppercase;
+            padding: 0.9rem 2.2rem;
+            background: linear-gradient(135deg, var(--accent), #8b5cf6);
+            color: #fff; font-family: var(--font-mono); font-size: 0.72rem;
+            font-weight: 400; letter-spacing: 0.12em; text-transform: uppercase;
             text-decoration: none; border: none; cursor: pointer;
-            transition: all 0.3s ease;
+            border-radius: 100px; transition: all 0.3s;
+            box-shadow: 0 4px 25px rgba(108,92,231,0.3);
         }
-        .btn-p:hover { letter-spacing: 0.22em; transform: translateX(3px); }
+        .btn-primary:hover {
+            letter-spacing: 0.2em; transform: translateY(-2px);
+            box-shadow: 0 8px 40px rgba(108,92,231,0.4);
+        }
 
-        .btn-o {
+        .btn-outline {
             display: inline-flex; align-items: center; gap: 0.5rem;
-            padding: 0.9rem 1.6rem; border: 1px solid var(--border);
+            padding: 0.9rem 1.8rem; border: 1px solid var(--glass-border);
             color: var(--text-secondary); font-family: var(--font-mono);
             font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase;
-            text-decoration: none; transition: all 0.3s ease;
+            text-decoration: none; border-radius: 100px;
+            transition: all 0.3s; background: var(--glass);
+            backdrop-filter: blur(10px);
         }
-        .btn-o:hover { border-color: var(--accent); color: var(--accent); }
-        .btn-o svg { width: 15px; height: 15px; }
+        .btn-outline:hover {
+            border-color: var(--accent); color: var(--accent-bright);
+            box-shadow: 0 0 20px rgba(108,92,231,0.15);
+            transform: translateY(-2px);
+        }
+        .btn-outline svg { width: 15px; height: 15px; }
 
         .scroll-h {
-            position: absolute; bottom: 2.5rem; left: 50%;
-            transform: translateX(-50%);
+            position: absolute; bottom: 2.5rem; left: 50%; transform: translateX(-50%);
             display: flex; align-items: center; gap: 1rem;
-            font-family: var(--font-mono); font-size: 0.62rem;
+            font-family: var(--font-mono); font-size: 0.6rem;
             letter-spacing: 0.2em; text-transform: uppercase;
             color: var(--text-muted); opacity: 0;
             animation: fadeUp 0.6s ease forwards 1.5s; z-index: 1;
         }
         .scroll-h .ln {
-            width: 40px; height: 1px; background: var(--text-muted);
+            width: 40px; height: 1px; background: rgba(255,255,255,0.1);
             position: relative; overflow: hidden;
         }
         .scroll-h .ln::after {
             content: ''; position: absolute; top: 0; left: -100%;
-            width: 100%; height: 100%; background: var(--accent);
+            width: 100%; height: 100%;
+            background: linear-gradient(90deg, var(--accent), var(--accent-cyan));
             animation: sBar 2s ease infinite;
         }
         @keyframes sBar { 0%{left:-100%} 50%,100%{left:100%} }
 
         /* ===== SECTIONS ===== */
-        .sec { padding: 8rem 3rem; max-width: 1400px; margin: 0 auto; }
+        .sec {
+            padding: 7rem 2.5rem; max-width: 1200px; margin: 0 auto;
+            position: relative; z-index: 1;
+        }
 
-        .sec-head { display: flex; align-items: center; gap: 2rem; margin-bottom: 4rem; }
+        .sec-head {
+            display: flex; align-items: center; gap: 1.5rem; margin-bottom: 3.5rem;
+        }
         .sec-n {
             font-family: var(--font-mono); font-size: 0.72rem;
-            color: var(--accent); letter-spacing: 0.1em;
+            color: var(--accent-bright); letter-spacing: 0.1em;
+            padding: 0.3rem 0.8rem; border: 1px solid rgba(108,92,231,0.3);
+            border-radius: 100px;
         }
         .sec-t {
             font-family: var(--font-hero);
-            font-size: clamp(1.8rem, 3.5vw, 3rem);
-            font-weight: 700; letter-spacing: -0.03em; color: var(--text-primary);
-        }
-        .sec-t em {
-            font-family: var(--font-hero); font-weight: 400;
-            font-style: normal; color: var(--accent);
+            font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+            font-weight: 700; letter-spacing: -0.03em;
         }
         .sec-rule { flex: 1; height: 1px; background: var(--border); }
 
-        /* ===== ABOUT ===== */
-        .about-text {
-            max-width: 720px; margin: 0 auto; text-align: center;
-        }
-        .about-text p {
-            color: var(--text-secondary); margin-bottom: 1.2rem;
-            font-size: 0.9rem; line-height: 1.8;
-        }
-        .about-text p strong { color: var(--text-primary); font-weight: 400; }
-
-        .about-stats {
-            display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem;
-            margin-top: 3rem; padding-top: 3rem; border-top: 1px solid var(--border);
-            max-width: 720px; margin-left: auto; margin-right: auto;
+        /* ===== BENTO GRID — ABOUT ===== */
+        .bento-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-template-rows: auto auto;
+            gap: 1.2rem;
         }
 
-        .stat-item {
-            text-align: center;
-            transition: transform 0.3s ease;
+        .bento-card {
+            padding: 2rem;
+            transition: all 0.4s cubic-bezier(0.25,0.46,0.45,0.94);
         }
-        .stat-item:hover { transform: translateY(-3px); }
-        .stat-item .sv {
-            font-family: var(--font-hero); font-size: 2rem;
-            font-weight: 800; line-height: 1; letter-spacing: -0.03em;
-            color: var(--text-primary); display: block;
-        }
-        .stat-item .sl {
-            font-family: var(--font-mono); font-size: 0.58rem;
-            letter-spacing: 0.15em; text-transform: uppercase;
-            color: var(--text-muted); margin-top: 0.4rem; display: block;
+        .bento-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
         }
 
-        /* ===== STACK ===== */
-        .stack-grid {
-            display: grid; grid-template-columns: repeat(2, 1fr);
-            gap: 2.5rem;
-        }
+        .bento-text { grid-column: 1 / 3; grid-row: 1 / 2; }
+        .bento-stack { grid-column: 3 / 4; grid-row: 1 / 3; }
+        .bento-stat { grid-column: auto; grid-row: auto; }
 
-        .stack-group h3 {
-            font-family: var(--font-mono); font-size: 0.62rem;
+        .bento-label {
+            font-family: var(--font-mono); font-size: 0.6rem;
             letter-spacing: 0.2em; text-transform: uppercase;
-            color: var(--accent); margin-bottom: 1rem;
+            color: var(--accent-bright); margin-bottom: 1rem;
+            display: flex; align-items: center; gap: 0.5rem;
+        }
+        .bento-label i { font-size: 0.85rem; }
+
+        .bento-card h3 {
+            font-family: var(--font-hero); font-size: 1.15rem;
+            font-weight: 600; letter-spacing: -0.02em;
+            margin-bottom: 0.8rem; color: var(--text-primary);
         }
 
-        .stack-tags {
-            display: flex; flex-wrap: wrap; gap: 0.4rem;
+        .bento-card p {
+            color: var(--text-secondary); font-size: 0.88rem;
+            line-height: 1.8;
         }
-        .stack-tags .tag {
-            padding: 0.4rem 0.85rem; background: var(--surface);
-            border: 1px solid var(--border); font-family: var(--font-mono);
-            font-size: 0.72rem; color: var(--text-secondary);
-            transition: all 0.3s ease; cursor: default;
-            display: inline-flex; align-items: center; gap: 0.5rem;
+        .bento-card p strong { color: var(--text-primary); font-weight: 500; }
+
+        .stat-big {
+            font-family: var(--font-hero); font-size: 2.8rem;
+            font-weight: 800; line-height: 1; letter-spacing: -0.04em;
+            display: block; margin-bottom: 0.3rem;
         }
-        .stack-tags .tag:hover {
-            border-color: var(--accent); color: var(--accent);
-            transform: translateY(-2px);
+        .stat-label {
+            font-family: var(--font-mono); font-size: 0.62rem;
+            letter-spacing: 0.15em; text-transform: uppercase;
+            color: var(--text-muted);
         }
-        .stack-tags .tag:hover .fa-brands,
-        .stack-tags .tag:hover .fa-solid { color: var(--accent) !important; }
+
+        /* Code snippet styling */
+        .code-block {
+            background: rgba(0,0,0,0.4);
+            border: 1px solid var(--glass-border);
+            border-radius: var(--radius-md);
+            padding: 1.2rem 1.4rem;
+            font-family: var(--font-mono); font-size: 0.72rem;
+            line-height: 1.9; color: var(--text-secondary);
+            margin-top: 1rem; position: relative; overflow: hidden;
+        }
+        .code-block .code-key { color: var(--accent-bright); }
+        .code-block .code-val { color: var(--accent-cyan); }
+        .code-block .code-str { color: var(--accent-gold); }
+        .code-block .code-comment { color: var(--text-muted); font-style: italic; }
+        .code-header {
+            display: flex; gap: 6px; margin-bottom: 1rem;
+        }
+        .code-dot {
+            width: 10px; height: 10px; border-radius: 50%;
+        }
+        .code-dot:nth-child(1) { background: #ff5f57; }
+        .code-dot:nth-child(2) { background: #febc2e; }
+        .code-dot:nth-child(3) { background: #28c840; }
+
+        /* Stack tags in bento */
+        .bento-tags {
+            display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: 0.8rem;
+        }
+        .bento-tag {
+            padding: 0.35rem 0.8rem;
+            background: rgba(108,92,231,0.08);
+            border: 1px solid rgba(108,92,231,0.15);
+            font-family: var(--font-mono); font-size: 0.68rem;
+            color: var(--accent-bright); border-radius: 100px;
+            transition: all 0.3s; cursor: default;
+            display: inline-flex; align-items: center; gap: 0.4rem;
+        }
+        .bento-tag:hover {
+            background: rgba(108,92,231,0.15);
+            border-color: rgba(108,92,231,0.3);
+            box-shadow: 0 0 15px rgba(108,92,231,0.1);
+            transform: translateY(-1px);
+        }
+        .bento-tag i { font-size: 0.7rem; }
+
+        /* ===== STACK GRID ===== */
+        .stack-bento {
+            display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.2rem;
+        }
+        .stack-col {
+            display: flex; flex-direction: column; gap: 1.2rem;
+        }
+        .stack-card {
+            padding: 1.5rem; flex: 1;
+        }
+        .stack-card h4 {
+            font-family: var(--font-mono); font-size: 0.6rem;
+            letter-spacing: 0.2em; text-transform: uppercase;
+            color: var(--accent-cyan); margin-bottom: 1rem;
+        }
+        .stack-item {
+            display: flex; align-items: center; gap: 0.7rem;
+            padding: 0.6rem 0; border-bottom: 1px solid rgba(255,255,255,0.03);
+            font-size: 0.85rem; color: var(--text-secondary);
+            transition: all 0.2s;
+        }
+        .stack-item:last-child { border-bottom: none; }
+        .stack-item:hover { color: var(--text-primary); padding-left: 0.5rem; }
+        .stack-item i { font-size: 0.9rem; width: 20px; text-align: center; }
 
         /* ===== PROJECTS ===== */
-        .proj-filter { display: flex; gap: 0.5rem; margin-bottom: 3rem; flex-wrap: wrap; }
+        .proj-filter {
+            display: flex; gap: 0.5rem; margin-bottom: 2.5rem; flex-wrap: wrap;
+        }
         .filter-btn {
-            padding: 0.5rem 1.2rem; background: transparent;
-            border: 1px solid var(--border); color: var(--text-muted);
-            font-family: var(--font-mono); font-size: 0.7rem;
+            padding: 0.5rem 1.3rem; background: var(--glass);
+            border: 1px solid var(--glass-border); color: var(--text-muted);
+            font-family: var(--font-mono); font-size: 0.68rem;
             letter-spacing: 0.1em; text-transform: uppercase;
-            cursor: pointer; transition: all 0.3s ease;
+            cursor: pointer; transition: all 0.3s; border-radius: 100px;
+            backdrop-filter: blur(10px);
         }
-        .filter-btn:hover, .filter-btn.active { border-color: var(--accent); color: var(--accent); }
-        .filter-btn.active { background: var(--accent-glow); }
-        .filter-btn:active {
-            background: var(--accent-glow);
-            color: var(--accent);
+        .filter-btn:hover, .filter-btn.active {
+            border-color: var(--accent); color: var(--accent-bright);
+            background: rgba(108,92,231,0.1);
         }
+        .filter-btn.active { box-shadow: 0 0 15px rgba(108,92,231,0.15); }
 
         .proj-grid {
-            display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem;
+            display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.2rem;
         }
 
         .proj-card {
-            background: var(--bg-elevated); border: 1px solid var(--border);
-            padding: 1.8rem; transition: all 0.4s ease;
+            padding: 2rem;
             opacity: 0; transform: translateY(20px);
             display: flex; flex-direction: column; gap: 0.8rem;
+            transition: all 0.4s cubic-bezier(0.25,0.46,0.45,0.94);
         }
         .proj-card.vis {
             opacity: 1; transform: translateY(0);
-            transition: opacity 0.6s ease, transform 0.6s ease, border-color 0.4s ease;
         }
-        .proj-card:hover { border-color: var(--accent); }
+        .proj-card:hover {
+            transform: translateY(-6px);
+            border-color: rgba(108,92,231,0.25);
+            box-shadow: 0 25px 60px rgba(0,0,0,0.3), 0 0 40px rgba(108,92,231,0.06);
+        }
 
-        .proj-top {
-            display: flex; justify-content: space-between; align-items: flex-start;
-            gap: 1rem;
-        }
+        .proj-top { display: flex; justify-content: space-between; align-items: flex-start; gap: 1rem; }
 
         .proj-cat {
-            font-family: var(--font-mono); font-size: 0.6rem;
+            font-family: var(--font-mono); font-size: 0.58rem;
             letter-spacing: 0.2em; text-transform: uppercase;
-            color: var(--accent); margin-bottom: 0.4rem;
+            color: var(--accent-cyan); margin-bottom: 0.4rem;
         }
         .proj-name {
-            font-family: var(--font-hero); font-size: 1.15rem;
+            font-family: var(--font-hero); font-size: 1.2rem;
             font-weight: 600; letter-spacing: -0.02em;
-            line-height: 1.25; color: var(--text-primary);
+            line-height: 1.3;
         }
         .proj-emoji {
-            font-size: 2rem; flex-shrink: 0; line-height: 1;
-            opacity: 0.8;
+            font-size: 2.2rem; flex-shrink: 0; line-height: 1; opacity: 0.9;
+            filter: drop-shadow(0 0 8px rgba(108,92,231,0.2));
         }
 
         .proj-desc {
-            color: var(--text-muted); font-size: 0.78rem;
+            color: var(--text-muted); font-size: 0.82rem;
             line-height: 1.7; flex: 1;
         }
 
-        .proj-techs {
-            display: flex; flex-wrap: wrap; gap: 0.3rem;
-        }
+        .proj-techs { display: flex; flex-wrap: wrap; gap: 0.35rem; }
         .proj-techs span {
-            padding: 0.22rem 0.6rem; background: var(--bg);
-            border: 1px solid var(--border); font-family: var(--font-mono);
-            font-size: 0.62rem; color: var(--text-secondary);
+            padding: 0.25rem 0.65rem;
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(255,255,255,0.06);
+            font-family: var(--font-mono); font-size: 0.6rem;
+            color: var(--text-secondary); border-radius: 100px;
             display: inline-flex; align-items: center; gap: 0.35rem;
         }
 
@@ -440,16 +539,18 @@
             display: inline-flex; align-items: center; gap: 0.35rem;
             font-family: var(--font-mono); font-size: 0.7rem;
             color: var(--text-muted); text-decoration: none;
-            transition: color 0.3s; margin-top: 0.3rem;
+            transition: all 0.3s; margin-top: 0.3rem;
         }
-        .proj-link:hover { color: var(--accent); }
+        .proj-link:hover { color: var(--accent-bright); gap: 0.6rem; }
         .proj-link svg { width: 14px; height: 14px; }
 
         /* ===== EXPERIENCE ===== */
         .tl { position: relative; padding-left: 3rem; }
         .tl::before {
             content: ''; position: absolute; top: 0; left: 0;
-            bottom: 0; width: 1px; background: var(--border);
+            bottom: 0; width: 2px;
+            background: linear-gradient(to bottom, var(--accent), var(--accent-cyan), transparent);
+            border-radius: 2px;
         }
         .tl-item {
             position: relative; padding-bottom: 3rem;
@@ -461,82 +562,83 @@
         }
         .tl-item::before {
             content: ''; position: absolute; left: -3rem; top: 6px;
-            width: 9px; height: 9px; background: var(--accent);
-            transform: translateX(-4px); transition: box-shadow 0.3s;
+            width: 12px; height: 12px;
+            background: var(--accent);
+            border-radius: 50%; transform: translateX(-5px);
+            box-shadow: 0 0 15px var(--glow-accent);
+            transition: box-shadow 0.3s;
         }
-        .tl-item:hover::before { box-shadow: 0 0 0 5px var(--accent-glow); }
+        .tl-item:hover::before { box-shadow: 0 0 25px var(--glow-accent), 0 0 50px rgba(108,92,231,0.15); }
 
         .tl-date {
-            font-family: var(--font-mono); font-size: 0.65rem;
+            font-family: var(--font-mono); font-size: 0.62rem;
             letter-spacing: 0.18em; text-transform: uppercase;
-            color: var(--accent); margin-bottom: 0.3rem;
+            color: var(--accent-bright); margin-bottom: 0.3rem;
         }
         .tl-role {
             font-family: var(--font-hero); font-size: 1.2rem;
-            font-weight: 600; color: var(--text-primary); margin-bottom: 0.15rem;
+            font-weight: 600; margin-bottom: 0.15rem;
         }
         .tl-co {
             font-family: var(--font-mono); font-size: 0.8rem;
             color: var(--text-secondary); margin-bottom: 0.6rem;
         }
-        .tl-desc { color: var(--text-muted); font-size: 0.8rem; max-width: 560px; line-height: 1.7; }
+        .tl-desc { color: var(--text-muted); font-size: 0.84rem; max-width: 560px; line-height: 1.7; }
 
         /* ===== CONTACT ===== */
         .contact-sec {
-            text-align: center; padding: 10rem 3rem 6rem;
+            text-align: center; padding: 8rem 2.5rem 5rem;
             max-width: 900px; margin: 0 auto;
+            position: relative; z-index: 1;
         }
         .contact-ey {
             font-family: var(--font-mono); font-size: 0.72rem;
             letter-spacing: 0.25em; text-transform: uppercase;
-            color: var(--accent); margin-bottom: 1.5rem;
+            color: var(--accent-bright); margin-bottom: 1.5rem;
         }
         .contact-h {
             font-family: var(--font-hero);
-            font-size: clamp(2.5rem, 5vw, 4.5rem);
+            font-size: clamp(2.5rem, 5vw, 4.2rem);
             font-weight: 800; letter-spacing: -0.04em;
-            line-height: 1.1; margin-bottom: 1.5rem; color: var(--text-primary);
-        }
-        .contact-h em {
-            font-family: var(--font-hero); font-weight: 300;
-            font-style: normal; color: var(--accent);
+            line-height: 1.1; margin-bottom: 1.5rem;
         }
         .contact-tx {
-            color: var(--text-muted); font-size: 0.9rem;
-            max-width: 480px; margin: 0 auto 3.5rem; line-height: 1.8;
+            color: var(--text-muted); font-size: 0.95rem;
+            max-width: 480px; margin: 0 auto 3rem; line-height: 1.8;
         }
         .contact-g { display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap; }
         .contact-c {
             display: flex; align-items: center; gap: 0.7rem;
-            padding: 0.95rem 1.6rem; border: 1px solid var(--border);
-            color: var(--text-secondary); text-decoration: none;
-            font-family: var(--font-mono); font-size: 0.78rem;
-            transition: all 0.3s ease;
+            padding: 0.95rem 1.8rem; color: var(--text-secondary);
+            text-decoration: none; font-family: var(--font-mono); font-size: 0.8rem;
+            transition: all 0.3s; border-radius: 100px;
         }
         .contact-c:hover {
-            border-color: var(--accent); color: var(--accent);
+            border-color: var(--accent); color: var(--accent-bright);
             transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(108,92,231,0.1);
         }
         .contact-c svg { width: 17px; height: 17px; flex-shrink: 0; }
 
         /* ===== FOOTER ===== */
         footer {
-            padding: 3rem; display: flex;
+            padding: 3rem 2.5rem; display: flex;
             justify-content: space-between; align-items: center;
             border-top: 1px solid var(--border);
-            max-width: 1400px; margin: 0 auto;
+            max-width: 1200px; margin: 0 auto;
+            position: relative; z-index: 1;
         }
         footer p {
             font-family: var(--font-mono); font-size: 0.65rem;
             letter-spacing: 0.08em; color: var(--text-muted);
         }
-        footer a { color: var(--accent); text-decoration: none; }
+        footer a { color: var(--accent-bright); text-decoration: none; }
         .ft-links { display: flex; gap: 1.5rem; }
         .ft-links a {
             color: var(--text-muted); font-family: var(--font-mono);
             font-size: 0.65rem; text-decoration: none; transition: color 0.3s;
         }
-        .ft-links a:hover { color: var(--accent); }
+        .ft-links a:hover { color: var(--accent-bright); }
 
         @keyframes fadeUp {
             from { opacity: 0; transform: translateY(30px); }
@@ -550,29 +652,26 @@
             .nav-toggle { display: flex; }
 
             .hero { padding: 6rem 1.2rem 3rem; }
-            .hero::after { display: none; }
-            .hero-name { font-size: clamp(2.5rem, 10vw, 3.5rem); }
-            .hero-sub { font-size: 0.82rem; max-width: 100%; }
+            .hero-name { font-size: clamp(2.8rem, 10vw, 4rem); }
+            .hero-sub { font-size: 0.92rem; }
             .hero-actions { flex-direction: column; align-items: center; gap: 0.8rem; }
-            .btn-p, .btn-o { padding: 0.75rem 1.2rem; font-size: 0.68rem; }
+            .btn-primary, .btn-outline { padding: 0.8rem 1.5rem; font-size: 0.68rem; }
 
             .sec { padding: 5rem 1.2rem; }
             .sec-head { margin-bottom: 2.5rem; }
 
-            .about-text { max-width: 100%; }
-            .about-text p { font-size: 0.85rem; }
-            .about-stats { max-width: 100%; grid-template-columns: repeat(2, 1fr); }
-            .stat-item .sv { font-size: 1.6rem; }
+            .bento-grid { grid-template-columns: 1fr; }
+            .bento-text { grid-column: auto; }
+            .bento-stack { grid-column: auto; grid-row: auto; }
 
-            .stack-grid { grid-template-columns: 1fr; gap: 2rem; }
+            .stack-bento { grid-template-columns: 1fr 1fr; }
 
             .proj-grid { grid-template-columns: 1fr; }
 
             .scroll-h { display: none; }
             .sec-rule { display: none; }
-            .sec-t { font-size: clamp(1.5rem, 5vw, 2.2rem); }
+            .sec-t { font-size: clamp(1.5rem, 5vw, 2rem); }
 
-            .contact-h { font-size: clamp(1.8rem, 7vw, 3rem); }
             .contact-sec { padding: 5rem 1.2rem 3rem; }
 
             footer {
@@ -582,35 +681,36 @@
         }
 
         @media (max-width: 600px) {
-            body { font-size: 14px; line-height: 1.8; }
+            body { font-size: 15px; }
             nav { height: 56px; padding: 0 1rem; }
-            .nav-logo { font-size: 0.9rem; }
-            .mobile-menu { top: 56px; }
+            .nav-logo { font-size: 0.95rem; }
 
             .hero {
                 padding: 5rem 1rem 2.5rem;
-                min-height: 100vh;
-                min-height: 100dvh;
+                min-height: 100vh; min-height: 100dvh;
             }
-            .hero-name { font-size: clamp(2rem, 9vw, 3rem); margin-bottom: 1rem; }
-            .hero-sub { font-size: 0.78rem; margin-bottom: 1.8rem; }
+            .hero-name {
+                font-size: clamp(2.2rem, 12vw, 3.5rem);
+                white-space: normal;
+            }
+            .hero-sub { font-size: 0.82rem; margin-bottom: 2rem; }
             .hero-actions { width: 100%; }
-            .btn-p, .btn-o { width: 100%; justify-content: center; padding: 0.85rem 1.2rem; }
+            .btn-primary, .btn-outline {
+                width: 100%; justify-content: center; padding: 0.85rem 1.2rem;
+            }
 
             .sec { padding: 4rem 1rem; }
             .sec-head { gap: 1rem; }
 
-            .about-text p { font-size: 0.82rem; }
-            .about-stats { gap: 1rem; }
+            .bento-card { padding: 1.5rem; }
+            .stat-big { font-size: 2rem; }
 
-            .stack-tags { gap: 0.3rem; }
-            .stack-tags .tag { padding: 0.35rem 0.7rem; font-size: 0.65rem; }
+            .stack-bento { grid-template-columns: 1fr; }
 
-            .proj-card { padding: 1.4rem; }
+            .proj-card { padding: 1.5rem; }
             .proj-name { font-size: 1rem; }
-            .proj-desc { font-size: 0.75rem; }
-            .proj-techs span { font-size: 0.58rem; padding: 0.2rem 0.5rem; }
-            .proj-emoji { font-size: 1.5rem; }
+            .proj-desc { font-size: 0.78rem; }
+            .proj-emoji { font-size: 1.6rem; }
 
             .proj-filter { gap: 0.35rem; }
             .filter-btn { padding: 0.4rem 0.9rem; font-size: 0.62rem; }
@@ -627,15 +727,22 @@
 </head>
 <body>
 
-<!-- NAV (siempre visible, sin ocultarse al hacer scroll) -->
+<!-- Ambient blobs -->
+<div class="bg-blobs">
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
+    <div class="blob blob-3"></div>
+</div>
+
+<!-- NAV -->
 <nav>
     <a href="#home" class="nav-logo">darwin<span>.</span>dev</a>
     <ul class="nav-links">
-        <li><a href="#about" data-n="01">Sobre mi</a></li>
-        <li><a href="#stack" data-n="02">Stack</a></li>
-        <li><a href="#projects" data-n="03">Proyectos</a></li>
-        <li><a href="#experience" data-n="04">Trayectoria</a></li>
-        <li><a href="https://github.com/darwinjcn" target="_blank" data-n="05">GitHub</a></li>
+        <li><a href="#about">Sobre mi</a></li>
+        <li><a href="#stack">Stack</a></li>
+        <li><a href="#projects">Proyectos</a></li>
+        <li><a href="#experience">Trayectoria</a></li>
+        <li><a href="https://github.com/darwinjcn" target="_blank">GitHub</a></li>
     </ul>
     <a href="#contact" class="nav-cta">Contacto</a>
     <button class="nav-toggle" id="navToggle" aria-label="Menu">
@@ -643,7 +750,7 @@
     </button>
 </nav>
 
-<!-- MOBILE DROPDOWN (sin GitHub) -->
+<!-- MOBILE MENU -->
 <div class="mobile-menu" id="mobileMenu">
     <a href="#about">Sobre mi</a>
     <a href="#stack">Stack</a>
@@ -655,23 +762,23 @@
 <!-- HERO -->
 <section class="hero" id="home">
     <div class="hero-inner">
-        <div class="hero-badge"><span class="dot"></span> Disponible para trabajar</div>
-        <h1 class="hero-name">Darwin<br>Colmenares</h1>
+        <div class="glass-sm hero-badge"><span class="dot"></span> Disponible para trabajar</div>
+        <h1 class="hero-name"><span class="grad-text">Darwin Colmenares</span></h1>
         <p class="hero-sub">
-            <strong>Full-Stack Developer & Data Analyst.</strong>
+            <strong>Full-Stack Developer & Data Analyst.</strong><br>
             Contador Público + Ingeniero Informático. Construyo soluciones técnicas
             que responden a <strong>problemas reales de negocio</strong>.
         </p>
         <div class="hero-actions">
-            <a href="#projects" class="btn-p">
+            <a href="#projects" class="btn-primary">
                 Ver proyectos
                 <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
             </a>
-            <a href="https://github.com/darwinjcn" target="_blank" class="btn-o">
+            <a href="https://github.com/darwinjcn" target="_blank" class="btn-outline">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
                 GitHub
             </a>
-            <a href="https://www.linkedin.com/in/darwin-colmenares/" target="_blank" class="btn-o">
+            <a href="https://www.linkedin.com/in/darwin-colmenares/" target="_blank" class="btn-outline">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
                 LinkedIn
             </a>
@@ -680,101 +787,111 @@
     <div class="scroll-h"><div class="ln"></div> scroll</div>
 </section>
 
-<!-- ABOUT -->
+<!-- ABOUT — BENTO GRID -->
 <section class="sec" id="about">
     <div class="sec-head">
         <span class="sec-n">01</span>
-        <h2 class="sec-t">Sobre <em>mi</em></h2>
+        <h2 class="sec-t">Sobre <span class="grad-text">mi</span></h2>
         <div class="sec-rule"></div>
     </div>
-    <div class="about-text">
-        <p>
-            Soy <strong>Darwin Colmenares</strong>, desarrollador Full-Stack y analista de datos.
-            Mi formación dual — <strong>Contador Público + Ingeniero Informático</strong> — me permite
-            hablar el lenguaje del negocio y traducirlo en sistemas que funcionan.
-        </p>
-        <p>
-            He construido desde plataformas de gestión satelital para <strong>CANTV</strong> hasta
-            dashboards de <strong>Business Intelligence</strong> con Power BI. Trabajo con
-            arquitecturas backend robustas, interfaces modernas y transformo datos en decisiones.
-        </p>
-    </div>
-    <div class="about-stats">
-        <div class="stat-item">
-            <span class="sv">2</span>
-            <span class="sl">Títulos profesionales</span>
+
+    <div class="bento-grid">
+        <!-- Text block -->
+        <div class="bento-card glass glow-card bento-text">
+            <div class="bento-label"><i class="fa-solid fa-user"></i> Perfil</div>
+            <h3>Desarrollador con visión de negocio</h3>
+            <p>
+                Soy <strong>Darwin Colmenares</strong>, desarrollador Full-Stack y analista de datos.
+                Mi formación dual — <strong>Contador Público + Ingeniero Informático</strong> — me permite
+                hablar el lenguaje del negocio y traducirlo en sistemas que funcionan.
+            </p>
+            <div class="code-block">
+                <div class="code-header">
+                    <div class="code-dot"></div><div class="code-dot"></div><div class="code-dot"></div>
+                </div>
+                <span class="code-key">const</span> <span class="code-val">darwin</span> = {<br>
+                &nbsp;&nbsp;<span class="code-key">rol</span>: <span class="code-str">"Full-Stack & Data Analyst"</span>,<br>
+                &nbsp;&nbsp;<span class="code-key">formacion</span>: [<span class="code-str">"Contador Público"</span>, <span class="code-str">"Ing. Informático"</span>],<br>
+                &nbsp;&nbsp;<span class="code-key">enfoque</span>: <span class="code-str">"Soluciones técnicas → Problemas reales"</span><br>
+                };
+            </div>
         </div>
-        <div class="stat-item">
-            <span class="sv">7+</span>
-            <span class="sl">Proyectos</span>
+
+        <!-- Stack sidebar -->
+        <div class="bento-card glass glow-card bento-stack">
+            <div class="bento-label"><i class="fa-solid fa-layer-group"></i> Stack principal</div>
+            <div class="bento-tags">
+                <span class="bento-tag"><i class="fa-brands fa-python"></i> Python</span>
+                <span class="bento-tag"><i class="fa-brands fa-laravel"></i> Laravel</span>
+                <span class="bento-tag"><i class="fa-brands fa-react"></i> React</span>
+                <span class="bento-tag"><i class="fa-brands fa-angular"></i> Angular</span>
+                <span class="bento-tag"><i class="fa-solid fa-database"></i> PostgreSQL</span>
+                <span class="bento-tag"><i class="fa-solid fa-chart-pie"></i> Power BI</span>
+                <span class="bento-tag"><i class="fa-brands fa-js"></i> TypeScript</span>
+                <span class="bento-tag"><i class="fa-brands fa-docker"></i> Docker</span>
+            </div>
         </div>
-        <div class="stat-item">
-            <span class="sv">15+</span>
-            <span class="sl">Tecnologías</span>
+
+        <!-- Stats -->
+        <div class="bento-card glass glow-card bento-stat">
+            <span class="stat-big grad-text">2</span>
+            <span class="stat-label">Títulos profesionales</span>
         </div>
-        <div class="stat-item">
-            <span class="sv">CANTV</span>
-            <span class="sl">Experiencia</span>
+        <div class="bento-card glass glow-card bento-stat">
+            <span class="stat-big grad-text">7+</span>
+            <span class="stat-label">Proyectos</span>
+        </div>
+        <div class="bento-card glass glow-card bento-stat">
+            <span class="stat-big grad-text">15+</span>
+            <span class="stat-label">Tecnologías</span>
         </div>
     </div>
 </section>
 
-<!-- STACK -->
+<!-- STACK DETAIL -->
 <section class="sec" id="stack">
     <div class="sec-head">
         <span class="sec-n">02</span>
-        <h2 class="sec-t">Stack <em>técnico</em></h2>
+        <h2 class="sec-t">Stack <span class="grad-text">técnico</span></h2>
         <div class="sec-rule"></div>
     </div>
-    <div class="stack-grid">
-        <div class="stack-group">
-            <h3>Lenguajes & Core</h3>
-            <div class="stack-tags">
-                <span class="tag"><i class="fa-brands fa-python icon-sm"></i> Python</span>
-                <span class="tag"><i class="fa-brands fa-js icon-sm"></i> JavaScript</span>
-                <span class="tag"><i class="fa-brands fa-js icon-sm" style="color:#3178C6"></i> TypeScript</span>
-                <span class="tag"><i class="fa-brands fa-php icon-sm"></i> PHP</span>
-                <span class="tag"><i class="fa-brands fa-html5 icon-sm"></i> HTML / CSS</span>
-                <span class="tag"><i class="fa-solid fa-database icon-sm"></i> SQL</span>
-            </div>
+
+    <div class="stack-bento">
+        <div class="stack-card glass glow-card">
+            <h4>Lenguajes</h4>
+            <div class="stack-item"><i class="fa-brands fa-python" style="color:#3776AB"></i> Python</div>
+            <div class="stack-item"><i class="fa-brands fa-js" style="color:#F7DF1E"></i> JavaScript</div>
+            <div class="stack-item"><i class="fa-brands fa-js" style="color:#3178C6"></i> TypeScript</div>
+            <div class="stack-item"><i class="fa-brands fa-php" style="color:#777BB4"></i> PHP</div>
+            <div class="stack-item"><i class="fa-brands fa-html5" style="color:#E34F26"></i> HTML / CSS</div>
+            <div class="stack-item"><i class="fa-solid fa-database" style="color:#316192"></i> SQL</div>
         </div>
-        <div class="stack-group">
-            <h3>Frameworks & Backend</h3>
-            <div class="stack-tags">
-                <span class="tag"><i class="fa-brands fa-python icon-sm"></i> Django</span>
-                <span class="tag"><i class="fa-brands fa-laravel icon-sm"></i> Laravel</span>
-                <span class="tag"><i class="fa-brands fa-react icon-sm"></i> React</span>
-                <span class="tag"><i class="fa-brands fa-angular icon-sm"></i> Angular</span>
-                <span class="tag"><i class="fa-brands fa-node-js icon-sm"></i> Node.js</span>
-                <span class="tag"><i class="fa-brands fa-node-js icon-sm"></i> Express</span>
-                <span class="tag"><i class="fa-solid fa-mobile-screen-button icon-sm" style="color:#3880FF"></i> Ionic</span>
-            </div>
+        <div class="stack-card glass glow-card">
+            <h4>Frameworks</h4>
+            <div class="stack-item"><i class="fa-brands fa-python" style="color:#3776AB"></i> Django</div>
+            <div class="stack-item"><i class="fa-brands fa-laravel" style="color:#FF2D20"></i> Laravel</div>
+            <div class="stack-item"><i class="fa-brands fa-react" style="color:#61DAFB"></i> React</div>
+            <div class="stack-item"><i class="fa-brands fa-angular" style="color:#DD0031"></i> Angular</div>
+            <div class="stack-item"><i class="fa-brands fa-node-js" style="color:#339933"></i> Node / Express</div>
+            <div class="stack-item"><i class="fa-solid fa-mobile-screen-button" style="color:#3880FF"></i> Ionic</div>
         </div>
-        <div class="stack-group">
-            <h3>Bases de Datos & BI</h3>
-            <div class="stack-tags">
-                <span class="tag"><i class="fa-solid fa-database icon-sm"></i> PostgreSQL</span>
-                <span class="tag"><i class="fa-solid fa-database icon-sm"></i> SQLite</span>
-                <span class="tag"><i class="fa-solid fa-database icon-sm"></i> SQL Server</span>
-                <span class="tag"><i class="fa-solid fa-cloud icon-sm"></i> BigQuery</span>
-                <span class="tag"><i class="fa-solid fa-chart-pie icon-sm" style="color:#F2C811"></i> Power BI</span>
-                <span class="tag"><i class="fa-solid fa-chart-line icon-sm" style="color:#F2C811"></i> DAX</span>
-                <span class="tag"><i class="fa-brands fa-python icon-sm"></i> Pandas</span>
-            </div>
+        <div class="stack-card glass glow-card">
+            <h4>Datos & BI</h4>
+            <div class="stack-item"><i class="fa-solid fa-database" style="color:#316192"></i> PostgreSQL</div>
+            <div class="stack-item"><i class="fa-solid fa-database" style="color:#316192"></i> SQLite</div>
+            <div class="stack-item"><i class="fa-solid fa-database" style="color:#316192"></i> SQL Server</div>
+            <div class="stack-item"><i class="fa-solid fa-cloud" style="color:#60a5fa"></i> BigQuery</div>
+            <div class="stack-item"><i class="fa-solid fa-chart-pie" style="color:#F2C811"></i> Power BI</div>
+            <div class="stack-item"><i class="fa-solid fa-chart-line" style="color:#F2C811"></i> DAX / Pandas</div>
         </div>
-        <div class="stack-group">
-            <h3>DevOps & Herramientas</h3>
-            <div class="stack-tags">
-                <span class="tag"><i class="fa-brands fa-docker icon-sm"></i> Docker</span>
-                <span class="tag"><i class="fa-brands fa-git-alt icon-sm"></i> Git</span>
-                <span class="tag"><i class="fa-solid fa-code icon-sm"></i> CI/CD</span>
-                <span class="tag"><i class="fa-brands fa-github icon-sm"></i> GitHub Actions</span>
-                <span class="tag"><i class="fa-solid fa-diagram-project icon-sm"></i> N8N</span>
-                <span class="tag"><i class="fa-solid fa-diagram-project icon-sm"></i> PlantUML</span>
-                <span class="tag"><i class="fa-solid fa-diagram-project icon-sm"></i> Mermaid</span>
-                <span class="tag"><i class="fa-solid fa-building icon-sm"></i> SAP</span>
-                <span class="tag"><i class="fa-brands fa-jira icon-sm"></i> Jira</span>
-            </div>
+        <div class="stack-card glass glow-card">
+            <h4>DevOps</h4>
+            <div class="stack-item"><i class="fa-brands fa-docker" style="color:#2496ED"></i> Docker</div>
+            <div class="stack-item"><i class="fa-brands fa-git-alt" style="color:#F05032"></i> Git</div>
+            <div class="stack-item"><i class="fa-solid fa-code" style="color:#00cec9"></i> CI/CD</div>
+            <div class="stack-item"><i class="fa-brands fa-github"></i> GitHub Actions</div>
+            <div class="stack-item"><i class="fa-solid fa-diagram-project" style="color:#4ade80"></i> N8N</div>
+            <div class="stack-item"><i class="fa-brands fa-jira" style="color:#0052CC"></i> Jira / SAP</div>
         </div>
     </div>
 </section>
@@ -783,7 +900,7 @@
 <section class="sec" id="projects">
     <div class="sec-head">
         <span class="sec-n">03</span>
-        <h2 class="sec-t">Proyectos <em>destacados</em></h2>
+        <h2 class="sec-t">Proyectos <span class="grad-text">destacados</span></h2>
         <div class="sec-rule"></div>
     </div>
 
@@ -796,7 +913,7 @@
 
     <div class="proj-grid">
 
-        <article class="proj-card" data-anim data-cat="fullstack">
+        <article class="proj-card glass glow-card" data-anim data-cat="fullstack">
             <div class="proj-top">
                 <div>
                     <div class="proj-cat">Full-Stack · CANTV</div>
@@ -806,11 +923,11 @@
             </div>
             <p class="proj-desc">Plataforma centralizada para gestión operativa de contingencias en infraestructura satelital de CANTV. Conecta sedes de Caracas, Camatagua y Baemari con trazabilidad completa.</p>
             <div class="proj-techs">
-                <span><i class="fa-brands fa-react icon-sm"></i> React</span>
-                <span><i class="fa-brands fa-laravel icon-sm"></i> Laravel</span>
-                <span><i class="fa-solid fa-database icon-sm"></i> PostgreSQL</span>
-                <span><i class="fa-solid fa-code icon-sm"></i> REST API</span>
-                <span><i class="fa-solid fa-diagram-project icon-sm"></i> SCRUM</span>
+                <span><i class="fa-brands fa-react"></i> React</span>
+                <span><i class="fa-brands fa-laravel"></i> Laravel</span>
+                <span><i class="fa-solid fa-database"></i> PostgreSQL</span>
+                <span>REST API</span>
+                <span>SCRUM</span>
             </div>
             <a href="https://github.com/darwinjcn/gcs-project" target="_blank" class="proj-link">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
@@ -818,7 +935,7 @@
             </a>
         </article>
 
-        <article class="proj-card" data-anim data-cat="fullstack">
+        <article class="proj-card glass glow-card" data-anim data-cat="fullstack">
             <div class="proj-top">
                 <div>
                     <div class="proj-cat">Full-Stack · UNETI</div>
@@ -828,11 +945,11 @@
             </div>
             <p class="proj-desc">Control de generadores eléctricos y consumo de combustible con documentación UML completa (clases, secuencia, despliegue) y arquitectura dockerizada.</p>
             <div class="proj-techs">
-                <span><i class="fa-brands fa-python icon-sm"></i> Django</span>
-                <span><i class="fa-brands fa-react icon-sm"></i> React</span>
-                <span><i class="fa-solid fa-database icon-sm"></i> PostgreSQL</span>
-                <span><i class="fa-solid fa-diagram-project icon-sm"></i> PlantUML</span>
-                <span><i class="fa-solid fa-diagram-project icon-sm"></i> Mermaid</span>
+                <span><i class="fa-brands fa-python"></i> Django</span>
+                <span><i class="fa-brands fa-react"></i> React</span>
+                <span><i class="fa-solid fa-database"></i> PostgreSQL</span>
+                <span>PlantUML</span>
+                <span>Mermaid</span>
             </div>
             <a href="https://github.com/darwinjcn/sistema-gestion-combustible" target="_blank" class="proj-link">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
@@ -840,7 +957,7 @@
             </a>
         </article>
 
-        <article class="proj-card" data-anim data-cat="frontend">
+        <article class="proj-card glass glow-card" data-anim data-cat="frontend">
             <div class="proj-top">
                 <div>
                     <div class="proj-cat">Frontend · Angular</div>
@@ -850,11 +967,11 @@
             </div>
             <p class="proj-desc">Monitoreo de criptoactivos en tiempo real con Angular Signals, Web Workers para cálculos en background y visualizaciones SVG interactivas.</p>
             <div class="proj-techs">
-                <span><i class="fa-brands fa-angular icon-sm"></i> Angular</span>
-                <span><i class="fa-brands fa-js icon-sm" style="color:#3178C6"></i> TypeScript</span>
-                <span><i class="fa-solid fa-bolt icon-sm"></i> Signals</span>
-                <span><i class="fa-solid fa-gears icon-sm"></i> Web Workers</span>
-                <span><i class="fa-solid fa-rotate icon-sm"></i> RxJS</span>
+                <span><i class="fa-brands fa-angular"></i> Angular</span>
+                <span><i class="fa-brands fa-js"></i> TypeScript</span>
+                <span>Signals</span>
+                <span>Web Workers</span>
+                <span>RxJS</span>
             </div>
             <a href="https://github.com/darwinjcn/crypto-monitor" target="_blank" class="proj-link">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
@@ -862,20 +979,20 @@
             </a>
         </article>
 
-        <article class="proj-card" data-anim data-cat="fullstack">
+        <article class="proj-card glass glow-card" data-anim data-cat="fullstack">
             <div class="proj-top">
                 <div>
-                    <div class="proj-cat">Laboratorio Técnico</div>
+                    <div class="proj-cat">Laboratorio</div>
                     <h3 class="proj-name">Node Express TypeScript</h3>
                 </div>
                 <div class="proj-emoji">🧪</div>
             </div>
             <p class="proj-desc">Dos módulos: rutas dinámicas con Express y tipado estricto con TypeScript. Arquitectura dockerizada con middleware personalizado.</p>
             <div class="proj-techs">
-                <span><i class="fa-brands fa-node-js icon-sm"></i> Node.js</span>
-                <span><i class="fa-brands fa-js icon-sm" style="color:#3178C6"></i> TypeScript</span>
-                <span><i class="fa-brands fa-node-js icon-sm"></i> Express</span>
-                <span><i class="fa-brands fa-docker icon-sm"></i> Docker</span>
+                <span><i class="fa-brands fa-node-js"></i> Node.js</span>
+                <span><i class="fa-brands fa-js"></i> TypeScript</span>
+                <span><i class="fa-brands fa-node-js"></i> Express</span>
+                <span><i class="fa-brands fa-docker"></i> Docker</span>
             </div>
             <a href="https://github.com/darwinjcn/node-express-typescript-logic" target="_blank" class="proj-link">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
@@ -883,7 +1000,7 @@
             </a>
         </article>
 
-        <article class="proj-card" data-anim data-cat="data">
+        <article class="proj-card glass glow-card" data-anim data-cat="data">
             <div class="proj-top">
                 <div>
                     <div class="proj-cat">Business Intelligence</div>
@@ -893,11 +1010,11 @@
             </div>
             <p class="proj-desc">Dashboards de análisis financiero P&L, expansión retail geoespacial, control de flota logística y análisis comercial con Star Schema y DAX avanzado.</p>
             <div class="proj-techs">
-                <span><i class="fa-solid fa-chart-pie icon-sm" style="color:#F2C811"></i> Power BI</span>
-                <span><i class="fa-solid fa-chart-line icon-sm" style="color:#F2C811"></i> DAX</span>
-                <span><i class="fa-solid fa-code icon-sm"></i> M</span>
-                <span><i class="fa-solid fa-database icon-sm"></i> Star Schema</span>
-                <span><i class="fa-solid fa-arrows-rotate icon-sm"></i> ETL</span>
+                <span><i class="fa-solid fa-chart-pie"></i> Power BI</span>
+                <span><i class="fa-solid fa-chart-line"></i> DAX</span>
+                <span>M</span>
+                <span>Star Schema</span>
+                <span>ETL</span>
             </div>
             <a href="https://github.com/darwinjcn/powerbi-proyectos" target="_blank" class="proj-link">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
@@ -905,7 +1022,7 @@
             </a>
         </article>
 
-        <article class="proj-card" data-anim data-cat="frontend">
+        <article class="proj-card glass glow-card" data-anim data-cat="frontend">
             <div class="proj-top">
                 <div>
                     <div class="proj-cat">Móvil · Ionic</div>
@@ -915,9 +1032,9 @@
             </div>
             <p class="proj-desc">App híbrida con menú lateral deslizable, navegación estructurada y diseño responsive. Arquitectura basada en componentes de Angular.</p>
             <div class="proj-techs">
-                <span><i class="fa-solid fa-mobile-screen-button icon-sm" style="color:#3880FF"></i> Ionic 8</span>
-                <span><i class="fa-brands fa-angular icon-sm"></i> Angular 18</span>
-                <span><i class="fa-brands fa-js icon-sm" style="color:#3178C6"></i> TypeScript</span>
+                <span><i class="fa-solid fa-mobile-screen-button"></i> Ionic 8</span>
+                <span><i class="fa-brands fa-angular"></i> Angular 18</span>
+                <span><i class="fa-brands fa-js"></i> TypeScript</span>
             </div>
             <a href="https://github.com/darwinjcn/mi-app-ionic-app" target="_blank" class="proj-link">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
@@ -925,7 +1042,7 @@
             </a>
         </article>
 
-        <article class="proj-card" data-anim data-cat="fullstack">
+        <article class="proj-card glass glow-card" data-anim data-cat="fullstack" style="grid-column: 1 / -1;">
             <div class="proj-top">
                 <div>
                     <div class="proj-cat">Pasantía · CANTV NEA</div>
@@ -935,11 +1052,11 @@
             </div>
             <p class="proj-desc">Plataforma para gestión de servicios de salud con sistema de roles, permisos y administración de usuarios. Desarrollada en pasantía profesional.</p>
             <div class="proj-techs">
-                <span><i class="fa-brands fa-python icon-sm"></i> Python</span>
-                <span><i class="fa-brands fa-python icon-sm"></i> Django</span>
-                <span><i class="fa-brands fa-html5 icon-sm"></i> HTML</span>
-                <span><i class="fa-brands fa-js icon-sm"></i> JavaScript</span>
-                <span><i class="fa-solid fa-database icon-sm"></i> SQLite</span>
+                <span><i class="fa-brands fa-python"></i> Python</span>
+                <span><i class="fa-brands fa-python"></i> Django</span>
+                <span><i class="fa-brands fa-html5"></i> HTML</span>
+                <span><i class="fa-brands fa-js"></i> JavaScript</span>
+                <span><i class="fa-solid fa-database"></i> SQLite</span>
             </div>
             <a href="https://github.com/darwinjcn/sistema_salud" target="_blank" class="proj-link">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
@@ -954,7 +1071,7 @@
 <section class="sec" id="experience">
     <div class="sec-head">
         <span class="sec-n">04</span>
-        <h2 class="sec-t">Trayectoria <em>profesional</em></h2>
+        <h2 class="sec-t">Trayectoria <span class="grad-text">profesional</span></h2>
         <div class="sec-rule"></div>
     </div>
 
@@ -963,40 +1080,25 @@
             <div class="tl-date">Desarrollo Full-Stack & BI</div>
             <div class="tl-role">Full-Stack Developer & Data Analyst</div>
             <div class="tl-co">Freelance / Proyectos universitarios y propios</div>
-            <div class="tl-desc">
-                Soluciones web para entornos reales: plataformas satelitales (CANTV),
-                sistemas de combustible, monitoreo financiero y dashboards de BI.
-            </div>
+            <div class="tl-desc">Soluciones web para entornos reales: plataformas satelitales (CANTV), sistemas de combustible, monitoreo financiero y dashboards de BI.</div>
         </div>
-
         <div class="tl-item" data-anim>
             <div class="tl-date">Pasantía — Gerencia de Operaciones Satelitales</div>
             <div class="tl-role">Desarrollador — GCS (CANTV)</div>
             <div class="tl-co">Caracas, Camatagua, Baemari</div>
-            <div class="tl-desc">
-                Plataforma web para gestión de contingencias satelitales.
-                Sistema con roles, trazabilidad, PDFs y metodología SCRUM.
-            </div>
+            <div class="tl-desc">Plataforma web para gestión de contingencias satelitales. Sistema con roles, trazabilidad, PDFs y metodología SCRUM.</div>
         </div>
-
         <div class="tl-item" data-anim>
             <div class="tl-date">Pasantía — NEA CANTV</div>
             <div class="tl-role">Desarrollador — Sistema de Gestión de Salud</div>
             <div class="tl-co">Núcleo de Evaluación y Análisis</div>
-            <div class="tl-desc">
-                Gestión de servicios de salud con sistema de roles y permisos.
-                Primera experiencia en entorno corporativo.
-            </div>
+            <div class="tl-desc">Gestión de servicios de salud con sistema de roles y permisos. Primera experiencia en entorno corporativo.</div>
         </div>
-
         <div class="tl-item" data-anim>
             <div class="tl-date">Formación Académica</div>
             <div class="tl-role">Contador Público + Ingeniero Informático</div>
             <div class="tl-co">Doble titulación universitaria</div>
-            <div class="tl-desc">
-                Contabilidad, finanzas y auditoría + ingeniería de software
-                y bases de datos. Esta dualidad define mi enfoque como desarrollador.
-            </div>
+            <div class="tl-desc">Contabilidad, finanzas y auditoría + ingeniería de software y bases de datos. Esta dualidad define mi enfoque como desarrollador.</div>
         </div>
     </div>
 </section>
@@ -1004,25 +1106,22 @@
 <!-- CONTACT -->
 <section class="contact-sec" id="contact">
     <div class="contact-ey">Hablemos</div>
-    <h2 class="contact-h">¿Tienes un proyecto<br><em>en mente?</em></h2>
-    <p class="contact-tx">
-        Disponible para nuevos proyectos, oportunidades laborales
-        o simplemente conversar sobre tecnología.
-    </p>
+    <h2 class="contact-h">¿Tienes un proyecto<br><span class="grad-text">en mente?</span></h2>
+    <p class="contact-tx">Disponible para nuevos proyectos, oportunidades laborales o simplemente conversar sobre tecnología.</p>
     <div class="contact-g">
-        <a href="mailto:colmenaresdarwin06@gmail.com" class="contact-c">
+        <a href="mailto:colmenaresdarwin06@gmail.com" class="contact-c glass-sm">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
             Email
         </a>
-        <a href="https://wa.me/584265152896" target="_blank" class="contact-c">
+        <a href="https://wa.me/584265152896" target="_blank" class="contact-c glass-sm">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
             WhatsApp
         </a>
-        <a href="https://www.linkedin.com/in/darwin-colmenares/" target="_blank" class="contact-c">
+        <a href="https://www.linkedin.com/in/darwin-colmenares/" target="_blank" class="contact-c glass-sm">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
             LinkedIn
         </a>
-        <a href="https://github.com/darwinjcn" target="_blank" class="contact-c">
+        <a href="https://github.com/darwinjcn" target="_blank" class="contact-c glass-sm">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
             GitHub
         </a>
@@ -1057,7 +1156,6 @@
         mobileMenu.classList.remove('visible');
         toggle.classList.remove('open');
     }
-
     function openMobileMenu() {
         mobileMenu.classList.add('visible');
         toggle.classList.add('open');
@@ -1079,7 +1177,7 @@
         });
     });
 
-    document.querySelectorAll('.nav-links a, .nav-cta, .btn-p, .btn-o, .contact-c, .ft-links a').forEach(a => {
+    document.querySelectorAll('.nav-links a, .nav-cta, .btn-primary, .btn-outline, .contact-c, .ft-links a').forEach(a => {
         if (a.getAttribute('href') && a.getAttribute('href').startsWith('#')) {
             a.addEventListener('click', e => {
                 e.preventDefault();
@@ -1099,7 +1197,12 @@
             btn.classList.add('active');
             const cat = btn.dataset.filter;
             document.querySelectorAll('.proj-card').forEach(card => {
-                card.style.display = (cat === 'all' || card.dataset.cat === cat) ? '' : 'none';
+                if (cat === 'all' || card.dataset.cat === cat) {
+                    card.style.display = '';
+                    card.style.gridColumn = '';
+                } else {
+                    card.style.display = 'none';
+                }
             });
         });
     });
