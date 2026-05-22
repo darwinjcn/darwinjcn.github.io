@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Darwin Colmenares — Full-Stack Developer & Data Analyst</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
     <meta name="description" content="Portafolio de Darwin Colmenares. Full-Stack Developer & Data Analyst. Contador Público + Ingeniero Informático.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -561,7 +562,7 @@
             to { opacity: 1; transform: translateY(0); }
         }
 
-        /* ===== RESPONSIVE ===== */
+                /* ===== RESPONSIVE ===== */
         @media (max-width: 1100px) {
             .proj-grid { grid-template-columns: 1fr; }
             .proj-card.featured { grid-template-columns: 1fr; }
@@ -569,24 +570,103 @@
         }
 
         @media (max-width: 960px) {
-            nav { padding: 0 1.5rem; }
+            nav { padding: 0 1.2rem; }
             .nav-links, .nav-cta { display: none; }
             .nav-toggle { display: flex; }
-            .hero { padding: 7rem 1.5rem 4rem; }
-            .hero-inner { grid-template-columns: 1fr; gap: 3rem; }
+
+            .hero { padding: 6rem 1.2rem 3rem; }
+            .hero-inner { grid-template-columns: 1fr; gap: 2.5rem; }
             .hero::after { display: none; }
-            .sec { padding: 5rem 1.5rem; }
-            .contact-sec { padding: 6rem 1.5rem 4rem; }
-            .about-g { grid-template-columns: 1fr; gap: 3rem; }
+            .hero-name { font-size: clamp(2.4rem, 10vw, 3.5rem); }
+            .hero-sub { font-size: 0.8rem; }
+            .hero-actions { gap: 0.8rem; }
+            .btn-p, .btn-o { padding: 0.75rem 1.2rem; font-size: 0.65rem; }
+
+            .sec { padding: 4rem 1.2rem; }
+            .contact-sec { padding: 5rem 1.2rem 3rem; }
+
+            .about-g { grid-template-columns: 1fr; gap: 2.5rem; }
+            .about-side { flex-direction: row; flex-wrap: wrap; gap: 1.5rem; }
+            .stat-bl { flex: 1; min-width: 120px; }
+            .stat-v { font-size: 2rem; }
+
+            .about-quote {
+                font-size: 1rem;
+                padding: 1rem 1.2rem;
+            }
+
             .scroll-h { display: none; }
             .sec-rule { display: none; }
-            footer { flex-direction: column; gap: 1rem; text-align: center; }
+            .sec-t { font-size: clamp(1.5rem, 5vw, 2.2rem); }
+
+            .contact-h { font-size: clamp(1.8rem, 7vw, 3rem); }
+
+            footer {
+                flex-direction: column; gap: 1rem; text-align: center;
+                padding: 2rem 1.2rem;
+            }
         }
 
         @media (max-width: 600px) {
+            body { font-size: 14px; }
+
+            nav { height: 56px; padding: 0 1rem; }
+            .nav-logo { font-size: 0.9rem; }
+
+            .hero { padding: 5rem 1rem 2.5rem; min-height: auto; }
+            .hero-inner { gap: 2rem; }
+            .hero-name { font-size: clamp(2rem, 9vw, 3rem); }
+            .hero-sub { font-size: 0.75rem; max-width: 100%; margin-bottom: 1.8rem; }
+
+            .hero-actions {
+                flex-direction: column; align-items: stretch;
+            }
+            .btn-p, .btn-o {
+                justify-content: center; width: 100%;
+                padding: 0.8rem 1.2rem;
+            }
+
             .hc-grid { grid-template-columns: 1fr; }
-            .contact-g { flex-direction: column; align-items: center; }
-            .proj-card.featured { display: flex; flex-direction: column; }
+            .hc-identity { gap: 1rem; }
+            .hc-avatar { width: 50px; height: 50px; font-size: 1.1rem; }
+
+            .sec { padding: 3.5rem 1rem; }
+            .sec-head { gap: 1rem; margin-bottom: 2.5rem; }
+
+            .about-body p { font-size: 0.82rem; }
+
+            .stk-tags { gap: 0.35rem; }
+            .tag { padding: 0.35rem 0.7rem; font-size: 0.65rem; }
+
+            .about-side { flex-direction: column; gap: 1.2rem; }
+            .stat-bl { min-width: unset; }
+
+            .proj-filter { gap: 0.35rem; }
+            .filter-btn { padding: 0.4rem 0.9rem; font-size: 0.62rem; }
+
+            .proj-card.featured {
+                display: flex; flex-direction: column;
+            }
+            .proj-card.featured .proj-body { padding: 1.5rem; }
+            .proj-card.featured .proj-name { font-size: 1.3rem; }
+
+            .proj-img { height: 160px; }
+            .proj-body { padding: 1.5rem; }
+            .proj-name { font-size: 1.15rem; }
+            .proj-desc { font-size: 0.74rem; }
+            .proj-feat li { font-size: 0.64rem; }
+            .proj-techs span { font-size: 0.58rem; padding: 0.2rem 0.5rem; }
+
+            .contact-sec { padding: 4rem 1rem 3rem; }
+            .contact-tx { font-size: 0.8rem; }
+
+            .contact-g { flex-direction: column; align-items: stretch; }
+            .contact-c {
+                justify-content: center; padding: 0.8rem 1rem;
+                font-size: 0.72rem;
+            }
+
+            .ft-links { flex-wrap: wrap; justify-content: center; }
         }
     </style>
 </head>
