@@ -16,7 +16,16 @@
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Syne:wght@400;600;700;800&family=DM+Mono:ital,wght@0,300;0,400;1,300;1,400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
-        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+        *, *::before, *::after {
+            margin: 0; padding: 0; box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        a:focus, button:focus, .filter-btn:focus, .nav-toggle:focus,
+        a:active, button:active {
+            outline: none;
+            box-shadow: none;
+        }
 
         :root {
             --bg: #0a0a0a;
@@ -163,14 +172,16 @@
             letter-spacing: 0.12em; text-transform: uppercase;
             color: var(--text-muted); text-decoration: none;
             border-bottom: 1px solid var(--border);
-            transition: all 0.2s ease;
+            transition: color 0.2s ease, padding-left 0.2s ease;
         }
         .mobile-menu a:last-child { border-bottom: none; }
-        .mobile-menu a:hover,
+        .mobile-menu a:hover {
+            color: var(--accent);
+            padding-left: 1.8rem;
+        }
         .mobile-menu a:active {
             color: var(--accent);
-            background: rgba(245, 166, 35, 0.05);
-            padding-left: 1.8rem;
+            background: transparent;
         }
 
         /* ===== HERO — CENTERED ===== */
@@ -369,6 +380,10 @@
         }
         .filter-btn:hover, .filter-btn.active { border-color: var(--accent); color: var(--accent); }
         .filter-btn.active { background: var(--accent-glow); }
+        .filter-btn:active {
+            background: var(--accent-glow);
+            color: var(--accent);
+        }
 
         .proj-grid {
             display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem;
@@ -634,7 +649,7 @@
     <a href="https://github.com/darwinjcn" target="_blank">GitHub</a>
 </div>
 
-<!-- HERO — CENTERED, NO CARD -->
+<!-- HERO -->
 <section class="hero" id="home">
     <div class="hero-inner">
         <div class="hero-badge"><span class="dot"></span> Disponible para trabajar</div>
