@@ -173,9 +173,10 @@
             padding-left: 1.8rem;
         }
 
-        /* ===== HERO ===== */
+        /* ===== HERO — CENTERED ===== */
         .hero {
             min-height: 100vh; display: flex; align-items: center;
+            justify-content: center;
             padding: 7rem 3rem 4rem; position: relative; overflow: hidden;
         }
         .hero::before {
@@ -196,12 +197,11 @@
         }
 
         .hero-inner {
-            max-width: 1400px; width: 100%; margin: 0 auto;
-            display: grid; grid-template-columns: 1.15fr 0.85fr;
-            gap: 5rem; align-items: center; position: relative; z-index: 1;
+            max-width: 800px; width: 100%; margin: 0 auto;
+            text-align: center;
+            position: relative; z-index: 1;
+            opacity: 0; animation: fadeUp 0.8s ease forwards 0.2s;
         }
-
-        .hero-text { opacity: 0; animation: fadeUp 0.8s ease forwards 0.2s; }
 
         .hero-badge {
             display: inline-flex; align-items: center; gap: 0.6rem;
@@ -222,22 +222,21 @@
             font-family: var(--font-hero);
             font-size: clamp(3.2rem, 7vw, 6rem);
             font-weight: 800; line-height: 0.95; letter-spacing: -0.04em;
-            margin-bottom: 0.5rem; color: var(--text-primary);
-        }
-        .hero-name em {
-            font-family: var(--font-hero); font-weight: 300;
-            font-style: normal; color: var(--accent);
-            letter-spacing: -0.02em;
+            margin-bottom: 1.5rem; color: var(--text-primary);
         }
 
         .hero-sub {
-            font-family: var(--font-mono); font-size: 0.88rem;
+            font-family: var(--font-mono); font-size: 0.9rem;
             color: var(--text-muted); margin-bottom: 2.5rem;
-            max-width: 480px; line-height: 1.85;
+            max-width: 600px; margin-left: auto; margin-right: auto;
+            line-height: 1.85;
         }
         .hero-sub strong { color: var(--text-primary); font-weight: 400; }
 
-        .hero-actions { display: flex; gap: 1.2rem; align-items: center; flex-wrap: wrap; }
+        .hero-actions {
+            display: flex; gap: 1rem; align-items: center;
+            justify-content: center; flex-wrap: wrap;
+        }
 
         .btn-p {
             display: inline-flex; align-items: center; gap: 0.7rem;
@@ -259,63 +258,9 @@
         .btn-o:hover { border-color: var(--accent); color: var(--accent); }
         .btn-o svg { width: 15px; height: 15px; }
 
-        .hero-card-wrap {
-            opacity: 0; animation: fadeUp 0.8s ease forwards 0.5s;
-            position: relative;
-        }
-        .hero-card {
-            background: var(--surface); border: 1px solid var(--border);
-            padding: 2rem; position: relative; overflow: hidden;
-        }
-        .hero-card::before {
-            content: ''; position: absolute; top: 0; left: 0; right: 0;
-            height: 3px; background: linear-gradient(90deg, var(--accent), transparent 80%);
-        }
-
-        .hc-identity {
-            display: flex; align-items: center; gap: 1.2rem; margin-bottom: 1.8rem;
-        }
-        .hc-avatar {
-            width: 64px; height: 64px; border-radius: 50%;
-            background: linear-gradient(135deg, var(--accent) 0%, var(--accent-dim) 100%);
-            display: flex; align-items: center; justify-content: center;
-            font-family: var(--font-hero); font-size: 1.4rem;
-            font-weight: 700; color: var(--bg); flex-shrink: 0;
-        }
-        .hc-info h3 {
-            font-family: var(--font-hero); font-size: 1.05rem;
-            font-weight: 600; margin-bottom: 0.15rem; color: var(--text-primary);
-        }
-        .hc-info p {
-            font-family: var(--font-mono); font-size: 0.7rem;
-            color: var(--accent); letter-spacing: 0.04em;
-        }
-
-        .hc-label {
-            font-family: var(--font-mono); font-size: 0.62rem;
-            letter-spacing: 0.2em; text-transform: uppercase;
-            color: var(--text-muted); margin-bottom: 0.8rem;
-        }
-        .hc-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.4rem; }
-        .hc-item {
-            padding: 0.5rem 0.8rem; background: var(--bg);
-            border: 1px solid var(--border); font-family: var(--font-mono);
-            font-size: 0.72rem; color: var(--text-secondary);
-            display: flex; align-items: center; gap: 0.55rem;
-            transition: all 0.3s ease;
-        }
-        .hc-item:hover { border-color: var(--accent); color: var(--accent); }
-        .hc-item:hover .fa-brands,
-        .hc-item:hover .fa-solid { color: var(--accent) !important; }
-
-        .hc-deco {
-            position: absolute; bottom: -14px; right: -14px;
-            width: 90px; height: 90px; border: 1px solid var(--accent);
-            opacity: 0.08; z-index: -1;
-        }
-
         .scroll-h {
-            position: absolute; bottom: 2.5rem; left: 3rem;
+            position: absolute; bottom: 2.5rem; left: 50%;
+            transform: translateX(-50%);
             display: flex; align-items: center; gap: 1rem;
             font-family: var(--font-mono); font-size: 0.62rem;
             letter-spacing: 0.2em; text-transform: uppercase;
@@ -352,59 +297,68 @@
         }
         .sec-rule { flex: 1; height: 1px; background: var(--border); }
 
-        /* ===== ABOUT ===== */
-        .about-g { display: grid; grid-template-columns: 1.4fr 0.6fr; gap: 6rem; }
+        /* ===== ABOUT — COMPACT CENTERED ===== */
+        .about-text {
+            max-width: 720px; margin: 0 auto; text-align: center;
+        }
+        .about-text p {
+            color: var(--text-secondary); margin-bottom: 1.2rem;
+            font-size: 0.9rem; line-height: 1.8;
+        }
+        .about-text p strong { color: var(--text-primary); font-weight: 400; }
 
-        .about-body p { color: var(--text-secondary); margin-bottom: 1.5rem; max-width: 620px; }
-        .about-body p strong { color: var(--text-primary); font-weight: 400; }
-
-        .about-quote {
-            padding: 1.5rem 2rem; border-left: 3px solid var(--accent);
-            background: var(--accent-glow); margin: 2rem 0;
-            font-family: var(--font-hero); font-size: 1.1rem;
-            font-weight: 300; font-style: normal;
-            color: var(--text-primary); line-height: 1.7;
-            letter-spacing: 0.01em;
+        .about-stats {
+            display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem;
+            margin-top: 3rem; padding-top: 3rem; border-top: 1px solid var(--border);
+            max-width: 720px; margin-left: auto; margin-right: auto;
         }
 
-        .stk-label {
+        .stat-item {
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+        .stat-item:hover { transform: translateY(-3px); }
+        .stat-item .sv {
+            font-family: var(--font-hero); font-size: 2rem;
+            font-weight: 800; line-height: 1; letter-spacing: -0.03em;
+            color: var(--text-primary); display: block;
+        }
+        .stat-item .sl {
+            font-family: var(--font-mono); font-size: 0.58rem;
+            letter-spacing: 0.15em; text-transform: uppercase;
+            color: var(--text-muted); margin-top: 0.4rem; display: block;
+        }
+
+        /* ===== STACK SECTION ===== */
+        .stack-grid {
+            display: grid; grid-template-columns: repeat(2, 1fr);
+            gap: 2.5rem;
+        }
+
+        .stack-group h3 {
             font-family: var(--font-mono); font-size: 0.62rem;
             letter-spacing: 0.2em; text-transform: uppercase;
-            color: var(--text-muted); margin-bottom: 1rem;
+            color: var(--accent); margin-bottom: 1rem;
         }
-        .stk-tags { display: flex; flex-wrap: wrap; gap: 0.45rem; }
-        .tag {
-            padding: 0.42rem 0.9rem; background: var(--surface);
+
+        .stack-tags {
+            display: flex; flex-wrap: wrap; gap: 0.4rem;
+        }
+        .stack-tags .tag {
+            padding: 0.4rem 0.85rem; background: var(--surface);
             border: 1px solid var(--border); font-family: var(--font-mono);
             font-size: 0.72rem; color: var(--text-secondary);
             transition: all 0.3s ease; cursor: default;
-            display: inline-flex; align-items: center; gap: 0.55rem;
+            display: inline-flex; align-items: center; gap: 0.5rem;
         }
-        .tag:hover { border-color: var(--accent); color: var(--accent); transform: translateY(-2px); }
-        .tag:hover .fa-brands,
-        .tag:hover .fa-solid { color: var(--accent) !important; }
-
-        .stk-group { margin-bottom: 2rem; }
-
-        .about-side { display: flex; flex-direction: column; gap: 2.5rem; }
-
-        .stat-bl {
-            border-left: 2px solid var(--border); padding-left: 1.5rem;
-            transition: border-color 0.3s;
+        .stack-tags .tag:hover {
+            border-color: var(--accent); color: var(--accent);
+            transform: translateY(-2px);
         }
-        .stat-bl:hover { border-color: var(--accent); }
-        .stat-v {
-            font-family: var(--font-hero); font-size: 2.8rem;
-            font-weight: 800; line-height: 1; letter-spacing: -0.03em;
-            color: var(--text-primary);
-        }
-        .stat-l {
-            font-family: var(--font-mono); font-size: 0.62rem;
-            letter-spacing: 0.18em; text-transform: uppercase;
-            color: var(--text-muted); margin-top: 0.4rem;
-        }
+        .stack-tags .tag:hover .fa-brands,
+        .stack-tags .tag:hover .fa-solid { color: var(--accent) !important; }
 
-        /* ===== PROJECTS ===== */
+        /* ===== PROJECTS — COMPACT ===== */
         .proj-filter { display: flex; gap: 0.5rem; margin-bottom: 3rem; flex-wrap: wrap; }
         .filter-btn {
             padding: 0.5rem 1.2rem; background: transparent;
@@ -416,13 +370,15 @@
         .filter-btn:hover, .filter-btn.active { border-color: var(--accent); color: var(--accent); }
         .filter-btn.active { background: var(--accent-glow); }
 
-        .proj-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 2rem; }
+        .proj-grid {
+            display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem;
+        }
 
         .proj-card {
             background: var(--bg-elevated); border: 1px solid var(--border);
-            overflow: hidden; transition: all 0.4s ease;
-            opacity: 0; transform: translateY(25px);
-            display: flex; flex-direction: column;
+            padding: 1.8rem; transition: all 0.4s ease;
+            opacity: 0; transform: translateY(20px);
+            display: flex; flex-direction: column; gap: 0.8rem;
         }
         .proj-card.vis {
             opacity: 1; transform: translateY(0);
@@ -430,82 +386,49 @@
         }
         .proj-card:hover { border-color: var(--accent); }
 
-        .proj-img {
-            height: 200px; position: relative; overflow: hidden;
-            display: flex; align-items: center; justify-content: center;
+        .proj-top {
+            display: flex; justify-content: space-between; align-items: flex-start;
+            gap: 1rem;
         }
-        .proj-img-bg {
-            position: absolute; inset: 0;
-            display: flex; flex-direction: column;
-            align-items: center; justify-content: center;
-            transition: transform 0.5s ease;
-        }
-        .proj-card:hover .proj-img-bg { transform: scale(1.05); }
-
-        .proj-img-bg::before {
-            content: ''; position: absolute; inset: 0;
-            background-image:
-                linear-gradient(var(--border) 1px, transparent 1px),
-                linear-gradient(90deg, var(--border) 1px, transparent 1px);
-            background-size: 30px 30px; opacity: 0.35;
-        }
-        .proj-icon { font-size: 2.5rem; z-index: 1; margin-bottom: 0.3rem; }
-        .proj-num {
-            font-family: var(--font-hero); font-size: 4rem;
-            font-weight: 800; color: var(--text-dim); opacity: 0.15; z-index: 1;
-        }
-
-        .proj-body { padding: 2rem; flex: 1; display: flex; flex-direction: column; }
 
         .proj-cat {
-            font-family: var(--font-mono); font-size: 0.62rem;
+            font-family: var(--font-mono); font-size: 0.6rem;
             letter-spacing: 0.2em; text-transform: uppercase;
-            color: var(--accent); margin-bottom: 0.7rem;
+            color: var(--accent); margin-bottom: 0.4rem;
         }
         .proj-name {
-            font-family: var(--font-hero); font-size: 1.4rem;
+            font-family: var(--font-hero); font-size: 1.15rem;
             font-weight: 600; letter-spacing: -0.02em;
-            margin-bottom: 0.6rem; line-height: 1.25; color: var(--text-primary);
+            line-height: 1.25; color: var(--text-primary);
         }
+        .proj-emoji {
+            font-size: 2rem; flex-shrink: 0; line-height: 1;
+            opacity: 0.8;
+        }
+
         .proj-desc {
-            color: var(--text-muted); font-size: 0.82rem;
-            margin-bottom: 1.2rem; line-height: 1.75; flex: 1;
+            color: var(--text-muted); font-size: 0.78rem;
+            line-height: 1.7; flex: 1;
         }
-        .proj-feat { list-style: none; margin-bottom: 1.2rem; }
-        .proj-feat li {
-            font-family: var(--font-mono); font-size: 0.72rem;
-            color: var(--text-muted); padding: 0.2rem 0;
-            display: flex; align-items: flex-start; gap: 0.5rem;
-        }
-        .proj-feat li::before { content: '→'; color: var(--accent); flex-shrink: 0; }
 
         .proj-techs {
-            display: flex; flex-wrap: wrap; gap: 0.35rem; margin-bottom: 1.5rem;
+            display: flex; flex-wrap: wrap; gap: 0.3rem;
         }
         .proj-techs span {
-            padding: 0.28rem 0.7rem; background: var(--bg);
+            padding: 0.22rem 0.6rem; background: var(--bg);
             border: 1px solid var(--border); font-family: var(--font-mono);
-            font-size: 0.65rem; color: var(--text-secondary);
-            display: inline-flex; align-items: center; gap: 0.4rem;
-        }
-
-        .proj-links { display: flex; gap: 1.2rem; margin-top: auto; }
-        .proj-links a {
-            font-family: var(--font-mono); font-size: 0.72rem;
-            color: var(--text-muted); text-decoration: none;
+            font-size: 0.62rem; color: var(--text-secondary);
             display: inline-flex; align-items: center; gap: 0.35rem;
-            transition: color 0.3s;
         }
-        .proj-links a:hover { color: var(--accent); }
-        .proj-links a svg { width: 14px; height: 14px; }
 
-        .proj-card.featured {
-            grid-column: 1 / -1;
-            display: grid; grid-template-columns: 1fr 1fr;
+        .proj-link {
+            display: inline-flex; align-items: center; gap: 0.35rem;
+            font-family: var(--font-mono); font-size: 0.7rem;
+            color: var(--text-muted); text-decoration: none;
+            transition: color 0.3s; margin-top: 0.3rem;
         }
-        .proj-card.featured .proj-img { height: 100%; min-height: 300px; }
-        .proj-card.featured .proj-body { padding: 3rem; }
-        .proj-card.featured .proj-name { font-size: 1.65rem; }
+        .proj-link:hover { color: var(--accent); }
+        .proj-link svg { width: 14px; height: 14px; }
 
         /* ===== EXPERIENCE ===== */
         .tl { position: relative; padding-left: 3rem; }
@@ -514,7 +437,7 @@
             bottom: 0; width: 1px; background: var(--border);
         }
         .tl-item {
-            position: relative; padding-bottom: 3.5rem;
+            position: relative; padding-bottom: 3rem;
             opacity: 0; transform: translateY(20px);
         }
         .tl-item.vis {
@@ -531,17 +454,17 @@
         .tl-date {
             font-family: var(--font-mono); font-size: 0.65rem;
             letter-spacing: 0.18em; text-transform: uppercase;
-            color: var(--accent); margin-bottom: 0.4rem;
+            color: var(--accent); margin-bottom: 0.3rem;
         }
         .tl-role {
-            font-family: var(--font-hero); font-size: 1.25rem;
-            font-weight: 600; color: var(--text-primary); margin-bottom: 0.2rem;
+            font-family: var(--font-hero); font-size: 1.2rem;
+            font-weight: 600; color: var(--text-primary); margin-bottom: 0.15rem;
         }
         .tl-co {
-            font-family: var(--font-mono); font-size: 0.82rem;
-            color: var(--text-secondary); margin-bottom: 0.8rem;
+            font-family: var(--font-mono); font-size: 0.8rem;
+            color: var(--text-secondary); margin-bottom: 0.6rem;
         }
-        .tl-desc { color: var(--text-muted); font-size: 0.82rem; max-width: 560px; line-height: 1.75; }
+        .tl-desc { color: var(--text-muted); font-size: 0.8rem; max-width: 560px; line-height: 1.7; }
 
         /* ===== CONTACT ===== */
         .contact-sec {
@@ -606,40 +529,36 @@
         }
 
         /* ===== RESPONSIVE ===== */
-        @media (max-width: 1100px) {
-            .proj-grid { grid-template-columns: 1fr; }
-            .proj-card.featured { grid-template-columns: 1fr; }
-            .proj-card.featured .proj-img { min-height: 220px; }
-        }
-
         @media (max-width: 960px) {
             nav { padding: 0 1.2rem; }
             .nav-links, .nav-cta { display: none; }
             .nav-toggle { display: flex; }
 
             .hero { padding: 6rem 1.2rem 3rem; }
-            .hero-inner { grid-template-columns: 1fr; gap: 2.5rem; }
             .hero::after { display: none; }
             .hero-name { font-size: clamp(2.5rem, 10vw, 3.5rem); }
-            .hero-sub { font-size: 0.82rem; }
-            .hero-actions { gap: 0.8rem; }
+            .hero-sub { font-size: 0.82rem; max-width: 100%; }
+            .hero-actions { flex-direction: column; align-items: center; gap: 0.8rem; }
             .btn-p, .btn-o { padding: 0.75rem 1.2rem; font-size: 0.68rem; }
 
-            .sec { padding: 4rem 1.2rem; }
-            .contact-sec { padding: 5rem 1.2rem 3rem; }
+            .sec { padding: 5rem 1.2rem; }
+            .sec-head { margin-bottom: 2.5rem; }
 
-            .about-g { grid-template-columns: 1fr; gap: 2.5rem; }
-            .about-side { flex-direction: row; flex-wrap: wrap; gap: 1.5rem; }
-            .stat-bl { flex: 1; min-width: 120px; }
-            .stat-v { font-size: 2rem; }
+            .about-text { max-width: 100%; }
+            .about-text p { font-size: 0.85rem; }
+            .about-stats { max-width: 100%; grid-template-columns: repeat(2, 1fr); }
+            .stat-item .sv { font-size: 1.6rem; }
 
-            .about-quote { font-size: 1rem; padding: 1rem 1.2rem; }
+            .stack-grid { grid-template-columns: 1fr; gap: 2rem; }
+
+            .proj-grid { grid-template-columns: 1fr; }
 
             .scroll-h { display: none; }
             .sec-rule { display: none; }
             .sec-t { font-size: clamp(1.5rem, 5vw, 2.2rem); }
 
             .contact-h { font-size: clamp(1.8rem, 7vw, 3rem); }
+            .contact-sec { padding: 5rem 1.2rem 3rem; }
 
             footer {
                 flex-direction: column; gap: 1rem; text-align: center;
@@ -649,61 +568,40 @@
 
         @media (max-width: 600px) {
             body { font-size: 14px; line-height: 1.8; }
-
             nav { height: 56px; padding: 0 1rem; }
             .nav-logo { font-size: 0.9rem; }
-
             .mobile-menu { top: 56px; }
 
             .hero { padding: 5rem 1rem 2.5rem; min-height: auto; }
-            .hero-inner { gap: 2rem; }
-            .hero-name { font-size: clamp(2rem, 9vw, 3rem); }
-            .hero-sub { font-size: 0.78rem; max-width: 100%; margin-bottom: 1.8rem; }
+            .hero-name { font-size: clamp(2rem, 9vw, 3rem); margin-bottom: 1rem; }
+            .hero-sub { font-size: 0.78rem; margin-bottom: 1.8rem; }
+            .hero-actions { width: 100%; }
+            .btn-p, .btn-o { width: 100%; justify-content: center; padding: 0.85rem 1.2rem; }
 
-            .hero-actions { flex-direction: column; align-items: stretch; }
-            .btn-p, .btn-o { justify-content: center; width: 100%; padding: 0.85rem 1.2rem; }
+            .sec { padding: 4rem 1rem; }
+            .sec-head { gap: 1rem; }
 
-            .hc-grid { grid-template-columns: 1fr; }
-            .hc-identity { gap: 1rem; }
-            .hc-avatar { width: 50px; height: 50px; font-size: 1.1rem; }
+            .about-text p { font-size: 0.82rem; }
+            .about-stats { gap: 1rem; }
 
-            .sec { padding: 3.5rem 1rem; }
-            .sec-head { gap: 1rem; margin-bottom: 2.5rem; }
+            .stack-tags { gap: 0.3rem; }
+            .stack-tags .tag { padding: 0.35rem 0.7rem; font-size: 0.65rem; }
 
-            .about-body p { font-size: 0.85rem; }
-            .about-quote { font-size: 0.95rem; }
-
-            .stk-tags { gap: 0.35rem; }
-            .tag { padding: 0.38rem 0.75rem; font-size: 0.68rem; }
-
-            .about-side { flex-direction: column; gap: 1.2rem; }
-            .stat-bl { min-width: unset; }
+            .proj-card { padding: 1.4rem; }
+            .proj-name { font-size: 1rem; }
+            .proj-desc { font-size: 0.75rem; }
+            .proj-techs span { font-size: 0.58rem; padding: 0.2rem 0.5rem; }
+            .proj-emoji { font-size: 1.5rem; }
 
             .proj-filter { gap: 0.35rem; }
-            .filter-btn { padding: 0.45rem 0.95rem; font-size: 0.65rem; }
-
-            .proj-card.featured { display: flex; flex-direction: column; }
-            .proj-card.featured .proj-body { padding: 1.5rem; }
-            .proj-card.featured .proj-name { font-size: 1.35rem; }
-
-            .proj-img { height: 160px; }
-            .proj-body { padding: 1.5rem; }
-            .proj-name { font-size: 1.2rem; }
-            .proj-desc { font-size: 0.78rem; }
-            .proj-feat li { font-size: 0.68rem; }
-            .proj-techs span { font-size: 0.6rem; padding: 0.22rem 0.55rem; }
+            .filter-btn { padding: 0.4rem 0.9rem; font-size: 0.62rem; }
 
             .tl { padding-left: 2rem; }
             .tl-item::before { left: -2rem; }
-            .tl-role { font-size: 1.1rem; }
-            .tl-desc { font-size: 0.78rem; }
 
             .contact-sec { padding: 4rem 1rem 3rem; }
-            .contact-tx { font-size: 0.82rem; }
-
             .contact-g { flex-direction: column; align-items: stretch; }
             .contact-c { justify-content: center; padding: 0.85rem 1rem; font-size: 0.74rem; }
-
             .ft-links { flex-wrap: wrap; justify-content: center; }
         }
     </style>
@@ -715,9 +613,10 @@
     <a href="#home" class="nav-logo">darwin<span>.</span>dev</a>
     <ul class="nav-links">
         <li><a href="#about" data-n="01">Sobre mi</a></li>
-        <li><a href="#projects" data-n="02">Proyectos</a></li>
-        <li><a href="#experience" data-n="03">Trayectoria</a></li>
-        <li><a href="https://github.com/darwinjcn" target="_blank" data-n="04">GitHub</a></li>
+        <li><a href="#stack" data-n="02">Stack</a></li>
+        <li><a href="#projects" data-n="03">Proyectos</a></li>
+        <li><a href="#experience" data-n="04">Trayectoria</a></li>
+        <li><a href="https://github.com/darwinjcn" target="_blank" data-n="05">GitHub</a></li>
     </ul>
     <a href="#contact" class="nav-cta">Contactar</a>
     <button class="nav-toggle" id="navToggle" aria-label="Menu">
@@ -725,64 +624,39 @@
     </button>
 </nav>
 
-<!-- MOBILE DROPDOWN MENU -->
+<!-- MOBILE DROPDOWN -->
 <div class="mobile-menu" id="mobileMenu">
     <a href="#about">Sobre mi</a>
+    <a href="#stack">Stack</a>
     <a href="#projects">Proyectos</a>
     <a href="#experience">Trayectoria</a>
     <a href="#contact">Contacto</a>
     <a href="https://github.com/darwinjcn" target="_blank">GitHub</a>
 </div>
 
-<!-- HERO -->
+<!-- HERO — CENTERED, NO CARD -->
 <section class="hero" id="home">
     <div class="hero-inner">
-        <div class="hero-text">
-            <div class="hero-badge"><span class="dot"></span> Disponible para trabajar</div>
-            <h1 class="hero-name">Darwin<br>Colmenares</h1>
-            <p class="hero-sub">
-                <strong>Full-Stack Developer & Data Analyst.</strong>
-                Contador Público + Ingeniero Informático. Construyo soluciones técnicas
-                que responden a <strong>problemas reales de negocio</strong>.
-            </p>
-            <div class="hero-actions">
-                <a href="#projects" class="btn-p">
-                    Ver proyectos
-                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
-                </a>
-                <a href="https://github.com/darwinjcn" target="_blank" class="btn-o">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
-                    GitHub
-                </a>
-                <a href="https://www.linkedin.com/in/darwin-colmenares/" target="_blank" class="btn-o">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
-                    LinkedIn
-                </a>
-            </div>
-        </div>
-
-        <div class="hero-card-wrap">
-            <div class="hero-card">
-                <div class="hc-identity">
-                    <div class="hc-avatar">DC</div>
-                    <div class="hc-info">
-                        <h3>Darwin Colmenares</h3>
-                        <p>Full-Stack & Data Analyst</p>
-                    </div>
-                </div>
-                <div class="hc-label">Stack principal</div>
-                <div class="hc-grid">
-                    <div class="hc-item"><i class="fa-brands fa-python icon"></i>Python</div>
-                    <div class="hc-item"><i class="fa-brands fa-laravel icon"></i>Laravel</div>
-                    <div class="hc-item"><i class="fa-brands fa-react icon"></i>React</div>
-                    <div class="hc-item"><i class="fa-brands fa-angular icon"></i>Angular</div>
-                    <div class="hc-item"><i class="fa-solid fa-database icon"></i>PostgreSQL</div>
-                    <div class="hc-item"><i class="fa-solid fa-chart-line icon" style="color:#F2C811"></i>Power BI</div>
-                    <div class="hc-item"><i class="fa-brands fa-js icon"></i>TypeScript</div>
-                    <div class="hc-item"><i class="fa-brands fa-docker icon"></i>Docker</div>
-                </div>
-            </div>
-            <div class="hc-deco"></div>
+        <div class="hero-badge"><span class="dot"></span> Disponible para trabajar</div>
+        <h1 class="hero-name">Darwin<br>Colmenares</h1>
+        <p class="hero-sub">
+            <strong>Full-Stack Developer & Data Analyst.</strong>
+            Contador Público + Ingeniero Informático. Construyo soluciones técnicas
+            que responden a <strong>problemas reales de negocio</strong>.
+        </p>
+        <div class="hero-actions">
+            <a href="#projects" class="btn-p">
+                Ver proyectos
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
+            </a>
+            <a href="https://github.com/darwinjcn" target="_blank" class="btn-o">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+                GitHub
+            </a>
+            <a href="https://www.linkedin.com/in/darwin-colmenares/" target="_blank" class="btn-o">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+                LinkedIn
+            </a>
         </div>
     </div>
     <div class="scroll-h"><div class="ln"></div> scroll</div>
@@ -795,91 +669,93 @@
         <h2 class="sec-t">Sobre <em>mi</em></h2>
         <div class="sec-rule"></div>
     </div>
-    <div class="about-g">
-        <div class="about-body">
-            <p>
-                Soy <strong>Darwin Colmenares</strong>, desarrollador Full-Stack y analista de datos
-                con una formación poco común: <strong>Contador Público</strong> e <strong>Ingeniero Informático</strong>.
-                Esa dualidad me permite hablar el lenguaje del negocio y traducirlo en sistemas técnicos que funcionan.
-            </p>
-            <div class="about-quote">
-                "Mi formación dual me permite diseñar desde el modelado de datos hasta la interfaz de usuario,
-                entendiendo tanto el lenguaje financiero como el técnico."
-            </div>
-            <p>
-                He desarrollado desde <strong>plataformas de gestión satelital</strong> para CANTV hasta
-                <strong>dashboards de Business Intelligence</strong> con Power BI. Trabajo con arquitecturas
-                backend robustas (Django, Laravel, Node.js), interfaces modernas (React, Angular, Ionic)
-                y transformo datos en <strong>decisiones estratégicas</strong>.
-            </p>
+    <div class="about-text">
+        <p>
+            Soy <strong>Darwin Colmenares</strong>, desarrollador Full-Stack y analista de datos.
+            Mi formación dual — <strong>Contador Público + Ingeniero Informático</strong> — me permite
+            hablar el lenguaje del negocio y traducirlo en sistemas que funcionan.
+        </p>
+        <p>
+            He construido desde plataformas de gestión satelital para <strong>CANTV</strong> hasta
+            dashboards de <strong>Business Intelligence</strong> con Power BI. Trabajo con
+            arquitecturas backend robustas, interfaces modernas y transformo datos en decisiones.
+        </p>
+    </div>
+    <div class="about-stats">
+        <div class="stat-item">
+            <span class="sv">2</span>
+            <span class="sl">Títulos profesionales</span>
+        </div>
+        <div class="stat-item">
+            <span class="sv">7+</span>
+            <span class="sl">Proyectos</span>
+        </div>
+        <div class="stat-item">
+            <span class="sv">15+</span>
+            <span class="sl">Tecnologías</span>
+        </div>
+        <div class="stat-item">
+            <span class="sv">CANTV</span>
+            <span class="sl">Experiencia</span>
+        </div>
+    </div>
+</section>
 
-            <div class="stk-group">
-                <div class="stk-label">Lenguajes & Core</div>
-                <div class="stk-tags">
-                    <span class="tag"><i class="fa-brands fa-python icon-sm"></i> Python</span>
-                    <span class="tag"><i class="fa-brands fa-js icon-sm"></i> JavaScript</span>
-                    <span class="tag"><i class="fa-brands fa-js icon-sm" style="color:#3178C6"></i> TypeScript</span>
-                    <span class="tag"><i class="fa-brands fa-php icon-sm"></i> PHP</span>
-                    <span class="tag"><i class="fa-brands fa-html5 icon-sm"></i> HTML / CSS</span>
-                    <span class="tag"><i class="fa-solid fa-database icon-sm"></i> SQL</span>
-                </div>
-            </div>
-            <div class="stk-group">
-                <div class="stk-label">Frameworks & Backend</div>
-                <div class="stk-tags">
-                    <span class="tag"><i class="fa-brands fa-python icon-sm"></i> Django</span>
-                    <span class="tag"><i class="fa-brands fa-laravel icon-sm"></i> Laravel</span>
-                    <span class="tag"><i class="fa-brands fa-react icon-sm"></i> React</span>
-                    <span class="tag"><i class="fa-brands fa-angular icon-sm"></i> Angular</span>
-                    <span class="tag"><i class="fa-brands fa-node-js icon-sm"></i> Node.js</span>
-                    <span class="tag"><i class="fa-brands fa-node-js icon-sm"></i> Express</span>
-                    <span class="tag"><i class="fa-solid fa-mobile-screen-button icon-sm" style="color:#3880FF"></i> Ionic</span>
-                </div>
-            </div>
-            <div class="stk-group">
-                <div class="stk-label">Bases de Datos & BI</div>
-                <div class="stk-tags">
-                    <span class="tag"><i class="fa-solid fa-database icon-sm"></i> PostgreSQL</span>
-                    <span class="tag"><i class="fa-solid fa-database icon-sm"></i> SQLite</span>
-                    <span class="tag"><i class="fa-solid fa-database icon-sm"></i> SQL Server</span>
-                    <span class="tag"><i class="fa-solid fa-cloud icon-sm"></i> BigQuery</span>
-                    <span class="tag"><i class="fa-solid fa-chart-pie icon-sm" style="color:#F2C811"></i> Power BI</span>
-                    <span class="tag"><i class="fa-solid fa-chart-line icon-sm" style="color:#F2C811"></i> DAX</span>
-                    <span class="tag"><i class="fa-brands fa-python icon-sm"></i> Pandas</span>
-                </div>
-            </div>
-            <div class="stk-group">
-                <div class="stk-label">DevOps & Herramientas</div>
-                <div class="stk-tags">
-                    <span class="tag"><i class="fa-brands fa-docker icon-sm"></i> Docker</span>
-                    <span class="tag"><i class="fa-brands fa-git-alt icon-sm"></i> Git</span>
-                    <span class="tag"><i class="fa-solid fa-code icon-sm"></i> CI/CD</span>
-                    <span class="tag"><i class="fa-brands fa-github icon-sm"></i> GitHub Actions</span>
-                    <span class="tag"><i class="fa-solid fa-diagram-project icon-sm"></i> N8N</span>
-                    <span class="tag"><i class="fa-solid fa-diagram-project icon-sm"></i> PlantUML</span>
-                    <span class="tag"><i class="fa-solid fa-diagram-project icon-sm"></i> Mermaid</span>
-                    <span class="tag"><i class="fa-solid fa-building icon-sm"></i> SAP</span>
-                    <span class="tag"><i class="fa-brands fa-jira icon-sm"></i> Jira</span>
-                </div>
+<!-- STACK -->
+<section class="sec" id="stack">
+    <div class="sec-head">
+        <span class="sec-n">02</span>
+        <h2 class="sec-t">Stack <em>técnico</em></h2>
+        <div class="sec-rule"></div>
+    </div>
+    <div class="stack-grid">
+        <div class="stack-group">
+            <h3>Lenguajes & Core</h3>
+            <div class="stack-tags">
+                <span class="tag"><i class="fa-brands fa-python icon-sm"></i> Python</span>
+                <span class="tag"><i class="fa-brands fa-js icon-sm"></i> JavaScript</span>
+                <span class="tag"><i class="fa-brands fa-js icon-sm" style="color:#3178C6"></i> TypeScript</span>
+                <span class="tag"><i class="fa-brands fa-php icon-sm"></i> PHP</span>
+                <span class="tag"><i class="fa-brands fa-html5 icon-sm"></i> HTML / CSS</span>
+                <span class="tag"><i class="fa-solid fa-database icon-sm"></i> SQL</span>
             </div>
         </div>
-
-        <div class="about-side">
-            <div class="stat-bl">
-                <div class="stat-v">2</div>
-                <div class="stat-l">Títulos profesionales</div>
+        <div class="stack-group">
+            <h3>Frameworks & Backend</h3>
+            <div class="stack-tags">
+                <span class="tag"><i class="fa-brands fa-python icon-sm"></i> Django</span>
+                <span class="tag"><i class="fa-brands fa-laravel icon-sm"></i> Laravel</span>
+                <span class="tag"><i class="fa-brands fa-react icon-sm"></i> React</span>
+                <span class="tag"><i class="fa-brands fa-angular icon-sm"></i> Angular</span>
+                <span class="tag"><i class="fa-brands fa-node-js icon-sm"></i> Node.js</span>
+                <span class="tag"><i class="fa-brands fa-node-js icon-sm"></i> Express</span>
+                <span class="tag"><i class="fa-solid fa-mobile-screen-button icon-sm" style="color:#3880FF"></i> Ionic</span>
             </div>
-            <div class="stat-bl">
-                <div class="stat-v">7+</div>
-                <div class="stat-l">Proyectos en portafolio</div>
+        </div>
+        <div class="stack-group">
+            <h3>Bases de Datos & BI</h3>
+            <div class="stack-tags">
+                <span class="tag"><i class="fa-solid fa-database icon-sm"></i> PostgreSQL</span>
+                <span class="tag"><i class="fa-solid fa-database icon-sm"></i> SQLite</span>
+                <span class="tag"><i class="fa-solid fa-database icon-sm"></i> SQL Server</span>
+                <span class="tag"><i class="fa-solid fa-cloud icon-sm"></i> BigQuery</span>
+                <span class="tag"><i class="fa-solid fa-chart-pie icon-sm" style="color:#F2C811"></i> Power BI</span>
+                <span class="tag"><i class="fa-solid fa-chart-line icon-sm" style="color:#F2C811"></i> DAX</span>
+                <span class="tag"><i class="fa-brands fa-python icon-sm"></i> Pandas</span>
             </div>
-            <div class="stat-bl">
-                <div class="stat-v">15+</div>
-                <div class="stat-l">Tecnologías manejadas</div>
-            </div>
-            <div class="stat-bl">
-                <div class="stat-v">CANTV</div>
-                <div class="stat-l">Experiencia corporativa</div>
+        </div>
+        <div class="stack-group">
+            <h3>DevOps & Herramientas</h3>
+            <div class="stack-tags">
+                <span class="tag"><i class="fa-brands fa-docker icon-sm"></i> Docker</span>
+                <span class="tag"><i class="fa-brands fa-git-alt icon-sm"></i> Git</span>
+                <span class="tag"><i class="fa-solid fa-code icon-sm"></i> CI/CD</span>
+                <span class="tag"><i class="fa-brands fa-github icon-sm"></i> GitHub Actions</span>
+                <span class="tag"><i class="fa-solid fa-diagram-project icon-sm"></i> N8N</span>
+                <span class="tag"><i class="fa-solid fa-diagram-project icon-sm"></i> PlantUML</span>
+                <span class="tag"><i class="fa-solid fa-diagram-project icon-sm"></i> Mermaid</span>
+                <span class="tag"><i class="fa-solid fa-building icon-sm"></i> SAP</span>
+                <span class="tag"><i class="fa-brands fa-jira icon-sm"></i> Jira</span>
             </div>
         </div>
     </div>
@@ -888,7 +764,7 @@
 <!-- PROJECTS -->
 <section class="sec" id="projects">
     <div class="sec-head">
-        <span class="sec-n">02</span>
+        <span class="sec-n">03</span>
         <h2 class="sec-t">Proyectos <em>destacados</em></h2>
         <div class="sec-rule"></div>
     </div>
@@ -902,264 +778,155 @@
 
     <div class="proj-grid">
 
-        <article class="proj-card featured" data-anim data-cat="fullstack">
-            <div class="proj-img">
-                <div class="proj-img-bg" style="background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);">
-                    <div class="proj-icon">🛰️</div>
-                    <div class="proj-num">01</div>
+        <article class="proj-card" data-anim data-cat="fullstack">
+            <div class="proj-top">
+                <div>
+                    <div class="proj-cat">Full-Stack · CANTV</div>
+                    <h3 class="proj-name">Gestión de Contingencias Satelitales</h3>
                 </div>
+                <div class="proj-emoji">🛰️</div>
             </div>
-            <div class="proj-body">
-                <div class="proj-cat">Sistema Full-Stack · CANTV</div>
-                <h3 class="proj-name">Gestión de Contingencias Satelitales (GCS)</h3>
-                <p class="proj-desc">
-                    Plataforma web centralizada para la gestión operativa de contingencias en la
-                    infraestructura satelital de CANTV. Conecta las unidades operativas de
-                    <strong>Caracas, Camatagua y Baemari</strong>, garantizando trazabilidad y
-                    continuidad del servicio de telecomunicaciones nacional.
-                </p>
-                <ul class="proj-feat">
-                    <li>Gestión de usuarios con roles de operador y administrador</li>
-                    <li>Recuperación de contraseña por códigos SMTP</li>
-                    <li>Generación de reportes PDF con jsPDF</li>
-                    <li>Repositorio de documentos técnicos</li>
-                    <li>Trazabilidad completa de eventos por sede</li>
-                </ul>
-                <div class="proj-techs">
-                    <span><i class="fa-brands fa-react icon-sm"></i> React</span>
-                    <span><i class="fa-brands fa-laravel icon-sm"></i> Laravel</span>
-                    <span><i class="fa-brands fa-php icon-sm"></i> PHP</span>
-                    <span><i class="fa-solid fa-database icon-sm"></i> PostgreSQL</span>
-                    <span><i class="fa-solid fa-code icon-sm"></i> REST API</span>
-                    <span><i class="fa-solid fa-diagram-project icon-sm"></i> SCRUM</span>
-                </div>
-                <div class="proj-links">
-                    <a href="https://github.com/darwinjcn/gcs-project" target="_blank">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
-                        Ver código
-                    </a>
-                </div>
+            <p class="proj-desc">Plataforma centralizada para gestión operativa de contingencias en infraestructura satelital de CANTV. Conecta sedes de Caracas, Camatagua y Baemari con trazabilidad completa.</p>
+            <div class="proj-techs">
+                <span><i class="fa-brands fa-react icon-sm"></i> React</span>
+                <span><i class="fa-brands fa-laravel icon-sm"></i> Laravel</span>
+                <span><i class="fa-solid fa-database icon-sm"></i> PostgreSQL</span>
+                <span><i class="fa-solid fa-code icon-sm"></i> REST API</span>
+                <span><i class="fa-solid fa-diagram-project icon-sm"></i> SCRUM</span>
             </div>
+            <a href="https://github.com/darwinjcn/gcs-project" target="_blank" class="proj-link">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+                Ver código
+            </a>
         </article>
 
         <article class="proj-card" data-anim data-cat="fullstack">
-            <div class="proj-img">
-                <div class="proj-img-bg" style="background: linear-gradient(135deg, #1a1a0e 0%, #2d2d1a 100%);">
-                    <div class="proj-icon">⛽</div>
-                    <div class="proj-num">02</div>
+            <div class="proj-top">
+                <div>
+                    <div class="proj-cat">Full-Stack · UNETI</div>
+                    <h3 class="proj-name">Sistema de Gestión de Combustible</h3>
                 </div>
+                <div class="proj-emoji">⛽</div>
             </div>
-            <div class="proj-body">
-                <div class="proj-cat">Sistema Full-Stack · UNETI</div>
-                <h3 class="proj-name">Sistema de Gestión de Combustible</h3>
-                <p class="proj-desc">
-                    Sistema web para el control de generadores eléctricos y consumo de combustible.
-                    Incluye documentación completa con diagramas UML (clases, arquitectura, secuencia, despliegue)
-                    y scripts de generación automática.
-                </p>
-                <ul class="proj-feat">
-                    <li>Diagramas UML con PlantUML y Mermaid</li>
-                    <li>API REST con Django REST Framework</li>
-                    <li>Frontend React con Material-UI</li>
-                    <li>Arquitectura de deployment documentada</li>
-                </ul>
-                <div class="proj-techs">
-                    <span><i class="fa-brands fa-python icon-sm"></i> Django</span>
-                    <span><i class="fa-brands fa-react icon-sm"></i> React</span>
-                    <span><i class="fa-solid fa-database icon-sm"></i> PostgreSQL</span>
-                    <span><i class="fa-solid fa-diagram-project icon-sm"></i> PlantUML</span>
-                    <span><i class="fa-solid fa-diagram-project icon-sm"></i> Mermaid</span>
-                </div>
-                <div class="proj-links">
-                    <a href="https://github.com/darwinjcn/sistema-gestion-combustible" target="_blank">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
-                        Ver código
-                    </a>
-                </div>
+            <p class="proj-desc">Control de generadores eléctricos y consumo de combustible con documentación UML completa (clases, secuencia, despliegue) y arquitectura dockerizada.</p>
+            <div class="proj-techs">
+                <span><i class="fa-brands fa-python icon-sm"></i> Django</span>
+                <span><i class="fa-brands fa-react icon-sm"></i> React</span>
+                <span><i class="fa-solid fa-database icon-sm"></i> PostgreSQL</span>
+                <span><i class="fa-solid fa-diagram-project icon-sm"></i> PlantUML</span>
+                <span><i class="fa-solid fa-diagram-project icon-sm"></i> Mermaid</span>
             </div>
+            <a href="https://github.com/darwinjcn/sistema-gestion-combustible" target="_blank" class="proj-link">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+                Ver código
+            </a>
         </article>
 
         <article class="proj-card" data-anim data-cat="frontend">
-            <div class="proj-img">
-                <div class="proj-img-bg" style="background: linear-gradient(135deg, #0c1220 0%, #1a1040 100%);">
-                    <div class="proj-icon">📊</div>
-                    <div class="proj-num">03</div>
+            <div class="proj-top">
+                <div>
+                    <div class="proj-cat">Frontend · Angular</div>
+                    <h3 class="proj-name">Crypto Monitor</h3>
                 </div>
+                <div class="proj-emoji">📊</div>
             </div>
-            <div class="proj-body">
-                <div class="proj-cat">Aplicación Frontend · Angular</div>
-                <h3 class="proj-name">Crypto Monitor</h3>
-                <p class="proj-desc">
-                    Plataforma de monitoreo de criptoactivos en tiempo real con análisis estadístico
-                    avanzado. Actualización cada 200ms, sistema de alertas personalizadas y
-                    visualizaciones SVG interactivas.
-                </p>
-                <ul class="proj-feat">
-                    <li>Signals de Angular (WritableSignal & Computed)</li>
-                    <li>Web Workers para cálculos estadísticos en background</li>
-                    <li>SMA (Moving Average) y análisis de volatilidad</li>
-                    <li>Directiva personalizada: flash verde/rojo por cambio</li>
-                    <li>ChangeDetectionStrategy.OnPush optimizado</li>
-                </ul>
-                <div class="proj-techs">
-                    <span><i class="fa-brands fa-angular icon-sm"></i> Angular</span>
-                    <span><i class="fa-brands fa-js icon-sm" style="color:#3178C6"></i> TypeScript</span>
-                    <span><i class="fa-solid fa-bolt icon-sm"></i> Signals</span>
-                    <span><i class="fa-solid fa-gears icon-sm"></i> Web Workers</span>
-                    <span><i class="fa-solid fa-vector-square icon-sm"></i> SVG</span>
-                    <span><i class="fa-solid fa-rotate icon-sm"></i> RxJS</span>
-                </div>
-                <div class="proj-links">
-                    <a href="https://github.com/darwinjcn/crypto-monitor" target="_blank">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
-                        Ver código
-                    </a>
-                </div>
+            <p class="proj-desc">Monitoreo de criptoactivos en tiempo real con Angular Signals, Web Workers para cálculos en background y visualizaciones SVG interactivas.</p>
+            <div class="proj-techs">
+                <span><i class="fa-brands fa-angular icon-sm"></i> Angular</span>
+                <span><i class="fa-brands fa-js icon-sm" style="color:#3178C6"></i> TypeScript</span>
+                <span><i class="fa-solid fa-bolt icon-sm"></i> Signals</span>
+                <span><i class="fa-solid fa-gears icon-sm"></i> Web Workers</span>
+                <span><i class="fa-solid fa-rotate icon-sm"></i> RxJS</span>
             </div>
+            <a href="https://github.com/darwinjcn/crypto-monitor" target="_blank" class="proj-link">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+                Ver código
+            </a>
         </article>
 
         <article class="proj-card" data-anim data-cat="fullstack">
-            <div class="proj-img">
-                <div class="proj-img-bg" style="background: linear-gradient(135deg, #0d1117 0%, #161b22 100%);">
-                    <div class="proj-icon">🧪</div>
-                    <div class="proj-num">04</div>
+            <div class="proj-top">
+                <div>
+                    <div class="proj-cat">Laboratorio Técnico</div>
+                    <h3 class="proj-name">Node Express TypeScript</h3>
                 </div>
+                <div class="proj-emoji">🧪</div>
             </div>
-            <div class="proj-body">
-                <div class="proj-cat">Laboratorio Técnico</div>
-                <h3 class="proj-name">Node Express TypeScript Logic</h3>
-                <p class="proj-desc">
-                    Laboratorio dividido en dos módulos: gestión de rutas dinámicas con Express y
-                    tipado estricto con TypeScript. Arquitectura dockerizada, patrones de escalabilidad
-                    y middleware personalizado.
-                </p>
-                <ul class="proj-feat">
-                    <li>Módulo 1: Rutas, middlewares y formularios POST</li>
-                    <li>Módulo 2: Enums, interfaces y API REST tipada</li>
-                    <li>Dockerfiles optimizados por módulo</li>
-                    <li>Documentación de arquitectura incluida</li>
-                </ul>
-                <div class="proj-techs">
-                    <span><i class="fa-brands fa-node-js icon-sm"></i> Node.js</span>
-                    <span><i class="fa-brands fa-js icon-sm" style="color:#3178C6"></i> TypeScript</span>
-                    <span><i class="fa-brands fa-node-js icon-sm"></i> Express</span>
-                    <span><i class="fa-brands fa-docker icon-sm"></i> Docker</span>
-                </div>
-                <div class="proj-links">
-                    <a href="https://github.com/darwinjcn/node-express-typescript-logic" target="_blank">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
-                        Ver código
-                    </a>
-                </div>
+            <p class="proj-desc">Dos módulos: rutas dinámicas con Express y tipado estricto con TypeScript. Arquitectura dockerizada con middleware personalizado.</p>
+            <div class="proj-techs">
+                <span><i class="fa-brands fa-node-js icon-sm"></i> Node.js</span>
+                <span><i class="fa-brands fa-js icon-sm" style="color:#3178C6"></i> TypeScript</span>
+                <span><i class="fa-brands fa-node-js icon-sm"></i> Express</span>
+                <span><i class="fa-brands fa-docker icon-sm"></i> Docker</span>
             </div>
+            <a href="https://github.com/darwinjcn/node-express-typescript-logic" target="_blank" class="proj-link">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+                Ver código
+            </a>
         </article>
 
         <article class="proj-card" data-anim data-cat="data">
-            <div class="proj-img">
-                <div class="proj-img-bg" style="background: linear-gradient(135deg, #1a1800 0%, #2d2800 100%);">
-                    <div class="proj-icon">📈</div>
-                    <div class="proj-num">05</div>
+            <div class="proj-top">
+                <div>
+                    <div class="proj-cat">Business Intelligence</div>
+                    <h3 class="proj-name">Power BI — Portafolio de BI</h3>
                 </div>
+                <div class="proj-emoji">📈</div>
             </div>
-            <div class="proj-body">
-                <div class="proj-cat">Business Intelligence</div>
-                <h3 class="proj-name">Power BI — Portafolio de BI</h3>
-                <p class="proj-desc">
-                    Colección de dashboards enfocados en transformar datos complejos en decisiones
-                    estratégicas. Incluye análisis financiero P&L, expansión retail geoespacial,
-                    control de flota logística y análisis comercial.
-                </p>
-                <ul class="proj-feat">
-                    <li>Estado de Resultados: margen neto 20.7%, punto de equilibrio</li>
-                    <li>Expansión Retail: análisis geoespacial con mapeo</li>
-                    <li>Control de Flota: KPIs de rendimiento logístico</li>
-                    <li>Star Schema, DAX avanzado, Power Query ETL</li>
-                </ul>
-                <div class="proj-techs">
-                    <span><i class="fa-solid fa-chart-pie icon-sm" style="color:#F2C811"></i> Power BI</span>
-                    <span><i class="fa-solid fa-chart-line icon-sm" style="color:#F2C811"></i> DAX</span>
-                    <span><i class="fa-solid fa-code icon-sm"></i> M</span>
-                    <span><i class="fa-solid fa-database icon-sm"></i> Star Schema</span>
-                    <span><i class="fa-solid fa-arrows-rotate icon-sm"></i> ETL</span>
-                </div>
-                <div class="proj-links">
-                    <a href="https://github.com/darwinjcn/powerbi-proyectos" target="_blank">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
-                        Ver código
-                    </a>
-                </div>
+            <p class="proj-desc">Dashboards de análisis financiero P&L, expansión retail geoespacial, control de flota logística y análisis comercial con Star Schema y DAX avanzado.</p>
+            <div class="proj-techs">
+                <span><i class="fa-solid fa-chart-pie icon-sm" style="color:#F2C811"></i> Power BI</span>
+                <span><i class="fa-solid fa-chart-line icon-sm" style="color:#F2C811"></i> DAX</span>
+                <span><i class="fa-solid fa-code icon-sm"></i> M</span>
+                <span><i class="fa-solid fa-database icon-sm"></i> Star Schema</span>
+                <span><i class="fa-solid fa-arrows-rotate icon-sm"></i> ETL</span>
             </div>
+            <a href="https://github.com/darwinjcn/powerbi-proyectos" target="_blank" class="proj-link">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+                Ver código
+            </a>
         </article>
 
         <article class="proj-card" data-anim data-cat="frontend">
-            <div class="proj-img">
-                <div class="proj-img-bg" style="background: linear-gradient(135deg, #0e1a2e 0%, #1c2d4a 100%);">
-                    <div class="proj-icon">📱</div>
-                    <div class="proj-num">06</div>
+            <div class="proj-top">
+                <div>
+                    <div class="proj-cat">Móvil · Ionic</div>
+                    <h3 class="proj-name">App Móvil Multiplataforma</h3>
                 </div>
+                <div class="proj-emoji">📱</div>
             </div>
-            <div class="proj-body">
-                <div class="proj-cat">Aplicación Móvil · Ionic</div>
-                <h3 class="proj-name">App Móvil Multiplataforma</h3>
-                <p class="proj-desc">
-                    Aplicación móvil híbrida con menú lateral deslizable y navegación estructurada.
-                    Diseño responsive adaptable a múltiples dispositivos con arquitectura
-                    basada en componentes de Angular.
-                </p>
-                <ul class="proj-feat">
-                    <li>Menú lateral con iconos y navegación</li>
-                    <li>3 secciones: Inicio, Info Personal, Contacto</li>
-                    <li>Formulario de envío de mensajes</li>
-                    <li>Responsive móvil y escritorio</li>
-                </ul>
-                <div class="proj-techs">
-                    <span><i class="fa-solid fa-mobile-screen-button icon-sm" style="color:#3880FF"></i> Ionic 8</span>
-                    <span><i class="fa-brands fa-angular icon-sm"></i> Angular 18</span>
-                    <span><i class="fa-brands fa-js icon-sm" style="color:#3178C6"></i> TypeScript</span>
-                </div>
-                <div class="proj-links">
-                    <a href="https://github.com/darwinjcn/mi-app-ionic-app" target="_blank">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
-                        Ver código
-                    </a>
-                </div>
+            <p class="proj-desc">App híbrida con menú lateral deslizable, navegación estructurada y diseño responsive. Arquitectura basada en componentes de Angular.</p>
+            <div class="proj-techs">
+                <span><i class="fa-solid fa-mobile-screen-button icon-sm" style="color:#3880FF"></i> Ionic 8</span>
+                <span><i class="fa-brands fa-angular icon-sm"></i> Angular 18</span>
+                <span><i class="fa-brands fa-js icon-sm" style="color:#3178C6"></i> TypeScript</span>
             </div>
+            <a href="https://github.com/darwinjcn/mi-app-ionic-app" target="_blank" class="proj-link">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+                Ver código
+            </a>
         </article>
 
         <article class="proj-card" data-anim data-cat="fullstack">
-            <div class="proj-img">
-                <div class="proj-img-bg" style="background: linear-gradient(135deg, #1a0e0e 0%, #2d1a1a 100%);">
-                    <div class="proj-icon">🏥</div>
-                    <div class="proj-num">07</div>
+            <div class="proj-top">
+                <div>
+                    <div class="proj-cat">Pasantía · CANTV NEA</div>
+                    <h3 class="proj-name">Sistema de Gestión de Salud</h3>
                 </div>
+                <div class="proj-emoji">🏥</div>
             </div>
-            <div class="proj-body">
-                <div class="proj-cat">Pasantía Profesional · CANTV NEA</div>
-                <h3 class="proj-name">Sistema de Gestión de Salud</h3>
-                <p class="proj-desc">
-                    Plataforma desarrollada durante pasantía profesional en CANTV para la gestión
-                    de servicios de salud y administración de usuarios con roles y permisos.
-                    Sistema orientado a optimizar procesos internos de la organización.
-                </p>
-                <ul class="proj-feat">
-                    <li>Gestión de usuarios, roles y permisos</li>
-                    <li>Datos serializados en JSON</li>
-                    <li>Interfaz web funcional con Django</li>
-                </ul>
-                <div class="proj-techs">
-                    <span><i class="fa-brands fa-python icon-sm"></i> Python</span>
-                    <span><i class="fa-brands fa-python icon-sm"></i> Django</span>
-                    <span><i class="fa-brands fa-html5 icon-sm"></i> HTML</span>
-                    <span><i class="fa-brands fa-js icon-sm"></i> JavaScript</span>
-                    <span><i class="fa-solid fa-database icon-sm"></i> SQLite</span>
-                </div>
-                <div class="proj-links">
-                    <a href="https://github.com/darwinjcn/sistema_salud" target="_blank">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
-                        Ver código
-                    </a>
-                </div>
+            <p class="proj-desc">Plataforma para gestión de servicios de salud con sistema de roles, permisos y administración de usuarios. Desarrollada en pasantía profesional.</p>
+            <div class="proj-techs">
+                <span><i class="fa-brands fa-python icon-sm"></i> Python</span>
+                <span><i class="fa-brands fa-python icon-sm"></i> Django</span>
+                <span><i class="fa-brands fa-html5 icon-sm"></i> HTML</span>
+                <span><i class="fa-brands fa-js icon-sm"></i> JavaScript</span>
+                <span><i class="fa-solid fa-database icon-sm"></i> SQLite</span>
             </div>
+            <a href="https://github.com/darwinjcn/sistema_salud" target="_blank" class="proj-link">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+                Ver código
+            </a>
         </article>
 
     </div>
@@ -1168,7 +935,7 @@
 <!-- EXPERIENCE -->
 <section class="sec" id="experience">
     <div class="sec-head">
-        <span class="sec-n">03</span>
+        <span class="sec-n">04</span>
         <h2 class="sec-t">Trayectoria <em>profesional</em></h2>
         <div class="sec-rule"></div>
     </div>
@@ -1179,31 +946,28 @@
             <div class="tl-role">Full-Stack Developer & Data Analyst</div>
             <div class="tl-co">Freelance / Proyectos universitarios y propios</div>
             <div class="tl-desc">
-                Construcción de soluciones web completas para entornos reales:
-                plataformas de gestión satelital (CANTV), sistemas de control de combustible,
-                monitoreo financiero en tiempo real y dashboards de Business Intelligence.
+                Soluciones web para entornos reales: plataformas satelitales (CANTV),
+                sistemas de combustible, monitoreo financiero y dashboards de BI.
             </div>
         </div>
 
         <div class="tl-item" data-anim>
-            <div class="tl-date">Pasantía Profesional — Gerencia de Operaciones Satelitales</div>
-            <div class="tl-role">Desarrollador — Gestión de Contingencias Satelitales (GCS)</div>
-            <div class="tl-co">CANTV — Caracas, Camatagua, Baemari</div>
+            <div class="tl-date">Pasantía — Gerencia de Operaciones Satelitales</div>
+            <div class="tl-role">Desarrollador — GCS (CANTV)</div>
+            <div class="tl-co">Caracas, Camatagua, Baemari</div>
             <div class="tl-desc">
-                Desarrollo de plataforma web centralizada para la gestión de contingencias
-                en infraestructura satelital. Sistema con roles, trazabilidad de eventos,
-                generación de PDFs y repositorio documental. Metodología SCRUM.
+                Plataforma web para gestión de contingencias satelitales.
+                Sistema con roles, trazabilidad, PDFs y metodología SCRUM.
             </div>
         </div>
 
         <div class="tl-item" data-anim>
             <div class="tl-date">Pasantía — NEA CANTV</div>
             <div class="tl-role">Desarrollador — Sistema de Gestión de Salud</div>
-            <div class="tl-co">CANTV — Núcleo de Evaluación y Análisis</div>
+            <div class="tl-co">Núcleo de Evaluación y Análisis</div>
             <div class="tl-desc">
-                Plataforma para la gestión de servicios de salud y administración
-                de usuarios con sistema de roles y permisos. Primera experiencia
-                en entorno corporativo con equipos multidisciplinarios.
+                Gestión de servicios de salud con sistema de roles y permisos.
+                Primera experiencia en entorno corporativo.
             </div>
         </div>
 
@@ -1212,10 +976,8 @@
             <div class="tl-role">Contador Público + Ingeniero Informático</div>
             <div class="tl-co">Doble titulación universitaria</div>
             <div class="tl-desc">
-                Base sólida en contabilidad, finanzas y auditoría complementada con
-                ingeniería de software, bases de datos y análisis de sistemas.
-                Esta combinación define mi enfoque único como desarrollador que entiende
-                el negocio tanto como el código.
+                Contabilidad, finanzas y auditoría + ingeniería de software
+                y bases de datos. Esta dualidad define mi enfoque como desarrollador.
             </div>
         </div>
     </div>
@@ -1226,13 +988,13 @@
     <div class="contact-ey">Hablemos</div>
     <h2 class="contact-h">¿Tienes un proyecto<br><em>en mente?</em></h2>
     <p class="contact-tx">
-        Estoy disponible para colaborar en nuevos proyectos, oportunidades laborales
-        o simplemente conversar sobre tecnología y datos.
+        Disponible para nuevos proyectos, oportunidades laborales
+        o simplemente conversar sobre tecnología.
     </p>
     <div class="contact-g">
         <a href="mailto:colmenaresdarwin06@gmail.com" class="contact-c">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-            colmenaresdarwin06@gmail.com
+            Email
         </a>
         <a href="https://wa.me/584265152896" target="_blank" class="contact-c">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
@@ -1285,11 +1047,9 @@
 
     toggle.addEventListener('click', () => {
         const isOpen = mobileMenu.classList.contains('visible');
-        if (isOpen) { closeMobileMenu(); }
-        else { openMobileMenu(); }
+        if (isOpen) closeMobileMenu(); else openMobileMenu();
     });
 
-    // Close on link click
     mobileMenu.querySelectorAll('a').forEach(a => {
         a.addEventListener('click', e => {
             if (a.getAttribute('href').startsWith('#')) {
@@ -1301,7 +1061,6 @@
         });
     });
 
-    // Smooth scroll for desktop links
     document.querySelectorAll('.nav-links a, .nav-cta, .btn-p, .btn-o, .contact-c, .ft-links a').forEach(a => {
         if (a.getAttribute('href') && a.getAttribute('href').startsWith('#')) {
             a.addEventListener('click', e => {
@@ -1312,28 +1071,19 @@
         }
     });
 
-    // Nav hide on scroll — desktop only
     let last = 0;
     const navEl = document.querySelector('nav');
     window.addEventListener('scroll', () => {
-        const isMobile = window.innerWidth <= 960;
-        if (isMobile) {
-            navEl.style.transform = 'translateY(0)';
-            return;
-        }
+        if (window.innerWidth <= 960) { navEl.style.transform = 'translateY(0)'; return; }
         const c = window.scrollY;
         navEl.style.transform = (c > last && c > 100) ? 'translateY(-100%)' : 'translateY(0)';
         last = c;
     }, { passive: true });
 
-    // Close menu on scroll
     window.addEventListener('scroll', () => {
-        if (mobileMenu.classList.contains('visible')) {
-            closeMobileMenu();
-        }
+        if (mobileMenu.classList.contains('visible')) closeMobileMenu();
     }, { passive: true });
 
-    // Project filters
     document.querySelectorAll('.filter-btn').forEach(btn => {
         btn.addEventListener('click', () => {
             document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
@@ -1345,9 +1095,7 @@
         });
     });
 
-    document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape') closeMobileMenu();
-    });
+    document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeMobileMenu(); });
 </script>
 </body>
 </html>
