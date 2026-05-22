@@ -139,71 +139,93 @@
         .nav-toggle.open span:nth-child(2) { opacity: 0; }
         .nav-toggle.open span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
 
-        /* Mobile menu overlay */
+        /* ===== MOBILE MENU — PANEL STYLE ===== */
         .mobile-menu {
             display: none;
-            position: fixed; inset: 0; z-index: 1001;
-            background: rgba(10, 10, 10, 0.97);
-            backdrop-filter: blur(30px);
+            position: fixed; top: 0; left: 0; bottom: 0;
+            width: 100%; max-width: 320px;
+            z-index: 1001;
+            background: var(--bg);
+            border-right: 1px solid var(--border);
             flex-direction: column;
-            align-items: center; justify-content: center; gap: 1.5rem;
-            opacity: 0; transition: opacity 0.35s ease;
+            transform: translateX(-100%);
+            transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+            overflow-y: auto;
         }
-        .mobile-menu.visible { display: flex; opacity: 1; }
+        .mobile-menu.visible {
+            display: flex;
+            transform: translateX(0);
+        }
 
-        /* Close button inside mobile menu */
-        .mobile-close {
-            position: absolute; top: 0; left: 0; right: 0;
-            height: 56px; display: flex; align-items: center;
-            justify-content: space-between; padding: 0 1rem;
+        .mobile-menu-overlay {
+            display: none;
+            position: fixed; inset: 0;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 1000;
+            opacity: 0;
+            transition: opacity 0.35s ease;
+        }
+        .mobile-menu-overlay.visible {
+            display: block;
+            opacity: 1;
+        }
+
+        /* Panel header */
+        .mobile-header {
+            padding: 1.2rem 1.5rem;
+            display: flex; align-items: center; justify-content: space-between;
             border-bottom: 1px solid var(--border);
+            flex-shrink: 0;
         }
-        .mobile-close-logo {
-            font-family: var(--font-hero); font-weight: 700; font-size: 0.9rem;
-            color: var(--text-primary); text-decoration: none;
+        .mobile-header-logo {
+            font-family: var(--font-hero); font-weight: 700; font-size: 1rem;
+            color: var(--text-primary);
         }
-        .mobile-close-logo span { color: var(--accent); }
+        .mobile-header-logo span { color: var(--accent); }
 
-        .mobile-close-btn {
-            background: none; border: 1px solid var(--border);
-            width: 40px; height: 40px; display: flex;
-            align-items: center; justify-content: center;
-            cursor: pointer; color: var(--text-primary);
-            transition: all 0.3s ease; font-size: 1.1rem;
-        }
-        .mobile-close-btn:hover {
-            border-color: var(--accent);
-            color: var(--accent);
-        }
-
-        .mobile-menu a {
-            font-family: var(--font-hero); font-size: 1.3rem;
-            font-weight: 600; color: var(--text-primary);
-            text-decoration: none; letter-spacing: -0.01em;
-            transition: color 0.3s ease; position: relative;
-            padding: 0.5rem 0;
-        }
-        .mobile-menu a::before {
-            content: attr(data-n); font-family: var(--font-mono);
-            font-size: 0.6rem; font-weight: 400; color: var(--accent);
-            letter-spacing: 0.12em; position: absolute; top: -0.8rem; left: 0;
-        }
-        .mobile-menu a:hover { color: var(--accent); }
-
+        /* Panel links */
         .mobile-menu-links {
-            display: flex; flex-direction: column; gap: 1.2rem;
-            align-items: center;
+            flex: 1; display: flex; flex-direction: column;
+            padding: 1.5rem 0 0;
         }
 
-        .mobile-menu-cta {
-            margin-top: 1rem;
-            padding: 0.65rem 2rem; border: 1px solid var(--accent);
-            color: var(--accent); font-family: var(--font-mono);
-            font-size: 0.7rem; letter-spacing: 0.12em; text-transform: uppercase;
-            text-decoration: none; transition: all 0.3s ease;
+        .mobile-menu-links a {
+            display: block;
+            padding: 0.9rem 1.5rem;
+            font-family: var(--font-hero); font-size: 1.5rem;
+            font-weight: 600; color: var(--text-primary);
+            text-decoration: none; letter-spacing: -0.02em;
+            border-bottom: 1px solid var(--border);
+            transition: all 0.3s ease;
+            position: relative;
         }
-        .mobile-menu-cta:hover {
-            background: var(--accent); color: var(--bg);
+        .mobile-menu-links a::after {
+            content: '';
+            position: absolute; left: 0; top: 0; bottom: 0;
+            width: 3px; background: var(--accent);
+            opacity: 0; transition: opacity 0.3s;
+        }
+        .mobile-menu-links a:hover {
+            color: var(--accent);
+            background: rgba(245, 166, 35, 0.04);
+        }
+        .mobile-menu-links a:hover::after { opacity: 1; }
+
+        /* Panel footer info */
+        .mobile-menu-footer {
+            padding: 1.5rem;
+            border-top: 1px solid var(--border);
+            flex-shrink: 0;
+        }
+        .mobile-menu-footer p {
+            font-family: var(--font-mono); font-size: 0.7rem;
+            color: var(--text-muted); letter-spacing: 0.04em;
+            margin-bottom: 0.3rem;
+        }
+        .mobile-menu-footer .name {
+            font-family: var(--font-hero); font-size: 1rem;
+            font-weight: 600; color: var(--text-primary); letter-spacing: -0.01em;
+            margin-top: 0.5rem;
         }
 
         /* ===== HERO ===== */
@@ -686,11 +708,6 @@
             nav { height: 56px; padding: 0 1rem; }
             .nav-logo { font-size: 0.9rem; }
 
-            /* Mobile menu compact */
-            .mobile-menu { gap: 1.2rem; }
-            .mobile-menu a { font-size: 1.15rem; }
-            .mobile-menu-links { gap: 1rem; }
-
             .hero { padding: 5rem 1rem 2.5rem; min-height: auto; }
             .hero-inner { gap: 2rem; }
             .hero-name { font-size: clamp(2rem, 9vw, 3rem); }
@@ -761,21 +778,24 @@
     </button>
 </nav>
 
-<!-- MOBILE MENU -->
+<!-- MOBILE MENU OVERLAY -->
+<div class="mobile-menu-overlay" id="mobileOverlay"></div>
+
+<!-- MOBILE MENU PANEL -->
 <div class="mobile-menu" id="mobileMenu">
-    <div class="mobile-close">
-        <a href="#home" class="mobile-close-logo">darwin<span>.</span>dev</a>
-        <button class="mobile-close-btn" id="mobileCloseBtn" aria-label="Cerrar menu">
-            <i class="fa-solid fa-xmark"></i>
-        </button>
+    <div class="mobile-header">
+        <div class="mobile-header-logo">DC</div>
     </div>
     <div class="mobile-menu-links">
-        <a href="#about" data-n="01">Sobre mi</a>
-        <a href="#projects" data-n="02">Proyectos</a>
-        <a href="#experience" data-n="03">Trayectoria</a>
-        <a href="#contact" data-n="04">Contacto</a>
+        <a href="#about">Sobre mi</a>
+        <a href="#projects">Proyectos</a>
+        <a href="#experience">Trayectoria</a>
+        <a href="#contact">Contacto</a>
     </div>
-    <a href="https://github.com/darwinjcn" target="_blank" class="mobile-menu-cta">GitHub</a>
+    <div class="mobile-menu-footer">
+        <p>Depósito de mis proyectos</p>
+        <p class="name">Darwin</p>
+    </div>
 </div>
 
 <!-- HERO -->
@@ -1314,30 +1334,64 @@
     }, { threshold: 0.1 });
     document.querySelectorAll('[data-anim]').forEach(el => obs.observe(el));
 
+    const toggle = document.getElementById('navToggle');
+    const mobileMenu = document.getElementById('mobileMenu');
+    const overlay = document.getElementById('mobileOverlay');
+
     function closeMobileMenu() {
         mobileMenu.classList.remove('visible');
+        overlay.classList.remove('visible');
         toggle.classList.remove('open');
         document.body.style.overflow = '';
+        setTimeout(() => {
+            if (!mobileMenu.classList.contains('visible')) {
+                mobileMenu.style.display = 'none';
+                overlay.style.display = 'none';
+            }
+        }, 350);
     }
 
     function openMobileMenu() {
-        mobileMenu.classList.add('visible');
+        mobileMenu.style.display = 'flex';
+        overlay.style.display = 'block';
+        requestAnimationFrame(() => {
+            mobileMenu.classList.add('visible');
+            overlay.classList.add('visible');
+        });
         toggle.classList.add('open');
         document.body.style.overflow = 'hidden';
     }
 
-    document.querySelectorAll('a[href^="#"]').forEach(a => {
+    toggle.addEventListener('click', () => {
+        const isOpen = mobileMenu.classList.contains('visible');
+        if (isOpen) { closeMobileMenu(); }
+        else { openMobileMenu(); }
+    });
+
+    overlay.addEventListener('click', closeMobileMenu);
+
+    document.querySelectorAll('.mobile-menu-links a, .mobile-menu-footer a, .mobile-header-logo').forEach(a => {
         a.addEventListener('click', e => {
-            e.preventDefault();
-            const t = document.querySelector(a.getAttribute('href'));
-            if (t) {
-                t.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                closeMobileMenu();
+            if (a.getAttribute('href')) {
+                e.preventDefault();
+                const t = document.querySelector(a.getAttribute('href'));
+                if (t) t.scrollIntoView({ behavior: 'smooth', block: 'start' });
             }
+            closeMobileMenu();
         });
     });
 
-    // Nav hide/show on scroll — ONLY on desktop
+    document.querySelectorAll('.nav-links a, .nav-cta, .btn-p, .btn-o, .contact-c, .ft-links a').forEach(a => {
+        if (a.getAttribute('href') && a.getAttribute('href').startsWith('#')) {
+            a.addEventListener('click', e => {
+                e.preventDefault();
+                const t = document.querySelector(a.getAttribute('href'));
+                if (t) t.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            });
+        }
+    });
+
+    // Nav hide/show — desktop only
     let last = 0;
     const navEl = document.querySelector('nav');
     window.addEventListener('scroll', () => {
@@ -1361,25 +1415,6 @@
                 card.style.display = (cat === 'all' || card.dataset.cat === cat) ? '' : 'none';
             });
         });
-    });
-
-    // Mobile menu toggle
-    const toggle = document.getElementById('navToggle');
-    const mobileMenu = document.getElementById('mobileMenu');
-    const closeBtn = document.getElementById('mobileCloseBtn');
-
-    toggle.addEventListener('click', () => {
-        const isOpen = mobileMenu.classList.contains('visible');
-        if (isOpen) { closeMobileMenu(); }
-        else { openMobileMenu(); }
-    });
-
-    closeBtn.addEventListener('click', () => {
-        closeMobileMenu();
-    });
-
-    mobileMenu.addEventListener('click', (e) => {
-        if (e.target === mobileMenu) closeMobileMenu();
     });
 
     document.addEventListener('keydown', (e) => {
