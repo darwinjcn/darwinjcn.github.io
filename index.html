@@ -184,9 +184,10 @@
             background: transparent;
         }
 
-        /* ===== HERO — CENTERED ===== */
+        /* ===== HERO ===== */
         .hero {
-            min-height: 100vh; display: flex; align-items: center;
+            min-height: 100vh; min-height: 100svh;
+            display: flex; align-items: center;
             justify-content: center;
             padding: 7rem 3rem 4rem; position: relative; overflow: hidden;
         }
@@ -308,7 +309,7 @@
         }
         .sec-rule { flex: 1; height: 1px; background: var(--border); }
 
-        /* ===== ABOUT — COMPACT CENTERED ===== */
+        /* ===== ABOUT ===== */
         .about-text {
             max-width: 720px; margin: 0 auto; text-align: center;
         }
@@ -340,7 +341,7 @@
             color: var(--text-muted); margin-top: 0.4rem; display: block;
         }
 
-        /* ===== STACK SECTION ===== */
+        /* ===== STACK ===== */
         .stack-grid {
             display: grid; grid-template-columns: repeat(2, 1fr);
             gap: 2.5rem;
@@ -369,7 +370,7 @@
         .stack-tags .tag:hover .fa-brands,
         .stack-tags .tag:hover .fa-solid { color: var(--accent) !important; }
 
-        /* ===== PROJECTS — COMPACT ===== */
+        /* ===== PROJECTS ===== */
         .proj-filter { display: flex; gap: 0.5rem; margin-bottom: 3rem; flex-wrap: wrap; }
         .filter-btn {
             padding: 0.5rem 1.2rem; background: transparent;
@@ -587,7 +588,12 @@
             .nav-logo { font-size: 0.9rem; }
             .mobile-menu { top: 56px; }
 
-            .hero { padding: 5rem 1rem 2.5rem; min-height: auto; }
+            /* Hero always fills full screen on mobile */
+            .hero {
+                padding: 5rem 1rem 2.5rem;
+                min-height: 100vh;
+                min-height: 100dvh;
+            }
             .hero-name { font-size: clamp(2rem, 9vw, 3rem); margin-bottom: 1rem; }
             .hero-sub { font-size: 0.78rem; margin-bottom: 1.8rem; }
             .hero-actions { width: 100%; }
@@ -639,14 +645,13 @@
     </button>
 </nav>
 
-<!-- MOBILE DROPDOWN -->
+<!-- MOBILE DROPDOWN (sin GitHub) -->
 <div class="mobile-menu" id="mobileMenu">
     <a href="#about">Sobre mi</a>
     <a href="#stack">Stack</a>
     <a href="#projects">Proyectos</a>
     <a href="#experience">Trayectoria</a>
     <a href="#contact">Contacto</a>
-    <a href="https://github.com/darwinjcn" target="_blank">GitHub</a>
 </div>
 
 <!-- HERO -->
