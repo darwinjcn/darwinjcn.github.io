@@ -100,7 +100,6 @@
             backdrop-filter: blur(24px);
             background: rgba(10,10,10,0.85);
             border-bottom: 1px solid var(--border);
-            transition: transform 0.4s ease;
         }
 
         .nav-logo {
@@ -588,7 +587,6 @@
             .nav-logo { font-size: 0.9rem; }
             .mobile-menu { top: 56px; }
 
-            /* Hero always fills full screen on mobile */
             .hero {
                 padding: 5rem 1rem 2.5rem;
                 min-height: 100vh;
@@ -629,7 +627,7 @@
 </head>
 <body>
 
-<!-- NAV -->
+<!-- NAV (siempre visible, sin ocultarse al hacer scroll) -->
 <nav>
     <a href="#home" class="nav-logo">darwin<span>.</span>dev</a>
     <ul class="nav-links">
@@ -639,7 +637,7 @@
         <li><a href="#experience" data-n="04">Trayectoria</a></li>
         <li><a href="https://github.com/darwinjcn" target="_blank" data-n="05">GitHub</a></li>
     </ul>
-    <a href="#contact" class="nav-cta">Contactar</a>
+    <a href="#contact" class="nav-cta">Contacto</a>
     <button class="nav-toggle" id="navToggle" aria-label="Menu">
         <span></span><span></span><span></span>
     </button>
@@ -1090,15 +1088,6 @@
             });
         }
     });
-
-    let last = 0;
-    const navEl = document.querySelector('nav');
-    window.addEventListener('scroll', () => {
-        if (window.innerWidth <= 960) { navEl.style.transform = 'translateY(0)'; return; }
-        const c = window.scrollY;
-        navEl.style.transform = (c > last && c > 100) ? 'translateY(-100%)' : 'translateY(0)';
-        last = c;
-    }, { passive: true });
 
     window.addEventListener('scroll', () => {
         if (mobileMenu.classList.contains('visible')) closeMobileMenu();
