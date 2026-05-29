@@ -1,754 +1,702 @@
 <!DOCTYPE html>
-<html lang="es" style="color-scheme: dark;">
+<html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="color-scheme" content="dark">
-    <title>Darwin Colmenares — Full-Stack Developer & Data Analyst</title>
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@200;300;400;500;600;700;800;900&family=DM+Mono:ital,wght@0,300;0,400;1,300;1,400&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <style>
-        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
-        a:focus, button:focus, a:active, button:active { outline: none; box-shadow: none; }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
+  <meta name="theme-color" content="#020617" />
+  <meta name="description" content="Darwin Colmenares - Full-Stack Developer & Data Analyst." />
+  <title>Darwin Colmenares | Full-Stack Developer & Data Analyst</title>
 
-        :root {
-            color-scheme: dark;
-            --bg-deep: #020208;
-            --bg-0: #050510;
-            --bg-1: #0a0a18;
-            --bg-2: #101028;
-            --bg-3: #161636;
-            --glass: rgba(255,255,255,0.04);
-            --glass-soft: rgba(255,255,255,0.025);
-            --glass-strong: rgba(255,255,255,0.07);
-            --glass-border: rgba(255,255,255,0.1);
-            --glass-border-hover: rgba(255,255,255,0.2);
-            --accent: #7c6aef;
-            --accent-light: #b5a8ff;
-            --accent-dim: #5b4abf;
-            --accent-glow: rgba(124,106,239,0.4);
-            --cyan: #34d8f0;
-            --cyan-dim: #0e7490;
-            --cyan-glow: rgba(34,211,238,0.3);
-            --rose: #ff8599;
-            --rose-glow: rgba(251,113,133,0.25);
-            --gold: #fcd470;
-            --green: #4eedb0;
-            --t1: #f4f4fc;
-            --t2: #d0d0e8;
-            --t3: #9898b8;
-            --t4: #606080;
-            --font: 'Outfit', sans-serif;
-            --mono: 'DM Mono', monospace;
-            --r-sm: 12px;
-            --r-md: 18px;
-            --r-lg: 26px;
-            --r-full: 100px;
-        }
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%2360a5fa'/%3E%3Cstop offset='50%25' stop-color='%23a78bfa'/%3E%3Cstop offset='100%25' stop-color='%23f472b6'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='64' height='64' rx='16' fill='%23020617'/%3E%3Ccircle cx='32' cy='32' r='20' fill='url(%23g)'/%3E%3Cpath d='M22 42V22h10c6 0 10 3.8 10 10s-4 10-10 10H22zm8-6h2c2.8 0 5-1.8 5-4s-2.2-4-5-4h-2v8z' fill='white'/%3E%3C/svg%3E">
 
-        html { scroll-behavior: smooth; scrollbar-width: thin; scrollbar-color: var(--accent-dim) var(--bg-0); }
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
 
-        /* Neutralizar Dark Reader en elementos clave */
-        body {
-            background: var(--bg-deep) !important;
-            color: var(--t1) !important;
-            font-family: var(--font);
-            font-weight: 400;
-            font-size: 16px;
-            line-height: 1.65;
-            overflow-x: hidden;
-        }
-        ::selection { background: var(--accent); color: #fff; }
-
-        /* NOISE */
-        body::after {
-            content: ''; position: fixed; inset: 0;
-            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");
-            opacity: 0.025; pointer-events: none; z-index: 10000;
-        }
-
-        .ambient-layer { position: fixed; inset: 0; pointer-events: none; z-index: 0; overflow: hidden; }
-        .orb { position: absolute; border-radius: 50%; will-change: transform; }
-
-        .orb-1 {
-            width: 800px; height: 800px;
-            background: radial-gradient(circle at center, rgba(124,106,239,0.28) 0%, rgba(124,106,239,0.09) 40%, transparent 70%);
-            top: -20%; left: -15%;
-            filter: blur(80px);
-            animation: orbDrift 28s ease-in-out infinite alternate;
-        }
-        .orb-2 {
-            width: 650px; height: 650px;
-            background: radial-gradient(circle at center, rgba(52,216,240,0.22) 0%, rgba(52,216,240,0.07) 40%, transparent 70%);
-            bottom: -15%; right: -10%;
-            filter: blur(80px);
-            animation: orbDrift 28s ease-in-out infinite alternate-reverse;
-        }
-        .orb-3 {
-            width: 500px; height: 500px;
-            background: radial-gradient(circle at center, rgba(255,133,153,0.15) 0%, rgba(255,133,153,0.05) 40%, transparent 70%);
-            top: 45%; left: 35%;
-            filter: blur(80px);
-            animation: orbDrift 35s ease-in-out infinite alternate;
-        }
-        .orb-4 {
-            width: 300px; height: 300px;
-            background: radial-gradient(circle at center, rgba(252,212,112,0.12) 0%, transparent 60%);
-            top: 70%; left: 80%;
-            filter: blur(60px);
-            animation: orbDrift 22s ease-in-out infinite alternate;
-        }
-
-        @keyframes orbDrift {
-            0% { transform: translate(0,0) scale(1); }
-            25% { transform: translate(60px,-40px) scale(1.08); }
-            50% { transform: translate(-30px,30px) scale(0.95); }
-            75% { transform: translate(40px,20px) scale(1.04); }
-            100% { transform: translate(-20px,-30px) scale(1); }
-        }
-
-        .grid-layer {
-            position: fixed; inset: 0; pointer-events: none; z-index: 0;
-            background-image:
-                linear-gradient(rgba(124,106,239,0.04) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(124,106,239,0.04) 1px, transparent 1px);
-            background-size: 80px 80px;
-            mask-image: radial-gradient(ellipse at 50% 30%, rgba(0,0,0,0.6) 0%, transparent 65%);
-            -webkit-mask-image: radial-gradient(ellipse at 50% 30%, rgba(0,0,0,0.6) 0%, transparent 65%);
-        }
-
-        .hero-glow {
-            position: fixed; top: 0; left: 50%; transform: translateX(-50%);
-            width: 100%; max-width: 1200px; height: 100vh;
-            pointer-events: none; z-index: 0;
-            background: radial-gradient(ellipse 60% 50% at 50% 40%, rgba(124,106,239,0.1) 0%, transparent 70%);
-        }
-
-        .section-band {
-            position: absolute; left: 0; right: 0; height: 200px;
-            pointer-events: none; z-index: 0;
-        }
-        .band-about { top: 0; background: linear-gradient(180deg, rgba(124,106,239,0.05) 0%, transparent 100%); }
-        .band-stack { top: 0; background: linear-gradient(180deg, rgba(52,216,240,0.04) 0%, transparent 100%); }
-        .band-projects { top: 0; background: linear-gradient(180deg, rgba(255,133,153,0.04) 0%, transparent 100%); }
-        .band-experience { top: 0; background: linear-gradient(180deg, rgba(124,106,239,0.04) 0%, transparent 100%); }
-
-        /* GLASS CARDS — background y color forzados para Dark Reader */
-        .card {
-            background: var(--glass) !important;
-            backdrop-filter: blur(24px) saturate(1.3);
-            -webkit-backdrop-filter: blur(24px) saturate(1.3);
-            border: 1px solid var(--glass-border) !important;
-            border-radius: var(--r-lg);
-            position: relative; overflow: hidden;
-            transition: all 0.45s cubic-bezier(0.22, 1, 0.36, 1);
-            color: var(--t1) !important;
-        }
-        .card::before {
-            content: ''; position: absolute; top: 0; left: 15%; right: 15%; height: 1px;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.18), transparent);
-            z-index: 2;
-        }
-        .card::after {
-            content: ''; position: absolute; inset: -1px; border-radius: inherit;
-            background: linear-gradient(135deg, rgba(124,106,239,0.25), transparent 35%, transparent 65%, rgba(52,216,240,0.15));
-            opacity: 0; transition: opacity 0.45s ease; z-index: -1; pointer-events: none;
-        }
-        .card:hover::after { opacity: 1; }
-        .card:hover {
-            border-color: var(--glass-border-hover) !important;
-            transform: translateY(-6px);
-            box-shadow:
-                0 30px 80px rgba(0,0,0,0.5),
-                0 0 80px rgba(124,106,239,0.08),
-                inset 0 1px 0 rgba(255,255,255,0.08);
-        }
-        .card-body { padding: 2rem; position: relative; z-index: 1; }
-        .card-body-lg { padding: 2.5rem; position: relative; z-index: 1; }
-
-        .card-elevated {
-            background: var(--glass-strong) !important;
-            border-color: rgba(255,255,255,0.12) !important;
-        }
-        .card-elevated:hover {
-            border-color: rgba(255,255,255,0.22) !important;
-            box-shadow:
-                0 40px 100px rgba(0,0,0,0.55),
-                0 0 100px rgba(124,106,239,0.1),
-                inset 0 1px 0 rgba(255,255,255,0.09);
-        }
-
-        .card-soft {
-            background: var(--glass-soft) !important;
-            border-color: rgba(255,255,255,0.06) !important;
-        }
-
-        .card-inset {
-            box-shadow: inset 0 2px 20px rgba(0,0,0,0.2), inset 0 0 1px rgba(255,255,255,0.03);
-        }
-
-        /* GRADIENT TEXT — protegido con color explícito */
-        .gt {
-            background: linear-gradient(135deg, var(--accent-light) 0%, var(--rose) 50%, var(--cyan) 100%);
-            -webkit-background-clip: text !important;
-            -webkit-text-fill-color: transparent !important;
-            background-clip: text !important;
-            padding-right: 0.08em; display: inline-block;
-        }
-        .gt-cool {
-            background: linear-gradient(135deg, var(--accent-light), var(--cyan));
-            -webkit-background-clip: text !important;
-            -webkit-text-fill-color: transparent !important;
-            background-clip: text !important;
-        }
-
-        /* NAV */
-        nav {
-            position: fixed; top: 0; left: 0; right: 0; z-index: 5000;
-            padding: 0 2.5rem; height: 72px;
-            display: flex; justify-content: space-between; align-items: center;
-            background: rgba(5,5,16,0.75) !important;
-            backdrop-filter: blur(40px) saturate(1.5);
-            -webkit-backdrop-filter: blur(40px) saturate(1.5);
-            border-bottom: 1px solid var(--glass-border) !important;
-            box-shadow: 0 1px 30px rgba(0,0,0,0.35);
-        }
-        .nav-logo { font-family: var(--font); font-weight: 800; font-size: 1.2rem; letter-spacing: -0.04em; color: var(--t1) !important; text-decoration: none; }
-        .nav-logo span { color: var(--accent-light) !important; }
-        .nav-links { display: flex; gap: 2.2rem; list-style: none; }
-        .nav-links a {
-            font-family: var(--mono); font-size: 0.68rem;
-            letter-spacing: 0.16em; text-transform: uppercase;
-            color: var(--t3) !important; text-decoration: none; transition: color 0.3s; position: relative;
-        }
-        .nav-links a::after {
-            content: ''; position: absolute; bottom: -5px; left: 0;
-            width: 0; height: 2px;
-            background: linear-gradient(90deg, var(--accent), var(--cyan));
-            border-radius: 2px; transition: width 0.3s ease;
-        }
-        .nav-links a:hover { color: var(--t1) !important; }
-        .nav-links a:hover::after { width: 100%; }
-        .nav-cta {
-            padding: 0.55rem 1.6rem;
-            background: linear-gradient(135deg, rgba(124,106,239,0.18), rgba(52,216,240,0.1)) !important;
-            border: 1px solid rgba(124,106,239,0.35) !important;
-            color: var(--accent-light) !important;
-            font-family: var(--mono); font-size: 0.68rem;
-            letter-spacing: 0.12em; text-transform: uppercase;
-            text-decoration: none; border-radius: var(--r-full); transition: all 0.3s;
-        }
-        .nav-cta:hover {
-            background: linear-gradient(135deg, rgba(124,106,239,0.32), rgba(52,216,240,0.18)) !important;
-            box-shadow: 0 0 30px rgba(124,106,239,0.28); color: #fff !important;
-        }
-        .nav-toggle { display: none; flex-direction: column; gap: 5px; background: none; border: none; cursor: pointer; padding: 4px; z-index: 5002; }
-        .nav-toggle span { display: block; width: 22px; height: 1.5px; background: var(--t1) !important; transition: all 0.3s; transform-origin: center; }
-        .nav-toggle.open span:nth-child(1) { transform: rotate(45deg) translate(4px, 4px); }
-        .nav-toggle.open span:nth-child(2) { opacity: 0; }
-        .nav-toggle.open span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
-
-        .mobile-menu {
-            display: none; position: fixed; top: 72px; left: 0; right: 0;
-            z-index: 4999; background: rgba(5,5,16,0.97) !important;
-            backdrop-filter: blur(40px); -webkit-backdrop-filter: blur(40px);
-            border-bottom: 1px solid var(--glass-border) !important;
-            flex-direction: column; max-height: 0; overflow: hidden;
-            transition: max-height 0.4s cubic-bezier(0.22, 1, 0.36, 1);
-        }
-        .mobile-menu.visible { display: flex; max-height: 500px; }
-        .mobile-menu a {
-            display: block; padding: 0.85rem 1.5rem;
-            font-family: var(--mono); font-size: 0.72rem;
-            letter-spacing: 0.12em; text-transform: uppercase;
-            color: var(--t3) !important; text-decoration: none;
-            border-bottom: 1px solid var(--glass-border) !important; transition: all 0.25s;
-        }
-        .mobile-menu a:last-child { border-bottom: none !important; }
-        .mobile-menu a:hover { color: var(--accent-light) !important; padding-left: 2rem; }
-        .mobile-menu a:active { color: var(--accent-light) !important; background: transparent !important; }
-
-        /* HERO */
-        .hero {
-            min-height: 100vh; display: flex; align-items: center; justify-content: center;
-            padding: 7rem 4rem 4rem; position: relative; z-index: 1; text-align: center; overflow: visible;
-        }
-        .hero-inner {
-            width: 100%; max-width: 1000px; overflow: visible;
-            opacity: 0; animation: heroReveal 1s cubic-bezier(0.22, 1, 0.36, 1) forwards 0.3s;
-        }
-        @keyframes heroReveal { from { opacity: 0; transform: translateY(40px) scale(0.97); } to { opacity: 1; transform: translateY(0) scale(1); } }
-        .hero-badge {
-            display: inline-flex; align-items: center; gap: 0.65rem;
-            padding: 0.5rem 1.3rem; margin-bottom: 2.5rem;
-            font-family: var(--mono); font-size: 0.68rem; letter-spacing: 0.08em; color: var(--t3) !important;
-        }
-        .hero-badge .dot {
-            width: 8px; height: 8px; background: var(--green) !important; border-radius: 50%;
-            animation: dotPulse 2.5s ease infinite; box-shadow: 0 0 12px rgba(78,237,176,0.55);
-        }
-        @keyframes dotPulse { 0%,100% { opacity: 1; box-shadow: 0 0 0 0 rgba(78,237,176,0.45); } 50% { opacity: 0.7; box-shadow: 0 0 0 12px rgba(78,237,176,0); } }
-        .hero-name {
-            font-family: var(--font); font-size: clamp(3rem, 6.5vw, 5.2rem);
-            font-weight: 900; line-height: 1.05; letter-spacing: 0; margin-bottom: 1.8rem; overflow: visible;
-        }
-        .hero-sub { font-size: 1.1rem; font-weight: 300; color: var(--t2) !important; margin-bottom: 3rem; max-width: 580px; margin-left: auto; margin-right: auto; line-height: 1.85; }
-        .hero-sub strong { color: var(--t1) !important; font-weight: 500; }
-        .hero-actions { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
-
-        .btn-glow {
-            display: inline-flex; align-items: center; gap: 0.7rem;
-            padding: 1rem 2.4rem;
-            background: linear-gradient(135deg, var(--accent) 0%, #9b5cf6 50%, var(--cyan-dim) 100%) !important;
-            color: #fff !important; font-family: var(--mono); font-size: 0.72rem; font-weight: 400;
-            letter-spacing: 0.12em; text-transform: uppercase; text-decoration: none; border: none !important;
-            cursor: pointer; border-radius: var(--r-full); transition: all 0.35s cubic-bezier(0.22, 1, 0.36, 1);
-            box-shadow: 0 4px 30px rgba(124,106,239,0.45), 0 0 60px rgba(124,106,239,0.12), inset 0 1px 0 rgba(255,255,255,0.18);
-            position: relative; overflow: hidden;
-        }
-        .btn-glow::before { content: ''; position: absolute; inset: 0; background: linear-gradient(135deg, transparent, rgba(255,255,255,0.12), transparent); transform: translateX(-100%); transition: transform 0.6s ease; }
-        .btn-glow:hover::before { transform: translateX(100%); }
-        .btn-glow:hover { letter-spacing: 0.2em; transform: translateY(-3px); box-shadow: 0 8px 50px rgba(124,106,239,0.55), 0 0 80px rgba(124,106,239,0.18), inset 0 1px 0 rgba(255,255,255,0.22); }
-
-        .btn-ghost {
-            display: inline-flex; align-items: center; gap: 0.5rem;
-            padding: 1rem 1.8rem; border: 1px solid var(--glass-border) !important;
-            color: var(--t2) !important; font-family: var(--mono); font-size: 0.72rem;
-            letter-spacing: 0.1em; text-transform: uppercase; text-decoration: none;
-            border-radius: var(--r-full); background: var(--glass) !important;
-            backdrop-filter: blur(12px); transition: all 0.35s cubic-bezier(0.22, 1, 0.36, 1);
-        }
-        .btn-ghost:hover { border-color: rgba(124,106,239,0.4) !important; color: var(--accent-light) !important; transform: translateY(-3px); box-shadow: 0 8px 30px rgba(124,106,239,0.14); }
-        .btn-ghost svg { width: 15px; height: 15px; }
-
-        .scroll-cue {
-            position: absolute; bottom: 2.5rem; left: 50%; transform: translateX(-50%);
-            display: flex; align-items: center; gap: 1rem;
-            font-family: var(--mono); font-size: 0.58rem; letter-spacing: 0.22em;
-            text-transform: uppercase; color: var(--t4) !important; opacity: 0;
-            animation: heroReveal 0.6s ease forwards 1.8s; z-index: 1;
-        }
-        .scroll-cue .bar { width: 42px; height: 1px; background: rgba(255,255,255,0.12); position: relative; overflow: hidden; border-radius: 1px; }
-        .scroll-cue .bar::after { content: ''; position: absolute; top: 0; left: -100%; width: 100%; height: 100%; background: linear-gradient(90deg, var(--accent), var(--cyan)); animation: scrollBar 2.2s ease infinite; }
-        @keyframes scrollBar { 0%{left:-100%} 50%,100%{left:100%} }
-
-        /* SECTIONS */
-        .section {
-            padding: 8rem 3rem; max-width: 1200px;
-            margin: 0 auto; position: relative; z-index: 1;
-        }
-        .section-head { display: flex; align-items: center; gap: 1.5rem; margin-bottom: 4rem; }
-        .section-num {
-            font-family: var(--mono); font-size: 0.68rem; color: var(--accent-light) !important;
-            letter-spacing: 0.1em; padding: 0.35rem 0.9rem;
-            border: 1px solid rgba(124,106,239,0.35) !important;
-            border-radius: var(--r-full); background: rgba(124,106,239,0.1) !important;
-        }
-        .section-title { font-family: var(--font); font-size: clamp(1.8rem, 3.5vw, 2.8rem); font-weight: 700; letter-spacing: -0.03em; color: var(--t1) !important; }
-        .section-line { flex: 1; height: 1px; background: linear-gradient(90deg, var(--glass-border), transparent); }
-
-        /* BENTO */
-        .bento { display: grid; grid-template-columns: 1.4fr 1fr 1fr; grid-template-rows: auto auto; gap: 1rem; }
-        .bento-main { grid-column: 1 / 2; grid-row: 1 / 3; }
-        .bento-stack-col { grid-column: 2 / 4; grid-row: 1 / 2; }
-        .bento-stat { grid-column: auto; grid-row: 2 / 3; }
-        .card-label { font-family: var(--mono); font-size: 0.58rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--accent-light) !important; margin-bottom: 1.2rem; display: flex; align-items: center; gap: 0.5rem; }
-        .card-label i { font-size: 0.8rem; opacity: 0.85; }
-        .bento h3 { font-family: var(--font); font-size: 1.2rem; font-weight: 600; letter-spacing: -0.02em; margin-bottom: 0.8rem; color: var(--t1) !important; }
-        .bento p { color: var(--t2) !important; font-size: 0.9rem; line-height: 1.85; }
-        .bento p strong { color: var(--t1) !important; font-weight: 500; }
-        .stat-num { font-family: var(--font); font-size: 3rem; font-weight: 800; line-height: 1; letter-spacing: -0.05em; display: block; margin-bottom: 0.35rem; }
-        .stat-desc { font-family: var(--mono); font-size: 0.6rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--t3) !important; }
-
-        .snippet { background: rgba(0,0,0,0.55) !important; border: 1px solid rgba(255,255,255,0.08) !important; border-radius: var(--r-md); padding: 1.3rem 1.5rem; font-family: var(--mono); font-size: 0.72rem; line-height: 2; color: var(--t2) !important; margin-top: 1.5rem; box-shadow: inset 0 2px 15px rgba(0,0,0,0.25); }
-        .snippet-bar { display: flex; gap: 7px; margin-bottom: 1rem; }
-        .snippet-dot { width: 10px; height: 10px; border-radius: 50%; }
-        .snippet-dot:nth-child(1) { background: #ff5f57 !important; }
-        .snippet-dot:nth-child(2) { background: #febc2e !important; }
-        .snippet-dot:nth-child(3) { background: #28c840 !important; }
-        .sn { color: var(--accent-light) !important; }
-        .sv { color: var(--cyan) !important; }
-        .ss { color: var(--gold) !important; }
-
-        .tag-cloud { display: flex; flex-wrap: wrap; gap: 0.45rem; margin-top: 0.8rem; }
-        .pill {
-            padding: 0.4rem 0.85rem;
-            background: rgba(124,106,239,0.1) !important; border: 1px solid rgba(124,106,239,0.2) !important;
-            font-family: var(--mono); font-size: 0.68rem;
-            color: var(--accent-light) !important; border-radius: var(--r-full);
-            transition: all 0.3s; cursor: default;
-            display: inline-flex; align-items: center; gap: 0.4rem;
-        }
-        .pill:hover { background: rgba(124,106,239,0.18) !important; border-color: rgba(124,106,239,0.38) !important; box-shadow: 0 0 20px rgba(124,106,239,0.12); transform: translateY(-2px); }
-        .pill i { font-size: 0.72rem; }
-
-        /* STACK */
-        .stack-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; }
-        .stack-col-title { font-family: var(--mono); font-size: 0.58rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--cyan) !important; margin-bottom: 1.2rem; padding-bottom: 0.8rem; border-bottom: 1px solid rgba(52,216,240,0.25) !important; }
-        .stack-row { display: flex; align-items: center; gap: 0.75rem; padding: 0.65rem 0; border-bottom: 1px solid rgba(255,255,255,0.04) !important; font-size: 0.88rem; color: var(--t2) !important; transition: all 0.25s; }
-        .stack-row:last-child { border-bottom: none !important; }
-        .stack-row:hover { color: var(--t1) !important; padding-left: 0.6rem; }
-        .stack-row i { font-size: 0.95rem; width: 22px; text-align: center; }
-
-        /* PROJECTS */
-        .filter-bar { display: flex; gap: 0.5rem; margin-bottom: 2.5rem; flex-wrap: wrap; }
-        .filter-btn { padding: 0.5rem 1.4rem; background: var(--glass) !important; border: 1px solid var(--glass-border) !important; color: var(--t3) !important; font-family: var(--mono); font-size: 0.66rem; letter-spacing: 0.1em; text-transform: uppercase; cursor: pointer; transition: all 0.3s; border-radius: var(--r-full); backdrop-filter: blur(12px); }
-        .filter-btn:hover, .filter-btn.active { border-color: rgba(124,106,239,0.45) !important; color: var(--accent-light) !important; background: rgba(124,106,239,0.12) !important; }
-        .filter-btn.active { box-shadow: 0 0 20px rgba(124,106,239,0.14); }
-        .projects-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; }
-        .proj-card { opacity: 0; transform: translateY(24px); display: flex; flex-direction: column; gap: 0.8rem; }
-        .proj-card.vis { opacity: 1; transform: translateY(0); transition: opacity 0.7s ease, transform 0.7s cubic-bezier(0.22, 1, 0.36, 1); }
-        .proj-top { display: flex; justify-content: space-between; align-items: flex-start; gap: 1rem; }
-        .proj-cat { font-family: var(--mono); font-size: 0.56rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--cyan) !important; margin-bottom: 0.4rem; }
-        .proj-title { font-family: var(--font); font-size: 1.2rem; font-weight: 600; letter-spacing: -0.02em; line-height: 1.3; color: var(--t1) !important; }
-        .proj-icon { font-size: 2.2rem; flex-shrink: 0; line-height: 1; filter: drop-shadow(0 0 10px rgba(124,106,239,0.22)); }
-        .proj-desc { color: var(--t3) !important; font-size: 0.84rem; line-height: 1.7; flex: 1; }
-        .proj-tags { display: flex; flex-wrap: wrap; gap: 0.35rem; }
-        .proj-tags span { padding: 0.25rem 0.7rem; background: rgba(255,255,255,0.04) !important; border: 1px solid rgba(255,255,255,0.08) !important; font-family: var(--mono); font-size: 0.6rem; color: var(--t2) !important; border-radius: var(--r-full); display: inline-flex; align-items: center; gap: 0.35rem; }
-        .proj-link { display: inline-flex; align-items: center; gap: 0.4rem; font-family: var(--mono); font-size: 0.7rem; color: var(--t3) !important; text-decoration: none; transition: all 0.3s; margin-top: 0.3rem; }
-        .proj-link:hover { color: var(--accent-light) !important; gap: 0.7rem; }
-        .proj-link svg { width: 14px; height: 14px; }
-
-        /* TIMELINE */
-        .timeline { position: relative; padding-left: 3.5rem; }
-        .timeline::before { content: ''; position: absolute; top: 0; left: 14px; bottom: 0; width: 2px; background: linear-gradient(to bottom, var(--accent), var(--cyan), transparent); border-radius: 2px; }
-        .tl-item { position: relative; padding-bottom: 3.5rem; opacity: 0; transform: translateY(24px); }
-        .tl-item.vis { opacity: 1; transform: translateY(0); transition: opacity 0.6s ease, transform 0.6s cubic-bezier(0.22, 1, 0.36, 1); }
-        .tl-item::before { content: ''; position: absolute; left: -3.5rem; top: 8px; width: 14px; height: 14px; background: var(--accent) !important; border-radius: 50%; transform: translateX(-6px); box-shadow: 0 0 20px var(--accent-glow), 0 0 6px var(--accent); transition: box-shadow 0.3s; }
-        .tl-item:hover::before { box-shadow: 0 0 35px var(--accent-glow), 0 0 70px rgba(124,106,239,0.18); }
-        .tl-date { font-family: var(--mono); font-size: 0.6rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--accent-light) !important; margin-bottom: 0.35rem; }
-        .tl-role { font-family: var(--font); font-size: 1.25rem; font-weight: 600; margin-bottom: 0.15rem; color: var(--t1) !important; }
-        .tl-co { font-family: var(--mono); font-size: 0.82rem; color: var(--t2) !important; margin-bottom: 0.7rem; }
-        .tl-desc { color: var(--t3) !important; font-size: 0.86rem; max-width: 560px; line-height: 1.75; }
-
-        /* CONTACT */
-        .contact-block { text-align: center; padding: 9rem 3rem 5rem; max-width: 920px; margin: 0 auto; position: relative; z-index: 1; }
-        .contact-ey { font-family: var(--mono); font-size: 0.72rem; letter-spacing: 0.28em; text-transform: uppercase; color: var(--accent-light) !important; margin-bottom: 1.5rem; }
-        .contact-h { font-family: var(--font); font-size: clamp(2.5rem, 5vw, 4.5rem); font-weight: 800; letter-spacing: -0.04em; line-height: 1.08; margin-bottom: 1.5rem; color: var(--t1) !important; }
-        .contact-sub { color: var(--t3) !important; font-size: 1rem; max-width: 480px; margin: 0 auto 3.5rem; line-height: 1.85; }
-        .contact-row { display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap; }
-        .contact-btn { display: flex; align-items: center; gap: 0.7rem; padding: 1rem 2rem; color: var(--t2) !important; text-decoration: none; font-family: var(--mono); font-size: 0.82rem; transition: all 0.35s cubic-bezier(0.22, 1, 0.36, 1); border-radius: var(--r-full); }
-        .contact-btn:hover { border-color: rgba(124,106,239,0.4) !important; color: var(--accent-light) !important; transform: translateY(-4px); box-shadow: 0 12px 40px rgba(124,106,239,0.14); }
-        .contact-btn svg { width: 17px; height: 17px; flex-shrink: 0; }
-
-        /* FOOTER */
-        .site-footer { padding: 3rem 3rem; display: flex; justify-content: space-between; align-items: center; border-top: 1px solid var(--glass-border) !important; max-width: 1200px; margin: 0 auto; position: relative; z-index: 1; }
-        .site-footer p { font-family: var(--mono); font-size: 0.64rem; letter-spacing: 0.08em; color: var(--t4) !important; }
-        .site-footer a { color: var(--accent-light) !important; text-decoration: none; }
-        .footer-links { display: flex; gap: 1.5rem; }
-        .footer-links a { color: var(--t4) !important; font-family: var(--mono); font-size: 0.64rem; text-decoration: none; transition: color 0.3s; }
-        .footer-links a:hover { color: var(--accent-light) !important; }
-
-        /* RESPONSIVE */
-        @media (max-width: 960px) {
-            nav { padding: 0 1.2rem; }
-            .nav-links, .nav-cta { display: none; }
-            .nav-toggle { display: flex; }
-            .hero { padding: 6rem 2rem 3rem; }
-            .hero-name { font-size: clamp(2.2rem, 9vw, 3.8rem); }
-            .hero-sub { font-size: 0.95rem; }
-            .hero-actions { flex-direction: column; align-items: center; gap: 0.8rem; }
-            .btn-glow, .btn-ghost { padding: 0.85rem 1.6rem; font-size: 0.68rem; }
-            .section { padding: 6rem 1.5rem; }
-            .section-head { margin-bottom: 3rem; }
-            .section-line { display: none; }
-            .section-title { font-size: clamp(1.5rem, 5vw, 2rem); }
-            .bento { grid-template-columns: 1fr; }
-            .bento-main { grid-column: auto; grid-row: auto; }
-            .bento-stack-col { grid-column: auto; grid-row: auto; }
-            .bento-stat { grid-column: auto; grid-row: auto; }
-            .stack-grid { grid-template-columns: 1fr 1fr; }
-            .projects-grid { grid-template-columns: 1fr; }
-            .scroll-cue { display: none; }
-            .contact-block { padding: 6rem 1.5rem 3rem; }
-            .site-footer { flex-direction: column; gap: 1rem; text-align: center; padding: 2rem 1.2rem; }
-        }
-
-        @media (max-width: 600px) {
-            body { font-size: 15px; }
-            nav { height: 58px; padding: 0 1rem; }
-            .nav-logo { font-size: 1rem; }
-            .hero { padding: 5rem 1.2rem 2.5rem; min-height: 100vh; min-height: 100dvh; }
-            .hero-name { font-size: clamp(2rem, 11vw, 3rem); }
-            .hero-sub { font-size: 0.85rem; margin-bottom: 2.2rem; }
-            .hero-actions { width: 100%; }
-            .btn-glow, .btn-ghost { width: 100%; justify-content: center; padding: 0.9rem 1.2rem; }
-            .section { padding: 5rem 1.2rem; }
-            .section-head { gap: 1rem; }
-            .card-body, .card-body-lg { padding: 1.5rem; }
-            .stat-num { font-size: 2.2rem; }
-            .stack-grid { grid-template-columns: 1fr; }
-            .proj-card .card-body-lg { padding: 1.5rem; }
-            .proj-title { font-size: 1.05rem; }
-            .proj-desc { font-size: 0.78rem; }
-            .proj-icon { font-size: 1.6rem; }
-            .filter-bar { gap: 0.35rem; }
-            .filter-btn { padding: 0.4rem 0.9rem; font-size: 0.6rem; }
-            .timeline { padding-left: 2.5rem; }
-            .tl-item::before { left: -2.5rem; }
-            .contact-block { padding: 5rem 1rem 3rem; }
-            .contact-row { flex-direction: column; align-items: stretch; }
-            .contact-btn { justify-content: center; padding: 0.9rem 1rem; font-size: 0.76rem; }
-            .footer-links { flex-wrap: wrap; justify-content: center; }
-        }
-    </style>
+  <style>
+    :root{
+      --bg:#020617;
+      --card:rgba(15, 23, 42, .62);
+      --card-strong:rgba(15, 23, 42, .82);
+    }
+    html{scroll-behavior:smooth}
+    body{
+      font-family:"Inter",sans-serif;
+      background:
+        radial-gradient(circle at 20% 20%, rgba(59,130,246,.12), transparent 30%),
+        radial-gradient(circle at 80% 30%, rgba(168,85,247,.10), transparent 28%),
+        radial-gradient(circle at 50% 90%, rgba(34,197,94,.08), transparent 25%),
+        linear-gradient(180deg, #020617 0%, #020617 35%, #0b1020 100%);
+      color:#fff;
+      overflow-x:hidden;
+    }
+    ::selection{background:#3b82f6;color:#fff}
+    .glass{
+      background:var(--card);
+      backdrop-filter:blur(18px);
+      -webkit-backdrop-filter:blur(18px);
+      border:1px solid rgba(255,255,255,.08);
+      box-shadow:0 20px 60px rgba(0,0,0,.25);
+    }
+    .glass-strong{
+      background:var(--card-strong);
+      backdrop-filter:blur(20px);
+      -webkit-backdrop-filter:blur(20px);
+      border:1px solid rgba(255,255,255,.1);
+      box-shadow:0 25px 70px rgba(0,0,0,.35);
+    }
+    .gradient-text{
+      background:linear-gradient(135deg,#60a5fa 0%,#a78bfa 50%,#f472b6 100%);
+      -webkit-background-clip:text;
+      -webkit-text-fill-color:transparent;
+      background-clip:text;
+    }
+    .nav-link{position:relative}
+    .nav-link::after{
+      content:"";
+      position:absolute;
+      left:0;
+      bottom:-5px;
+      width:0;
+      height:2px;
+      background:linear-gradient(90deg,#60a5fa,#a78bfa);
+      transition:width .25s ease;
+    }
+    .nav-link:hover::after{width:100%}
+    .reveal{
+      opacity:0;
+      transform:translateY(22px);
+      transition:opacity .8s ease, transform .8s ease;
+    }
+    .reveal.visible{
+      opacity:1;
+      transform:translateY(0);
+    }
+    .project-card{
+      transition:transform .35s ease, box-shadow .35s ease, border-color .35s ease;
+    }
+    .project-card:hover{
+      transform:translateY(-6px);
+      box-shadow:0 24px 60px rgba(0,0,0,.35);
+      border-color:rgba(148,163,184,.28);
+    }
+    .skill-tag{
+      transition:transform .25s ease, background .25s ease, border-color .25s ease;
+    }
+    .skill-tag:hover{
+      transform:translateY(-2px);
+      border-color:rgba(148,163,184,.45);
+      background:rgba(30,41,59,.95);
+    }
+    .filter-btn.active{
+      background:rgba(59,130,246,.14);
+      border-color:rgba(96,165,250,.5);
+      color:#bfdbfe;
+    }
+    .bg-grid{
+      background-image:linear-gradient(rgba(255,255,255,.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.03) 1px, transparent 1px);
+      background-size:60px 60px;
+      mask-image:radial-gradient(circle at center, black 0%, transparent 75%);
+      -webkit-mask-image:radial-gradient(circle at center, black 0%, transparent 75%);
+    }
+    .section-line{height:1px;background:linear-gradient(90deg, rgba(148,163,184,.35), transparent)}
+  </style>
 </head>
-<body>
+<body class="text-white antialiased">
+  <div class="fixed inset-0 pointer-events-none bg-grid opacity-70"></div>
 
-<!-- LAYER 1: AMBIENT ORBS -->
-<div class="ambient-layer">
-    <div class="orb orb-1"></div>
-    <div class="orb orb-2"></div>
-    <div class="orb orb-3"></div>
-    <div class="orb orb-4"></div>
-</div>
+  <header class="fixed top-0 left-0 right-0 z-50 border-b border-white/5 glass-strong">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16">
+        <a href="#home" class="text-xl font-black tracking-tight">
+          <span class="gradient-text">Darwin</span>
+        </a>
 
-<!-- LAYER 2: GRID -->
-<div class="grid-layer"></div>
+        <nav class="hidden md:flex items-center gap-8 text-sm text-slate-300">
+          <a href="#about" class="nav-link hover:text-white transition-colors" data-i18n="nav_about">Sobre mí</a>
+          <a href="#projects" class="nav-link hover:text-white transition-colors" data-i18n="nav_projects">Proyectos</a>
+          <a href="#skills" class="nav-link hover:text-white transition-colors" data-i18n="nav_skills">Skills</a>
+          <a href="#experience" class="nav-link hover:text-white transition-colors" data-i18n="nav_experience">Trayectoria</a>
+          <a href="#contact" class="nav-link hover:text-white transition-colors" data-i18n="nav_contact">Contacto</a>
+        </nav>
 
-<!-- LAYER 3: HERO GLOW -->
-<div class="hero-glow"></div>
-
-<nav>
-    <a href="#home" class="nav-logo">darwin<span>.</span>dev</a>
-    <ul class="nav-links">
-        <li><a href="#about">Sobre mi</a></li>
-        <li><a href="#stack">Stack</a></li>
-        <li><a href="#projects">Proyectos</a></li>
-        <li><a href="#experience">Trayectoria</a></li>
-        <li><a href="https://github.com/darwinjcn" target="_blank">GitHub</a></li>
-    </ul>
-    <a href="#contact" class="nav-cta">Contacto</a>
-    <button class="nav-toggle" id="navToggle" aria-label="Menu"><span></span><span></span><span></span></button>
-</nav>
-
-<div class="mobile-menu" id="mobileMenu">
-    <a href="#about">Sobre mi</a>
-    <a href="#stack">Stack</a>
-    <a href="#projects">Proyectos</a>
-    <a href="#experience">Trayectoria</a>
-    <a href="#contact">Contacto</a>
-</div>
-
-<!-- HERO -->
-<section class="hero" id="home">
-    <div class="hero-inner">
-        <div class="card hero-badge"><span class="dot"></span> Disponible para trabajar</div>
-        <h1 class="hero-name"><span class="gt">Darwin Colmenares</span></h1>
-        <p class="hero-sub"><strong>Full-Stack Developer & Data Analyst.</strong><br>Contador Publico + Ingeniero Informatico. Construyo soluciones que responden a <strong>problemas reales de negocio</strong>.</p>
-        <div class="hero-actions">
-            <a href="#projects" class="btn-glow">Ver proyectos <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg></a>
-            <a href="https://github.com/darwinjcn" target="_blank" class="btn-ghost"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg> GitHub</a>
-            <a href="https://www.linkedin.com/in/darwin-colmenares/" target="_blank" class="btn-ghost"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg> LinkedIn</a>
+        <div class="flex items-center gap-2">
+          <button id="langToggle" class="px-3 py-2 rounded-full border border-white/10 bg-white/5 hover:bg-white/10 text-xs font-semibold tracking-[0.18em] uppercase transition" aria-label="Cambiar idioma">ES</button>
+          <button id="menuBtn" class="md:hidden p-2 rounded-lg border border-white/10 bg-white/5 hover:bg-white/10 transition" aria-label="Abrir menú">
+            <svg id="menuIcon" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+            </svg>
+            <svg id="closeIcon" class="w-6 h-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+            </svg>
+          </button>
         </div>
+      </div>
     </div>
-    <div class="scroll-cue"><div class="bar"></div> scroll</div>
-</section>
 
-<!-- ABOUT -->
-<section class="section" id="about">
-    <div class="section-band band-about"></div>
-    <div class="section-head">
-        <span class="section-num">01</span>
-        <h2 class="section-title">Sobre <span class="gt">mi</span></h2>
-        <div class="section-line"></div>
+    <div id="mobileMenu" class="hidden md:hidden border-t border-white/5 glass-strong">
+      <div class="max-w-7xl mx-auto px-4 py-4 flex flex-col gap-2 text-sm text-slate-300">
+        <a href="#about" class="py-3 px-3 rounded-lg hover:bg-white/5 transition" data-i18n="nav_about">Sobre mí</a>
+        <a href="#projects" class="py-3 px-3 rounded-lg hover:bg-white/5 transition" data-i18n="nav_projects">Proyectos</a>
+        <a href="#skills" class="py-3 px-3 rounded-lg hover:bg-white/5 transition" data-i18n="nav_skills">Skills</a>
+        <a href="#experience" class="py-3 px-3 rounded-lg hover:bg-white/5 transition" data-i18n="nav_experience">Trayectoria</a>
+        <a href="#contact" class="py-3 px-3 rounded-lg hover:bg-white/5 transition" data-i18n="nav_contact">Contacto</a>
+      </div>
     </div>
-    <div class="bento">
-        <div class="card card-elevated bento-main">
-            <div class="card-body-lg">
-                <div class="card-label"><i class="fa-solid fa-user"></i> Perfil</div>
-                <h3>Desarrollador con vision de negocio</h3>
-                <p>Soy <strong>Darwin Colmenares</strong>, desarrollador Full-Stack y analista de datos. Mi formacion dual &mdash; <strong>Contador Publico + Ingeniero Informatico</strong> &mdash; me permite hablar el lenguaje del negocio y traducirlo en sistemas que funcionan.</p>
-                <div class="snippet">
-                    <div class="snippet-bar"><div class="snippet-dot"></div><div class="snippet-dot"></div><div class="snippet-dot"></div></div>
-                    <span class="sn">const</span> <span class="sv">darwin</span> = {<br>&nbsp;&nbsp;<span class="sn">rol</span>: <span class="ss">"Full-Stack & Data Analyst"</span>,<br>&nbsp;&nbsp;<span class="sn">formacion</span>: [<span class="ss">"Contador"</span>, <span class="ss">"Ing. Informatico"</span>],<br>&nbsp;&nbsp;<span class="sn">enfoque</span>: <span class="ss">"Datos → Decisiones"</span>,<br>&nbsp;&nbsp;<span class="sn">stack</span>: [<span class="ss">"Python"</span>, <span class="ss">"React"</span>, <span class="ss">"Laravel"</span>, <span class="ss">"Power BI"</span>]<br>};
-                </div>
+  </header>
+
+  <main class="relative pt-16">
+    <section id="home" class="min-h-screen flex items-center justify-center px-4 sm:px-6">
+      <div class="absolute inset-0 bg-gradient-to-b from-slate-950 via-slate-950/80 to-slate-900"></div>
+      <div class="relative z-10 max-w-6xl mx-auto text-center py-16">
+        <div class="reveal inline-flex items-center gap-2 px-4 py-2 rounded-full border border-blue-500/20 bg-blue-500/10 text-blue-300 text-xs sm:text-sm font-medium mb-6">
+          <span class="w-2 h-2 rounded-full bg-green-400 animate-pulse"></span>
+          <span data-i18n="hero_badge">Disponible para nuevos proyectos</span>
+        </div>
+
+        <h1 class="reveal text-3xl sm:text-5xl lg:text-7xl xl:text-7xl font-black tracking-tight leading-tight mb-6">
+          Darwin <span class="gradient-text">Colmenares</span>
+        </h1>
+
+        <p class="reveal text-lg sm:text-xl lg:text-2xl text-slate-300 font-light mb-4" data-i18n="hero_title">
+          Full-Stack Developer & Data Analyst
+        </p>
+
+        <p class="reveal max-w-3xl mx-auto text-sm sm:text-lg text-slate-400 leading-relaxed mb-10" data-i18n="hero_desc">
+          Contador Público e Ingeniero Informático. Construyo soluciones técnicas que resuelven problemas reales de negocio, desde el modelado de datos hasta la interfaz de usuario.
+        </p>
+
+        <div class="reveal flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4">
+          <a href="#projects" class="px-6 sm:px-8 py-3 sm:py-4 rounded-full bg-blue-600 hover:bg-blue-700 text-white font-semibold transition shadow-lg shadow-blue-500/20 hover:scale-[1.03]" data-i18n="hero_cta_projects">Ver proyectos</a>
+          <a href="#contact" class="px-6 sm:px-8 py-3 sm:py-4 rounded-full border border-white/10 bg-white/5 hover:bg-white/10 text-white font-semibold transition hover:scale-[1.03]" data-i18n="hero_cta_contact">Contactar</a>
+        </div>
+
+        <div class="reveal flex items-center justify-center gap-4 mt-10 flex-wrap">
+          <a href="https://github.com/darwinjcn" target="_blank" class="px-4 py-3 rounded-2xl border border-white/10 bg-white/5 hover:bg-white/10 transition">GitHub</a>
+          <a href="https://www.linkedin.com/in/darwin-colmenares" target="_blank" class="px-4 py-3 rounded-2xl border border-white/10 bg-white/5 hover:bg-white/10 transition">LinkedIn</a>
+          <a href="mailto:colmenaresdarwin06@gmail.com" class="px-4 py-3 rounded-2xl border border-white/10 bg-white/5 hover:bg-white/10 transition">Email</a>
+          <a href="https://wa.me/584265152896" target="_blank" class="px-4 py-3 rounded-2xl border border-white/10 bg-white/5 hover:bg-white/10 transition">WhatsApp</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="about" class="py-20 sm:py-24 px-4 sm:px-6">
+      <div class="max-w-7xl mx-auto">
+        <div class="flex items-center gap-4 mb-10 reveal">
+          <span class="text-xs tracking-[0.25em] uppercase text-blue-300 border border-blue-500/20 bg-blue-500/10 px-3 py-1 rounded-full">01</span>
+          <h2 class="text-3xl sm:text-5xl font-bold" data-i18n="about_title">Sobre <span class="gradient-text">mí</span></h2>
+          <div class="hidden md:block flex-1 section-line"></div>
+        </div>
+
+        <div class="grid lg:grid-cols-2 gap-6 lg:gap-8 items-stretch">
+          <div class="reveal glass-strong rounded-3xl p-6 sm:p-8">
+            <h3 class="text-xl sm:text-2xl font-bold mb-4" data-i18n="about_card_title">Desarrollador con visión de negocio</h3>
+            <p class="text-slate-300 leading-relaxed mb-4" data-i18n="about_p1">
+              Mi formación dual en Contaduría Pública e Ingeniería Informática me permite traducir necesidades del negocio en soluciones técnicas claras, estables y escalables.
+            </p>
+            <p class="text-slate-400 leading-relaxed" data-i18n="about_p2">
+              He participado en sistemas críticos para contingencias satelitales, salud, combustible y visualización de datos, con foco en resultados reales.
+            </p>
+
+            <div class="grid grid-cols-2 gap-4 mt-6">
+              <div class="glass rounded-2xl p-4">
+                <div class="text-2xl sm:text-3xl font-bold text-blue-400">2</div>
+                <div class="text-xs uppercase tracking-[0.18em] text-slate-400 mt-1" data-i18n="stat_degree">Títulos profesionales</div>
+              </div>
+              <div class="glass rounded-2xl p-4">
+                <div class="text-2xl sm:text-3xl font-bold text-purple-400">7</div>
+                <div class="text-xs uppercase tracking-[0.18em] text-slate-400 mt-1" data-i18n="stat_projects">Proyectos</div>
+              </div>
+              <div class="glass rounded-2xl p-4">
+                <div class="text-2xl sm:text-3xl font-bold text-green-400">15+</div>
+                <div class="text-xs uppercase tracking-[0.18em] text-slate-400 mt-1" data-i18n="stat_tech">Tecnologías</div>
+              </div>
+              <div class="glass rounded-2xl p-4">
+                <div class="text-2xl sm:text-3xl font-bold text-orange-400">BI</div>
+                <div class="text-xs uppercase tracking-[0.18em] text-slate-400 mt-1" data-i18n="stat_focus">Enfoque en datos</div>
+              </div>
             </div>
-        </div>
-        <div class="card bento-stack-col">
-            <div class="card-body-lg">
-                <div class="card-label"><i class="fa-solid fa-layer-group"></i> Stack principal</div>
-                <div class="tag-cloud">
-                    <span class="pill"><i class="fa-brands fa-python"></i> Python</span>
-                    <span class="pill"><i class="fa-brands fa-laravel"></i> Laravel</span>
-                    <span class="pill"><i class="fa-brands fa-react"></i> React</span>
-                    <span class="pill"><i class="fa-brands fa-angular"></i> Angular</span>
-                    <span class="pill"><i class="fa-brands fa-node-js"></i> Node.js</span>
-                    <span class="pill"><i class="fa-solid fa-database"></i> PostgreSQL</span>
-                    <span class="pill"><i class="fa-solid fa-chart-pie"></i> Power BI</span>
-                    <span class="pill"><i class="fa-brands fa-js"></i> TypeScript</span>
-                    <span class="pill"><i class="fa-brands fa-docker"></i> Docker</span>
-                    <span class="pill"><i class="fa-solid fa-chart-line"></i> DAX</span>
-                </div>
+          </div>
+
+          <div class="reveal glass-strong rounded-3xl p-6 sm:p-8">
+            <div class="flex items-center gap-2 mb-4 text-slate-300">
+              <span class="w-3 h-3 rounded-full bg-red-500"></span>
+              <span class="w-3 h-3 rounded-full bg-yellow-500"></span>
+              <span class="w-3 h-3 rounded-full bg-green-500"></span>
+              <span class="ml-2 text-xs text-slate-400">darwin.config.js</span>
             </div>
+            <pre class="text-xs sm:text-sm text-slate-300 whitespace-pre-wrap leading-relaxed overflow-x-auto">
+<span class="text-purple-400">const</span> <span class="text-cyan-300">darwin</span> = {
+  <span class="text-sky-300">name</span>: <span class="text-emerald-300">"Darwin Colmenares"</span>,
+  <span class="text-sky-300">role</span>: <span class="text-emerald-300">"Full-Stack Developer"</span>,
+  <span class="text-sky-300">specialty</span>: <span class="text-emerald-300">"Data Analyst"</span>,
+  <span class="text-sky-300">stack</span>: [<span class="text-emerald-300">"Python"</span>, <span class="text-emerald-300">"Laravel"</span>, <span class="text-emerald-300">"React"</span>, <span class="text-emerald-300">"Angular"</span>, <span class="text-emerald-300">"Power BI"</span>],
+  <span class="text-sky-300">goal</span>: <span class="text-emerald-300">"Crear soluciones útiles y bien pensadas"</span>,
+  <span class="text-sky-300">available</span>: <span class="text-orange-300">true</span>
+}
+            </pre>
+          </div>
         </div>
-        <div class="card card-inset bento-stat"><div class="card-body" style="text-align:center;"><span class="stat-num gt-cool">2</span><span class="stat-desc">Titulos profesionales</span></div></div>
-        <div class="card card-inset bento-stat"><div class="card-body" style="text-align:center;"><span class="stat-num gt-cool">7+</span><span class="stat-desc">Proyectos</span></div></div>
-        <div class="card card-inset bento-stat"><div class="card-body" style="text-align:center;"><span class="stat-num gt-cool">15+</span><span class="stat-desc">Tecnologias</span></div></div>
-    </div>
-</section>
+      </div>
+    </section>
 
-<!-- STACK -->
-<section class="section" id="stack">
-    <div class="section-band band-stack"></div>
-    <div class="section-head">
-        <span class="section-num">02</span>
-        <h2 class="section-title">Stack <span class="gt">tecnico</span></h2>
-        <div class="section-line"></div>
-    </div>
-    <div class="stack-grid">
-        <div class="card"><div class="card-body">
-            <div class="stack-col-title">Lenguajes</div>
-            <div class="stack-row"><i class="fa-brands fa-python" style="color:#5096c8"></i> Python</div>
-            <div class="stack-row"><i class="fa-brands fa-js" style="color:#d4b800"></i> JavaScript</div>
-            <div class="stack-row"><i class="fa-brands fa-js" style="color:#5b9bd5"></i> TypeScript</div>
-            <div class="stack-row"><i class="fa-brands fa-php" style="color:#9b96d4"></i> PHP</div>
-            <div class="stack-row"><i class="fa-brands fa-html5" style="color:#e06b3f"></i> HTML / CSS</div>
-            <div class="stack-row"><i class="fa-solid fa-database" style="color:#5b8fba"></i> SQL</div>
-        </div></div>
-        <div class="card"><div class="card-body">
-            <div class="stack-col-title">Frameworks</div>
-            <div class="stack-row"><i class="fa-brands fa-python" style="color:#5096c8"></i> Django</div>
-            <div class="stack-row"><i class="fa-brands fa-laravel" style="color:#ff6b6b"></i> Laravel</div>
-            <div class="stack-row"><i class="fa-brands fa-react" style="color:#61c8e0"></i> React</div>
-            <div class="stack-row"><i class="fa-brands fa-angular" style="color:#dd5a5a"></i> Angular</div>
-            <div class="stack-row"><i class="fa-brands fa-node-js" style="color:#5ec45e"></i> Node / Express</div>
-            <div class="stack-row"><i class="fa-solid fa-mobile-screen-button" style="color:#6699ee"></i> Ionic</div>
-        </div></div>
-        <div class="card"><div class="card-body">
-            <div class="stack-col-title">Datos & BI</div>
-            <div class="stack-row"><i class="fa-solid fa-database" style="color:#5b8fba"></i> PostgreSQL</div>
-            <div class="stack-row"><i class="fa-solid fa-database" style="color:#5b8fba"></i> SQLite</div>
-            <div class="stack-row"><i class="fa-solid fa-database" style="color:#5b8fba"></i> SQL Server</div>
-            <div class="stack-row"><i class="fa-solid fa-cloud" style="color:#7bbdee"></i> BigQuery</div>
-            <div class="stack-row"><i class="fa-solid fa-chart-pie" style="color:#e8c047"></i> Power BI</div>
-            <div class="stack-row"><i class="fa-solid fa-chart-line" style="color:#e8c047"></i> DAX / Pandas</div>
-        </div></div>
-        <div class="card"><div class="card-body">
-            <div class="stack-col-title">DevOps</div>
-            <div class="stack-row"><i class="fa-brands fa-docker" style="color:#5aaedc"></i> Docker</div>
-            <div class="stack-row"><i class="fa-brands fa-git-alt" style="color:#e06b3f"></i> Git</div>
-            <div class="stack-row"><i class="fa-solid fa-code" style="color:#34d8f0"></i> CI/CD</div>
-            <div class="stack-row"><i class="fa-brands fa-github"></i> GitHub Actions</div>
-            <div class="stack-row"><i class="fa-solid fa-diagram-project" style="color:#4eedb0"></i> N8N</div>
-            <div class="stack-row"><i class="fa-brands fa-jira" style="color:#5b8fef"></i> Jira / SAP</div>
-        </div></div>
-    </div>
-</section>
+    <section id="projects" class="py-20 sm:py-24 px-4 sm:px-6 bg-slate-950/50">
+      <div class="max-w-7xl mx-auto">
+        <div class="flex items-center gap-4 mb-10 reveal">
+          <span class="text-xs tracking-[0.25em] uppercase text-blue-300 border border-blue-500/20 bg-blue-500/10 px-3 py-1 rounded-full">02</span>
+          <h2 class="text-3xl sm:text-5xl font-bold" data-i18n="projects_title">Proyectos <span class="gradient-text">destacados</span></h2>
+          <div class="hidden md:block flex-1 section-line"></div>
+        </div>
 
-<!-- PROJECTS -->
-<section class="section" id="projects">
-    <div class="section-band band-projects"></div>
-    <div class="section-head">
-        <span class="section-num">03</span>
-        <h2 class="section-title">Proyectos <span class="gt">destacados</span></h2>
-        <div class="section-line"></div>
-    </div>
-    <div class="filter-bar">
-        <button class="filter-btn active" data-filter="all">Todos</button>
-        <button class="filter-btn" data-filter="fullstack">Full-Stack</button>
-        <button class="filter-btn" data-filter="frontend">Frontend</button>
-        <button class="filter-btn" data-filter="data">Data & BI</button>
-    </div>
-    <div class="projects-grid">
-        <article class="proj-card card card-elevated" data-anim data-cat="fullstack"><div class="card-body-lg">
-            <div class="proj-top"><div><div class="proj-cat">Full-Stack · CANTV</div><h3 class="proj-title">Gestion de Contingencias Satelitales</h3></div><div class="proj-icon">🛰️</div></div>
-            <p class="proj-desc">Plataforma centralizada para gestion operativa de contingencias en infraestructura satelital de CANTV.</p>
-            <div class="proj-tags"><span><i class="fa-brands fa-react"></i> React</span><span><i class="fa-brands fa-laravel"></i> Laravel</span><span><i class="fa-solid fa-database"></i> PostgreSQL</span><span>REST API</span><span>SCRUM</span></div>
-            <a href="https://github.com/darwinjcn/gcs-project" target="_blank" class="proj-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg> Ver codigo</a>
-        </div></article>
-        <article class="proj-card card" data-anim data-cat="fullstack"><div class="card-body-lg">
-            <div class="proj-top"><div><div class="proj-cat">Full-Stack · UNETI</div><h3 class="proj-title">Sistema de Gestion de Combustible</h3></div><div class="proj-icon">⛽</div></div>
-            <p class="proj-desc">Control de generadores electricos y consumo de combustible con documentacion UML completa.</p>
-            <div class="proj-tags"><span><i class="fa-brands fa-python"></i> Django</span><span><i class="fa-brands fa-react"></i> React</span><span><i class="fa-solid fa-database"></i> PostgreSQL</span><span>PlantUML</span></div>
-            <a href="https://github.com/darwinjcn/sistema-gestion-combustible" target="_blank" class="proj-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg> Ver codigo</a>
-        </div></article>
-        <article class="proj-card card" data-anim data-cat="frontend"><div class="card-body-lg">
-            <div class="proj-top"><div><div class="proj-cat">Frontend · Angular</div><h3 class="proj-title">Crypto Monitor</h3></div><div class="proj-icon">📊</div></div>
-            <p class="proj-desc">Monitoreo de criptoactivos en tiempo real con Angular Signals y Web Workers.</p>
-            <div class="proj-tags"><span><i class="fa-brands fa-angular"></i> Angular</span><span><i class="fa-brands fa-js"></i> TypeScript</span><span>Signals</span><span>Web Workers</span></div>
-            <a href="https://github.com/darwinjcn/crypto-monitor" target="_blank" class="proj-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg> Ver codigo</a>
-        </div></article>
-        <article class="proj-card card" data-anim data-cat="fullstack"><div class="card-body-lg">
-            <div class="proj-top"><div><div class="proj-cat">Laboratorio</div><h3 class="proj-title">Node Express TypeScript</h3></div><div class="proj-icon">🧪</div></div>
-            <p class="proj-desc">Rutas dinamicas con Express y tipado estricto con TypeScript.</p>
-            <div class="proj-tags"><span><i class="fa-brands fa-node-js"></i> Node.js</span><span><i class="fa-brands fa-js"></i> TypeScript</span><span><i class="fa-brands fa-docker"></i> Docker</span></div>
-            <a href="https://github.com/darwinjcn/node-express-typescript-logic" target="_blank" class="proj-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg> Ver codigo</a>
-        </div></article>
-        <article class="proj-card card" data-anim data-cat="data"><div class="card-body-lg">
-            <div class="proj-top"><div><div class="proj-cat">Business Intelligence</div><h3 class="proj-title">Power BI — Portafolio de BI</h3></div><div class="proj-icon">📈</div></div>
-            <p class="proj-desc">Dashboards de analisis financiero P&L, expansion retail y control de flota logistica.</p>
-            <div class="proj-tags"><span><i class="fa-solid fa-chart-pie"></i> Power BI</span><span><i class="fa-solid fa-chart-line"></i> DAX</span><span>Star Schema</span><span>ETL</span></div>
-            <a href="https://github.com/darwinjcn/powerbi-proyectos" target="_blank" class="proj-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg> Ver codigo</a>
-        </div></article>
-        <article class="proj-card card" data-anim data-cat="frontend"><div class="card-body-lg">
-            <div class="proj-top"><div><div class="proj-cat">Movil · Ionic</div><h3 class="proj-title">App Movil Multiplataforma</h3></div><div class="proj-icon">📱</div></div>
-            <p class="proj-desc">App hibrida con menu lateral deslizable y diseno responsive.</p>
-            <div class="proj-tags"><span><i class="fa-solid fa-mobile-screen-button"></i> Ionic 8</span><span><i class="fa-brands fa-angular"></i> Angular 18</span><span><i class="fa-brands fa-js"></i> TypeScript</span></div>
-            <a href="https://github.com/darwinjcn/mi-app-ionic-app" target="_blank" class="proj-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg> Ver codigo</a>
-        </div></article>
-        <article class="proj-card card card-elevated" data-anim data-cat="fullstack" style="grid-column: 1 / -1;"><div class="card-body-lg">
-            <div class="proj-top"><div><div class="proj-cat">Pasantia · CANTV NEA</div><h3 class="proj-title">Sistema de Gestion de Salud</h3></div><div class="proj-icon">🏥</div></div>
-            <p class="proj-desc">Plataforma para gestion de servicios de salud con sistema de roles y permisos.</p>
-            <div class="proj-tags"><span><i class="fa-brands fa-python"></i> Python</span><span><i class="fa-brands fa-python"></i> Django</span><span><i class="fa-brands fa-html5"></i> HTML</span><span><i class="fa-brands fa-js"></i> JavaScript</span><span><i class="fa-solid fa-database"></i> SQLite</span></div>
-            <a href="https://github.com/darwinjcn/sistema_salud" target="_blank" class="proj-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg> Ver codigo</a>
-        </div></article>
-    </div>
-</section>
+        <div class="reveal mb-8 flex flex-wrap gap-2">
+          <button class="filter-btn active px-4 py-2 rounded-full border border-white/10 bg-white/5 text-xs uppercase tracking-[0.16em]" data-filter="all">Todos</button>
+          <button class="filter-btn px-4 py-2 rounded-full border border-white/10 bg-white/5 text-xs uppercase tracking-[0.16em]" data-filter="fullstack">Full-Stack</button>
+          <button class="filter-btn px-4 py-2 rounded-full border border-white/10 bg-white/5 text-xs uppercase tracking-[0.16em]" data-filter="frontend">Frontend</button>
+          <button class="filter-btn px-4 py-2 rounded-full border border-white/10 bg-white/5 text-xs uppercase tracking-[0.16em]" data-filter="data">Data BI</button>
+        </div>
 
-<!-- EXPERIENCE -->
-<section class="section" id="experience">
-    <div class="section-band band-experience"></div>
-    <div class="section-head">
-        <span class="section-num">04</span>
-        <h2 class="section-title">Trayectoria <span class="gt">profesional</span></h2>
-        <div class="section-line"></div>
-    </div>
-    <div class="timeline">
-        <div class="tl-item" data-anim><div class="tl-date">Desarrollo Full-Stack & BI</div><div class="tl-role">Full-Stack Developer & Data Analyst</div><div class="tl-co">Freelance / Proyectos universitarios y propios</div><div class="tl-desc">Soluciones web para entornos reales: plataformas satelitales (CANTV), sistemas de combustible, monitoreo financiero y dashboards de BI.</div></div>
-        <div class="tl-item" data-anim><div class="tl-date">Pasantia — Gerencia de Operaciones Satelitales</div><div class="tl-role">Desarrollador — GCS (CANTV)</div><div class="tl-co">Caracas, Camatagua, Baemari</div><div class="tl-desc">Plataforma web para gestion de contingencias satelitales. Sistema con roles, trazabilidad, PDFs y metodologia SCRUM.</div></div>
-        <div class="tl-item" data-anim><div class="tl-date">Pasantia — NEA CANTV</div><div class="tl-role">Desarrollador — Sistema de Gestion de Salud</div><div class="tl-co">Nucleo de Evaluacion y Analisis</div><div class="tl-desc">Gestion de servicios de salud con sistema de roles y permisos. Primera experiencia en entorno corporativo.</div></div>
-        <div class="tl-item" data-anim><div class="tl-date">Formacion Academica</div><div class="tl-role">Contador Publico + Ingeniero Informatico</div><div class="tl-co">Doble titulacion universitaria</div><div class="tl-desc">Contabilidad, finanzas y auditoria + ingenieria de software y bases de datos.</div></div>
-    </div>
-</section>
+        <p class="reveal max-w-3xl text-slate-400 mb-8" data-i18n="projects_desc">
+          Selección de proyectos que muestran trabajo full-stack, experiencia en backend, interfaces modernas y tableros de BI.
+        </p>
 
-<!-- CONTACT -->
-<section class="contact-block" id="contact">
-    <div class="contact-ey">Hablemos</div>
-    <h2 class="contact-h">Tienes un proyecto<br><span class="gt">en mente?</span></h2>
-    <p class="contact-sub">Disponible para nuevos proyectos, oportunidades laborales o simplemente conversar sobre tecnologia.</p>
-    <div class="contact-row">
-        <a href="mailto:colmenaresdarwin06@gmail.com" class="contact-btn card"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg> Email</a>
-        <a href="https://wa.me/584265152896" target="_blank" class="contact-btn card"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg> WhatsApp</a>
-        <a href="https://www.linkedin.com/in/darwin-colmenares/" target="_blank" class="contact-btn card"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg> LinkedIn</a>
-        <a href="https://github.com/darwinjcn" target="_blank" class="contact-btn card"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg> GitHub</a>
-    </div>
-</section>
+        <div id="projectsGrid" class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-5">
+          <article class="project-card reveal glass-strong rounded-3xl overflow-hidden" data-cat="fullstack">
+            <div class="p-6">
+              <div class="inline-flex items-center justify-center w-12 h-12 rounded-2xl bg-red-500/10 text-red-300 border border-red-500/20 mb-4">01</div>
+              <h3 class="text-xl font-bold mb-2">Gestión de Contingencias Satelitales</h3>
+              <p class="text-slate-400 text-sm leading-relaxed mb-4" data-i18n="p1_desc">Plataforma web para gestionar contingencias operativas en infraestructura satelital.</p>
+              <div class="flex flex-wrap gap-2 mb-5">
+                <span class="px-3 py-1 rounded-full text-xs border border-white/10 bg-white/5">React</span>
+                <span class="px-3 py-1 rounded-full text-xs border border-white/10 bg-white/5">Laravel</span>
+                <span class="px-3 py-1 rounded-full text-xs border border-white/10 bg-white/5">PostgreSQL</span>
+              </div>
+              <a href="https://github.com/darwinjcngcs-project" target="_blank" class="inline-flex items-center gap-2 text-sm text-blue-300 hover:text-blue-200 transition">Ver código →</a>
+            </div>
+          </article>
 
-<footer class="site-footer">
-    <p>Construido por <a href="https://github.com/darwinjcn" target="_blank">Darwin Colmenares</a> · 2026</p>
-    <div class="footer-links">
-        <a href="https://github.com/darwinjcn" target="_blank">GitHub</a>
-        <a href="https://www.linkedin.com/in/darwin-colmenares/" target="_blank">LinkedIn</a>
-        <a href="mailto:colmenaresdarwin06@gmail.com">Email</a>
-    </div>
-</footer>
+          <article class="project-card reveal glass-strong rounded-3xl overflow-hidden" data-cat="fullstack">
+            <div class="p-6">
+              <div class="inline-flex items-center justify-center w-12 h-12 rounded-2xl bg-orange-500/10 text-orange-300 border border-orange-500/20 mb-4">02</div>
+              <h3 class="text-xl font-bold mb-2">Sistema de Gestión de Combustible</h3>
+              <p class="text-slate-400 text-sm leading-relaxed mb-4" data-i18n="p2_desc">Sistema web para control de generadores, consumo y documentación técnica completa.</p>
+              <div class="flex flex-wrap gap-2 mb-5">
+                <span class="px-3 py-1 rounded-full text-xs border border-white/10 bg-white/5">Django</span>
+                <span class="px-3 py-1 rounded-full text-xs border border-white/10 bg-white/5">React</span>
+                <span class="px-3 py-1 rounded-full text-xs border border-white/10 bg-white/5">PostgreSQL</span>
+              </div>
+              <a href="https://github.com/darwinjcnsistema-gestion-combustible" target="_blank" class="inline-flex items-center gap-2 text-sm text-blue-300 hover:text-blue-200 transition">Ver código →</a>
+            </div>
+          </article>
 
-<script>
-    const obs = new IntersectionObserver((entries) => { entries.forEach((e, i) => { if (e.isIntersecting) { setTimeout(() => e.target.classList.add('vis'), i * 120); obs.unobserve(e.target); } }); }, { threshold: 0.1 });
-    document.querySelectorAll('[data-anim]').forEach(el => obs.observe(el));
-    const toggle = document.getElementById('navToggle'); const mobileMenu = document.getElementById('mobileMenu');
-    function closeMobileMenu() { mobileMenu.classList.remove('visible'); toggle.classList.remove('open'); }
-    function openMobileMenu() { mobileMenu.classList.add('visible'); toggle.classList.add('open'); }
-    toggle.addEventListener('click', () => { mobileMenu.classList.contains('visible') ? closeMobileMenu() : openMobileMenu(); });
-    mobileMenu.querySelectorAll('a').forEach(a => { a.addEventListener('click', e => { if (a.getAttribute('href').startsWith('#')) { e.preventDefault(); const t = document.querySelector(a.getAttribute('href')); if (t) t.scrollIntoView({ behavior: 'smooth', block: 'start' }); } closeMobileMenu(); }); });
-    document.querySelectorAll('.nav-links a, .nav-cta, .btn-glow, .btn-ghost, .contact-btn, .footer-links a').forEach(a => { if (a.getAttribute('href') && a.getAttribute('href').startsWith('#')) { a.addEventListener('click', e => { e.preventDefault(); const t = document.querySelector(a.getAttribute('href')); if (t) t.scrollIntoView({ behavior: 'smooth', block: 'start' }); }); } });
-    window.addEventListener('scroll', () => { if (mobileMenu.classList.contains('visible')) closeMobileMenu(); }, { passive: true });
-    document.querySelectorAll('.filter-btn').forEach(btn => { btn.addEventListener('click', () => { document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active')); btn.classList.add('active'); const cat = btn.dataset.filter; document.querySelectorAll('.proj-card').forEach(card => { if (cat === 'all' || card.dataset.cat === cat) { card.style.display = ''; card.style.gridColumn = ''; } else { card.style.display = 'none'; } }); }); });
-    document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeMobileMenu(); });
-</script>
+          <article class="project-card reveal glass-strong rounded-3xl overflow-hidden" data-cat="fullstack">
+            <div class="p-6">
+              <div class="inline-flex items-center justify-center w-12 h-12 rounded-2xl bg-blue-500/10 text-blue-300 border border-blue-500/20 mb-4">03</div>
+              <h3 class="text-xl font-bold mb-2">Node Express TypeScript</h3>
+              <p class="text-slate-400 text-sm leading-relaxed mb-4" data-i18n="p3_desc">Laboratorio técnico sobre rutas dinámicas, API REST y arquitectura dockerizada.</p>
+              <div class="flex flex-wrap gap-2 mb-5">
+                <span class="px-3 py-1 rounded-full text-xs border border-white/10 bg-white/5">Node.js</span>
+                <span class="px-3 py-1 rounded-full text-xs border border-white/10 bg-white/5">TypeScript</span>
+                <span class="px-3 py-1 rounded-full text-xs border border-white/10 bg-white/5">Docker</span>
+              </div>
+              <a href="https://github.com/darwinjcnnode-express-typescript-logic" target="_blank" class="inline-flex items-center gap-2 text-sm text-blue-300 hover:text-blue-200 transition">Ver código →</a>
+            </div>
+          </article>
+
+          <article class="project-card reveal glass-strong rounded-3xl overflow-hidden" data-cat="frontend">
+            <div class="p-6">
+              <div class="inline-flex items-center justify-center w-12 h-12 rounded-2xl bg-yellow-500/10 text-yellow-300 border border-yellow-500/20 mb-4">04</div>
+              <h3 class="text-xl font-bold mb-2">Crypto Monitor</h3>
+              <p class="text-slate-400 text-sm leading-relaxed mb-4" data-i18n="p4_desc">Plataforma de monitoreo de criptoactivos en tiempo real con enfoque en datos.</p>
+              <div class="flex flex-wrap gap-2 mb-5">
+                <span class="px-3 py-1 rounded-full text-xs border border-white/10 bg-white/5">JavaScript</span>
+                <span class="px-3 py-1 rounded-full text-xs border border-white/10 bg-white/5">APIs</span>
+                <span class="px-3 py-1 rounded-full text-xs border border-white/10 bg-white/5">Visualización</span>
+              </div>
+              <a href="https://github.com/darwinjcncrypto-monitor" target="_blank" class="inline-flex items-center gap-2 text-sm text-blue-300 hover:text-blue-200 transition">Ver código →</a>
+            </div>
+          </article>
+
+          <article class="project-card reveal glass-strong rounded-3xl overflow-hidden" data-cat="frontend">
+            <div class="p-6">
+              <div class="inline-flex items-center justify-center w-12 h-12 rounded-2xl bg-purple-500/10 text-purple-300 border border-purple-500/20 mb-4">05</div>
+              <h3 class="text-xl font-bold mb-2">App Ionic</h3>
+              <p class="text-slate-400 text-sm leading-relaxed mb-4" data-i18n="p5_desc">Aplicación móvil multiplataforma con navegación estructurada y diseño responsive.</p>
+              <div class="flex flex-wrap gap-2 mb-5">
+                <span class="px-3 py-1 rounded-full text-xs border border-white/10 bg-white/5">Ionic</span>
+                <span class="px-3 py-1 rounded-full text-xs border border-white/10 bg-white/5">Angular</span>
+                <span class="px-3 py-1 rounded-full text-xs border border-white/10 bg-white/5">TypeScript</span>
+              </div>
+              <a href="https://github.com/darwinjcnmi-app-ionic-app" target="_blank" class="inline-flex items-center gap-2 text-sm text-blue-300 hover:text-blue-200 transition">Ver código →</a>
+            </div>
+          </article>
+
+          <article class="project-card reveal glass-strong rounded-3xl overflow-hidden" data-cat="fullstack">
+            <div class="p-6">
+              <div class="inline-flex items-center justify-center w-12 h-12 rounded-2xl bg-green-500/10 text-green-300 border border-green-500/20 mb-4">06</div>
+              <h3 class="text-xl font-bold mb-2">Sistema Salud</h3>
+              <p class="text-slate-400 text-sm leading-relaxed mb-4" data-i18n="p6_desc">Plataforma para gestión de servicios de salud con roles y permisos.</p>
+              <div class="flex flex-wrap gap-2 mb-5">
+                <span class="px-3 py-1 rounded-full text-xs border border-white/10 bg-white/5">Python</span>
+                <span class="px-3 py-1 rounded-full text-xs border border-white/10 bg-white/5">Django</span>
+                <span class="px-3 py-1 rounded-full text-xs border border-white/10 bg-white/5">SQLite</span>
+              </div>
+              <a href="https://github.com/darwinjcnsistemasalud" target="_blank" class="inline-flex items-center gap-2 text-sm text-blue-300 hover:text-blue-200 transition">Ver código →</a>
+            </div>
+          </article>
+
+          <article class="project-card reveal glass-strong rounded-3xl overflow-hidden md:col-span-2 xl:col-span-3" data-cat="data">
+            <div class="p-6 md:flex md:items-center md:justify-between md:gap-6">
+              <div class="max-w-3xl">
+                <div class="inline-flex items-center justify-center w-12 h-12 rounded-2xl bg-cyan-500/10 text-cyan-300 border border-cyan-500/20 mb-4">BI</div>
+                <h3 class="text-xl font-bold mb-2">Power BI Portafolio de BI</h3>
+                <p class="text-slate-400 text-sm leading-relaxed mb-4">
+                  Dashboards de análisis financiero, expansión retail y control de flota logística.
+                </p>
+                <div class="flex flex-wrap gap-2">
+                  <span class="px-3 py-1 rounded-full text-xs border border-white/10 bg-white/5">Power BI</span>
+                  <span class="px-3 py-1 rounded-full text-xs border border-white/10 bg-white/5">DAX</span>
+                  <span class="px-3 py-1 rounded-full text-xs border border-white/10 bg-white/5">ETL</span>
+                  <span class="px-3 py-1 rounded-full text-xs border border-white/10 bg-white/5">Star Schema</span>
+                </div>
+              </div>
+              <a href="https://github.com/darwinjcn/powerbi-proyectos" target="_blank" class="inline-flex items-center justify-center mt-6 md:mt-0 px-4 py-3 rounded-full border border-white/10 bg-white/5 hover:bg-white/10 transition text-sm">
+                Ver código →
+              </a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="skills" class="py-20 sm:py-24 px-4 sm:px-6">
+      <div class="max-w-7xl mx-auto">
+        <div class="flex items-center gap-4 mb-10 reveal">
+          <span class="text-xs tracking-[0.25em] uppercase text-blue-300 border border-blue-500/20 bg-blue-500/10 px-3 py-1 rounded-full">03</span>
+          <h2 class="text-3xl sm:text-5xl font-bold" data-i18n="skills_title">Stack <span class="gradient-text">técnico</span></h2>
+          <div class="hidden md:block flex-1 section-line"></div>
+        </div>
+
+        <p class="reveal max-w-3xl text-slate-400 mb-8" data-i18n="skills_desc">
+          Desde backend con Laravel y Django hasta frontend con React, Angular e Ionic, además de analítica con Power BI.
+        </p>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+          <div class="reveal glass-strong rounded-3xl p-6">
+            <h3 class="font-semibold text-slate-100 mb-4" data-i18n="skills_cat1">Lenguajes</h3>
+            <div class="flex flex-wrap gap-2">
+              <span class="skill-tag px-3 py-2 rounded-full bg-white/5 border border-white/10 text-sm text-slate-300">Python</span>
+              <span class="skill-tag px-3 py-2 rounded-full bg-white/5 border border-white/10 text-sm text-slate-300">JavaScript</span>
+              <span class="skill-tag px-3 py-2 rounded-full bg-white/5 border border-white/10 text-sm text-slate-300">TypeScript</span>
+              <span class="skill-tag px-3 py-2 rounded-full bg-white/5 border border-white/10 text-sm text-slate-300">PHP</span>
+              <span class="skill-tag px-3 py-2 rounded-full bg-white/5 border border-white/10 text-sm text-slate-300">HTML/CSS</span>
+              <span class="skill-tag px-3 py-2 rounded-full bg-white/5 border border-white/10 text-sm text-slate-300">SQL</span>
+            </div>
+          </div>
+
+          <div class="reveal glass-strong rounded-3xl p-6">
+            <h3 class="font-semibold text-slate-100 mb-4" data-i18n="skills_cat2">Frameworks</h3>
+            <div class="flex flex-wrap gap-2">
+              <span class="skill-tag px-3 py-2 rounded-full bg-white/5 border border-white/10 text-sm text-slate-300">Laravel</span>
+              <span class="skill-tag px-3 py-2 rounded-full bg-white/5 border border-white/10 text-sm text-slate-300">Django</span>
+              <span class="skill-tag px-3 py-2 rounded-full bg-white/5 border border-white/10 text-sm text-slate-300">React</span>
+              <span class="skill-tag px-3 py-2 rounded-full bg-white/5 border border-white/10 text-sm text-slate-300">Angular</span>
+              <span class="skill-tag px-3 py-2 rounded-full bg-white/5 border border-white/10 text-sm text-slate-300">Ionic</span>
+              <span class="skill-tag px-3 py-2 rounded-full bg-white/5 border border-white/10 text-sm text-slate-300">Node.js</span>
+              <span class="skill-tag px-3 py-2 rounded-full bg-white/5 border border-white/10 text-sm text-slate-300">Express</span>
+            </div>
+          </div>
+
+          <div class="reveal glass-strong rounded-3xl p-6">
+            <h3 class="font-semibold text-slate-100 mb-4" data-i18n="skills_cat3">Datos y BI</h3>
+            <div class="flex flex-wrap gap-2">
+              <span class="skill-tag px-3 py-2 rounded-full bg-white/5 border border-white/10 text-sm text-slate-300">Power BI</span>
+              <span class="skill-tag px-3 py-2 rounded-full bg-white/5 border border-white/10 text-sm text-slate-300">DAX</span>
+              <span class="skill-tag px-3 py-2 rounded-full bg-white/5 border border-white/10 text-sm text-slate-300">M</span>
+              <span class="skill-tag px-3 py-2 rounded-full bg-white/5 border border-white/10 text-sm text-slate-300">Pandas</span>
+              <span class="skill-tag px-3 py-2 rounded-full bg-white/5 border border-white/10 text-sm text-slate-300">NumPy</span>
+              <span class="skill-tag px-3 py-2 rounded-full bg-white/5 border border-white/10 text-sm text-slate-300">BigQuery</span>
+              <span class="skill-tag px-3 py-2 rounded-full bg-white/5 border border-white/10 text-sm text-slate-300">Excel</span>
+            </div>
+          </div>
+
+          <div class="reveal glass-strong rounded-3xl p-6">
+            <h3 class="font-semibold text-slate-100 mb-4" data-i18n="skills_cat4">Bases de datos</h3>
+            <div class="flex flex-wrap gap-2">
+              <span class="skill-tag px-3 py-2 rounded-full bg-white/5 border border-white/10 text-sm text-slate-300">PostgreSQL</span>
+              <span class="skill-tag px-3 py-2 rounded-full bg-white/5 border border-white/10 text-sm text-slate-300">SQLite</span>
+              <span class="skill-tag px-3 py-2 rounded-full bg-white/5 border border-white/10 text-sm text-slate-300">SQL Server</span>
+            </div>
+          </div>
+
+          <div class="reveal glass-strong rounded-3xl p-6">
+            <h3 class="font-semibold text-slate-100 mb-4" data-i18n="skills_cat5">DevOps / Tools</h3>
+            <div class="flex flex-wrap gap-2">
+              <span class="skill-tag px-3 py-2 rounded-full bg-white/5 border border-white/10 text-sm text-slate-300">Git</span>
+              <span class="skill-tag px-3 py-2 rounded-full bg-white/5 border border-white/10 text-sm text-slate-300">GitHub Actions</span>
+              <span class="skill-tag px-3 py-2 rounded-full bg-white/5 border border-white/10 text-sm text-slate-300">Docker</span>
+              <span class="skill-tag px-3 py-2 rounded-full bg-white/5 border border-white/10 text-sm text-slate-300">Jira</span>
+              <span class="skill-tag px-3 py-2 rounded-full bg-white/5 border border-white/10 text-sm text-slate-300">SAP</span>
+            </div>
+          </div>
+
+          <div class="reveal glass-strong rounded-3xl p-6">
+            <h3 class="font-semibold text-slate-100 mb-4" data-i18n="skills_cat6">Fortalezas</h3>
+            <div class="space-y-3 text-slate-300 text-sm leading-relaxed">
+              <p data-i18n="strength_1">Pensamiento analítico con visión de negocio.</p>
+              <p data-i18n="strength_2">Capacidad para unir diseño, datos y backend.</p>
+              <p data-i18n="strength_3">Experiencia en proyectos reales y entornos exigentes.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="experience" class="py-20 sm:py-24 px-4 sm:px-6 bg-slate-950/50">
+      <div class="max-w-7xl mx-auto">
+        <div class="flex items-center gap-4 mb-10 reveal">
+          <span class="text-xs tracking-[0.25em] uppercase text-blue-300 border border-blue-500/20 bg-blue-500/10 px-3 py-1 rounded-full">04</span>
+          <h2 class="text-3xl sm:text-5xl font-bold" data-i18n="exp_title">Trayectoria <span class="gradient-text">profesional</span></h2>
+          <div class="hidden md:block flex-1 section-line"></div>
+        </div>
+
+        <div class="space-y-5 max-w-4xl">
+          <div class="reveal glass-strong rounded-3xl p-6">
+            <div class="text-xs uppercase tracking-[0.2em] text-blue-300 mb-2" data-i18n="exp1_date">Desarrollo Full-Stack BI</div>
+            <h3 class="text-xl font-bold mb-1">Full-Stack Developer / Data Analyst</h3>
+            <p class="text-slate-400 text-sm mb-3" data-i18n="exp1_company">Freelance, proyectos universitarios y propios</p>
+            <p class="text-slate-300 leading-relaxed" data-i18n="exp1_desc">Soluciones web para entornos reales: plataformas satelitales, sistemas de combustible, monitoreo financiero y dashboards de BI.</p>
+          </div>
+
+          <div class="reveal glass-strong rounded-3xl p-6">
+            <div class="text-xs uppercase tracking-[0.2em] text-blue-300 mb-2" data-i18n="exp2_date">Pasantía Gerencia de Operaciones Satelitales</div>
+            <h3 class="text-xl font-bold mb-1">Desarrollador GCS CANTV</h3>
+            <p class="text-slate-400 text-sm mb-3" data-i18n="exp2_company">Caracas, Camatagua, Báemari</p>
+            <p class="text-slate-300 leading-relaxed" data-i18n="exp2_desc">Plataforma web para gestión de contingencias satelitales con roles, trazabilidad, PDFs y metodología SCRUM.</p>
+          </div>
+
+          <div class="reveal glass-strong rounded-3xl p-6">
+            <div class="text-xs uppercase tracking-[0.2em] text-blue-300 mb-2" data-i18n="exp3_date">Pasantía NEA CANTV</div>
+            <h3 class="text-xl font-bold mb-1">Desarrollador Sistema de Gestión de Salud</h3>
+            <p class="text-slate-400 text-sm mb-3" data-i18n="exp3_company">Núcleo de Evaluación y Análisis</p>
+            <p class="text-slate-300 leading-relaxed" data-i18n="exp3_desc">Gestión de servicios de salud con sistema de roles y permisos. Primera experiencia en entorno corporativo.</p>
+          </div>
+
+          <div class="reveal glass-strong rounded-3xl p-6">
+            <div class="text-xs uppercase tracking-[0.2em] text-blue-300 mb-2" data-i18n="exp4_date">Formación académica</div>
+            <h3 class="text-xl font-bold mb-1" data-i18n="exp4_title">Contador Público / Ingeniero Informático</h3>
+            <p class="text-slate-400 text-sm mb-3" data-i18n="exp4_company">Doble titulación universitaria</p>
+            <p class="text-slate-300 leading-relaxed" data-i18n="exp4_desc">Contabilidad, finanzas y auditoría combinadas con ingeniería de software y bases de datos.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="py-20 sm:py-24 px-4 sm:px-6">
+      <div class="max-w-4xl mx-auto text-center">
+        <div class="reveal text-xs uppercase tracking-[0.3em] text-blue-300 mb-4" data-i18n="contact_eyebrow">Hablemos</div>
+        <h2 class="reveal text-3xl sm:text-5xl font-bold mb-5" data-i18n="contact_title">¿Tienes un proyecto <span class="gradient-text">en mente?</span></h2>
+        <p class="reveal text-slate-400 max-w-2xl mx-auto mb-10 leading-relaxed" data-i18n="contact_desc">
+          Disponible para nuevos proyectos, oportunidades laborales o simplemente conversar sobre tecnología.
+        </p>
+
+        <div class="reveal flex flex-col sm:flex-row justify-center gap-3">
+          <a href="mailto:colmenaresdarwin06@gmail.com" class="px-6 py-4 rounded-full glass-strong hover:bg-white/10 transition" data-i18n="contact_email">Email</a>
+          <a href="https://wa.me/584265152896" target="_blank" class="px-6 py-4 rounded-full glass-strong hover:bg-white/10 transition" data-i18n="contact_whatsapp">WhatsApp</a>
+          <a href="https://www.linkedin.com/in/darwin-colmenares" target="_blank" class="px-6 py-4 rounded-full glass-strong hover:bg-white/10 transition" data-i18n="contact_linkedin">LinkedIn</a>
+          <a href="https://github.com/darwinjcn" target="_blank" class="px-6 py-4 rounded-full glass-strong hover:bg-white/10 transition" data-i18n="contact_github">GitHub</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="border-t border-white/5 py-6 px-4 sm:px-6 text-center text-xs text-slate-500">
+    <p>© 2026 Darwin Colmenares. Todos los derechos reservados.</p>
+  </footer>
+
+  <script>
+    const translations = {
+      es: {
+        nav_about: "Sobre mí",
+        nav_projects: "Proyectos",
+        nav_skills: "Skills",
+        nav_experience: "Trayectoria",
+        nav_contact: "Contacto",
+        hero_badge: "Disponible para nuevos proyectos",
+        hero_title: "Full-Stack Developer & Data Analyst",
+        hero_desc: "Contador Público e Ingeniero Informático. Construyo soluciones técnicas que resuelven problemas reales de negocio, desde el modelado de datos hasta la interfaz de usuario.",
+        hero_cta_projects: "Ver proyectos",
+        hero_cta_contact: "Contactar",
+        about_title: "Sobre mí",
+        about_card_title: "Desarrollador con visión de negocio",
+        about_p1: "Mi formación dual en Contaduría Pública e Ingeniería Informática me permite traducir necesidades del negocio en soluciones técnicas claras, estables y escalables.",
+        about_p2: "He participado en sistemas críticos para contingencias satelitales, salud, combustible y visualización de datos, con foco en resultados reales.",
+        stat_degree: "Títulos profesionales",
+        stat_projects: "Proyectos",
+        stat_tech: "Tecnologías",
+        stat_focus: "Enfoque en datos",
+        projects_title: "Proyectos destacados",
+        projects_desc: "Selección de proyectos que muestran trabajo full-stack, experiencia en backend, interfaces modernas y tableros de BI.",
+        p1_desc: "Plataforma web para gestionar contingencias operativas en infraestructura satelital.",
+        p2_desc: "Sistema web para control de generadores, consumo y documentación técnica completa.",
+        p3_desc: "Laboratorio técnico sobre rutas dinámicas, API REST y arquitectura dockerizada.",
+        p4_desc: "Plataforma de monitoreo de criptoactivos en tiempo real con enfoque en datos.",
+        p5_desc: "Aplicación móvil multiplataforma con navegación estructurada y diseño responsive.",
+        p6_desc: "Plataforma para gestión de servicios de salud con roles y permisos.",
+        skills_title: "Stack técnico",
+        skills_desc: "Desde backend con Laravel y Django hasta frontend con React, Angular e Ionic, además de analítica con Power BI.",
+        skills_cat1: "Lenguajes",
+        skills_cat2: "Frameworks",
+        skills_cat3: "Datos y BI",
+        skills_cat4: "Bases de datos",
+        skills_cat5: "DevOps / Tools",
+        skills_cat6: "Fortalezas",
+        strength_1: "Pensamiento analítico con visión de negocio.",
+        strength_2: "Capacidad para unir diseño, datos y backend.",
+        strength_3: "Experiencia en proyectos reales y entornos exigentes.",
+        exp_title: "Trayectoria profesional",
+        exp1_date: "Desarrollo Full-Stack BI",
+        exp1_company: "Freelance, proyectos universitarios y propios",
+        exp1_desc: "Soluciones web para entornos reales: plataformas satelitales, sistemas de combustible, monitoreo financiero y dashboards de BI.",
+        exp2_date: "Pasantía Gerencia de Operaciones Satelitales",
+        exp2_company: "Caracas, Camatagua, Báemari",
+        exp2_desc: "Plataforma web para gestión de contingencias satelitales con roles, trazabilidad, PDFs y metodología SCRUM.",
+        exp3_date: "Pasantía NEA CANTV",
+        exp3_company: "Núcleo de Evaluación y Análisis",
+        exp3_desc: "Gestión de servicios de salud con sistema de roles y permisos. Primera experiencia en entorno corporativo.",
+        exp4_date: "Formación académica",
+        exp4_title: "Contador Público / Ingeniero Informático",
+        exp4_company: "Doble titulación universitaria",
+        exp4_desc: "Contabilidad, finanzas y auditoría combinadas con ingeniería de software y bases de datos.",
+        contact_eyebrow: "Hablemos",
+        contact_title: "¿Tienes un proyecto en mente?",
+        contact_desc: "Disponible para nuevos proyectos, oportunidades laborales o simplemente conversar sobre tecnología.",
+        contact_email: "Email",
+        contact_whatsapp: "WhatsApp",
+        contact_linkedin: "LinkedIn",
+        contact_github: "GitHub"
+      },
+      en: {
+        nav_about: "About",
+        nav_projects: "Projects",
+        nav_skills: "Skills",
+        nav_experience: "Experience",
+        nav_contact: "Contact",
+        hero_badge: "Available for new projects",
+        hero_title: "Full-Stack Developer & Data Analyst",
+        hero_desc: "Public Accountant and Computer Engineer. I build technical solutions that solve real business problems, from data modeling to user interfaces.",
+        hero_cta_projects: "View projects",
+        hero_cta_contact: "Contact me",
+        about_title: "About me",
+        about_card_title: "Developer with business vision",
+        about_p1: "My dual background in Public Accounting and Computer Engineering helps me turn business needs into clear, stable, and scalable technical solutions.",
+        about_p2: "I have worked on critical systems for satellite contingencies, health, fuel control, and data visualization, always focused on real results.",
+        stat_degree: "Professional degrees",
+        stat_projects: "Projects",
+        stat_tech: "Technologies",
+        stat_focus: "Data focus",
+        projects_title: "Featured projects",
+        projects_desc: "A selection of projects that show full-stack work, backend experience, modern interfaces, and BI dashboards.",
+        p1_desc: "Web platform to manage operational contingencies in satellite infrastructure.",
+        p2_desc: "Web system for generator control, fuel consumption, and technical documentation.",
+        p3_desc: "Technical lab about dynamic routes, REST APIs, and Dockerized architecture.",
+        p4_desc: "Real-time crypto asset monitoring platform with a data-focused approach.",
+        p5_desc: "Cross-platform mobile app with structured navigation and responsive design.",
+        p6_desc: "Platform for health services management with roles and permissions.",
+        skills_title: "Technical stack",
+        skills_desc: "From backend with Laravel and Django to frontend with React, Angular, and Ionic, plus analytics with Power BI.",
+        skills_cat1: "Languages",
+        skills_cat2: "Frameworks",
+        skills_cat3: "Data & BI",
+        skills_cat4: "Databases",
+        skills_cat5: "DevOps / Tools",
+        skills_cat6: "Strengths",
+        strength_1: "Analytical thinking with business vision.",
+        strength_2: "Ability to connect design, data, and backend.",
+        strength_3: "Experience in real projects and demanding environments.",
+        exp_title: "Professional journey",
+        exp1_date: "Full-Stack BI Development",
+        exp1_company: "Freelance, academic, and personal projects",
+        exp1_desc: "Web solutions for real environments: satellite platforms, fuel systems, financial monitoring, and BI dashboards.",
+        exp2_date: "Satellite Operations Management Internship",
+        exp2_company: "Caracas, Camatagua, Báemari",
+        exp2_desc: "Web platform for satellite contingency management with roles, traceability, PDFs, and SCRUM methodology.",
+        exp3_date: "NEA CANTV Internship",
+        exp3_company: "Evaluation and Analysis Unit",
+        exp3_desc: "Health services management with roles and permissions. First experience in a corporate environment.",
+        exp4_date: "Academic background",
+        exp4_title: "Public Accountant / Computer Engineer",
+        exp4_company: "Dual university degrees",
+        exp4_desc: "Accounting, finance, and auditing combined with software engineering and databases.",
+        contact_eyebrow: "Let's talk",
+        contact_title: "Do you have a project in mind?",
+        contact_desc: "Available for new projects, job opportunities, or simply to talk about technology.",
+        contact_email: "Email",
+        contact_whatsapp: "WhatsApp",
+        contact_linkedin: "LinkedIn",
+        contact_github: "GitHub"
+      }
+    };
+
+    const langToggle = document.getElementById('langToggle');
+    const menuBtn = document.getElementById('menuBtn');
+    const menuIcon = document.getElementById('menuIcon');
+    const closeIcon = document.getElementById('closeIcon');
+    const mobileMenu = document.getElementById('mobileMenu');
+
+    function setLanguage(lang) {
+      document.documentElement.lang = lang;
+      document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        if (translations[lang][key]) el.textContent = translations[lang][key];
+      });
+      langToggle.textContent = lang.toUpperCase();
+      localStorage.setItem('portfolio-lang', lang);
+    }
+
+    setLanguage(localStorage.getItem('portfolio-lang') || 'es');
+
+    langToggle.addEventListener('click', () => {
+      const next = document.documentElement.lang === 'es' ? 'en' : 'es';
+      setLanguage(next);
+    });
+
+    menuBtn.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+      menuIcon.classList.toggle('hidden');
+      closeIcon.classList.toggle('hidden');
+    });
+
+    mobileMenu.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenu.classList.add('hidden');
+        menuIcon.classList.remove('hidden');
+        closeIcon.classList.add('hidden');
+      });
+    });
+
+    const filterBtns = document.querySelectorAll('.filter-btn');
+    const cards = document.querySelectorAll('#projectsGrid article');
+
+    filterBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        filterBtns.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        const filter = btn.dataset.filter;
+        cards.forEach(card => {
+          const match = filter === 'all' || card.dataset.cat === filter;
+          card.style.display = match ? '' : 'none';
+        });
+      });
+    });
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) entry.target.classList.add('visible');
+      });
+    }, { threshold: 0.12 });
+
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+  </script>
 </body>
 </html>
