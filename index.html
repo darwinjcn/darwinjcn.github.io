@@ -4,6 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
   <meta name="theme-color" content="#020617" />
+  <meta name="color-scheme" content="dark" />
   <meta name="description" content="Darwin Colmenares - Full-Stack Developer & Data Analyst." />
   <title>Darwin Colmenares | Full-Stack Developer & Data Analyst</title>
 
@@ -11,136 +12,81 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&display=swap" rel="stylesheet">
   <script src="https://cdn.tailwindcss.com"></script>
 
   <style>
-    :root{
-      --bg:#020617;
-      --card:rgba(15, 23, 42, .62);
-      --card-strong:rgba(15, 23, 42, .82);
-    }
+    :root{ --bg:#020617; --card:rgba(15,23,42,.62); --card-strong:rgba(15,23,42,.82); }
     html{scroll-behavior:smooth}
     body{
-      font-family:"Inter",sans-serif;
-      background:
-        radial-gradient(circle at 20% 20%, rgba(59,130,246,.12), transparent 30%),
-        radial-gradient(circle at 80% 30%, rgba(168,85,247,.10), transparent 28%),
-        radial-gradient(circle at 50% 90%, rgba(34,197,94,.08), transparent 25%),
-        linear-gradient(180deg, #020617 0%, #020617 35%, #0b1020 100%);
-      background-attachment: fixed;
-      color:#fff;
-      overflow-x:hidden;
-      min-height: 100vh;
+      font-family:"DM Sans",sans-serif;
+      background: radial-gradient(circle at 20% 20%, rgba(59,130,246,.12), transparent 30%), radial-gradient(circle at 80% 30%, rgba(168,85,247,.10), transparent 28%), radial-gradient(circle at 50% 90%, rgba(34,197,94,.08), transparent 25%), linear-gradient(180deg, #020617 0%, #020617 35%, #0b1020 100%);
+      background-attachment: fixed; color:#fff; overflow-x:hidden; min-height:100vh;
     }
+    h1,h2,h3,.font-display{font-family:"Syne",sans-serif}
     ::selection{background:#3b82f6;color:#fff}
-    .glass{
-      background:var(--card);
-      backdrop-filter:blur(18px);
-      -webkit-backdrop-filter:blur(18px);
-      border:1px solid rgba(255,255,255,.08);
-      box-shadow:0 20px 60px rgba(0,0,0,.25);
-    }
-    .glass-strong{
-      background:var(--card-strong);
-      backdrop-filter:blur(20px);
-      -webkit-backdrop-filter:blur(20px);
-      border:1px solid rgba(255,255,255,.1);
-      box-shadow:0 25px 70px rgba(0,0,0,.35);
-    }
-    .gradient-text{
-      background:linear-gradient(135deg,#60a5fa 0%,#a78bfa 50%,#f472b6 100%);
-      -webkit-background-clip:text;
-      -webkit-text-fill-color:transparent;
-      background-clip:text;
-    }
+    .glass{background:var(--card);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);border:1px solid rgba(255,255,255,.08);box-shadow:0 20px 60px rgba(0,0,0,.25)}
+    .glass-strong{background:var(--card-strong);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border:1px solid rgba(255,255,255,.1);box-shadow:0 25px 70px rgba(0,0,0,.35)}
+    .gradient-text{background:linear-gradient(135deg,#60a5fa 0%,#a78bfa 50%,#f472b6 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
     .nav-link{position:relative}
-    .nav-link::after{
-      content:"";
-      position:absolute;
-      left:0;
-      bottom:-5px;
-      width:0;
-      height:2px;
-      background:linear-gradient(90deg,#60a5fa,#a78bfa);
-      transition:width .25s ease;
-    }
+    .nav-link::after{content:"";position:absolute;left:0;bottom:-5px;width:0;height:2px;background:linear-gradient(90deg,#60a5fa,#a78bfa);transition:width .25s ease}
     .nav-link:hover::after{width:100%}
-    .reveal{
-      opacity:0;
-      transform:translateY(22px);
-      transition:opacity .8s ease, transform .8s ease;
-    }
-    .reveal.visible{
-      opacity:1;
-      transform:translateY(0);
-    }
-    .project-card{
-      transition:transform .35s ease, box-shadow .35s ease, border-color .35s ease;
-    }
-    .project-card:hover{
-      transform:translateY(-6px);
-      box-shadow:0 24px 60px rgba(0,0,0,.35);
-      border-color:rgba(148,163,184,.28);
-    }
-    .skill-tag{
-      transition:transform .25s ease, background .25s ease, border-color .25s ease;
-    }
-    .skill-tag:hover{
-      transform:translateY(-2px);
-      border-color:rgba(148,163,184,.45);
-      background:rgba(30,41,59,.95);
-    }
-    .filter-btn.active{
-      background:rgba(59,130,246,.14);
-      border-color:rgba(96,165,250,.5);
-      color:#bfdbfe;
-    }
-    .bg-grid{
-      background-image:linear-gradient(rgba(255,255,255,.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.03) 1px, transparent 1px);
-      background-size:60px 60px;
-      mask-image:radial-gradient(circle at center, black 0%, transparent 75%);
-      -webkit-mask-image:radial-gradient(circle at center, black 0%, transparent 75%);
-    }
-    .section-line{height:1px;background:linear-gradient(90deg, rgba(148,163,184,.35), transparent)}
-
-    .scroll-top-btn {
-      position: fixed;
-      bottom: 24px;
-      right: 24px;
-      width: 48px;
-      height: 48px;
-      border-radius: 50%;
-      background: rgba(15, 23, 42, 0.9);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
-      border: 1px solid rgba(255,255,255,.12);
-      color: #94a3b8;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      cursor: pointer;
-      opacity: 0;
-      visibility: hidden;
-      transform: translateY(16px);
-      transition: all 0.3s ease;
-      z-index: 40;
-      box-shadow: 0 8px 24px rgba(0,0,0,.35);
-    }
-    .scroll-top-btn.visible {
-      opacity: 1;
-      visibility: visible;
-      transform: translateY(0);
-    }
-    .scroll-top-btn:hover {
-      color: #fff;
-      border-color: rgba(96,165,250,.4);
-      transform: translateY(-2px);
-    }
-    .scroll-top-btn svg {
-      width: 20px;
-      height: 20px;
-    }
+    .reveal{opacity:0;transform:translateY(22px);transition:opacity .8s ease,transform .8s ease}
+    .reveal.visible{opacity:1;transform:translateY(0)}
+    .project-card{transition:transform .35s ease,box-shadow .35s ease,border-color .35s ease;display:flex;flex-direction:column;height:100%}
+    .project-card:hover{transform:translateY(-6px);box-shadow:0 24px 60px rgba(0,0,0,.35);border-color:rgba(148,163,184,.28)}
+    .project-card .card-body{display:flex;flex-direction:column;flex:1}
+    .project-card .card-footer{margin-top:auto;padding-top:1rem}
+    .skill-tag{transition:transform .25s ease,background .25s ease,border-color .25s ease}
+    .skill-tag:hover{transform:translateY(-2px);border-color:rgba(148,163,184,.45);background:rgba(30,41,59,.95)}
+    .filter-btn.active{background:rgba(59,130,246,.14);border-color:rgba(96,165,250,.5);color:#bfdbfe}
+    .bg-grid{background-image:linear-gradient(rgba(255,255,255,.03) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.03) 1px,transparent 1px);background-size:60px 60px;mask-image:radial-gradient(circle at center,black 0%,transparent 75%);-webkit-mask-image:radial-gradient(circle at center,black 0%,transparent 75%)}
+    .section-line{height:1px;background:linear-gradient(90deg,rgba(148,163,184,.35),transparent)}
+    .ripple-badge{position:relative;display:inline-flex;align-items:center;gap:8px}
+    .ripple-dot{position:relative;width:8px;height:8px}
+    .ripple-dot::before,.ripple-dot::after{content:"";position:absolute;border-radius:50%;background:#4ade80}
+    .ripple-dot::before{width:8px;height:8px;animation:ripple-pulse 2s ease-out infinite}
+    .ripple-dot::after{width:8px;height:8px;animation:ripple-pulse 2s ease-out 1s infinite;opacity:.6}
+    @keyframes ripple-pulse{0%{transform:scale(1);opacity:.8}100%{transform:scale(3);opacity:0}}
+    .scroll-arrow{animation:bounce-down 2s infinite}
+    @keyframes bounce-down{0%,20%,50%,80%,100%{transform:translateY(0)}40%{transform:translateY(10px)}60%{transform:translateY(5px)}}
+    .timeline-container{position:relative;padding-left:2rem}
+    .timeline-container::before{content:"";position:absolute;left:0;top:0;bottom:0;width:2px;background:linear-gradient(180deg,rgba(59,130,246,.4),rgba(168,85,247,.4),rgba(34,197,94,.2))}
+    .timeline-item{position:relative;padding-bottom:2rem}
+    .timeline-item:last-child{padding-bottom:0}
+    .timeline-item::before{content:"";position:absolute;left:-2rem;top:.5rem;width:10px;height:10px;border-radius:50%;background:#3b82f6;border:2px solid #020617;transform:translateX(-4px);box-shadow:0 0 0 4px rgba(59,130,246,.2)}
+    .timeline-item:nth-child(2)::before{background:#a855f7;box-shadow:0 0 0 4px rgba(168,85,247,.2)}
+    .timeline-item:nth-child(3)::before{background:#22c55e;box-shadow:0 0 0 4px rgba(34,197,94,.2)}
+    .timeline-item:nth-child(4)::before{background:#f97316;box-shadow:0 0 0 4px rgba(249,115,22,.2)}
+    .contact-btn{transition:all .3s ease;display:inline-flex;align-items:center;justify-content:center;gap:.5rem}
+    .contact-btn:hover{transform:translateY(-3px)}
+    .contact-btn-email:hover{border-color:rgba(239,68,68,.5);box-shadow:0 8px 24px rgba(239,68,68,.15)}
+    .contact-btn-wa:hover{border-color:rgba(34,197,94,.5);box-shadow:0 8px 24px rgba(34,197,94,.15)}
+    .contact-btn-li:hover{border-color:rgba(59,130,246,.5);box-shadow:0 8px 24px rgba(59,130,246,.15)}
+    .contact-btn-gh:hover{border-color:rgba(148,163,184,.5);box-shadow:0 8px 24px rgba(148,163,184,.15)}
+    .arrow-link svg{transition:transform .25s ease}
+    .arrow-link:hover svg{transform:translateX(4px)}
+    .badge-react{background:rgba(59,130,246,.12);border-color:rgba(59,130,246,.3);color:#93c5fd}
+    .badge-laravel{background:rgba(249,115,22,.12);border-color:rgba(249,115,22,.3);color:#fdba74}
+    .badge-django{background:rgba(34,197,94,.12);border-color:rgba(34,197,94,.3);color:#86efac}
+    .badge-node{background:rgba(34,197,94,.12);border-color:rgba(34,197,94,.3);color:#86efac}
+    .badge-ts{background:rgba(59,130,246,.12);border-color:rgba(59,130,246,.3);color:#93c5fd}
+    .badge-js{background:rgba(234,179,8,.12);border-color:rgba(234,179,8,.3);color:#fde047}
+    .badge-ionic{background:rgba(168,85,247,.12);border-color:rgba(168,85,247,.3);color:#d8b4fe}
+    .badge-angular{background:rgba(239,68,68,.12);border-color:rgba(239,68,68,.3);color:#fca5a5}
+    .badge-python{background:rgba(59,130,246,.12);border-color:rgba(59,130,246,.3);color:#93c5fd}
+    .badge-sql{background:rgba(148,163,184,.12);border-color:rgba(148,163,184,.3);color:#cbd5e1}
+    .badge-docker{background:rgba(59,130,246,.12);border-color:rgba(59,130,246,.3);color:#93c5fd}
+    .badge-api{background:rgba(168,85,247,.12);border-color:rgba(168,85,247,.3);color:#d8b4fe}
+    .badge-viz{background:rgba(34,197,94,.12);border-color:rgba(34,197,94,.3);color:#86efac}
+    .badge-pbi{background:rgba(6,182,212,.12);border-color:rgba(6,182,212,.3);color:#67e8f9}
+    .badge-dax{background:rgba(234,179,8,.12);border-color:rgba(234,179,8,.3);color:#fde047}
+    .badge-etl{background:rgba(249,115,22,.12);border-color:rgba(249,115,22,.3);color:#fdba74}
+    .badge-schema{background:rgba(168,85,247,.12);border-color:rgba(168,85,247,.3);color:#d8b4fe}
+    .scroll-top-btn{position:fixed;bottom:24px;right:24px;width:48px;height:48px;border-radius:50%;background:rgba(15,23,42,.9);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,.12);color:#94a3b8;display:flex;align-items:center;justify-content:center;cursor:pointer;opacity:0;visibility:hidden;transform:translateY(16px);transition:all .3s ease;z-index:40;box-shadow:0 8px 24px rgba(0,0,0,.35)}
+    .scroll-top-btn.visible{opacity:1;visibility:visible;transform:translateY(0)}
+    .scroll-top-btn:hover{color:#fff;border-color:rgba(96,165,250,.4);transform:translateY(-2px)}
+    .scroll-top-btn svg{width:20px;height:20px}
   </style>
 <base target="_blank">
 </head>
@@ -150,10 +96,7 @@
   <header class="fixed top-0 left-0 right-0 z-50 border-b border-white/5 glass-strong">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex items-center justify-between h-16">
-        <a href="#home" class="text-xl font-black tracking-tight">
-          <span class="gradient-text">darwin.dev</span>
-        </a>
-
+        <a href="#home" class="text-xl font-black tracking-tight font-display"><span class="gradient-text">darwin.dev</span></a>
         <nav class="hidden md:flex items-center gap-8 text-sm text-slate-300">
           <a href="#about" class="nav-link hover:text-white transition-colors" data-i18n="nav_about">Sobre mí</a>
           <a href="#projects" class="nav-link hover:text-white transition-colors" data-i18n="nav_projects">Proyectos</a>
@@ -161,26 +104,15 @@
           <a href="#experience" class="nav-link hover:text-white transition-colors" data-i18n="nav_experience">Trayectoria</a>
           <a href="#contact" class="nav-link hover:text-white transition-colors" data-i18n="nav_contact">Contacto</a>
         </nav>
-
         <div class="flex items-center gap-2">
-          <a href="https://www.linkedin.com/in/darwin-colmenares" target="_blank" class="p-2 rounded-lg border border-white/10 bg-white/5 hover:bg-white/10 transition text-slate-300 hover:text-white" aria-label="LinkedIn">
-            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-              <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
-            </svg>
-          </a>
           <button id="langToggle" class="px-3 py-2 rounded-full border border-white/10 bg-white/5 hover:bg-white/10 text-xs font-semibold tracking-[0.18em] uppercase transition" aria-label="Cambiar idioma">ES</button>
-          <button id="menuBtn" class="md:hidden p-2 rounded-lg border border-white/10 bg-white/5 hover:bg-white/10 transition" aria-label="Abrir menú">
-            <svg id="menuIcon" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
-            </svg>
-            <svg id="closeIcon" class="w-6 h-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
-            </svg>
+          <button id="menuBtn" class="md:hidden p-2 rounded-lg border border-white/10 bg-white/5 hover:bg-white/10 transition" aria-label="Abrir menú" aria-expanded="false" aria-controls="mobileMenu">
+            <svg id="menuIcon" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+            <svg id="closeIcon" class="w-6 h-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
           </button>
         </div>
       </div>
     </div>
-
     <div id="mobileMenu" class="hidden md:hidden border-t border-white/5 glass-strong">
       <div class="max-w-7xl mx-auto px-4 py-4 flex flex-col gap-2 text-sm text-slate-300">
         <a href="#about" class="py-3 px-3 rounded-lg hover:bg-white/5 transition" data-i18n="nav_about">Sobre mí</a>
@@ -193,36 +125,30 @@
   </header>
 
   <main class="relative pt-16">
-    <section id="home" class="min-h-screen flex items-center justify-center px-4 sm:px-6">
+    <section id="home" class="min-h-screen flex items-center justify-center px-4 sm:px-6 relative">
       <div class="absolute inset-0 bg-gradient-to-b from-slate-950 via-slate-950/80 to-slate-900"></div>
       <div class="relative z-10 max-w-6xl mx-auto text-center py-16">
-        <div class="reveal inline-flex items-center gap-2 px-4 py-2 rounded-full border border-blue-500/20 bg-blue-500/10 text-blue-300 text-xs sm:text-sm font-medium mb-6">
-          <span class="w-2 h-2 rounded-full bg-green-400 animate-pulse"></span>
+        <div class="reveal inline-flex items-center gap-2 px-4 py-2 rounded-full border border-blue-500/20 bg-blue-500/10 text-blue-300 text-xs sm:text-sm font-medium mb-6 ripple-badge">
+          <span class="ripple-dot"></span>
           <span data-i18n="hero_badge">Disponible para nuevos proyectos</span>
         </div>
-
-        <h1 class="reveal text-3xl sm:text-5xl lg:text-7xl xl:text-7xl font-black tracking-tight leading-tight mb-6">
-          Darwin <span class="gradient-text">Colmenares</span>
-        </h1>
-
-        <p class="reveal text-lg sm:text-xl lg:text-2xl text-slate-300 font-light mb-4" data-i18n="hero_title">
-          Full-Stack Developer & Data Analyst
-        </p>
-
-        <p class="reveal max-w-3xl mx-auto text-sm sm:text-lg text-slate-400 leading-relaxed mb-10" data-i18n="hero_desc">
-          Contador Público e Ingeniero Informático. Construyo soluciones técnicas que resuelven problemas reales de negocio, desde el modelado de datos hasta la interfaz de usuario.
-        </p>
-
+        <h1 class="reveal text-3xl sm:text-5xl lg:text-7xl xl:text-7xl font-black tracking-tight leading-tight mb-6 font-display">Darwin <span class="gradient-text">Colmenares</span></h1>
+        <p class="reveal text-lg sm:text-xl lg:text-2xl text-slate-300 font-light mb-4" data-i18n="hero_title">Full-Stack Developer & Data Analyst</p>
+        <p class="reveal max-w-3xl mx-auto text-sm sm:text-lg text-slate-400 leading-relaxed mb-10" data-i18n="hero_desc">Contador Público e Ingeniero Informático. Construyo soluciones técnicas que resuelven problemas reales de negocio, desde el modelado de datos hasta la interfaz de usuario.</p>
         <div class="reveal flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4">
-          <a href="#projects" class="px-6 sm:px-8 py-3 sm:py-4 rounded-full bg-blue-600 hover:bg-blue-700 text-white font-semibold transition shadow-lg shadow-blue-500/20 hover:scale-[1.03]" data-i18n="hero_cta_projects">Ver proyectos</a>
-          <a href="#contact" class="px-6 sm:px-8 py-3 sm:py-4 rounded-full border border-white/10 bg-white/5 hover:bg-white/10 text-white font-semibold transition hover:scale-[1.03]" data-i18n="hero_cta_contact">Contactar</a>
+          <a href="#projects" class="px-6 sm:px-8 py-3 sm:py-4 rounded-full bg-blue-600 hover:bg-blue-700 text-white font-semibold transition shadow-lg shadow-blue-500/20 hover:scale-[1.03] font-display" data-i18n="hero_cta_projects">Ver proyectos</a>
+          <a href="#contact" class="px-6 sm:px-8 py-3 sm:py-4 rounded-full border border-white/10 bg-white/5 hover:bg-white/10 text-white font-semibold transition hover:scale-[1.03] font-display" data-i18n="hero_cta_contact">Contactar</a>
         </div>
-
         <div class="reveal flex items-center justify-center gap-4 mt-10 flex-wrap">
-          <a href="https://github.com/darwinjcn" target="_blank" class="px-4 py-3 rounded-2xl border border-white/10 bg-white/5 hover:bg-white/10 transition">GitHub</a>
-          <a href="https://www.linkedin.com/in/darwin-colmenares" target="_blank" class="px-4 py-3 rounded-2xl border border-white/10 bg-white/5 hover:bg-white/10 transition">LinkedIn</a>
-          <a href="mailto:colmenaresdarwin06@gmail.com" class="px-4 py-3 rounded-2xl border border-white/10 bg-white/5 hover:bg-white/10 transition">Email</a>
-          <a href="https://wa.me/584265152896" target="_blank" class="px-4 py-3 rounded-2xl border border-white/10 bg-white/5 hover:bg-white/10 transition">WhatsApp</a>
+          <a href="https://github.com/darwinjcn" target="_blank" class="px-4 py-3 rounded-2xl border border-white/10 bg-white/5 hover:bg-white/10 transition inline-flex items-center gap-2"><svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>GitHub</a>
+          <a href="https://www.linkedin.com/in/darwin-colmenares" target="_blank" class="px-4 py-3 rounded-2xl border border-white/10 bg-white/5 hover:bg-white/10 transition inline-flex items-center gap-2"><svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>LinkedIn</a>
+          <a href="mailto:colmenaresdarwin06@gmail.com" class="px-4 py-3 rounded-2xl border border-white/10 bg-white/5 hover:bg-white/10 transition inline-flex items-center gap-2"><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>Email</a>
+          <a href="https://wa.me/584265152896" target="_blank" class="px-4 py-3 rounded-2xl border border-white/10 bg-white/5 hover:bg-white/10 transition inline-flex items-center gap-2"><svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>WhatsApp</a>
+        </div>
+        <div class="reveal mt-16">
+          <a href="#about" class="inline-block text-slate-500 hover:text-slate-300 transition scroll-arrow" aria-label="Desplazarse hacia abajo">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 14l-7 7m0 0l-7-7m7 7V3"/></svg>
+          </a>
         </div>
       </div>
     </section>
@@ -231,46 +157,24 @@
       <div class="max-w-7xl mx-auto">
         <div class="flex items-center gap-4 mb-10 reveal">
           <span class="text-xs tracking-[0.25em] uppercase text-blue-300 border border-blue-500/20 bg-blue-500/10 px-3 py-1 rounded-full">01</span>
-          <h2 class="text-3xl sm:text-5xl font-bold" data-i18n="about_title">Sobre <span class="gradient-text">mí</span></h2>
+          <h2 class="text-3xl sm:text-5xl font-bold font-display" data-i18n="about_title">Sobre <span class="gradient-text">mí</span></h2>
           <div class="hidden md:block flex-1 section-line"></div>
         </div>
-
         <div class="grid lg:grid-cols-2 gap-6 lg:gap-8 items-stretch">
           <div class="reveal glass-strong rounded-3xl p-6 sm:p-8">
-            <h3 class="text-xl sm:text-2xl font-bold mb-4" data-i18n="about_card_title">Desarrollador con visión de negocio</h3>
-            <p class="text-slate-300 leading-relaxed mb-4" data-i18n="about_p1">
-              Mi formación dual en Contaduría Pública e Ingeniería Informática me permite traducir necesidades del negocio en soluciones técnicas claras, estables y escalables.
-            </p>
-            <p class="text-slate-400 leading-relaxed" data-i18n="about_p2">
-              He participado en sistemas críticos para contingencias satelitales, salud, combustible y visualización de datos, con foco en resultados reales.
-            </p>
-
+            <h3 class="text-xl sm:text-2xl font-bold mb-4 font-display" data-i18n="about_card_title">Desarrollador con visión de negocio</h3>
+            <p class="text-slate-300 leading-relaxed mb-4" data-i18n="about_p1">Mi formación dual en Contaduría Pública e Ingeniería Informática me permite traducir necesidades del negocio en soluciones técnicas claras, estables y escalables.</p>
+            <p class="text-slate-400 leading-relaxed" data-i18n="about_p2">He participado en sistemas críticos para contingencias satelitales, salud, combustible y visualización de datos, con foco en resultados reales.</p>
             <div class="grid grid-cols-2 gap-4 mt-6">
-              <div class="glass rounded-2xl p-4">
-                <div class="text-2xl sm:text-3xl font-bold text-blue-400">2</div>
-                <div class="text-xs uppercase tracking-[0.18em] text-slate-400 mt-1" data-i18n="stat_degree">Títulos profesionales</div>
-              </div>
-              <div class="glass rounded-2xl p-4">
-                <div class="text-2xl sm:text-3xl font-bold text-purple-400">7</div>
-                <div class="text-xs uppercase tracking-[0.18em] text-slate-400 mt-1" data-i18n="stat_projects">Proyectos</div>
-              </div>
-              <div class="glass rounded-2xl p-4">
-                <div class="text-2xl sm:text-3xl font-bold text-green-400">15+</div>
-                <div class="text-xs uppercase tracking-[0.18em] text-slate-400 mt-1" data-i18n="stat_tech">Tecnologías</div>
-              </div>
-              <div class="glass rounded-2xl p-4">
-                <div class="text-2xl sm:text-3xl font-bold text-orange-400">BI</div>
-                <div class="text-xs uppercase tracking-[0.18em] text-slate-400 mt-1" data-i18n="stat_focus">Enfoque en datos</div>
-              </div>
+              <div class="glass rounded-2xl p-4"><div class="text-2xl sm:text-3xl font-bold text-blue-400 font-display">2</div><div class="text-xs uppercase tracking-[0.18em] text-slate-400 mt-1" data-i18n="stat_degree">Títulos profesionales</div></div>
+              <div class="glass rounded-2xl p-4"><div class="text-2xl sm:text-3xl font-bold text-purple-400 font-display">7</div><div class="text-xs uppercase tracking-[0.18em] text-slate-400 mt-1" data-i18n="stat_projects">Proyectos</div></div>
+              <div class="glass rounded-2xl p-4"><div class="text-2xl sm:text-3xl font-bold text-green-400 font-display">15+</div><div class="text-xs uppercase tracking-[0.18em] text-slate-400 mt-1" data-i18n="stat_tech">Tecnologías</div></div>
+              <div class="glass rounded-2xl p-4"><div class="text-2xl sm:text-3xl font-bold text-orange-400 font-display">BI</div><div class="text-xs uppercase tracking-[0.18em] text-slate-400 mt-1" data-i18n="stat_focus">Enfoque en datos</div></div>
             </div>
           </div>
-
           <div class="reveal glass-strong rounded-3xl p-6 sm:p-8">
             <div class="flex items-center gap-2 mb-4 text-slate-300">
-              <span class="w-3 h-3 rounded-full bg-red-500"></span>
-              <span class="w-3 h-3 rounded-full bg-yellow-500"></span>
-              <span class="w-3 h-3 rounded-full bg-green-500"></span>
-              <span class="ml-2 text-xs text-slate-400">darwin.config.js</span>
+              <span class="w-3 h-3 rounded-full bg-red-500"></span><span class="w-3 h-3 rounded-full bg-yellow-500"></span><span class="w-3 h-3 rounded-full bg-green-500"></span><span class="ml-2 text-xs text-slate-400">darwin.config.js</span>
             </div>
             <pre class="text-xs sm:text-sm text-slate-300 whitespace-pre-wrap leading-relaxed overflow-x-auto">
 <span class="text-purple-400">const</span> <span class="text-cyan-300">darwin</span> = {
@@ -291,124 +195,89 @@
       <div class="max-w-7xl mx-auto">
         <div class="flex items-center gap-4 mb-10 reveal">
           <span class="text-xs tracking-[0.25em] uppercase text-blue-300 border border-blue-500/20 bg-blue-500/10 px-3 py-1 rounded-full">02</span>
-          <h2 class="text-3xl sm:text-5xl font-bold" data-i18n="projects_title">Proyectos <span class="gradient-text">destacados</span></h2>
+          <h2 class="text-3xl sm:text-5xl font-bold font-display" data-i18n="projects_title">Proyectos <span class="gradient-text">destacados</span></h2>
           <div class="hidden md:block flex-1 section-line"></div>
         </div>
-
         <div class="reveal mb-8 flex flex-wrap gap-2">
           <button class="filter-btn active px-4 py-2 rounded-full border border-white/10 bg-white/5 text-xs uppercase tracking-[0.16em]" data-filter="all">Todos</button>
           <button class="filter-btn px-4 py-2 rounded-full border border-white/10 bg-white/5 text-xs uppercase tracking-[0.16em]" data-filter="fullstack">Full-Stack</button>
           <button class="filter-btn px-4 py-2 rounded-full border border-white/10 bg-white/5 text-xs uppercase tracking-[0.16em]" data-filter="frontend">Frontend</button>
           <button class="filter-btn px-4 py-2 rounded-full border border-white/10 bg-white/5 text-xs uppercase tracking-[0.16em]" data-filter="data">Data BI</button>
         </div>
+        <p class="reveal max-w-3xl text-slate-400 mb-8" data-i18n="projects_desc">Selección de proyectos que muestran trabajo full-stack, experiencia en backend, interfaces modernas y tableros de BI.</p>
 
-        <p class="reveal max-w-3xl text-slate-400 mb-8" data-i18n="projects_desc">
-          Selección de proyectos que muestran trabajo full-stack, experiencia en backend, interfaces modernas y tableros de BI.
-        </p>
-
-        <div id="projectsGrid" class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-5">
+        <div id="projectsGrid" class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-5 items-stretch">
           <article class="project-card reveal glass-strong rounded-3xl overflow-hidden" data-cat="fullstack">
-            <div class="p-6">
-              <div class="inline-flex items-center justify-center w-12 h-12 rounded-2xl bg-red-500/10 text-red-300 border border-red-500/20 mb-4">01</div>
-              <h3 class="text-xl font-bold mb-2">Gestión de Contingencias Satelitales</h3>
+            <div class="card-body p-6">
+              <div class="inline-flex items-center justify-center w-12 h-12 rounded-2xl bg-red-500/10 text-red-300 border border-red-500/20 mb-4 font-display font-bold">01</div>
+              <h3 class="text-xl font-bold mb-2 font-display">Gestión de Contingencias Satelitales</h3>
               <p class="text-slate-400 text-sm leading-relaxed mb-4" data-i18n="p1_desc">Plataforma web para gestionar contingencias operativas en infraestructura satelital.</p>
-              <div class="flex flex-wrap gap-2 mb-5">
-                <span class="px-3 py-1 rounded-full text-xs border border-white/10 bg-white/5">React</span>
-                <span class="px-3 py-1 rounded-full text-xs border border-white/10 bg-white/5">Laravel</span>
-                <span class="px-3 py-1 rounded-full text-xs border border-white/10 bg-white/5">PostgreSQL</span>
-              </div>
-              <a href="https://github.com/darwinjcn/gcs-project" target="_blank" class="inline-flex items-center gap-2 text-sm text-blue-300 hover:text-blue-200 transition">Ver código →</a>
+              <div class="flex flex-wrap gap-2 mb-5"><span class="px-3 py-1 rounded-full text-xs border badge-react">React</span><span class="px-3 py-1 rounded-full text-xs border badge-laravel">Laravel</span><span class="px-3 py-1 rounded-full text-xs border badge-sql">PostgreSQL</span></div>
+              <div class="card-footer"><a href="https://github.com/darwinjcn/gcs-project" target="_blank" class="arrow-link inline-flex items-center gap-2 text-sm text-blue-300 hover:text-blue-200 transition">Ver código<svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a></div>
             </div>
           </article>
 
           <article class="project-card reveal glass-strong rounded-3xl overflow-hidden" data-cat="fullstack">
-            <div class="p-6">
-              <div class="inline-flex items-center justify-center w-12 h-12 rounded-2xl bg-orange-500/10 text-orange-300 border border-orange-500/20 mb-4">02</div>
-              <h3 class="text-xl font-bold mb-2">Sistema de Gestión de Combustible</h3>
+            <div class="card-body p-6">
+              <div class="inline-flex items-center justify-center w-12 h-12 rounded-2xl bg-orange-500/10 text-orange-300 border border-orange-500/20 mb-4 font-display font-bold">02</div>
+              <h3 class="text-xl font-bold mb-2 font-display">Sistema de Gestión de Combustible</h3>
               <p class="text-slate-400 text-sm leading-relaxed mb-4" data-i18n="p2_desc">Sistema web para control de generadores, consumo y documentación técnica completa.</p>
-              <div class="flex flex-wrap gap-2 mb-5">
-                <span class="px-3 py-1 rounded-full text-xs border border-white/10 bg-white/5">Django</span>
-                <span class="px-3 py-1 rounded-full text-xs border border-white/10 bg-white/5">React</span>
-                <span class="px-3 py-1 rounded-full text-xs border border-white/10 bg-white/5">PostgreSQL</span>
-              </div>
-              <a href="https://github.com/darwinjcn/sistema-gestion-combustible" target="_blank" class="inline-flex items-center gap-2 text-sm text-blue-300 hover:text-blue-200 transition">Ver código →</a>
+              <div class="flex flex-wrap gap-2 mb-5"><span class="px-3 py-1 rounded-full text-xs border badge-django">Django</span><span class="px-3 py-1 rounded-full text-xs border badge-react">React</span><span class="px-3 py-1 rounded-full text-xs border badge-sql">PostgreSQL</span></div>
+              <div class="card-footer"><a href="https://github.com/darwinjcn/sistema-gestion-combustible" target="_blank" class="arrow-link inline-flex items-center gap-2 text-sm text-blue-300 hover:text-blue-200 transition">Ver código<svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a></div>
             </div>
           </article>
 
           <article class="project-card reveal glass-strong rounded-3xl overflow-hidden" data-cat="fullstack">
-            <div class="p-6">
-              <div class="inline-flex items-center justify-center w-12 h-12 rounded-2xl bg-blue-500/10 text-blue-300 border border-blue-500/20 mb-4">03</div>
-              <h3 class="text-xl font-bold mb-2">Node Express TypeScript</h3>
+            <div class="card-body p-6">
+              <div class="inline-flex items-center justify-center w-12 h-12 rounded-2xl bg-blue-500/10 text-blue-300 border border-blue-500/20 mb-4 font-display font-bold">03</div>
+              <h3 class="text-xl font-bold mb-2 font-display">Node Express TypeScript</h3>
               <p class="text-slate-400 text-sm leading-relaxed mb-4" data-i18n="p3_desc">Laboratorio técnico sobre rutas dinámicas, API REST y arquitectura dockerizada.</p>
-              <div class="flex flex-wrap gap-2 mb-5">
-                <span class="px-3 py-1 rounded-full text-xs border border-white/10 bg-white/5">Node.js</span>
-                <span class="px-3 py-1 rounded-full text-xs border border-white/10 bg-white/5">TypeScript</span>
-                <span class="px-3 py-1 rounded-full text-xs border border-white/10 bg-white/5">Docker</span>
-              </div>
-              <a href="https://github.com/darwinjcn/node-express-typescript-logic" target="_blank" class="inline-flex items-center gap-2 text-sm text-blue-300 hover:text-blue-200 transition">Ver código →</a>
+              <div class="flex flex-wrap gap-2 mb-5"><span class="px-3 py-1 rounded-full text-xs border badge-node">Node.js</span><span class="px-3 py-1 rounded-full text-xs border badge-ts">TypeScript</span><span class="px-3 py-1 rounded-full text-xs border badge-docker">Docker</span></div>
+              <div class="card-footer"><a href="https://github.com/darwinjcn/node-express-typescript-logic" target="_blank" class="arrow-link inline-flex items-center gap-2 text-sm text-blue-300 hover:text-blue-200 transition">Ver código<svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a></div>
             </div>
           </article>
 
           <article class="project-card reveal glass-strong rounded-3xl overflow-hidden" data-cat="frontend">
-            <div class="p-6">
-              <div class="inline-flex items-center justify-center w-12 h-12 rounded-2xl bg-yellow-500/10 text-yellow-300 border border-yellow-500/20 mb-4">04</div>
-              <h3 class="text-xl font-bold mb-2">Crypto Monitor</h3>
+            <div class="card-body p-6">
+              <div class="inline-flex items-center justify-center w-12 h-12 rounded-2xl bg-yellow-500/10 text-yellow-300 border border-yellow-500/20 mb-4 font-display font-bold">04</div>
+              <h3 class="text-xl font-bold mb-2 font-display">Crypto Monitor</h3>
               <p class="text-slate-400 text-sm leading-relaxed mb-4" data-i18n="p4_desc">Plataforma de monitoreo de criptoactivos en tiempo real con enfoque en datos.</p>
-              <div class="flex flex-wrap gap-2 mb-5">
-                <span class="px-3 py-1 rounded-full text-xs border border-white/10 bg-white/5">JavaScript</span>
-                <span class="px-3 py-1 rounded-full text-xs border border-white/10 bg-white/5">APIs</span>
-                <span class="px-3 py-1 rounded-full text-xs border border-white/10 bg-white/5">Visualización</span>
-              </div>
-              <a href="https://github.com/darwinjcn/crypto-monitor" target="_blank" class="inline-flex items-center gap-2 text-sm text-blue-300 hover:text-blue-200 transition">Ver código →</a>
+              <div class="flex flex-wrap gap-2 mb-5"><span class="px-3 py-1 rounded-full text-xs border badge-js">JavaScript</span><span class="px-3 py-1 rounded-full text-xs border badge-api">APIs</span><span class="px-3 py-1 rounded-full text-xs border badge-viz">Visualización</span></div>
+              <div class="card-footer"><a href="https://github.com/darwinjcn/crypto-monitor" target="_blank" class="arrow-link inline-flex items-center gap-2 text-sm text-blue-300 hover:text-blue-200 transition">Ver código<svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a></div>
             </div>
           </article>
 
           <article class="project-card reveal glass-strong rounded-3xl overflow-hidden" data-cat="frontend">
-            <div class="p-6">
-              <div class="inline-flex items-center justify-center w-12 h-12 rounded-2xl bg-purple-500/10 text-purple-300 border border-purple-500/20 mb-4">05</div>
-              <h3 class="text-xl font-bold mb-2">App Ionic</h3>
+            <div class="card-body p-6">
+              <div class="inline-flex items-center justify-center w-12 h-12 rounded-2xl bg-purple-500/10 text-purple-300 border border-purple-500/20 mb-4 font-display font-bold">05</div>
+              <h3 class="text-xl font-bold mb-2 font-display">App Ionic</h3>
               <p class="text-slate-400 text-sm leading-relaxed mb-4" data-i18n="p5_desc">Aplicación móvil multiplataforma con navegación estructurada y diseño responsive.</p>
-              <div class="flex flex-wrap gap-2 mb-5">
-                <span class="px-3 py-1 rounded-full text-xs border border-white/10 bg-white/5">Ionic</span>
-                <span class="px-3 py-1 rounded-full text-xs border border-white/10 bg-white/5">Angular</span>
-                <span class="px-3 py-1 rounded-full text-xs border border-white/10 bg-white/5">TypeScript</span>
-              </div>
-              <a href="https://github.com/darwinjcn/mi-app-ionic-app" target="_blank" class="inline-flex items-center gap-2 text-sm text-blue-300 hover:text-blue-200 transition">Ver código →</a>
+              <div class="flex flex-wrap gap-2 mb-5"><span class="px-3 py-1 rounded-full text-xs border badge-ionic">Ionic</span><span class="px-3 py-1 rounded-full text-xs border badge-angular">Angular</span><span class="px-3 py-1 rounded-full text-xs border badge-ts">TypeScript</span></div>
+              <div class="card-footer"><a href="https://github.com/darwinjcn/mi-app-ionic-app" target="_blank" class="arrow-link inline-flex items-center gap-2 text-sm text-blue-300 hover:text-blue-200 transition">Ver código<svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a></div>
             </div>
           </article>
 
           <article class="project-card reveal glass-strong rounded-3xl overflow-hidden" data-cat="fullstack">
-            <div class="p-6">
-              <div class="inline-flex items-center justify-center w-12 h-12 rounded-2xl bg-green-500/10 text-green-300 border border-green-500/20 mb-4">06</div>
-              <h3 class="text-xl font-bold mb-2">Sistema Salud</h3>
+            <div class="card-body p-6">
+              <div class="inline-flex items-center justify-center w-12 h-12 rounded-2xl bg-green-500/10 text-green-300 border border-green-500/20 mb-4 font-display font-bold">06</div>
+              <h3 class="text-xl font-bold mb-2 font-display">Sistema Salud</h3>
               <p class="text-slate-400 text-sm leading-relaxed mb-4" data-i18n="p6_desc">Plataforma para gestión de servicios de salud con roles y permisos.</p>
-              <div class="flex flex-wrap gap-2 mb-5">
-                <span class="px-3 py-1 rounded-full text-xs border border-white/10 bg-white/5">Python</span>
-                <span class="px-3 py-1 rounded-full text-xs border border-white/10 bg-white/5">Django</span>
-                <span class="px-3 py-1 rounded-full text-xs border border-white/10 bg-white/5">SQLite</span>
-              </div>
-              <a href="https://github.com/darwinjcn/sistema_salud" target="_blank" class="inline-flex items-center gap-2 text-sm text-blue-300 hover:text-blue-200 transition">Ver código →</a>
+              <div class="flex flex-wrap gap-2 mb-5"><span class="px-3 py-1 rounded-full text-xs border badge-python">Python</span><span class="px-3 py-1 rounded-full text-xs border badge-django">Django</span><span class="px-3 py-1 rounded-full text-xs border badge-sql">SQLite</span></div>
+              <div class="card-footer"><a href="https://github.com/darwinjcn/sistema_salud" target="_blank" class="arrow-link inline-flex items-center gap-2 text-sm text-blue-300 hover:text-blue-200 transition">Ver código<svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a></div>
             </div>
           </article>
 
           <article class="project-card reveal glass-strong rounded-3xl overflow-hidden md:col-span-2 xl:col-span-3" data-cat="data">
-            <div class="p-6 md:flex md:items-center md:justify-between md:gap-6">
+            <div class="card-body p-6 md:flex md:items-center md:justify-between md:gap-6">
               <div class="max-w-3xl">
-                <div class="inline-flex items-center justify-center w-12 h-12 rounded-2xl bg-cyan-500/10 text-cyan-300 border border-cyan-500/20 mb-4">BI</div>
-                <h3 class="text-xl font-bold mb-2">Power BI Portafolio de BI</h3>
-                <p class="text-slate-400 text-sm leading-relaxed mb-4">
-                  Dashboards de análisis financiero, expansión retail y control de flota logística.
-                </p>
-                <div class="flex flex-wrap gap-2">
-                  <span class="px-3 py-1 rounded-full text-xs border border-white/10 bg-white/5">Power BI</span>
-                  <span class="px-3 py-1 rounded-full text-xs border border-white/10 bg-white/5">DAX</span>
-                  <span class="px-3 py-1 rounded-full text-xs border border-white/10 bg-white/5">ETL</span>
-                  <span class="px-3 py-1 rounded-full text-xs border border-white/10 bg-white/5">Star Schema</span>
-                </div>
+                <div class="inline-flex items-center justify-center w-12 h-12 rounded-2xl bg-cyan-500/10 text-cyan-300 border border-cyan-500/20 mb-4 font-display font-bold">BI</div>
+                <h3 class="text-xl font-bold mb-2 font-display">Portafolio de Power BI</h3>
+                <p class="text-slate-400 text-sm leading-relaxed mb-4">Dashboards de análisis financiero, expansión retail y control de flota logística.</p>
+                <div class="flex flex-wrap gap-2"><span class="px-3 py-1 rounded-full text-xs border badge-pbi">Power BI</span><span class="px-3 py-1 rounded-full text-xs border badge-dax">DAX</span><span class="px-3 py-1 rounded-full text-xs border badge-etl">ETL</span><span class="px-3 py-1 rounded-full text-xs border badge-schema">Star Schema</span></div>
               </div>
-              <a href="https://github.com/darwinjcn/powerbi-proyectos" target="_blank" class="inline-flex items-center justify-center mt-6 md:mt-0 px-4 py-3 rounded-full border border-white/10 bg-white/5 hover:bg-white/10 transition text-sm">
-                Ver código →
-              </a>
+              <div class="card-footer mt-6 md:mt-0 md:shrink-0">
+                <a href="https://github.com/darwinjcn/powerbi-proyectos" target="_blank" class="arrow-link inline-flex items-center justify-center px-4 py-3 rounded-full border border-white/10 bg-white/5 hover:bg-white/10 transition text-sm">Ver código<svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+              </div>
             </div>
           </article>
         </div>
@@ -419,17 +288,13 @@
       <div class="max-w-7xl mx-auto">
         <div class="flex items-center gap-4 mb-10 reveal">
           <span class="text-xs tracking-[0.25em] uppercase text-blue-300 border border-blue-500/20 bg-blue-500/10 px-3 py-1 rounded-full">03</span>
-          <h2 class="text-3xl sm:text-5xl font-bold" data-i18n="skills_title">Stack <span class="gradient-text">técnico</span></h2>
+          <h2 class="text-3xl sm:text-5xl font-bold font-display" data-i18n="skills_title">Stack <span class="gradient-text">técnico</span></h2>
           <div class="hidden md:block flex-1 section-line"></div>
         </div>
-
-        <p class="reveal max-w-3xl text-slate-400 mb-8" data-i18n="skills_desc">
-          Desde backend con Laravel y Django hasta frontend con React, Angular e Ionic, además de analítica con Power BI.
-        </p>
-
+        <p class="reveal max-w-3xl text-slate-400 mb-8" data-i18n="skills_desc">Desde backend con Laravel y Django hasta frontend con React, Angular e Ionic, además de analítica con Power BI.</p>
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
           <div class="reveal glass-strong rounded-3xl p-6">
-            <h3 class="font-semibold text-slate-100 mb-4" data-i18n="skills_cat1">Lenguajes</h3>
+            <h3 class="font-semibold text-slate-100 mb-4 font-display" data-i18n="skills_cat1">Lenguajes</h3>
             <div class="flex flex-wrap gap-2">
               <span class="skill-tag px-3 py-2 rounded-full bg-white/5 border border-white/10 text-sm text-slate-300">Python</span>
               <span class="skill-tag px-3 py-2 rounded-full bg-white/5 border border-white/10 text-sm text-slate-300">JavaScript</span>
@@ -439,9 +304,8 @@
               <span class="skill-tag px-3 py-2 rounded-full bg-white/5 border border-white/10 text-sm text-slate-300">SQL</span>
             </div>
           </div>
-
           <div class="reveal glass-strong rounded-3xl p-6">
-            <h3 class="font-semibold text-slate-100 mb-4" data-i18n="skills_cat2">Frameworks</h3>
+            <h3 class="font-semibold text-slate-100 mb-4 font-display" data-i18n="skills_cat2">Frameworks</h3>
             <div class="flex flex-wrap gap-2">
               <span class="skill-tag px-3 py-2 rounded-full bg-white/5 border border-white/10 text-sm text-slate-300">Laravel</span>
               <span class="skill-tag px-3 py-2 rounded-full bg-white/5 border border-white/10 text-sm text-slate-300">Django</span>
@@ -452,9 +316,8 @@
               <span class="skill-tag px-3 py-2 rounded-full bg-white/5 border border-white/10 text-sm text-slate-300">Express</span>
             </div>
           </div>
-
           <div class="reveal glass-strong rounded-3xl p-6">
-            <h3 class="font-semibold text-slate-100 mb-4" data-i18n="skills_cat3">Datos y BI</h3>
+            <h3 class="font-semibold text-slate-100 mb-4 font-display" data-i18n="skills_cat3">Datos y BI</h3>
             <div class="flex flex-wrap gap-2">
               <span class="skill-tag px-3 py-2 rounded-full bg-white/5 border border-white/10 text-sm text-slate-300">Power BI</span>
               <span class="skill-tag px-3 py-2 rounded-full bg-white/5 border border-white/10 text-sm text-slate-300">DAX</span>
@@ -465,18 +328,16 @@
               <span class="skill-tag px-3 py-2 rounded-full bg-white/5 border border-white/10 text-sm text-slate-300">Excel</span>
             </div>
           </div>
-
           <div class="reveal glass-strong rounded-3xl p-6">
-            <h3 class="font-semibold text-slate-100 mb-4" data-i18n="skills_cat4">Bases de datos</h3>
+            <h3 class="font-semibold text-slate-100 mb-4 font-display" data-i18n="skills_cat4">Bases de datos</h3>
             <div class="flex flex-wrap gap-2">
               <span class="skill-tag px-3 py-2 rounded-full bg-white/5 border border-white/10 text-sm text-slate-300">PostgreSQL</span>
               <span class="skill-tag px-3 py-2 rounded-full bg-white/5 border border-white/10 text-sm text-slate-300">SQLite</span>
               <span class="skill-tag px-3 py-2 rounded-full bg-white/5 border border-white/10 text-sm text-slate-300">SQL Server</span>
             </div>
           </div>
-
           <div class="reveal glass-strong rounded-3xl p-6">
-            <h3 class="font-semibold text-slate-100 mb-4" data-i18n="skills_cat5">DevOps / Tools</h3>
+            <h3 class="font-semibold text-slate-100 mb-4 font-display" data-i18n="skills_cat5">DevOps / Tools</h3>
             <div class="flex flex-wrap gap-2">
               <span class="skill-tag px-3 py-2 rounded-full bg-white/5 border border-white/10 text-sm text-slate-300">Git</span>
               <span class="skill-tag px-3 py-2 rounded-full bg-white/5 border border-white/10 text-sm text-slate-300">GitHub Actions</span>
@@ -485,9 +346,8 @@
               <span class="skill-tag px-3 py-2 rounded-full bg-white/5 border border-white/10 text-sm text-slate-300">SAP</span>
             </div>
           </div>
-
           <div class="reveal glass-strong rounded-3xl p-6">
-            <h3 class="font-semibold text-slate-100 mb-4" data-i18n="skills_cat6">Fortalezas</h3>
+            <h3 class="font-semibold text-slate-100 mb-4 font-display" data-i18n="skills_cat6">Fortalezas</h3>
             <div class="space-y-3 text-slate-300 text-sm leading-relaxed">
               <p data-i18n="strength_1">Pensamiento analítico con visión de negocio.</p>
               <p data-i18n="strength_2">Capacidad para unir diseño, datos y backend.</p>
@@ -502,36 +362,44 @@
       <div class="max-w-7xl mx-auto">
         <div class="flex items-center gap-4 mb-10 reveal">
           <span class="text-xs tracking-[0.25em] uppercase text-blue-300 border border-blue-500/20 bg-blue-500/10 px-3 py-1 rounded-full">04</span>
-          <h2 class="text-3xl sm:text-5xl font-bold" data-i18n="exp_title">Trayectoria <span class="gradient-text">profesional</span></h2>
+          <h2 class="text-3xl sm:text-5xl font-bold font-display" data-i18n="exp_title">Trayectoria <span class="gradient-text">profesional</span></h2>
           <div class="hidden md:block flex-1 section-line"></div>
         </div>
-
-        <div class="space-y-5 max-w-4xl">
-          <div class="reveal glass-strong rounded-3xl p-6">
+        <div class="timeline-container max-w-4xl">
+          <div class="timeline-item reveal glass-strong rounded-3xl p-6">
             <div class="text-xs uppercase tracking-[0.2em] text-blue-300 mb-2" data-i18n="exp1_date">Desarrollo Full-Stack BI</div>
-            <h3 class="text-xl font-bold mb-1">Full-Stack Developer / Data Analyst</h3>
-            <p class="text-slate-400 text-sm mb-3" data-i18n="exp1_company">Freelance, proyectos universitarios y propios</p>
+            <h3 class="text-xl font-bold mb-1 font-display">Full-Stack Developer / Data Analyst</h3>
+            <p class="text-slate-400 text-sm mb-3 inline-flex items-center gap-1">
+              <svg class="w-4 h-4 text-slate-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+              <span data-i18n="exp1_company">Freelance, proyectos universitarios y propios</span>
+            </p>
             <p class="text-slate-300 leading-relaxed" data-i18n="exp1_desc">Soluciones web para entornos reales: plataformas satelitales, sistemas de combustible, monitoreo financiero y dashboards de BI.</p>
           </div>
-
-          <div class="reveal glass-strong rounded-3xl p-6">
+          <div class="timeline-item reveal glass-strong rounded-3xl p-6">
             <div class="text-xs uppercase tracking-[0.2em] text-blue-300 mb-2" data-i18n="exp2_date">Pasantía Gerencia de Operaciones Satelitales</div>
-            <h3 class="text-xl font-bold mb-1">Desarrollador GCS CANTV</h3>
-            <p class="text-slate-400 text-sm mb-3" data-i18n="exp2_company">Caracas, Camatagua, Báemari</p>
+            <h3 class="text-xl font-bold mb-1 font-display">Desarrollador GCS CANTV</h3>
+            <p class="text-slate-400 text-sm mb-3 inline-flex items-center gap-1">
+              <svg class="w-4 h-4 text-slate-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+              <span data-i18n="exp2_company">Caracas, Camatagua, Báemari</span>
+            </p>
             <p class="text-slate-300 leading-relaxed" data-i18n="exp2_desc">Plataforma web para gestión de contingencias satelitales con roles, trazabilidad, PDFs y metodología SCRUM.</p>
           </div>
-
-          <div class="reveal glass-strong rounded-3xl p-6">
+          <div class="timeline-item reveal glass-strong rounded-3xl p-6">
             <div class="text-xs uppercase tracking-[0.2em] text-blue-300 mb-2" data-i18n="exp3_date">Pasantía NEA CANTV</div>
-            <h3 class="text-xl font-bold mb-1">Desarrollador Sistema de Gestión de Salud</h3>
-            <p class="text-slate-400 text-sm mb-3" data-i18n="exp3_company">Núcleo de Evaluación y Análisis</p>
+            <h3 class="text-xl font-bold mb-1 font-display">Desarrollador Sistema de Gestión de Salud</h3>
+            <p class="text-slate-400 text-sm mb-3 inline-flex items-center gap-1">
+              <svg class="w-4 h-4 text-slate-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+              <span data-i18n="exp3_company">Núcleo de Evaluación y Análisis</span>
+            </p>
             <p class="text-slate-300 leading-relaxed" data-i18n="exp3_desc">Gestión de servicios de salud con sistema de roles y permisos. Primera experiencia en entorno corporativo.</p>
           </div>
-
-          <div class="reveal glass-strong rounded-3xl p-6">
+          <div class="timeline-item reveal glass-strong rounded-3xl p-6">
             <div class="text-xs uppercase tracking-[0.2em] text-blue-300 mb-2" data-i18n="exp4_date">Formación académica</div>
-            <h3 class="text-xl font-bold mb-1" data-i18n="exp4_title">Contador Público / Ingeniero Informático</h3>
-            <p class="text-slate-400 text-sm mb-3" data-i18n="exp4_company">Doble titulación universitaria</p>
+            <h3 class="text-xl font-bold mb-1 font-display" data-i18n="exp4_title">Contador Público / Ingeniero Informático</h3>
+            <p class="text-slate-400 text-sm mb-3 inline-flex items-center gap-1">
+              <svg class="w-4 h-4 text-slate-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 14l9-5-9-5-9 5 9 5z"/><path d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z"/><path d="M12 14l9-5-9-5-9 5 9 5zm0 0l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14zm-4 6v-7.5l4-2.222"/></svg>
+              <span data-i18n="exp4_company">Doble titulación universitaria</span>
+            </p>
             <p class="text-slate-300 leading-relaxed" data-i18n="exp4_desc">Contabilidad, finanzas y auditoría combinadas con ingeniería de software y bases de datos.</p>
           </div>
         </div>
@@ -540,230 +408,167 @@
 
     <section id="contact" class="py-20 sm:py-24 px-4 sm:px-6">
       <div class="max-w-4xl mx-auto text-center">
-        <div class="reveal text-xs uppercase tracking-[0.3em] text-blue-300 mb-4" data-i18n="contact_eyebrow">Hablemos</div>
-        <h2 class="reveal text-3xl sm:text-5xl font-bold mb-5" data-i18n="contact_title">¿Tienes un proyecto <span class="gradient-text">en mente?</span></h2>
-        <p class="reveal text-slate-400 max-w-2xl mx-auto mb-10 leading-relaxed" data-i18n="contact_desc">
-          Disponible para nuevos proyectos, oportunidades laborales o simplemente conversar sobre tecnología.
-        </p>
-
-        <div class="reveal flex flex-col sm:flex-row justify-center gap-3">
-          <a href="mailto:colmenaresdarwin06@gmail.com" class="px-6 py-4 rounded-full glass-strong hover:bg-white/10 transition" data-i18n="contact_email">Email</a>
-          <a href="https://wa.me/584265152896" target="_blank" class="px-6 py-4 rounded-full glass-strong hover:bg-white/10 transition" data-i18n="contact_whatsapp">WhatsApp</a>
-          <a href="https://www.linkedin.com/in/darwin-colmenares" target="_blank" class="px-6 py-4 rounded-full glass-strong hover:bg-white/10 transition" data-i18n="contact_linkedin">LinkedIn</a>
-          <a href="https://github.com/darwinjcn" target="_blank" class="px-6 py-4 rounded-full glass-strong hover:bg-white/10 transition" data-i18n="contact_github">GitHub</a>
+        <div class="reveal text-xs uppercase tracking-[0.3em] text-blue-300 mb-4 font-display" data-i18n="contact_eyebrow">Hablemos</div>
+        <h2 class="reveal text-3xl sm:text-5xl font-bold mb-5 font-display" data-i18n="contact_title">Tienes un proyecto <span class="gradient-text">en mente?</span></h2>
+        <p class="reveal text-slate-400 max-w-2xl mx-auto mb-10 leading-relaxed" data-i18n="contact_desc">Disponible para nuevos proyectos, oportunidades laborales o simplemente conversar sobre tecnología.</p>
+        <div class="reveal grid grid-cols-2 gap-3 max-w-lg mx-auto">
+          <a href="mailto:colmenaresdarwin06@gmail.com" class="contact-btn contact-btn-email px-6 py-4 rounded-full glass-strong hover:bg-white/10 transition">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            <span data-i18n="contact_email">Email</span>
+          </a>
+          <a href="https://wa.me/584265152896" target="_blank" class="contact-btn contact-btn-wa px-6 py-4 rounded-full glass-strong hover:bg-white/10 transition">
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            <span data-i18n="contact_whatsapp">WhatsApp</span>
+          </a>
+          <a href="https://www.linkedin.com/in/darwin-colmenares" target="_blank" class="contact-btn contact-btn-li px-6 py-4 rounded-full glass-strong hover:bg-white/10 transition">
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+            <span data-i18n="contact_linkedin">LinkedIn</span>
+          </a>
+          <a href="https://github.com/darwinjcn" target="_blank" class="contact-btn contact-btn-gh px-6 py-4 rounded-full glass-strong hover:bg-white/10 transition">
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+            <span data-i18n="contact_github">GitHub</span>
+          </a>
         </div>
       </div>
     </section>
   </main>
 
   <footer class="border-t border-white/5 py-6 px-4 sm:px-6 text-center text-xs text-slate-300">
-    <p data-i18n="footer_copy">© 2026 Darwin Colmenares. Todos los derechos reservados.</p>
+    <p data-i18n="footer_copy">&copy; 2026 Darwin Colmenares. Todos los derechos reservados.</p>
   </footer>
 
   <button id="scrollTopBtn" class="scroll-top-btn" aria-label="Volver arriba">
-    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-      <path d="M18 15l-6-6-6 6"/>
-    </svg>
+    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 15l-6-6-6 6"/></svg>
   </button>
 
   <script>
-    const translations = {
-      es: {
-        nav_about: "Sobre mí",
-        nav_projects: "Proyectos",
-        nav_skills: "Skills",
-        nav_experience: "Trayectoria",
-        nav_contact: "Contacto",
-        hero_badge: "Disponible para nuevos proyectos",
-        hero_title: "Full-Stack Developer & Data Analyst",
-        hero_desc: "Contador Público e Ingeniero Informático. Construyo soluciones técnicas que resuelven problemas reales de negocio, desde el modelado de datos hasta la interfaz de usuario.",
-        hero_cta_projects: "Ver proyectos",
-        hero_cta_contact: "Contactar",
-        about_title: "Sobre mí",
-        about_card_title: "Desarrollador con visión de negocio",
-        about_p1: "Mi formación dual en Contaduría Pública e Ingeniería Informática me permite traducir necesidades del negocio en soluciones técnicas claras, estables y escalables.",
-        about_p2: "He participado en sistemas críticos para contingencias satelitales, salud, combustible y visualización de datos, con foco en resultados reales.",
-        stat_degree: "Títulos profesionales",
-        stat_projects: "Proyectos",
-        stat_tech: "Tecnologías",
-        stat_focus: "Enfoque en datos",
-        projects_title: "Proyectos destacados",
-        projects_desc: "Selección de proyectos que muestran trabajo full-stack, experiencia en backend, interfaces modernas y tableros de BI.",
-        p1_desc: "Plataforma web para gestionar contingencias operativas en infraestructura satelital.",
-        p2_desc: "Sistema web para control de generadores, consumo y documentación técnica completa.",
-        p3_desc: "Laboratorio técnico sobre rutas dinámicas, API REST y arquitectura dockerizada.",
-        p4_desc: "Plataforma de monitoreo de criptoactivos en tiempo real con enfoque en datos.",
-        p5_desc: "Aplicación móvil multiplataforma con navegación estructurada y diseño responsive.",
-        p6_desc: "Plataforma para gestión de servicios de salud con roles y permisos.",
-        skills_title: "Stack técnico",
-        skills_desc: "Desde backend con Laravel y Django hasta frontend con React, Angular e Ionic, además de analítica con Power BI.",
-        skills_cat1: "Lenguajes",
-        skills_cat2: "Frameworks",
-        skills_cat3: "Datos y BI",
-        skills_cat4: "Bases de datos",
-        skills_cat5: "DevOps / Tools",
-        skills_cat6: "Fortalezas",
-        strength_1: "Pensamiento analítico con visión de negocio.",
-        strength_2: "Capacidad para unir diseño, datos y backend.",
-        strength_3: "Experiencia en proyectos reales y entornos exigentes.",
-        exp_title: "Trayectoria profesional",
-        exp1_date: "Desarrollo Full-Stack BI",
-        exp1_company: "Freelance, proyectos universitarios y propios",
-        exp1_desc: "Soluciones web para entornos reales: plataformas satelitales, sistemas de combustible, monitoreo financiero y dashboards de BI.",
-        exp2_date: "Pasantía Gerencia de Operaciones Satelitales",
-        exp2_company: "Caracas, Camatagua, Báemari",
-        exp2_desc: "Plataforma web para gestión de contingencias satelitales con roles, trazabilidad, PDFs y metodología SCRUM.",
-        exp3_date: "Pasantía NEA CANTV",
-        exp3_company: "Núcleo de Evaluación y Análisis",
-        exp3_desc: "Gestión de servicios de salud con sistema de roles y permisos. Primera experiencia en entorno corporativo.",
-        exp4_date: "Formación académica",
-        exp4_title: "Contador Público / Ingeniero Informático",
-        exp4_company: "Doble titulación universitaria",
-        exp4_desc: "Contabilidad, finanzas y auditoría combinadas con ingeniería de software y bases de datos.",
-        contact_eyebrow: "Hablemos",
-        contact_title: "¿Tienes un proyecto en mente?",
-        contact_desc: "Disponible para nuevos proyectos, oportunidades laborales o simplemente conversar sobre tecnología.",
-        contact_email: "Email",
-        contact_whatsapp: "WhatsApp",
-        contact_linkedin: "LinkedIn",
-        contact_github: "GitHub",
-        footer_copy: "© 2026 Darwin Colmenares. Todos los derechos reservados."
+    const translations={
+      es:{
+        nav_about:"Sobre mí",nav_projects:"Proyectos",nav_skills:"Skills",nav_experience:"Trayectoria",nav_contact:"Contacto",
+        hero_badge:"Disponible para nuevos proyectos",hero_title:"Full-Stack Developer & Data Analyst",
+        hero_desc:"Contador Público e Ingeniero Informático. Construyo soluciones técnicas que resuelven problemas reales de negocio, desde el modelado de datos hasta la interfaz de usuario.",
+        hero_cta_projects:"Ver proyectos",hero_cta_contact:"Contactar",
+        about_title:"Sobre mí",about_card_title:"Desarrollador con visión de negocio",
+        about_p1:"Mi formación dual en Contaduría Pública e Ingeniería Informática me permite traducir necesidades del negocio en soluciones técnicas claras, estables y escalables.",
+        about_p2:"He participado en sistemas críticos para contingencias satelitales, salud, combustible y visualización de datos, con foco en resultados reales.",
+        stat_degree:"Títulos profesionales",stat_projects:"Proyectos",stat_tech:"Tecnologías",stat_focus:"Enfoque en datos",
+        projects_title:"Proyectos destacados",projects_desc:"Selección de proyectos que muestran trabajo full-stack, experiencia en backend, interfaces modernas y tableros de BI.",
+        p1_desc:"Plataforma web para gestionar contingencias operativas en infraestructura satelital.",
+        p2_desc:"Sistema web para control de generadores, consumo y documentación técnica completa.",
+        p3_desc:"Laboratorio técnico sobre rutas dinámicas, API REST y arquitectura dockerizada.",
+        p4_desc:"Plataforma de monitoreo de criptoactivos en tiempo real con enfoque en datos.",
+        p5_desc:"Aplicación móvil multiplataforma con navegación estructurada y diseño responsive.",
+        p6_desc:"Plataforma para gestión de servicios de salud con roles y permisos.",
+        skills_title:"Stack técnico",skills_desc:"Desde backend con Laravel y Django hasta frontend con React, Angular e Ionic, además de analítica con Power BI.",
+        skills_cat1:"Lenguajes",skills_cat2:"Frameworks",skills_cat3:"Datos y BI",skills_cat4:"Bases de datos",skills_cat5:"DevOps / Tools",skills_cat6:"Fortalezas",
+        strength_1:"Pensamiento analítico con visión de negocio.",strength_2:"Capacidad para unir diseño, datos y backend.",strength_3:"Experiencia en proyectos reales y entornos exigentes.",
+        exp_title:"Trayectoria profesional",exp1_date:"Desarrollo Full-Stack BI",exp1_company:"Freelance, proyectos universitarios y propios",exp1_desc:"Soluciones web para entornos reales: plataformas satelitales, sistemas de combustible, monitoreo financiero y dashboards de BI.",
+        exp2_date:"Pasantía Gerencia de Operaciones Satelitales",exp2_company:"Caracas, Camatagua, Báemari",exp2_desc:"Plataforma web para gestión de contingencias satelitales con roles, trazabilidad, PDFs y metodología SCRUM.",
+        exp3_date:"Pasantía NEA CANTV",exp3_company:"Núcleo de Evaluación y Análisis",exp3_desc:"Gestión de servicios de salud con sistema de roles y permisos. Primera experiencia en entorno corporativo.",
+        exp4_date:"Formación académica",exp4_title:"Contador Público / Ingeniero Informático",exp4_company:"Doble titulación universitaria",exp4_desc:"Contabilidad, finanzas y auditoría combinadas con ingeniería de software y bases de datos.",
+        contact_eyebrow:"Hablemos",contact_title:"Tienes un proyecto en mente?",contact_desc:"Disponible para nuevos proyectos, oportunidades laborales o simplemente conversar sobre tecnología.",
+        contact_email:"Email",contact_whatsapp:"WhatsApp",contact_linkedin:"LinkedIn",contact_github:"GitHub",
+        footer_copy:"© 2026 Darwin Colmenares. Todos los derechos reservados."
       },
-      en: {
-        nav_about: "About",
-        nav_projects: "Projects",
-        nav_skills: "Skills",
-        nav_experience: "Experience",
-        nav_contact: "Contact",
-        hero_badge: "Available for new projects",
-        hero_title: "Full-Stack Developer & Data Analyst",
-        hero_desc: "Public Accountant and Computer Engineer. I build technical solutions that solve real business problems, from data modeling to user interfaces.",
-        hero_cta_projects: "View projects",
-        hero_cta_contact: "Contact me",
-        about_title: "About me",
-        about_card_title: "Developer with business vision",
-        about_p1: "My dual background in Public Accounting and Computer Engineering helps me turn business needs into clear, stable, and scalable technical solutions.",
-        about_p2: "I have worked on critical systems for satellite contingencies, health, fuel control, and data visualization, always focused on real results.",
-        stat_degree: "Professional degrees",
-        stat_projects: "Projects",
-        stat_tech: "Technologies",
-        stat_focus: "Data focus",
-        projects_title: "Featured projects",
-        projects_desc: "A selection of projects that show full-stack work, backend experience, modern interfaces, and BI dashboards.",
-        p1_desc: "Web platform to manage operational contingencies in satellite infrastructure.",
-        p2_desc: "Web system for generator control, fuel consumption, and technical documentation.",
-        p3_desc: "Technical lab about dynamic routes, REST APIs, and Dockerized architecture.",
-        p4_desc: "Real-time crypto asset monitoring platform with a data-focused approach.",
-        p5_desc: "Cross-platform mobile app with structured navigation and responsive design.",
-        p6_desc: "Platform for health services management with roles and permissions.",
-        skills_title: "Technical stack",
-        skills_desc: "From backend with Laravel and Django to frontend with React, Angular, and Ionic, plus analytics with Power BI.",
-        skills_cat1: "Languages",
-        skills_cat2: "Frameworks",
-        skills_cat3: "Data & BI",
-        skills_cat4: "Databases",
-        skills_cat5: "DevOps / Tools",
-        skills_cat6: "Strengths",
-        strength_1: "Analytical thinking with business vision.",
-        strength_2: "Ability to connect design, data, and backend.",
-        strength_3: "Experience in real projects and demanding environments.",
-        exp_title: "Professional journey",
-        exp1_date: "Full-Stack BI Development",
-        exp1_company: "Freelance, academic, and personal projects",
-        exp1_desc: "Web solutions for real environments: satellite platforms, fuel systems, financial monitoring, and BI dashboards.",
-        exp2_date: "Satellite Operations Management Internship",
-        exp2_company: "Caracas, Camatagua, Báemari",
-        exp2_desc: "Web platform for satellite contingency management with roles, traceability, PDFs, and SCRUM methodology.",
-        exp3_date: "NEA CANTV Internship",
-        exp3_company: "Evaluation and Analysis Unit",
-        exp3_desc: "Health services management with roles and permissions. First experience in a corporate environment.",
-        exp4_date: "Academic background",
-        exp4_title: "Public Accountant / Computer Engineer",
-        exp4_company: "Dual university degrees",
-        exp4_desc: "Accounting, finance, and auditing combined with software engineering and databases.",
-        contact_eyebrow: "Let's talk",
-        contact_title: "Do you have a project in mind?",
-        contact_desc: "Available for new projects, job opportunities, or simply to talk about technology.",
-        contact_email: "Email",
-        contact_whatsapp: "WhatsApp",
-        contact_linkedin: "LinkedIn",
-        contact_github: "GitHub",
-        footer_copy: "© 2026 Darwin Colmenares. All rights reserved."
+      en:{
+        nav_about:"About",nav_projects:"Projects",nav_skills:"Skills",nav_experience:"Experience",nav_contact:"Contact",
+        hero_badge:"Available for new projects",hero_title:"Full-Stack Developer & Data Analyst",
+        hero_desc:"Public Accountant and Computer Engineer. I build technical solutions that solve real business problems, from data modeling to user interfaces.",
+        hero_cta_projects:"View projects",hero_cta_contact:"Contact me",
+        about_title:"About me",about_card_title:"Developer with business vision",
+        about_p1:"My dual background in Public Accounting and Computer Engineering helps me turn business needs into clear, stable, and scalable technical solutions.",
+        about_p2:"I have worked on critical systems for satellite contingencies, health, fuel control, and data visualization, always focused on real results.",
+        stat_degree:"Professional degrees",stat_projects:"Projects",stat_tech:"Technologies",stat_focus:"Data focus",
+        projects_title:"Featured projects",projects_desc:"A selection of projects that show full-stack work, backend experience, modern interfaces, and BI dashboards.",
+        p1_desc:"Web platform to manage operational contingencies in satellite infrastructure.",
+        p2_desc:"Web system for generator control, fuel consumption, and technical documentation.",
+        p3_desc:"Technical lab about dynamic routes, REST APIs, and Dockerized architecture.",
+        p4_desc:"Real-time crypto asset monitoring platform with a data-focused approach.",
+        p5_desc:"Cross-platform mobile app with structured navigation and responsive design.",
+        p6_desc:"Platform for health services management with roles and permissions.",
+        skills_title:"Technical stack",skills_desc:"From backend with Laravel and Django to frontend with React, Angular, and Ionic, plus analytics with Power BI.",
+        skills_cat1:"Languages",skills_cat2:"Frameworks",skills_cat3:"Data & BI",skills_cat4:"Databases",skills_cat5:"DevOps / Tools",skills_cat6:"Strengths",
+        strength_1:"Analytical thinking with business vision.",strength_2:"Ability to connect design, data, and backend.",strength_3:"Experience in real projects and demanding environments.",
+        exp_title:"Professional journey",exp1_date:"Full-Stack BI Development",exp1_company:"Freelance, academic, and personal projects",exp1_desc:"Web solutions for real environments: satellite platforms, fuel systems, financial monitoring, and BI dashboards.",
+        exp2_date:"Satellite Operations Management Internship",exp2_company:"Caracas, Camatagua, Báemari",exp2_desc:"Web platform for satellite contingency management with roles, traceability, PDFs, and SCRUM methodology.",
+        exp3_date:"NEA CANTV Internship",exp3_company:"Evaluation and Analysis Unit",exp3_desc:"Health services management with roles and permissions. First experience in a corporate environment.",
+        exp4_date:"Academic background",exp4_title:"Public Accountant / Computer Engineer",exp4_company:"Dual university degrees",exp4_desc:"Accounting, finance, and auditing combined with software engineering and databases.",
+        contact_eyebrow:"Let's talk",contact_title:"Do you have a project in mind?",contact_desc:"Available for new projects, job opportunities, or simply to talk about technology.",
+        contact_email:"Email",contact_whatsapp:"WhatsApp",contact_linkedin:"LinkedIn",contact_github:"GitHub",
+        footer_copy:"© 2026 Darwin Colmenares. All rights reserved."
       }
     };
 
-    const langToggle = document.getElementById('langToggle');
-    const menuBtn = document.getElementById('menuBtn');
-    const menuIcon = document.getElementById('menuIcon');
-    const closeIcon = document.getElementById('closeIcon');
-    const mobileMenu = document.getElementById('mobileMenu');
-    const scrollTopBtn = document.getElementById('scrollTopBtn');
+    const langToggle=document.getElementById('langToggle');
+    const menuBtn=document.getElementById('menuBtn');
+    const menuIcon=document.getElementById('menuIcon');
+    const closeIcon=document.getElementById('closeIcon');
+    const mobileMenu=document.getElementById('mobileMenu');
+    const scrollTopBtn=document.getElementById('scrollTopBtn');
 
-    function setLanguage(lang) {
-      document.documentElement.lang = lang;
-      document.querySelectorAll('[data-i18n]').forEach(el => {
-        const key = el.getAttribute('data-i18n');
-        if (translations[lang][key]) el.textContent = translations[lang][key];
+    function setLanguage(lang){
+      document.documentElement.lang=lang;
+      document.querySelectorAll('[data-i18n]').forEach(el=>{
+        const key=el.getAttribute('data-i18n');
+        if(translations[lang][key]) el.textContent=translations[lang][key];
       });
-      langToggle.textContent = lang.toUpperCase();
-      localStorage.setItem('portfolio-lang', lang);
+      langToggle.textContent=lang.toUpperCase();
+      localStorage.setItem('portfolio-lang',lang);
     }
+    setLanguage(localStorage.getItem('portfolio-lang')||'es');
 
-    setLanguage(localStorage.getItem('portfolio-lang') || 'es');
-
-    langToggle.addEventListener('click', () => {
-      const next = document.documentElement.lang === 'es' ? 'en' : 'es';
+    langToggle.addEventListener('click',()=>{
+      const next=document.documentElement.lang==='es'?'en':'es';
       setLanguage(next);
     });
 
-    menuBtn.addEventListener('click', () => {
+    menuBtn.addEventListener('click',()=>{
+      const isOpen=!mobileMenu.classList.contains('hidden');
       mobileMenu.classList.toggle('hidden');
       menuIcon.classList.toggle('hidden');
       closeIcon.classList.toggle('hidden');
+      menuBtn.setAttribute('aria-expanded',!isOpen);
     });
 
-    mobileMenu.querySelectorAll('a').forEach(link => {
-      link.addEventListener('click', () => {
+    mobileMenu.querySelectorAll('a').forEach(link=>{
+      link.addEventListener('click',()=>{
         mobileMenu.classList.add('hidden');
         menuIcon.classList.remove('hidden');
         closeIcon.classList.add('hidden');
+        menuBtn.setAttribute('aria-expanded','false');
       });
     });
 
-    const filterBtns = document.querySelectorAll('.filter-btn');
-    const cards = document.querySelectorAll('#projectsGrid article');
-
-    filterBtns.forEach(btn => {
-      btn.addEventListener('click', () => {
-        filterBtns.forEach(b => b.classList.remove('active'));
+    const filterBtns=document.querySelectorAll('.filter-btn');
+    const cards=document.querySelectorAll('#projectsGrid article');
+    filterBtns.forEach(btn=>{
+      btn.addEventListener('click',()=>{
+        filterBtns.forEach(b=>b.classList.remove('active'));
         btn.classList.add('active');
-        const filter = btn.dataset.filter;
-        cards.forEach(card => {
-          const match = filter === 'all' || card.dataset.cat === filter;
-          card.style.display = match ? '' : 'none';
+        const filter=btn.dataset.filter;
+        cards.forEach(card=>{
+          const match=filter==='all'||card.dataset.cat===filter;
+          card.style.display=match?'':'none';
         });
       });
     });
 
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) entry.target.classList.add('visible');
+    const observer=new IntersectionObserver((entries)=>{
+      entries.forEach(entry=>{
+        if(entry.isIntersecting) entry.target.classList.add('visible');
       });
-    }, { threshold: 0.12 });
+    },{threshold:0.12});
+    document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
 
-    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-
-    // Scroll to top button
-    window.addEventListener('scroll', () => {
-      if (window.scrollY > window.innerHeight * 0.8) {
+    window.addEventListener('scroll',()=>{
+      if(window.scrollY>window.innerHeight*0.8){
         scrollTopBtn.classList.add('visible');
-      } else {
+      }else{
         scrollTopBtn.classList.remove('visible');
       }
     });
-
-    scrollTopBtn.addEventListener('click', () => {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
+    scrollTopBtn.addEventListener('click',()=>{
+      window.scrollTo({top:0,behavior:'smooth'});
     });
   </script>
 </body>
