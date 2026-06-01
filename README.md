@@ -15,11 +15,13 @@ Contador Público + Ingeniero Informático. Construyo soluciones técnicas que r
 - PostgreSQL · SQLite · SQL Server
 - Power BI · DAX
 - Docker · Git · CI/CD
+- Linux · Bash
 
 ### Proyectos Destacados
 
 | Proyecto | Descripción | Tech |
 |---|---|---|
+| [Linux Terminal Guide](https://github.com/darwinjcn/linux-terminal-guide) | Guía interactiva de comandos para ingenieros | Linux, Bash, Markdown |
 | [GCS](https://github.com/darwinjcn/gcs-project) | Gestión de Contingencias Satelitales (CANTV) | React, Laravel, PostgreSQL |
 | [Sistema Combustible](https://github.com/darwinjcn/sistema-gestion-combustible) | Control de generadores y combustible | Django, React, PostgreSQL |
 | [Crypto Monitor](https://github.com/darwinjcn/crypto-monitor) | Monitoreo de criptoactivos en tiempo real | Angular, TypeScript |
