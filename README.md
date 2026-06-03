@@ -8,85 +8,33 @@ Contador Público + Ingeniero Informático. Construyo soluciones técnicas que r
 
 ### Stack Principal
 
-<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 15px; margin: 20px 0;">
+**Lenguajes & Frameworks:**
 
-<div style="background: #3776AB; color: white; padding: 15px; border-radius: 8px; text-align: center; font-weight: bold; box-shadow: 0 2px 5px rgba(0,0,0,0.2);">
-🐍 Python
-</div>
+![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)
+![Django](https://img.shields.io/badge/Django-092E20?style=for-the-badge&logo=django&logoColor=white)
+![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)
+![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white)
+![React](https://img.shields.io/badge/React-61DAFB?style=for-the-badge&logo=react&logoColor=black)
+![Angular](https://img.shields.io/badge/Angular-DD0031?style=for-the-badge&logo=angular&logoColor=white)
+![Ionic](https://img.shields.io/badge/Ionic-3880FF?style=for-the-badge&logo=ionic&logoColor=white)
+![Laravel](https://img.shields.io/badge/Laravel-FF2D20?style=for-the-badge&logo=laravel&logoColor=white)
+![PHP](https://img.shields.io/badge/PHP-777BB4?style=for-the-badge&logo=php&logoColor=white)
+![Node.js](https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=node.js&logoColor=white)
 
-<div style="background: #092E20; color: white; padding: 15px; border-radius: 8px; text-align: center; font-weight: bold; box-shadow: 0 2px 5px rgba(0,0,0,0.2);">
-🎯 Django
-</div>
+**Bases de Datos & BI:**
 
-<div style="background: #F7DF1E; color: black; padding: 15px; border-radius: 8px; text-align: center; font-weight: bold; box-shadow: 0 2px 5px rgba(0,0,0,0.2);">
-⚡ JavaScript
-</div>
+![PostgreSQL](https://img.shields.io/badge/PostgreSQL-336791?style=for-the-badge&logo=postgresql&logoColor=white)
+![SQLite](https://img.shields.io/badge/SQLite-003B57?style=for-the-badge&logo=sqlite&logoColor=white)
+![SQL Server](https://img.shields.io/badge/SQL_Server-CC2927?style=for-the-badge&logo=microsoft-sql-server&logoColor=white)
+![Power BI](https://img.shields.io/badge/Power_BI-F2C811?style=for-the-badge&logo=power-bi&logoColor=black)
 
-<div style="background: #3178C6; color: white; padding: 15px; border-radius: 8px; text-align: center; font-weight: bold; box-shadow: 0 2px 5px rgba(0,0,0,0.2);">
-📘 TypeScript
-</div>
+**DevOps & Herramientas:**
 
-<div style="background: #61DAFB; color: black; padding: 15px; border-radius: 8px; text-align: center; font-weight: bold; box-shadow: 0 2px 5px rgba(0,0,0,0.2);">
-⚛️ React
-</div>
-
-<div style="background: #DD0031; color: white; padding: 15px; border-radius: 8px; text-align: center; font-weight: bold; box-shadow: 0 2px 5px rgba(0,0,0,0.2);">
-🅰️ Angular
-</div>
-
-<div style="background: #3880FF; color: white; padding: 15px; border-radius: 8px; text-align: center; font-weight: bold; box-shadow: 0 2px 5px rgba(0,0,0,0.2);">
-📱 Ionic
-</div>
-
-<div style="background: #FF2D20; color: white; padding: 15px; border-radius: 8px; text-align: center; font-weight: bold; box-shadow: 0 2px 5px rgba(0,0,0,0.2);">
-🔥 Laravel
-</div>
-
-<div style="background: #777BB4; color: white; padding: 15px; border-radius: 8px; text-align: center; font-weight: bold; box-shadow: 0 2px 5px rgba(0,0,0,0.2);">
-🐘 PHP
-</div>
-
-<div style="background: #336791; color: white; padding: 15px; border-radius: 8px; text-align: center; font-weight: bold; box-shadow: 0 2px 5px rgba(0,0,0,0.2);">
-🐬 PostgreSQL
-</div>
-
-<div style="background: #003B57; color: white; padding: 15px; border-radius: 8px; text-align: center; font-weight: bold; box-shadow: 0 2px 5px rgba(0,0,0,0.2);">
-💾 SQLite
-</div>
-
-<div style="background: #CC2927; color: white; padding: 15px; border-radius: 8px; text-align: center; font-weight: bold; box-shadow: 0 2px 5px rgba(0,0,0,0.2);">
-🗄️ SQL Server
-</div>
-
-<div style="background: #F2C811; color: black; padding: 15px; border-radius: 8px; text-align: center; font-weight: bold; box-shadow: 0 2px 5px rgba(0,0,0,0.2);">
-📊 Power BI
-</div>
-
-<div style="background: #D9D9D9; color: black; padding: 15px; border-radius: 8px; text-align: center; font-weight: bold; box-shadow: 0 2px 5px rgba(0,0,0,0.2);">
-📈 DAX
-</div>
-
-<div style="background: #2496ED; color: white; padding: 15px; border-radius: 8px; text-align: center; font-weight: bold; box-shadow: 0 2px 5px rgba(0,0,0,0.2);">
-🐳 Docker
-</div>
-
-<div style="background: #F05032; color: white; padding: 15px; border-radius: 8px; text-align: center; font-weight: bold; box-shadow: 0 2px 5px rgba(0,0,0,0.2);">
-🔀 Git
-</div>
-
-<div style="background: #FCC624; color: black; padding: 15px; border-radius: 8px; text-align: center; font-weight: bold; box-shadow: 0 2px 5px rgba(0,0,0,0.2);">
-🔄 CI/CD
-</div>
-
-<div style="background: #FCC624; color: black; padding: 15px; border-radius: 8px; text-align: center; font-weight: bold; box-shadow: 0 2px 5px rgba(0,0,0,0.2);">
-🐧 Linux
-</div>
-
-<div style="background: #4EAA25; color: white; padding: 15px; border-radius: 8px; text-align: center; font-weight: bold; box-shadow: 0 2px 5px rgba(0,0,0,0.2);">
-💻 Bash
-</div>
-
-</div>
+![Docker](https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white)
+![Git](https://img.shields.io/badge/Git-F05032?style=for-the-badge&logo=git&logoColor=white)
+![GitHub](https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white)
+![Linux](https://img.shields.io/badge/Linux-FCC624?style=for-the-badge&logo=linux&logoColor=black)
+![Bash](https://img.shields.io/badge/Bash-4EAA25?style=for-the-badge&logo=gnu-bash&logoColor=white)
 
 ### Proyectos Destacados
 
