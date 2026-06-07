@@ -21,6 +21,10 @@ Contador Público + Ingeniero Informático. Construyo soluciones técnicas que r
 ![PHP](https://img.shields.io/badge/PHP-777BB4?style=for-the-badge&logo=php&logoColor=white)
 ![Node.js](https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=node.js&logoColor=white)
 
+**CSS & Frontend:**
+
+![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-06B6D4?style=for-the-badge&logo=tailwind-css&logoColor=white)
+
 **Bases de Datos & BI:**
 
 ![PostgreSQL](https://img.shields.io/badge/PostgreSQL-336791?style=for-the-badge&logo=postgresql&logoColor=white)
@@ -44,6 +48,7 @@ Contador Público + Ingeniero Informático. Construyo soluciones técnicas que r
 | [Linux Terminal Guide](https://github.com/darwinjcn/linux-terminal-guide) | Guía interactiva de comandos para ingenieros | Linux, Bash, Markdown |
 | [GCS](https://github.com/darwinjcn/gcs-project) | Gestión de Contingencias Satelitales (CANTV) | React, Laravel, PostgreSQL |
 | [APIGCS MongoDB](https://github.com/darwinjcn/apigcs-mongodb-nosql) | Gestión de contingencias satelitales con NoSQL | MongoDB, mongosh, Compass |
+| [Comedor Universitario](https://github.com/darwinjcn/comedor-universitario) | Sistema de gestión integral para comedores universitarios | Node.js, Express, MongoDB, Tailwind CSS |
 | [Sistema Combustible](https://github.com/darwinjcn/sistema-gestion-combustible) | Control de generadores y combustible | Django, React, PostgreSQL |
 | [Crypto Monitor](https://github.com/darwinjcn/crypto-monitor) | Monitoreo de criptoactivos en tiempo real | Angular, TypeScript |
 | [Node Express TS](https://github.com/darwinjcn/node-express-typescript-logic) | API REST con tipado estricto | Node.js, TypeScript, Docker |
