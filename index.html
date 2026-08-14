@@ -202,8 +202,21 @@
     }
     .btn-primary:hover { opacity: 0.9; }
 
-    /* En móvil el CTA del navbar se oculta (vive dentro del menú hamburguesa) */
+    /* ---------- NAVBAR COMPACTO EN MÓVIL ---------- */
     @media (max-width: 767px) {
+      .nav-inner { padding: 0 0.5rem; }
+      .logo { font-size: 1.05rem; }
+      .nav-actions { gap: 0.5rem; }
+      .theme-toggle, .menu-toggle { width: 32px; height: 32px; }
+      .lang-toggle { padding: 0.25rem 0.55rem; font-size: 0.6rem; }
+      .nav-actions .btn-primary {
+        padding: 0.3rem 0.75rem;
+        font-size: 0.65rem;
+        white-space: nowrap;
+      }
+    }
+    /* Pantallas ultra pequeñas: evitar desborde */
+    @media (max-width: 350px) {
       .nav-actions .btn-primary { display: none; }
     }
 
@@ -272,20 +285,6 @@
     }
     .mobile-menu a:last-child { border-bottom: none; }
     .mobile-menu a:hover { color: var(--text); }
-
-    /* CTA destacado dentro del menú móvil */
-    .mobile-menu a.mobile-cta {
-      border-bottom: none;
-      background: var(--accent);
-      color: var(--bg);
-      text-align: center;
-      border-radius: 9999px;
-      padding: 0.65rem 1rem;
-      margin: 0.7rem 0 0.5rem;
-      font-weight: 600;
-      font-size: 0.85rem;
-    }
-    .mobile-menu a.mobile-cta:hover { color: var(--bg); opacity: 0.9; }
 
     /* ---------- SECCIONES ---------- */
     section {
@@ -761,7 +760,7 @@
           </svg>
         </button>
         <button class="lang-toggle" id="langToggle" aria-label="Cambiar idioma (actual: español)">ES</button>
-        <a href="#contacto" class="btn-primary" data-i18n="nav_cta">Trabajemos juntos</a>
+        <a href="#contacto" class="btn-primary" id="navCta">Trabajemos juntos</a>
         <button class="menu-toggle" id="menuToggle"
                 aria-label="Abrir menú de navegación"
                 aria-expanded="false"
@@ -778,7 +777,6 @@
       <a href="#stack" data-i18n="nav_stack">Stack</a>
       <a href="#trayectoria" data-i18n="nav_experience">Trayectoria</a>
       <a href="#contacto" data-i18n="nav_contact">Contacto</a>
-      <a href="#contacto" class="mobile-cta" data-i18n="nav_cta">Trabajemos juntos</a>
     </div>
   </header>
 
@@ -1192,7 +1190,8 @@
     const translations = {
       es: {
         nav_about: "Sobre mí", nav_projects: "Proyectos", nav_stack: "Stack",
-        nav_experience: "Trayectoria", nav_contact: "Contacto", nav_cta: "Trabajemos juntos",
+        nav_experience: "Trayectoria", nav_contact: "Contacto",
+        nav_cta: "Trabajemos juntos", nav_cta_short: "Hablemos",
         hero_location: "Caracas, VE · Disponible para proyectos",
         hero_subtitle: "Full-Stack Developer &amp; Data Analyst",
         hero_tagline: "Contador Público e Ingeniero Informático. Construyo soluciones técnicas que resuelven problemas reales de negocio, del modelado de datos a la interfaz.",
@@ -1224,7 +1223,8 @@
       },
       en: {
         nav_about: "About", nav_projects: "Projects", nav_stack: "Stack",
-        nav_experience: "Experience", nav_contact: "Contact", nav_cta: "Let's work together",
+        nav_experience: "Experience", nav_contact: "Contact",
+        nav_cta: "Let's work together", nav_cta_short: "Let's talk",
         hero_location: "Caracas, VE · Available for projects",
         hero_subtitle: "Full-Stack Developer &amp; Data Analyst",
         hero_tagline: "Public Accountant and Computer Engineer. I build technical solutions that solve real business problems, from data modeling to the user interface.",
@@ -1257,6 +1257,16 @@
     };
 
     const langToggle = document.getElementById('langToggle');
+
+    // ----- CTA COMPACTO SEGÚN PANTALLA -----
+    const navCta = document.getElementById('navCta');
+    const mqCompact = window.matchMedia('(max-width: 767px)');
+    function refreshNavCta() {
+      navCta.textContent = translations[currentLang][mqCompact.matches ? 'nav_cta_short' : 'nav_cta'];
+    }
+    if (mqCompact.addEventListener) mqCompact.addEventListener('change', refreshNavCta);
+    else mqCompact.addListener(refreshNavCta); // Safari antiguo
+
     function setLanguage(lang) {
       currentLang = lang;
       safeSetItem('lang', lang);
@@ -1268,6 +1278,7 @@
           el.innerHTML = translations[lang][key];
         }
       });
+      refreshNavCta();
       const activeFilter = document.querySelector('.filter-btn.active')?.dataset.filter || 'all';
       renderProjects(activeFilter);
       renderTimeline();
