@@ -36,9 +36,11 @@
       --surface: #161c22;
       --surface-hi: #1e2630;
       --text: #e8edf2;
-      --text-muted: #8a9aa8;
+      --text-muted: #b0c4d9;        /* más claro que antes */
+      --text-muted-dim: #8a9aa8;     /* para algunos detalles */
       --accent: #a3e635;
-      --border: rgba(255,255,255,0.06);
+      --border: rgba(255,255,255,0.12);
+      --border-solid: #2a3340;
       --radius: 12px;
       --shadow: 0 24px 60px -24px rgba(0,0,0,0.7);
     }
@@ -74,10 +76,10 @@
       font-size: 0.7rem;
       letter-spacing: 0.22em;
       text-transform: uppercase;
-      color: var(--text-muted);
+      color: var(--text-muted-dim);
     }
     .hairline {
-      border-top: 1px solid var(--border);
+      border-top: 1px solid var(--border-solid);
     }
     .grid-backdrop {
       background-image:
@@ -107,7 +109,7 @@
     header.scrolled {
       background: rgba(11,15,18,0.85);
       backdrop-filter: blur(12px);
-      border-bottom-color: var(--border);
+      border-bottom-color: var(--border-solid);
     }
     .nav-inner {
       display: flex;
@@ -157,9 +159,26 @@
     }
     .btn-primary:hover { opacity: 0.9; }
 
+    .lang-toggle {
+      background: transparent;
+      border: 1px solid var(--border-solid);
+      border-radius: 9999px;
+      color: var(--text-muted);
+      padding: 0.3rem 0.7rem;
+      font-size: 0.65rem;
+      font-weight: 600;
+      cursor: pointer;
+      text-transform: uppercase;
+      transition: all 0.2s;
+    }
+    .lang-toggle:hover {
+      border-color: var(--accent);
+      color: var(--text);
+    }
+
     .menu-toggle {
       background: none;
-      border: 1px solid var(--border);
+      border: 1px solid var(--border-solid);
       border-radius: 9999px;
       width: 36px;
       height: 36px;
@@ -174,7 +193,7 @@
 
     .mobile-menu {
       display: none;
-      border-top: 1px solid var(--border);
+      border-top: 1px solid var(--border-solid);
       background: rgba(11,15,18,0.95);
       backdrop-filter: blur(12px);
       padding: 0.5rem 1rem;
@@ -193,7 +212,7 @@
     /* ---------- SECCIONES ---------- */
     section {
       padding: 5rem 0;
-      border-bottom: 1px solid var(--border);
+      border-bottom: 1px solid var(--border-solid);
     }
     section:last-of-type { border-bottom: none; }
 
@@ -215,10 +234,13 @@
 
     /* ---------- HERO ---------- */
     .hero {
-      padding-top: 7rem;
-      padding-bottom: 4rem;
+      padding-top: 5rem;  /* reducido */
+      padding-bottom: 2rem; /* reducido */
       position: relative;
       overflow: hidden;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
     }
     .hero .grid-backdrop {
       position: absolute;
@@ -227,9 +249,10 @@
     .hero-content {
       position: relative;
       z-index: 1;
+      width: 100%;
     }
     .hero h1 {
-      font-size: clamp(2.6rem, 9vw, 5.5rem);
+      font-size: clamp(3.2rem, 10vw, 6.5rem); /* más grande */
       font-weight: 700;
       line-height: 0.92;
       letter-spacing: -0.02em;
@@ -240,7 +263,7 @@
     }
     .hero .subtitle {
       display: block;
-      font-size: clamp(1rem, 2.4vw, 1.6rem);
+      font-size: clamp(1.2rem, 2.8vw, 1.8rem);
       font-weight: 600;
       color: var(--accent);
       margin-top: 0.4rem;
@@ -263,7 +286,7 @@
       border-radius: 9999px;
       font-weight: 600;
       font-size: 0.9rem;
-      border: 1px solid var(--border);
+      border: 1px solid var(--border-solid);
       transition: background 0.2s, border-color 0.2s;
     }
     .hero-actions .btn-primary {
@@ -288,11 +311,11 @@
       display: grid;
       grid-template-columns: repeat(2, 1fr);
       gap: 1px;
-      background: var(--border);
+      background: var(--border-solid);
       border-radius: var(--radius);
       overflow: hidden;
       margin-top: 2.5rem;
-      border: 1px solid var(--border);
+      border: 1px solid var(--border-solid);
     }
     @media (min-width: 640px) {
       .stats-grid { grid-template-columns: repeat(4, 1fr); }
@@ -312,7 +335,7 @@
       font-size: 0.65rem;
       text-transform: uppercase;
       letter-spacing: 0.05em;
-      color: var(--text-muted);
+      color: var(--text-muted-dim);
       margin-top: 0.2rem;
     }
 
@@ -352,7 +375,7 @@
       background: var(--surface);
       border-radius: var(--radius);
       padding: 1.2rem;
-      border: 1px solid var(--border);
+      border: 1px solid var(--border-solid);
       font-family: 'Space Grotesk', monospace;
       font-size: 0.85rem;
       color: #cbd5e1;
@@ -367,8 +390,8 @@
     /* Marquee (cinta) */
     .marquee {
       overflow: hidden;
-      border-top: 1px solid var(--border);
-      border-bottom: 1px solid var(--border);
+      border-top: 1px solid var(--border-solid);
+      border-bottom: 1px solid var(--border-solid);
       padding: 0.8rem 0;
       margin-top: 3rem;
     }
@@ -410,7 +433,7 @@
       letter-spacing: 0.08em;
       padding: 0.3rem 0.8rem;
       border-radius: 9999px;
-      border: 1px solid var(--border);
+      border: 1px solid var(--border-solid);
       color: var(--text-muted);
       cursor: pointer;
       transition: 0.2s;
@@ -428,10 +451,10 @@
     .projects-grid {
       display: grid;
       gap: 1px;
-      background: var(--border);
+      background: var(--border-solid);
       border-radius: var(--radius);
       overflow: hidden;
-      border: 1px solid var(--border);
+      border: 1px solid var(--border-solid);
     }
     @media (min-width: 640px) {
       .projects-grid { grid-template-columns: repeat(2, 1fr); }
@@ -488,13 +511,13 @@
       letter-spacing: 0.06em;
       padding: 0.1rem 0.6rem;
       border-radius: 9999px;
-      border: 1px solid var(--border);
+      border: 1px solid var(--border-solid);
       color: var(--text-muted);
     }
     .project-card .links {
       display: flex;
       gap: 1.2rem;
-      border-top: 1px solid var(--border);
+      border-top: 1px solid var(--border-solid);
       padding-top: 0.8rem;
     }
     .project-card .links a {
@@ -522,7 +545,7 @@
       color: var(--accent);
       text-transform: uppercase;
       letter-spacing: 0.05em;
-      border-bottom: 1px solid var(--border);
+      border-bottom: 1px solid var(--border-solid);
       padding-bottom: 0.5rem;
       margin-bottom: 0.8rem;
     }
@@ -541,14 +564,14 @@
 
     /* ---------- TIMELINE ---------- */
     .timeline {
-      border-top: 1px solid var(--border);
+      border-top: 1px solid var(--border-solid);
       margin-top: 2rem;
     }
     .timeline-item {
       display: grid;
       gap: 0.5rem;
       padding: 1.5rem 0;
-      border-bottom: 1px solid var(--border);
+      border-bottom: 1px solid var(--border-solid);
     }
     @media (min-width: 768px) {
       .timeline-item {
@@ -587,10 +610,10 @@
     .contact-grid {
       display: grid;
       gap: 1px;
-      background: var(--border);
+      background: var(--border-solid);
       border-radius: var(--radius);
       overflow: hidden;
-      border: 1px solid var(--border);
+      border: 1px solid var(--border-solid);
       margin: 2rem 0;
     }
     @media (min-width: 640px) {
@@ -611,12 +634,13 @@
       font-size: 0.7rem;
       text-transform: uppercase;
       letter-spacing: 0.05em;
-      color: var(--text-muted);
+      color: var(--text-muted-dim);
     }
     .contact-item .value {
       font-size: 0.9rem;
       font-weight: 600;
       margin-top: 0.2rem;
+      color: var(--text);
     }
     .contact-item .arrow {
       color: var(--accent);
@@ -632,11 +656,11 @@
       display: flex;
       flex-direction: column;
       gap: 0.5rem;
-      border-top: 1px solid var(--border);
+      border-top: 1px solid var(--border-solid);
       padding-top: 1.5rem;
       margin-top: 3rem;
       font-size: 0.7rem;
-      color: var(--text-muted);
+      color: var(--text-muted-dim);
       text-align: center;
     }
     @media (min-width: 640px) {
@@ -649,7 +673,7 @@
 
     /* ---------- RESPONSIVE ADJUST ---------- */
     @media (max-width: 480px) {
-      .hero h1 { font-size: 2.2rem; }
+      .hero h1 { font-size: 2.8rem; }
       .section-title { font-size: 1.6rem; }
       .projects-grid { grid-template-columns: 1fr; }
     }
@@ -662,14 +686,15 @@
     <div class="nav-inner">
       <a href="#top" class="logo">darwin<span>.</span>dev</a>
       <nav class="nav-links">
-        <a href="#sobre-mi">Sobre mí</a>
-        <a href="#proyectos">Proyectos</a>
-        <a href="#stack">Stack</a>
-        <a href="#trayectoria">Trayectoria</a>
-        <a href="#contacto">Contacto</a>
+        <a href="#sobre-mi" data-i18n="nav_about">Sobre mí</a>
+        <a href="#proyectos" data-i18n="nav_projects">Proyectos</a>
+        <a href="#stack" data-i18n="nav_stack">Stack</a>
+        <a href="#trayectoria" data-i18n="nav_experience">Trayectoria</a>
+        <a href="#contacto" data-i18n="nav_contact">Contacto</a>
       </nav>
       <div class="nav-actions">
-        <a href="#contacto" class="btn-primary">Trabajemos juntos</a>
+        <button class="lang-toggle" id="langToggle" aria-label="Cambiar idioma">ES</button>
+        <a href="#contacto" class="btn-primary" data-i18n="nav_cta">Trabajemos juntos</a>
         <button class="menu-toggle" id="menuToggle" aria-label="Menú">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
             <path d="M4 8h16M4 16h16" id="menuIcon"/>
@@ -678,11 +703,11 @@
       </div>
     </div>
     <div class="mobile-menu" id="mobileMenu">
-      <a href="#sobre-mi">Sobre mí</a>
-      <a href="#proyectos">Proyectos</a>
-      <a href="#stack">Stack</a>
-      <a href="#trayectoria">Trayectoria</a>
-      <a href="#contacto">Contacto</a>
+      <a href="#sobre-mi" data-i18n="nav_about">Sobre mí</a>
+      <a href="#proyectos" data-i18n="nav_projects">Proyectos</a>
+      <a href="#stack" data-i18n="nav_stack">Stack</a>
+      <a href="#trayectoria" data-i18n="nav_experience">Trayectoria</a>
+      <a href="#contacto" data-i18n="nav_contact">Contacto</a>
     </div>
   </header>
 
@@ -692,18 +717,18 @@
     <section id="top" class="hero">
       <div class="grid-backdrop"></div>
       <div class="container hero-content">
-        <p class="label-mono">Caracas, VE · Disponible para proyectos</p>
+        <p class="label-mono" data-i18n="hero_location">Caracas, VE · Disponible para proyectos</p>
         <h1>
           Darwin
           <br>
           <span class="muted">Colmenares</span>
-          <span class="subtitle">Full-Stack Developer &amp; Data Analyst</span>
+          <span class="subtitle" data-i18n="hero_subtitle">Full-Stack Developer &amp; Data Analyst</span>
         </h1>
-        <p class="tagline">
+        <p class="tagline" data-i18n="hero_tagline">
           Contador Público e Ingeniero Informático. Construyo soluciones técnicas que resuelven problemas reales de negocio, del modelado de datos a la interfaz.
         </p>
         <div class="hero-actions">
-          <a href="#proyectos" class="btn btn-primary">Ver proyectos</a>
+          <a href="#proyectos" class="btn btn-primary" data-i18n="hero_cta_projects">Ver proyectos</a>
           <a href="https://github.com/darwinjcn" target="_blank" class="btn btn-outline">GitHub</a>
         </div>
 
@@ -711,19 +736,19 @@
         <div class="stats-grid">
           <div class="stat">
             <div class="value">13</div>
-            <div class="label">Proyectos publicados</div>
+            <div class="label" data-i18n="stat_projects">Proyectos publicados</div>
           </div>
           <div class="stat">
             <div class="value">2</div>
-            <div class="label">Títulos profesionales</div>
+            <div class="label" data-i18n="stat_degrees">Títulos profesionales</div>
           </div>
           <div class="stat">
             <div class="value">15+</div>
-            <div class="label">Tecnologías</div>
+            <div class="label" data-i18n="stat_tech">Tecnologías</div>
           </div>
           <div class="stat">
             <div class="value">3</div>
-            <div class="label">Años construyendo</div>
+            <div class="label" data-i18n="stat_years">Años construyendo</div>
           </div>
         </div>
       </div>
@@ -734,17 +759,17 @@
       <div class="container">
         <div class="about-grid">
           <div>
-            <p class="section-label">01 / Sobre mí</p>
-            <h2 class="section-title">Desarrollador con <span class="accent">visión de negocio</span></h2>
+            <p class="section-label" data-i18n="about_label">01 / Sobre mí</p>
+            <h2 class="section-title" data-i18n="about_title">Desarrollador con <span class="accent">visión de negocio</span></h2>
           </div>
           <div class="about-text">
-            <p>Mi formación dual en Contaduría Pública e Ingeniería Informática me permite traducir necesidades del negocio en soluciones técnicas claras, estables y escalables.</p>
-            <p>He participado en sistemas críticos para contingencias satelitales, salud, combustible y visualización de datos, siempre con foco en resultados medibles: menos trabajo manual, datos confiables y decisiones más rápidas.</p>
+            <p data-i18n="about_p1">Mi formación dual en Contaduría Pública e Ingeniería Informática me permite traducir necesidades del negocio en soluciones técnicas claras, estables y escalables.</p>
+            <p data-i18n="about_p2">He participado en sistemas críticos para contingencias satelitales, salud, combustible y visualización de datos, siempre con foco en resultados medibles: menos trabajo manual, datos confiables y decisiones más rápidas.</p>
             <ul class="about-list">
-              <li>Arquitectura full-stack de extremo a extremo</li>
-              <li>Modelado relacional y NoSQL</li>
-              <li>Dashboards y modelos semánticos en Power BI</li>
-              <li>Despliegue, Docker y administración Linux</li>
+              <li data-i18n="about_li1">Arquitectura full-stack de extremo a extremo</li>
+              <li data-i18n="about_li2">Modelado relacional y NoSQL</li>
+              <li data-i18n="about_li3">Dashboards y modelos semánticos en Power BI</li>
+              <li data-i18n="about_li4">Despliegue, Docker y administración Linux</li>
             </ul>
           </div>
         </div>
@@ -781,25 +806,25 @@
     <!-- PROJECTS -->
     <section id="proyectos">
       <div class="container">
-        <div class="section-label">02 / Proyectos</div>
-        <h2 class="section-title">Trabajo <span class="accent">seleccionado</span></h2>
-        <p style="max-width:540px; color:var(--text-muted); font-size:0.95rem; margin-bottom:1.5rem;">
+        <div class="section-label" data-i18n="projects_label">02 / Proyectos</div>
+        <h2 class="section-title" data-i18n="projects_title">Trabajo <span class="accent">seleccionado</span></h2>
+        <p style="max-width:540px; color:var(--text-muted); font-size:0.95rem; margin-bottom:1.5rem;" data-i18n="projects_desc">
           Plataformas full-stack, interfaces, tableros de BI, modelado de bases de datos SQL y NoSQL y prácticas de DevOps sobre Linux.
         </p>
 
         <!-- Filtros -->
         <div class="filter-bar" id="filterBar">
-          <button class="filter-btn active" data-filter="all">Todos</button>
-          <button class="filter-btn" data-filter="Full-Stack">Full-Stack</button>
-          <button class="filter-btn" data-filter="Frontend">Frontend</button>
-          <button class="filter-btn" data-filter="Data BI">Data BI</button>
-          <button class="filter-btn" data-filter="Datos">Datos</button>
-          <button class="filter-btn" data-filter="DevOps">DevOps</button>
+          <button class="filter-btn active" data-filter="all" data-i18n="filter_all">Todos</button>
+          <button class="filter-btn" data-filter="Full-Stack" data-i18n="filter_fullstack">Full-Stack</button>
+          <button class="filter-btn" data-filter="Frontend" data-i18n="filter_frontend">Frontend</button>
+          <button class="filter-btn" data-filter="Data BI" data-i18n="filter_databi">Data BI</button>
+          <button class="filter-btn" data-filter="Datos" data-i18n="filter_data">Datos</button>
+          <button class="filter-btn" data-filter="DevOps" data-i18n="filter_devops">DevOps</button>
         </div>
 
         <!-- Grid de proyectos -->
         <div class="projects-grid" id="projectsGrid">
-          <!-- Cada proyecto se genera con JS desde los datos -->
+          <!-- Generado con JS -->
         </div>
       </div>
     </section>
@@ -807,11 +832,11 @@
     <!-- STACK -->
     <section id="stack">
       <div class="container">
-        <p class="section-label">03 / Stack</p>
-        <h2 class="section-title">Herramientas que uso <span class="accent">a diario</span></h2>
+        <p class="section-label" data-i18n="stack_label">03 / Stack</p>
+        <h2 class="section-title" data-i18n="stack_title">Herramientas que uso <span class="accent">a diario</span></h2>
         <div class="stack-grid">
           <div class="stack-group">
-            <h4>Lenguajes</h4>
+            <h4 data-i18n="stack_langs">Lenguajes</h4>
             <ul>
               <li>Python</li><li>JavaScript</li><li>TypeScript</li>
               <li>PHP</li><li>SQL</li><li>Bash</li>
@@ -819,7 +844,7 @@
             </ul>
           </div>
           <div class="stack-group">
-            <h4>Frameworks</h4>
+            <h4 data-i18n="stack_frameworks">Frameworks</h4>
             <ul>
               <li>Laravel</li><li>Django</li><li>React</li>
               <li>Angular</li><li>Ionic</li><li>Node.js</li>
@@ -827,7 +852,7 @@
             </ul>
           </div>
           <div class="stack-group">
-            <h4>Datos y BI</h4>
+            <h4 data-i18n="stack_data">Datos y BI</h4>
             <ul>
               <li>Power BI</li><li>DAX</li><li>Pandas</li>
               <li>NumPy</li><li>BigQuery</li><li>PostgreSQL</li>
@@ -841,8 +866,8 @@
     <!-- TIMELINE -->
     <section id="trayectoria">
       <div class="container">
-        <p class="section-label">04 / Trayectoria</p>
-        <h2 class="section-title">Experiencia y <span class="accent">formación</span></h2>
+        <p class="section-label" data-i18n="timeline_label">04 / Trayectoria</p>
+        <h2 class="section-title" data-i18n="timeline_title">Experiencia y <span class="accent">formación</span></h2>
         <div class="timeline" id="timelineContainer">
           <!-- Generado con JS -->
         </div>
@@ -852,17 +877,17 @@
     <!-- CONTACT -->
     <section id="contacto">
       <div class="container">
-        <p class="section-label">05 / Contacto</p>
-        <h2 class="section-title" style="max-width:700px;">¿Tienes un proyecto <span class="accent">en mente?</span></h2>
-        <p style="max-width:540px; color:var(--text-muted); font-size:1rem; margin-bottom:2rem;">
+        <p class="section-label" data-i18n="contact_label">05 / Contacto</p>
+        <h2 class="section-title" style="max-width:700px;" data-i18n="contact_title">¿Tienes un proyecto <span class="accent">en mente?</span></h2>
+        <p style="max-width:540px; color:var(--text-muted); font-size:1rem; margin-bottom:2rem;" data-i18n="contact_desc">
           Disponible para nuevos proyectos, oportunidades laborales o conversar sobre datos y software.
         </p>
         <div class="contact-grid" id="contactGrid">
           <!-- Generado con JS -->
         </div>
         <div class="footer">
-          <span>© 2026 Darwin Colmenares</span>
-          <span>Caracas, Venezuela</span>
+          <span data-i18n="footer_copy">© 2026 Darwin Colmenares</span>
+          <span data-i18n="footer_location">Caracas, Venezuela</span>
         </div>
       </div>
     </section>
@@ -991,6 +1016,130 @@
         header.classList.remove('scrolled');
       }
     });
+
+    // ----- TRADUCCIÓN (ES/EN) -----
+    const translations = {
+      es: {
+        nav_about: "Sobre mí",
+        nav_projects: "Proyectos",
+        nav_stack: "Stack",
+        nav_experience: "Trayectoria",
+        nav_contact: "Contacto",
+        nav_cta: "Trabajemos juntos",
+        hero_location: "Caracas, VE · Disponible para proyectos",
+        hero_subtitle: "Full-Stack Developer & Data Analyst",
+        hero_tagline: "Contador Público e Ingeniero Informático. Construyo soluciones técnicas que resuelven problemas reales de negocio, del modelado de datos a la interfaz.",
+        hero_cta_projects: "Ver proyectos",
+        stat_projects: "Proyectos publicados",
+        stat_degrees: "Títulos profesionales",
+        stat_tech: "Tecnologías",
+        stat_years: "Años construyendo",
+        about_label: "01 / Sobre mí",
+        about_title: "Desarrollador con visión de negocio",
+        about_p1: "Mi formación dual en Contaduría Pública e Ingeniería Informática me permite traducir necesidades del negocio en soluciones técnicas claras, estables y escalables.",
+        about_p2: "He participado en sistemas críticos para contingencias satelitales, salud, combustible y visualización de datos, siempre con foco en resultados medibles: menos trabajo manual, datos confiables y decisiones más rápidas.",
+        about_li1: "Arquitectura full-stack de extremo a extremo",
+        about_li2: "Modelado relacional y NoSQL",
+        about_li3: "Dashboards y modelos semánticos en Power BI",
+        about_li4: "Despliegue, Docker y administración Linux",
+        projects_label: "02 / Proyectos",
+        projects_title: "Trabajo seleccionado",
+        projects_desc: "Plataformas full-stack, interfaces, tableros de BI, modelado de bases de datos SQL y NoSQL y prácticas de DevOps sobre Linux.",
+        filter_all: "Todos",
+        filter_fullstack: "Full-Stack",
+        filter_frontend: "Frontend",
+        filter_databi: "Data BI",
+        filter_data: "Datos",
+        filter_devops: "DevOps",
+        stack_label: "03 / Stack",
+        stack_title: "Herramientas que uso a diario",
+        stack_langs: "Lenguajes",
+        stack_frameworks: "Frameworks",
+        stack_data: "Datos y BI",
+        timeline_label: "04 / Trayectoria",
+        timeline_title: "Experiencia y formación",
+        contact_label: "05 / Contacto",
+        contact_title: "¿Tienes un proyecto en mente?",
+        contact_desc: "Disponible para nuevos proyectos, oportunidades laborales o conversar sobre datos y software.",
+        footer_copy: "© 2026 Darwin Colmenares",
+        footer_location: "Caracas, Venezuela"
+      },
+      en: {
+        nav_about: "About",
+        nav_projects: "Projects",
+        nav_stack: "Stack",
+        nav_experience: "Experience",
+        nav_contact: "Contact",
+        nav_cta: "Let's work together",
+        hero_location: "Caracas, VE · Available for projects",
+        hero_subtitle: "Full-Stack Developer & Data Analyst",
+        hero_tagline: "Public Accountant and Computer Engineer. I build technical solutions that solve real business problems, from data modeling to the user interface.",
+        hero_cta_projects: "View projects",
+        stat_projects: "Published projects",
+        stat_degrees: "Professional degrees",
+        stat_tech: "Technologies",
+        stat_years: "Years building",
+        about_label: "01 / About",
+        about_title: "Developer with business vision",
+        about_p1: "My dual background in Public Accounting and Computer Engineering helps me translate business needs into clear, stable, and scalable technical solutions.",
+        about_p2: "I have worked on critical systems for satellite contingencies, health, fuel, and data visualization, always focusing on measurable results: less manual work, reliable data, and faster decisions.",
+        about_li1: "End-to-end full-stack architecture",
+        about_li2: "Relational and NoSQL modeling",
+        about_li3: "Dashboards and semantic models in Power BI",
+        about_li4: "Deployment, Docker, and Linux administration",
+        projects_label: "02 / Projects",
+        projects_title: "Selected work",
+        projects_desc: "Full-stack platforms, interfaces, BI dashboards, SQL and NoSQL database modeling, and DevOps practices on Linux.",
+        filter_all: "All",
+        filter_fullstack: "Full-Stack",
+        filter_frontend: "Frontend",
+        filter_databi: "Data BI",
+        filter_data: "Data",
+        filter_devops: "DevOps",
+        stack_label: "03 / Stack",
+        stack_title: "Tools I use daily",
+        stack_langs: "Languages",
+        stack_frameworks: "Frameworks",
+        stack_data: "Data & BI",
+        timeline_label: "04 / Experience",
+        timeline_title: "Experience and education",
+        contact_label: "05 / Contact",
+        contact_title: "Do you have a project in mind?",
+        contact_desc: "Available for new projects, job opportunities, or to talk about data and software.",
+        footer_copy: "© 2026 Darwin Colmenares",
+        footer_location: "Caracas, Venezuela"
+      }
+    };
+
+    let currentLang = localStorage.getItem('lang') || 'es';
+    const langToggle = document.getElementById('langToggle');
+
+    function setLanguage(lang) {
+      currentLang = lang;
+      localStorage.setItem('lang', lang);
+      langToggle.textContent = lang.toUpperCase();
+      document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        if (translations[lang] && translations[lang][key]) {
+          // Si el elemento tiene HTML (como <span>), lo reemplazamos con innerHTML
+          el.innerHTML = translations[lang][key];
+        }
+      });
+      // Actualizar también los textos de los proyectos (que están en el grid)
+      // Como los proyectos no tienen data-i18n, no se actualizan automáticamente.
+      // Podríamos añadir data-i18n a cada proyecto, pero es más complejo.
+      // Por ahora, mantenemos los títulos en español fijos, o podríamos tener dos arrays.
+      // Para simplificar, dejamos los títulos de proyectos en el idioma original (español)
+      // ya que son nombres propios y no requieren traducción.
+    }
+
+    langToggle.addEventListener('click', () => {
+      const nextLang = currentLang === 'es' ? 'en' : 'es';
+      setLanguage(nextLang);
+    });
+
+    // Inicializar con el idioma guardado
+    setLanguage(currentLang);
   </script>
 
 </body>
