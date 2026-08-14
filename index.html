@@ -5,6 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
   <title>Darwin Colmenares · Full‑Stack & Data</title>
   <meta name="description" content="Portafolio de Darwin Colmenares – Ingeniero Informático y Contador Público. Desarrollo full‑stack, análisis de datos y visualización con Power BI." />
+  <meta name="author" content="Darwin Colmenares" />
+  <meta name="robots" content="index, follow" />
+  <meta name="theme-color" content="#0b0f12" />
   <link rel="canonical" href="https://darwinjcn.github.io/" />
 
   <!-- Open Graph / Twitter -->
@@ -18,6 +21,32 @@
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:image" content="https://darwinjcn.github.io/thumbnail.png" />
 
+  <!-- JSON-LD Schema.org -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Darwin Colmenares",
+    "jobTitle": "Full-Stack Developer & Data Analyst",
+    "description": "Contador Público e Ingeniero Informático. Desarrollo full-stack, análisis de datos y visualización con Power BI.",
+    "url": "https://darwinjcn.github.io/",
+    "email": "mailto:colmenaresdarwin06@gmail.com",
+    "sameAs": [
+      "https://github.com/darwinjcn",
+      "https://www.linkedin.com/in/darwin-colmenares"
+    ],
+    "knowsAbout": [
+      "Python", "JavaScript", "TypeScript", "PHP", "React", "Angular",
+      "Laravel", "Django", "Node.js", "PostgreSQL", "MongoDB", "Power BI", "Docker", "Linux"
+    ],
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Caracas",
+      "addressCountry": "VE"
+    }
+  }
+  </script>
+
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%2360a5fa'/%3E%3Cstop offset='50%25' stop-color='%23a78bfa'/%3E%3Cstop offset='100%25' stop-color='%23f472b6'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='64' height='64' rx='16' fill='%23020617'/%3E%3Ccircle cx='32' cy='32' r='20' fill='url(%23g)'/%3E%3Cpath d='M22 42V22h10c6 0 10 3.8 10 10s-4 10-10 10H22zm8-6h2c2.8 0 5-1.8 5-4s-2.2-4-5-4h-2v8z' fill='white'/%3E%3C/svg%3E">
   
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -26,18 +55,14 @@
 
   <style>
     /* ---------- RESET & VARIABLES ---------- */
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
     :root {
       --bg: #0b0f12;
       --surface: #161c22;
       --surface-hi: #1e2630;
       --text: #e8edf2;
-      --text-muted: #b0c4d9;        /* más claro que antes */
-      --text-muted-dim: #8a9aa8;     /* para algunos detalles */
+      --text-muted: #b0c4d9;
+      --text-muted-dim: #8a9aa8;
       --accent: #a3e635;
       --border: rgba(255,255,255,0.12);
       --border-solid: #2a3340;
@@ -46,6 +71,7 @@
     }
     html {
       scroll-behavior: smooth;
+      scroll-padding-top: 80px; /* Ajuste: scroll padding para header fijo */
     }
     body {
       font-family: 'Space Grotesk', sans-serif;
@@ -54,23 +80,13 @@
       line-height: 1.6;
       padding: 0 1rem;
     }
-    @media (min-width: 640px) {
-      body { padding: 0 2rem; }
-    }
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
+    @media (min-width: 640px) { body { padding: 0 2rem; } }
+    a { color: inherit; text-decoration: none; }
     img { max-width: 100%; }
 
     /* ---------- UTILIDADES ---------- */
-    .container {
-      max-width: 1100px;
-      margin: 0 auto;
-    }
-    .accent {
-      color: var(--accent);
-    }
+    .container { max-width: 1100px; margin: 0 auto; }
+    .accent { color: var(--accent); }
     .label-mono {
       font-family: 'Space Grotesk', monospace;
       font-size: 0.7rem;
@@ -78,9 +94,7 @@
       text-transform: uppercase;
       color: var(--text-muted-dim);
     }
-    .hairline {
-      border-top: 1px solid var(--border-solid);
-    }
+    .hairline { border-top: 1px solid var(--border-solid); }
     .grid-backdrop {
       background-image:
         linear-gradient(rgba(255,255,255,0.04) 1px, transparent 1px),
@@ -89,9 +103,7 @@
       mask-image: radial-gradient(ellipse at 50% 0%, black 0%, transparent 70%);
       pointer-events: none;
     }
-    .reveal-up {
-      animation: reveal-up 0.7s cubic-bezier(0.16, 1, 0.3, 1) both;
-    }
+    .reveal-up { animation: reveal-up 0.7s cubic-bezier(0.16, 1, 0.3, 1) both; }
     @keyframes reveal-up {
       from { opacity: 0; transform: translateY(18px); }
       to { opacity: 1; transform: none; }
@@ -136,18 +148,10 @@
       color: var(--text-muted);
       transition: color 0.2s;
     }
-    .nav-links a:hover {
-      color: var(--text);
-    }
-    @media (min-width: 768px) {
-      .nav-links { display: flex; }
-    }
+    .nav-links a:hover { color: var(--text); }
+    @media (min-width: 768px) { .nav-links { display: flex; } }
 
-    .nav-actions {
-      display: flex;
-      align-items: center;
-      gap: 0.8rem;
-    }
+    .nav-actions { display: flex; align-items: center; gap: 0.8rem; }
     .btn-primary {
       background: var(--accent);
       color: var(--bg);
@@ -187,9 +191,7 @@
       color: var(--text);
       cursor: pointer;
     }
-    @media (min-width: 768px) {
-      .menu-toggle { display: none; }
-    }
+    @media (min-width: 768px) { .menu-toggle { display: none; } }
 
     .mobile-menu {
       display: none;
@@ -234,33 +236,24 @@
 
     /* ---------- HERO ---------- */
     .hero {
-      padding-top: 5rem;  /* reducido */
-      padding-bottom: 2rem; /* reducido */
+      padding-top: 5rem;
+      padding-bottom: 2rem;
       position: relative;
       overflow: hidden;
       min-height: 100vh;
       display: flex;
       align-items: center;
     }
-    .hero .grid-backdrop {
-      position: absolute;
-      inset: 0;
-    }
-    .hero-content {
-      position: relative;
-      z-index: 1;
-      width: 100%;
-    }
+    .hero .grid-backdrop { position: absolute; inset: 0; }
+    .hero-content { position: relative; z-index: 1; width: 100%; }
     .hero h1 {
-      font-size: clamp(3.2rem, 10vw, 6.5rem); /* más grande */
+      font-size: clamp(3.2rem, 10vw, 6.5rem);
       font-weight: 700;
       line-height: 0.92;
       letter-spacing: -0.02em;
       margin-top: 0.5rem;
     }
-    .hero h1 .muted {
-      color: var(--text-muted);
-    }
+    .hero h1 .muted { color: var(--text-muted); }
     .hero .subtitle {
       display: block;
       font-size: clamp(1.2rem, 2.8vw, 1.8rem);
@@ -294,9 +287,7 @@
       color: var(--bg);
       border-color: var(--accent);
     }
-    .hero-actions .btn-primary:hover {
-      background: #8fcc2e;
-    }
+    .hero-actions .btn-primary:hover { background: #8fcc2e; }
     .hero-actions .btn-outline {
       background: transparent;
       color: var(--text);
@@ -317,9 +308,7 @@
       margin-top: 2.5rem;
       border: 1px solid var(--border-solid);
     }
-    @media (min-width: 640px) {
-      .stats-grid { grid-template-columns: repeat(4, 1fr); }
-    }
+    @media (min-width: 640px) { .stats-grid { grid-template-columns: repeat(4, 1fr); } }
     .stats-grid .stat {
       background: var(--bg);
       padding: 1.2rem 1rem;
@@ -330,6 +319,8 @@
       font-weight: 700;
       color: var(--accent);
       line-height: 1.2;
+      display: inline-flex;
+      align-items: baseline;
     }
     .stats-grid .stat .label {
       font-size: 0.65rem;
@@ -340,24 +331,14 @@
     }
 
     /* ---------- ABOUT ---------- */
-    .about-grid {
-      display: grid;
-      gap: 2.5rem;
-    }
-    @media (min-width: 768px) {
-      .about-grid {
-        grid-template-columns: 1fr 1.4fr;
-      }
-    }
+    .about-grid { display: grid; gap: 2.5rem; }
+    @media (min-width: 768px) { .about-grid { grid-template-columns: 1fr 1.4fr; } }
     .about-text p {
       color: var(--text-muted);
       margin-bottom: 1rem;
       font-size: 0.95rem;
     }
-    .about-list {
-      list-style: none;
-      margin-top: 0.5rem;
-    }
+    .about-list { list-style: none; margin-top: 0.5rem; }
     .about-list li {
       display: flex;
       gap: 0.8rem;
@@ -371,23 +352,8 @@
       color: var(--accent);
       font-weight: 600;
     }
-    .about-code {
-      background: var(--surface);
-      border-radius: var(--radius);
-      padding: 1.2rem;
-      border: 1px solid var(--border-solid);
-      font-family: 'Space Grotesk', monospace;
-      font-size: 0.85rem;
-      color: #cbd5e1;
-      white-space: pre-wrap;
-      word-break: break-word;
-      line-height: 1.8;
-    }
-    .about-code .accent {
-      color: var(--accent);
-    }
 
-    /* Marquee (cinta) */
+    /* Marquee (cinta) - con pausa al hover */
     .marquee {
       overflow: hidden;
       border-top: 1px solid var(--border-solid);
@@ -400,6 +366,10 @@
       gap: 2.5rem;
       width: max-content;
       animation: marquee 34s linear infinite;
+      transition: animation-play-state 0.2s;
+    }
+    .marquee:hover .marquee-track {
+      animation-play-state: paused;
     }
     .marquee-track span {
       white-space: nowrap;
@@ -456,32 +426,19 @@
       overflow: hidden;
       border: 1px solid var(--border-solid);
     }
-    @media (min-width: 640px) {
-      .projects-grid { grid-template-columns: repeat(2, 1fr); }
-    }
-    @media (min-width: 1024px) {
-      .projects-grid { grid-template-columns: repeat(3, 1fr); }
-    }
+    @media (min-width: 640px) { .projects-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (min-width: 1024px) { .projects-grid { grid-template-columns: repeat(3, 1fr); } }
     .project-card {
       background: var(--bg);
       padding: 1.5rem;
       display: flex;
       flex-direction: column;
       transition: background 0.2s;
+      animation: reveal-up 0.4s cubic-bezier(0.16, 1, 0.3, 1) both;
     }
-    .project-card:hover {
-      background: var(--surface);
-    }
-    .project-card .num {
-      font-size: 0.75rem;
-      color: var(--accent);
-      font-weight: 600;
-    }
-    .project-card .year {
-      font-size: 0.7rem;
-      color: var(--text-muted);
-      letter-spacing: 0.05em;
-    }
+    .project-card:hover { background: var(--surface); }
+    .project-card .num { font-size: 0.75rem; color: var(--accent); font-weight: 600; }
+    .project-card .year { font-size: 0.7rem; color: var(--text-muted); letter-spacing: 0.05em; }
     .project-card .meta {
       display: flex;
       justify-content: space-between;
@@ -526,8 +483,14 @@
       color: var(--accent);
       transition: color 0.2s;
     }
-    .project-card .links a:hover {
-      color: #8fcc2e;
+    .project-card .links a:hover { color: #8fcc2e; }
+
+    .no-results {
+      grid-column: 1 / -1;
+      text-align: center;
+      padding: 2rem;
+      color: var(--text-muted);
+      background: var(--bg);
     }
 
     /* ---------- STACK ---------- */
@@ -536,9 +499,7 @@
       gap: 2rem;
       margin-top: 2rem;
     }
-    @media (min-width: 640px) {
-      .stack-grid { grid-template-columns: repeat(3, 1fr); }
-    }
+    @media (min-width: 640px) { .stack-grid { grid-template-columns: repeat(3, 1fr); } }
     .stack-group h4 {
       font-size: 0.9rem;
       font-weight: 600;
@@ -616,9 +577,7 @@
       border: 1px solid var(--border-solid);
       margin: 2rem 0;
     }
-    @media (min-width: 640px) {
-      .contact-grid { grid-template-columns: repeat(2, 1fr); }
-    }
+    @media (min-width: 640px) { .contact-grid { grid-template-columns: repeat(2, 1fr); } }
     .contact-item {
       background: var(--bg);
       padding: 1.2rem 1.5rem;
@@ -627,9 +586,7 @@
       align-items: center;
       transition: background 0.2s;
     }
-    .contact-item:hover {
-      background: var(--surface);
-    }
+    .contact-item:hover { background: var(--surface); }
     .contact-item .label {
       font-size: 0.7rem;
       text-transform: uppercase;
@@ -647,9 +604,7 @@
       font-size: 1.2rem;
       transition: transform 0.2s;
     }
-    .contact-item:hover .arrow {
-      transform: translateX(4px);
-    }
+    .contact-item:hover .arrow { transform: translateX(4px); }
 
     /* ---------- FOOTER ---------- */
     .footer {
@@ -671,6 +626,36 @@
       }
     }
 
+    /* ---------- BOTÓN SCROLL TOP ---------- */
+    .scroll-top {
+      position: fixed;
+      bottom: 2rem;
+      right: 2rem;
+      width: 44px;
+      height: 44px;
+      border-radius: 9999px;
+      background: var(--accent);
+      color: var(--bg);
+      border: none;
+      font-size: 1.2rem;
+      font-weight: 700;
+      cursor: pointer;
+      display: grid;
+      place-items: center;
+      opacity: 0;
+      pointer-events: none;
+      transform: translateY(10px);
+      transition: opacity 0.3s, transform 0.3s;
+      box-shadow: 0 8px 24px rgba(163, 230, 53, 0.3);
+      z-index: 40;
+    }
+    .scroll-top.visible {
+      opacity: 1;
+      pointer-events: auto;
+      transform: translateY(0);
+    }
+    .scroll-top:hover { opacity: 0.9; }
+
     /* ---------- RESPONSIVE ADJUST ---------- */
     @media (max-width: 480px) {
       .hero h1 { font-size: 2.8rem; }
@@ -682,10 +667,10 @@
 <body>
 
   <!-- NAV -->
-  <header id="header">
+  <header id="header" role="banner">
     <div class="nav-inner">
       <a href="#top" class="logo">darwin<span>.</span>dev</a>
-      <nav class="nav-links">
+      <nav class="nav-links" aria-label="Navegación principal">
         <a href="#sobre-mi" data-i18n="nav_about">Sobre mí</a>
         <a href="#proyectos" data-i18n="nav_projects">Proyectos</a>
         <a href="#stack" data-i18n="nav_stack">Stack</a>
@@ -693,16 +678,19 @@
         <a href="#contacto" data-i18n="nav_contact">Contacto</a>
       </nav>
       <div class="nav-actions">
-        <button class="lang-toggle" id="langToggle" aria-label="Cambiar idioma">ES</button>
+        <button class="lang-toggle" id="langToggle" aria-label="Cambiar idioma (actual: español)">ES</button>
         <a href="#contacto" class="btn-primary" data-i18n="nav_cta">Trabajemos juntos</a>
-        <button class="menu-toggle" id="menuToggle" aria-label="Menú">
+        <button class="menu-toggle" id="menuToggle" 
+                aria-label="Abrir menú de navegación" 
+                aria-expanded="false" 
+                aria-controls="mobileMenu">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
             <path d="M4 8h16M4 16h16" id="menuIcon"/>
           </svg>
         </button>
       </div>
     </div>
-    <div class="mobile-menu" id="mobileMenu">
+    <div class="mobile-menu" id="mobileMenu" role="navigation" aria-label="Menú móvil">
       <a href="#sobre-mi" data-i18n="nav_about">Sobre mí</a>
       <a href="#proyectos" data-i18n="nav_projects">Proyectos</a>
       <a href="#stack" data-i18n="nav_stack">Stack</a>
@@ -711,10 +699,10 @@
     </div>
   </header>
 
-  <main>
+  <main role="main">
 
     <!-- HERO -->
-    <section id="top" class="hero">
+    <section id="top" class="hero" aria-label="Presentación principal">
       <div class="grid-backdrop"></div>
       <div class="container hero-content">
         <p class="label-mono" data-i18n="hero_location">Caracas, VE · Disponible para proyectos</p>
@@ -729,25 +717,25 @@
         </p>
         <div class="hero-actions">
           <a href="#proyectos" class="btn btn-primary" data-i18n="hero_cta_projects">Ver proyectos</a>
-          <a href="https://github.com/darwinjcn" target="_blank" class="btn btn-outline">GitHub</a>
+          <a href="https://github.com/darwinjcn" target="_blank" rel="noopener noreferrer" class="btn btn-outline">GitHub</a>
         </div>
 
         <!-- Stats -->
-        <div class="stats-grid">
+        <div class="stats-grid" id="statsGrid">
           <div class="stat">
-            <div class="value">13</div>
+            <div class="value" data-target="13" data-suffix="">0</div>
             <div class="label" data-i18n="stat_projects">Proyectos publicados</div>
           </div>
           <div class="stat">
-            <div class="value">2</div>
+            <div class="value" data-target="2" data-suffix="">0</div>
             <div class="label" data-i18n="stat_degrees">Títulos profesionales</div>
           </div>
           <div class="stat">
-            <div class="value">15+</div>
+            <div class="value" data-target="15" data-suffix="+">0</div>
             <div class="label" data-i18n="stat_tech">Tecnologías</div>
           </div>
           <div class="stat">
-            <div class="value">3</div>
+            <div class="value" data-target="3" data-suffix="">0</div>
             <div class="label" data-i18n="stat_years">Años construyendo</div>
           </div>
         </div>
@@ -755,12 +743,12 @@
     </section>
 
     <!-- ABOUT -->
-    <section id="sobre-mi">
+    <section id="sobre-mi" aria-labelledby="about-title">
       <div class="container">
         <div class="about-grid">
           <div>
             <p class="section-label" data-i18n="about_label">01 / Sobre mí</p>
-            <h2 class="section-title" data-i18n="about_title">Desarrollador con <span class="accent">visión de negocio</span></h2>
+            <h2 class="section-title" id="about-title" data-i18n="about_title">Desarrollador con <span class="accent">visión de negocio</span></h2>
           </div>
           <div class="about-text">
             <p data-i18n="about_p1">Mi formación dual en Contaduría Pública e Ingeniería Informática me permite traducir necesidades del negocio en soluciones técnicas claras, estables y escalables.</p>
@@ -775,7 +763,7 @@
         </div>
 
         <!-- Marquee -->
-        <div class="marquee">
+        <div class="marquee" aria-hidden="true">
           <div class="marquee-track">
             <span>Python <span class="dot">◆</span></span>
             <span>Laravel <span class="dot">◆</span></span>
@@ -804,36 +792,34 @@
     </section>
 
     <!-- PROJECTS -->
-    <section id="proyectos">
+    <section id="proyectos" aria-labelledby="projects-title">
       <div class="container">
         <div class="section-label" data-i18n="projects_label">02 / Proyectos</div>
-        <h2 class="section-title" data-i18n="projects_title">Trabajo <span class="accent">seleccionado</span></h2>
+        <h2 class="section-title" id="projects-title" data-i18n="projects_title">Trabajo <span class="accent">seleccionado</span></h2>
         <p style="max-width:540px; color:var(--text-muted); font-size:0.95rem; margin-bottom:1.5rem;" data-i18n="projects_desc">
           Plataformas full-stack, interfaces, tableros de BI, modelado de bases de datos SQL y NoSQL y prácticas de DevOps sobre Linux.
         </p>
 
         <!-- Filtros -->
-        <div class="filter-bar" id="filterBar">
-          <button class="filter-btn active" data-filter="all" data-i18n="filter_all">Todos</button>
-          <button class="filter-btn" data-filter="Full-Stack" data-i18n="filter_fullstack">Full-Stack</button>
-          <button class="filter-btn" data-filter="Frontend" data-i18n="filter_frontend">Frontend</button>
-          <button class="filter-btn" data-filter="Data BI" data-i18n="filter_databi">Data BI</button>
-          <button class="filter-btn" data-filter="Datos" data-i18n="filter_data">Datos</button>
-          <button class="filter-btn" data-filter="DevOps" data-i18n="filter_devops">DevOps</button>
+        <div class="filter-bar" id="filterBar" role="tablist">
+          <button class="filter-btn active" data-filter="all" role="tab" aria-selected="true" data-i18n="filter_all">Todos</button>
+          <button class="filter-btn" data-filter="Full-Stack" role="tab" aria-selected="false" data-i18n="filter_fullstack">Full-Stack</button>
+          <button class="filter-btn" data-filter="Frontend" role="tab" aria-selected="false" data-i18n="filter_frontend">Frontend</button>
+          <button class="filter-btn" data-filter="Data BI" role="tab" aria-selected="false" data-i18n="filter_databi">Data BI</button>
+          <button class="filter-btn" data-filter="Datos" role="tab" aria-selected="false" data-i18n="filter_data">Datos</button>
+          <button class="filter-btn" data-filter="DevOps" role="tab" aria-selected="false" data-i18n="filter_devops">DevOps</button>
         </div>
 
         <!-- Grid de proyectos -->
-        <div class="projects-grid" id="projectsGrid">
-          <!-- Generado con JS -->
-        </div>
+        <div class="projects-grid" id="projectsGrid" role="tabpanel"></div>
       </div>
     </section>
 
     <!-- STACK -->
-    <section id="stack">
+    <section id="stack" aria-labelledby="stack-title">
       <div class="container">
         <p class="section-label" data-i18n="stack_label">03 / Stack</p>
-        <h2 class="section-title" data-i18n="stack_title">Herramientas que uso <span class="accent">a diario</span></h2>
+        <h2 class="section-title" id="stack-title" data-i18n="stack_title">Herramientas que uso <span class="accent">a diario</span></h2>
         <div class="stack-grid">
           <div class="stack-group">
             <h4 data-i18n="stack_langs">Lenguajes</h4>
@@ -864,29 +850,25 @@
     </section>
 
     <!-- TIMELINE -->
-    <section id="trayectoria">
+    <section id="trayectoria" aria-labelledby="timeline-title">
       <div class="container">
         <p class="section-label" data-i18n="timeline_label">04 / Trayectoria</p>
-        <h2 class="section-title" data-i18n="timeline_title">Experiencia y <span class="accent">formación</span></h2>
-        <div class="timeline" id="timelineContainer">
-          <!-- Generado con JS -->
-        </div>
+        <h2 class="section-title" id="timeline-title" data-i18n="timeline_title">Experiencia y <span class="accent">formación</span></h2>
+        <div class="timeline" id="timelineContainer"></div>
       </div>
     </section>
 
     <!-- CONTACT -->
-    <section id="contacto">
+    <section id="contacto" aria-labelledby="contact-title">
       <div class="container">
         <p class="section-label" data-i18n="contact_label">05 / Contacto</p>
-        <h2 class="section-title" style="max-width:700px;" data-i18n="contact_title">¿Tienes un proyecto <span class="accent">en mente?</span></h2>
+        <h2 class="section-title" id="contact-title" style="max-width:700px;" data-i18n="contact_title">¿Tienes un proyecto <span class="accent">en mente?</span></h2>
         <p style="max-width:540px; color:var(--text-muted); font-size:1rem; margin-bottom:2rem;" data-i18n="contact_desc">
           Disponible para nuevos proyectos, oportunidades laborales o conversar sobre datos y software.
         </p>
-        <div class="contact-grid" id="contactGrid">
-          <!-- Generado con JS -->
-        </div>
+        <div class="contact-grid" id="contactGrid"></div>
         <div class="footer">
-          <span data-i18n="footer_copy">© 2026 Darwin Colmenares</span>
+          <span id="footerCopy">© 2026 Darwin Colmenares</span>
           <span data-i18n="footer_location">Caracas, Venezuela</span>
         </div>
       </div>
@@ -894,30 +876,51 @@
 
   </main>
 
+  <!-- BOTÓN SCROLL TOP -->
+  <button class="scroll-top" id="scrollTop" aria-label="Volver arriba" title="Volver arriba">↑</button>
+
   <script>
-    // ----- DATOS -----
+    // ----- UTILIDADES -----
+    function safeGetItem(key, fallback) {
+      try {
+        const val = localStorage.getItem(key);
+        return val || fallback;
+      } catch (e) {
+        console.warn('localStorage no disponible:', e);
+        return fallback;
+      }
+    }
+    function safeSetItem(key, value) {
+      try {
+        localStorage.setItem(key, value);
+      } catch (e) {
+        console.warn('No se pudo guardar en localStorage:', e);
+      }
+    }
+
+    // ----- DATOS DE PROYECTOS (con traducciones) -----
     const projects = [
-      { num: "01", title: "Gestión de Contingencias Satelitales", description: "Plataforma web para gestionar contingencias operativas en infraestructura satelital: roles, trazabilidad y reportes en PDF.", tags: ["React","Laravel","PostgreSQL"], category: "Full-Stack", repo: "https://github.com/darwinjcn/gcs-project", year: "2025" },
-      { num: "02", title: "Sistema de Gestión de Combustible", description: "Control de generadores, consumo y documentación técnica para operación continua de plantas.", tags: ["Django","React","PostgreSQL"], category: "Full-Stack", repo: "https://github.com/darwinjcn/sistema-gestion-combustible", year: "2025" },
-      { num: "03", title: "Node Express TypeScript", description: "Laboratorio técnico sobre rutas dinámicas, API REST tipada y arquitectura dockerizada.", tags: ["Node.js","TypeScript","Docker"], category: "DevOps", repo: "https://github.com/darwinjcn/node-express-typescript-logic", year: "2025" },
-      { num: "04", title: "Crypto Monitor", description: "Monitoreo de criptoactivos en tiempo real con consumo de APIs y visualización de series.", tags: ["JavaScript","APIs","Visualización"], category: "Frontend", repo: "https://github.com/darwinjcn/crypto-monitor", year: "2024" },
-      { num: "05", title: "App Ionic", description: "Aplicación móvil multiplataforma con navegación estructurada y diseño responsive.", tags: ["Ionic","Angular","TypeScript"], category: "Frontend", repo: "https://github.com/darwinjcn/mi-app-ionic-app", year: "2024" },
-      { num: "06", title: "Linux Terminal Guide", description: "Guía interactiva de los 10 comandos esenciales de Linux, con terminal simulada en el navegador.", tags: ["Linux","JavaScript","HTML5/CSS3"], category: "DevOps", repo: "https://github.com/darwinjcn/linux-terminal-guide", demo: "https://darwinjcn.github.io/linux-terminal-guide/", year: "2024" },
-      { num: "07", title: "Sistema Salud", description: "Plataforma para gestión de servicios de salud con sistema de roles y permisos.", tags: ["Python","Django","SQLite"], category: "Full-Stack", repo: "https://github.com/darwinjcn/sistema_salud", year: "2024" },
-      { num: "08", title: "Portafolio de Power BI", description: "Dashboards de análisis financiero, expansión retail y control de flota logística con modelo en estrella.", tags: ["Power BI","DAX","ETL","Star Schema"], category: "Data BI", repo: "https://github.com/darwinjcn/powerbi-proyectos", year: "2025" },
-      { num: "09", title: "Gestión Integral para ONG", description: "Modelado en 3FN para 'Ayuda en Acción': trazabilidad de donaciones, gestión multicanal y reportes con vistas materializadas.", tags: ["PostgreSQL","SQL","Modelado"], category: "Datos", repo: "https://github.com/darwinjcn/sql_ong_ayuda_accion", year: "2025" },
-      { num: "10", title: "Fábrica Willy Wonka", description: "Base de datos relacional para recetas, inventario, producción, empleados y control de calidad.", tags: ["PostgreSQL","SQL","Modelado"], category: "Datos", repo: "https://github.com/darwinjcn/sql_proyecto_willy_wonka", year: "2025" },
-      { num: "11", title: "APIGCS · MongoDB NoSQL", description: "Base NoSQL para contingencias satelitales: operadores avanzados, pipelines de agregación y validación de esquemas.", tags: ["MongoDB","NoSQL","Agregación"], category: "Datos", repo: "https://github.com/darwinjcn/apigcs-mongodb-nosql", year: "2025" },
-      { num: "12", title: "Comedor Universitario", description: "App full-stack con dashboard en tiempo real y CRUD de estudiantes, platos, personal, menús y compras.", tags: ["Node.js","Express","MongoDB","Tailwind"], category: "Full-Stack", repo: "https://github.com/darwinjcn/comedor-universitario", year: "2026" },
-      { num: "13", title: "Tic-Tac-Toe en Python", description: "Juego clásico en terminal contra la máquina, con lógica de turnos y detección de empate.", tags: ["Python"], category: "Frontend", repo: "https://github.com/darwinjcn/tic-tac-toe", year: "2024" }
+      { num: "01", title: "Gestión de Contingencias Satelitales", title_en: "Satellite Contingency Management", description: "Plataforma web para gestionar contingencias operativas en infraestructura satelital: roles, trazabilidad y reportes en PDF.", description_en: "Web platform to manage operational contingencies in satellite infrastructure: roles, traceability and PDF reports.", tags: ["React","Laravel","PostgreSQL"], category: "Full-Stack", repo: "https://github.com/darwinjcn/gcs-project", year: "2025" },
+      { num: "02", title: "Sistema de Gestión de Combustible", title_en: "Fuel Management System", description: "Control de generadores, consumo y documentación técnica para operación continua de plantas.", description_en: "Generator control, consumption tracking and technical documentation for continuous plant operation.", tags: ["Django","React","PostgreSQL"], category: "Full-Stack", repo: "https://github.com/darwinjcn/sistema-gestion-combustible", year: "2025" },
+      { num: "03", title: "Node Express TypeScript", title_en: "Node Express TypeScript", description: "Laboratorio técnico sobre rutas dinámicas, API REST tipada y arquitectura dockerizada.", description_en: "Technical lab on dynamic routes, typed REST API and dockerized architecture.", tags: ["Node.js","TypeScript","Docker"], category: "DevOps", repo: "https://github.com/darwinjcn/node-express-typescript-logic", year: "2025" },
+      { num: "04", title: "Crypto Monitor", title_en: "Crypto Monitor", description: "Monitoreo de criptoactivos en tiempo real con consumo de APIs y visualización de series.", description_en: "Real-time crypto monitoring with API consumption and time series visualization.", tags: ["JavaScript","APIs","Visualización"], category: "Frontend", repo: "https://github.com/darwinjcn/crypto-monitor", year: "2024" },
+      { num: "05", title: "App Ionic", title_en: "Ionic App", description: "Aplicación móvil multiplataforma con navegación estructurada y diseño responsive.", description_en: "Cross-platform mobile app with structured navigation and responsive design.", tags: ["Ionic","Angular","TypeScript"], category: "Frontend", repo: "https://github.com/darwinjcn/mi-app-ionic-app", year: "2024" },
+      { num: "06", title: "Linux Terminal Guide", title_en: "Linux Terminal Guide", description: "Guía interactiva de los 10 comandos esenciales de Linux, con terminal simulada en el navegador.", description_en: "Interactive guide to the 10 essential Linux commands, with simulated terminal in browser.", tags: ["Linux","JavaScript","HTML5/CSS3"], category: "DevOps", repo: "https://github.com/darwinjcn/linux-terminal-guide", demo: "https://darwinjcn.github.io/linux-terminal-guide/", year: "2024" },
+      { num: "07", title: "Sistema Salud", title_en: "Health System", description: "Plataforma para gestión de servicios de salud con sistema de roles y permisos.", description_en: "Platform for health service management with roles and permissions system.", tags: ["Python","Django","SQLite"], category: "Full-Stack", repo: "https://github.com/darwinjcn/sistema_salud", year: "2024" },
+      { num: "08", title: "Portafolio de Power BI", title_en: "Power BI Portfolio", description: "Dashboards de análisis financiero, expansión retail y control de flota logística con modelo en estrella.", description_en: "Financial analysis dashboards, retail expansion and logistics fleet control with star schema model.", tags: ["Power BI","DAX","ETL","Star Schema"], category: "Data BI", repo: "https://github.com/darwinjcn/powerbi-proyectos", year: "2025" },
+      { num: "09", title: "Gestión Integral para ONG", title_en: "Integral NGO Management", description: "Modelado en 3NF para 'Ayuda en Acción': trazabilidad de donaciones, gestión multicanal y reportes con vistas materializadas.", description_en: "3NF modeling for 'Ayuda en Acción': donation traceability, multi-channel management and reports with materialized views.", tags: ["PostgreSQL","SQL","Modelado"], category: "Datos", repo: "https://github.com/darwinjcn/sql_ong_ayuda_accion", year: "2025" },
+      { num: "10", title: "Fábrica Willy Wonka", title_en: "Willy Wonka Factory", description: "Base de datos relacional para recetas, inventario, producción, empleados y control de calidad.", description_en: "Relational database for recipes, inventory, production, employees and quality control.", tags: ["PostgreSQL","SQL","Modelado"], category: "Datos", repo: "https://github.com/darwinjcn/sql_proyecto_willy_wonka", year: "2025" },
+      { num: "11", title: "APIGCS · MongoDB NoSQL", title_en: "APIGCS · MongoDB NoSQL", description: "Base NoSQL para contingencias satelitales: operadores avanzados, pipelines de agregación y validación de esquemas.", description_en: "NoSQL database for satellite contingencies: advanced operators, aggregation pipelines and schema validation.", tags: ["MongoDB","NoSQL","Agregación"], category: "Datos", repo: "https://github.com/darwinjcn/apigcs-mongodb-nosql", year: "2025" },
+      { num: "12", title: "Comedor Universitario", title_en: "University Dining Hall", description: "App full-stack con dashboard en tiempo real y CRUD de estudiantes, platos, personal, menús y compras.", description_en: "Full-stack app with real-time dashboard and CRUD for students, dishes, staff, menus and purchases.", tags: ["Node.js","Express","MongoDB","Tailwind"], category: "Full-Stack", repo: "https://github.com/darwinjcn/comedor-universitario", year: "2026" },
+      { num: "13", title: "Tic-Tac-Toe en Python", title_en: "Tic-Tac-Toe in Python", description: "Juego clásico en terminal contra la máquina, con lógica de turnos y detección de empate.", description_en: "Classic terminal game against the machine, with turn logic and draw detection.", tags: ["Python"], category: "DevOps", repo: "https://github.com/darwinjcn/tic-tac-toe", year: "2024" }
     ];
 
     const timelineData = [
-      { kind: "Trabajo", period: "2022 — Actualidad", title: "Full-Stack Developer / Data Analyst", org: "Freelance y proyectos propios", detail: "Soluciones web para entornos reales: plataformas satelitales, sistemas de combustible, monitoreo financiero, dashboards de BI y guías técnicas de Linux." },
-      { kind: "Pasantía", period: "2025 — 2026", title: "Desarrollador GCS · CANTV", org: "Gerencia de Operaciones Satelitales", detail: "Plataforma de gestión de contingencias con roles, trazabilidad, generación de PDFs y metodología SCRUM." },
-      { kind: "Pasantía", period: "2023 — 2024", title: "Desarrollador Sistema de Salud · CANTV", org: "Núcleo de Evaluación y Análisis (NEA)", detail: "Gestión de servicios de salud con roles y permisos. Primera experiencia en entorno corporativo." },
-      { kind: "Formación", period: "2023 — Presente", title: "Ingeniería Informática", org: "TSU en Informática (Dic 2025)", detail: "Ingeniería de software, bases de datos, arquitectura de sistemas y desarrollo full-stack." },
-      { kind: "Académico", period: "2018 — 2023", title: "Contador Público", org: "Contabilidad, finanzas y auditoría", detail: "Contabilidad general, finanzas corporativas, auditoría y gestión tributaria." }
+      { kind: "Trabajo", kind_en: "Work", period: "2022 — Actualidad", period_en: "2022 — Present", title: "Full-Stack Developer / Data Analyst", org: "Freelance y proyectos propios", org_en: "Freelance and own projects", detail: "Soluciones web para entornos reales: plataformas satelitales, sistemas de combustible, monitoreo financiero, dashboards de BI y guías técnicas de Linux.", detail_en: "Web solutions for real environments: satellite platforms, fuel systems, financial monitoring, BI dashboards and Linux technical guides." },
+      { kind: "Pasantía", kind_en: "Internship", period: "2025 — 2026", title: "Desarrollador GCS · CANTV", title_en: "GCS Developer · CANTV", org: "Gerencia de Operaciones Satelitales", org_en: "Satellite Operations Management", detail: "Plataforma de gestión de contingencias con roles, trazabilidad, generación de PDFs y metodología SCRUM.", detail_en: "Contingency management platform with roles, traceability, PDF generation and SCRUM methodology." },
+      { kind: "Pasantía", kind_en: "Internship", period: "2023 — 2024", title: "Desarrollador Sistema de Salud · CANTV", title_en: "Health System Developer · CANTV", org: "Núcleo de Evaluación y Análisis (NEA)", org_en: "Evaluation and Analysis Core (NEA)", detail: "Gestión de servicios de salud con roles y permisos. Primera experiencia en entorno corporativo.", detail_en: "Health services management with roles and permissions. First corporate environment experience." },
+      { kind: "Formación", kind_en: "Education", period: "2023 — Presente", period_en: "2023 — Present", title: "Ingeniería Informática", title_en: "Computer Engineering", org: "TSU en Informática (Dic 2025)", org_en: "TSU in Computer Science (Dec 2025)", detail: "Ingeniería de software, bases de datos, arquitectura de sistemas y desarrollo full-stack.", detail_en: "Software engineering, databases, systems architecture and full-stack development." },
+      { kind: "Académico", kind_en: "Academic", period: "2018 — 2023", title: "Contador Público", title_en: "Public Accountant", org: "Contabilidad, finanzas y auditoría", org_en: "Accounting, finance and auditing", detail: "Contabilidad general, finanzas corporativas, auditoría y gestión tributaria.", detail_en: "General accounting, corporate finance, auditing and tax management." }
     ];
 
     const contactChannels = [
@@ -927,27 +930,37 @@
       { label: "WhatsApp", value: "+58 426 515 2896", href: "https://wa.me/584265152896" }
     ];
 
-    // ----- RENDER PROJECTS -----
+    // ----- RENDER PROJECTS (con traducciones) -----
     const grid = document.getElementById('projectsGrid');
+    let currentLang = safeGetItem('lang', 'es');
+
     function renderProjects(filter = 'all') {
       const filtered = filter === 'all' ? projects : projects.filter(p => p.category === filter);
-      grid.innerHTML = filtered.map(p => `
-        <div class="project-card" data-category="${p.category}">
-          <div class="meta">
-            <span class="num">${p.num}</span>
-            <span class="year">${p.year}</span>
+      if (filtered.length === 0) {
+        grid.innerHTML = `<p class="no-results">${currentLang === 'en' ? 'No projects in this category' : 'No hay proyectos en esta categoría'}</p>`;
+        return;
+      }
+      grid.innerHTML = filtered.map((p, i) => {
+        const title = currentLang === 'en' && p.title_en ? p.title_en : p.title;
+        const desc = currentLang === 'en' && p.description_en ? p.description_en : p.description;
+        return `
+          <div class="project-card" data-category="${p.category}" style="animation-delay: ${i * 0.05}s">
+            <div class="meta">
+              <span class="num">${p.num}</span>
+              <span class="year">${p.year}</span>
+            </div>
+            <h3>${title}</h3>
+            <p>${desc}</p>
+            <div class="project-tags">
+              ${p.tags.map(t => `<span>${t}</span>`).join('')}
+            </div>
+            <div class="links">
+              <a href="${p.repo}" target="_blank" rel="noopener noreferrer">${currentLang === 'en' ? 'Code' : 'Código'} ↗</a>
+              ${p.demo ? `<a href="${p.demo}" target="_blank" rel="noopener noreferrer">${currentLang === 'en' ? 'Demo' : 'Demo'} ↗</a>` : ''}
+            </div>
           </div>
-          <h3>${p.title}</h3>
-          <p>${p.description}</p>
-          <div class="project-tags">
-            ${p.tags.map(t => `<span>${t}</span>`).join('')}
-          </div>
-          <div class="links">
-            <a href="${p.repo}" target="_blank">Código ↗</a>
-            ${p.demo ? `<a href="${p.demo}" target="_blank">Demo ↗</a>` : ''}
-          </div>
-        </div>
-      `).join('');
+        `;
+      }).join('');
     }
     renderProjects();
 
@@ -955,40 +968,56 @@
     const filterBtns = document.querySelectorAll('.filter-btn');
     filterBtns.forEach(btn => {
       btn.addEventListener('click', function() {
-        filterBtns.forEach(b => b.classList.remove('active'));
+        filterBtns.forEach(b => {
+          b.classList.remove('active');
+          b.setAttribute('aria-selected', 'false');
+        });
         this.classList.add('active');
-        const filter = this.dataset.filter;
-        renderProjects(filter);
+        this.setAttribute('aria-selected', 'true');
+        renderProjects(this.dataset.filter);
       });
     });
 
-    // ----- RENDER TIMELINE -----
+    // ----- RENDER TIMELINE (con traducciones) -----
     const timelineContainer = document.getElementById('timelineContainer');
-    timelineContainer.innerHTML = timelineData.map(item => `
-      <div class="timeline-item">
-        <div class="period">${item.period}</div>
-        <div class="kind">${item.kind}</div>
-        <div class="content">
-          <h3>${item.title}</h3>
-          <div class="org">${item.org}</div>
-          <div class="detail">${item.detail}</div>
-        </div>
-      </div>
-    `).join('');
+    function renderTimeline() {
+      timelineContainer.innerHTML = timelineData.map(item => {
+        const title = currentLang === 'en' && item.title_en ? item.title_en : item.title;
+        const org = currentLang === 'en' && item.org_en ? item.org_en : item.org;
+        const detail = currentLang === 'en' && item.detail_en ? item.detail_en : item.detail;
+        const period = currentLang === 'en' && item.period_en ? item.period_en : item.period;
+        const kind = currentLang === 'en' && item.kind_en ? item.kind_en : item.kind;
+        return `
+          <div class="timeline-item">
+            <div class="period">${period}</div>
+            <div class="kind">${kind}</div>
+            <div class="content">
+              <h3>${title}</h3>
+              <div class="org">${org}</div>
+              <div class="detail">${detail}</div>
+            </div>
+          </div>
+        `;
+      }).join('');
+    }
+    renderTimeline();
 
     // ----- RENDER CONTACT -----
     const contactGrid = document.getElementById('contactGrid');
-    contactGrid.innerHTML = contactChannels.map(c => `
-      <a href="${c.href}" target="${c.href.startsWith('mailto:') ? '' : '_blank'}" rel="noreferrer" class="contact-item">
-        <div>
-          <div class="label">${c.label}</div>
-          <div class="value">${c.value}</div>
-        </div>
-        <span class="arrow">↗</span>
-      </a>
-    `).join('');
+    function renderContact() {
+      contactGrid.innerHTML = contactChannels.map(c => `
+        <a href="${c.href}" target="${c.href.startsWith('mailto:') ? '' : '_blank'}" rel="noopener noreferrer" class="contact-item">
+          <div>
+            <div class="label">${c.label}</div>
+            <div class="value">${c.value}</div>
+          </div>
+          <span class="arrow">↗</span>
+        </a>
+      `).join('');
+    }
+    renderContact();
 
-    // ----- MENU HAMBURGUESA -----
+    // ----- MENÚ HAMBURGUESA -----
     const toggle = document.getElementById('menuToggle');
     const mobileMenu = document.getElementById('mobileMenu');
     const menuIcon = document.getElementById('menuIcon');
@@ -996,46 +1025,76 @@
     toggle.addEventListener('click', () => {
       menuOpen = !menuOpen;
       mobileMenu.classList.toggle('open', menuOpen);
+      toggle.setAttribute('aria-expanded', menuOpen);
+      toggle.setAttribute('aria-label', menuOpen ? 'Cerrar menú' : 'Abrir menú de navegación');
       menuIcon.setAttribute('d', menuOpen ? 'M6 6l12 12M18 6L6 18' : 'M4 8h16M4 16h16');
     });
-    // Cerrar al hacer clic en un enlace
     mobileMenu.querySelectorAll('a').forEach(link => {
       link.addEventListener('click', () => {
         mobileMenu.classList.remove('open');
         menuOpen = false;
+        toggle.setAttribute('aria-expanded', 'false');
+        toggle.setAttribute('aria-label', 'Abrir menú de navegación');
         menuIcon.setAttribute('d', 'M4 8h16M4 16h16');
       });
     });
 
-    // ----- SCROLL HEADER -----
+    // ----- SCROLL HEADER + SCROLL TOP BUTTON -----
     const header = document.getElementById('header');
+    const scrollTopBtn = document.getElementById('scrollTop');
     window.addEventListener('scroll', () => {
-      if (window.scrollY > 12) {
-        header.classList.add('scrolled');
-      } else {
-        header.classList.remove('scrolled');
-      }
+      if (window.scrollY > 12) header.classList.add('scrolled');
+      else header.classList.remove('scrolled');
+
+      if (window.scrollY > 400) scrollTopBtn.classList.add('visible');
+      else scrollTopBtn.classList.remove('visible');
     });
+    scrollTopBtn.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+
+    // ----- CONTADORES ANIMADOS -----
+    const statsObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const values = entry.target.querySelectorAll('.value');
+          values.forEach(val => {
+            const target = parseInt(val.dataset.target);
+            const suffix = val.dataset.suffix || '';
+            let current = 0;
+            const duration = 1200;
+            const steps = 40;
+            const increment = target / steps;
+            const interval = duration / steps;
+            const timer = setInterval(() => {
+              current += increment;
+              if (current >= target) {
+                val.textContent = target + suffix;
+                clearInterval(timer);
+              } else {
+                val.textContent = Math.floor(current) + suffix;
+              }
+            }, interval);
+          });
+          statsObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.3 });
+    statsObserver.observe(document.getElementById('statsGrid'));
 
     // ----- TRADUCCIÓN (ES/EN) -----
     const translations = {
       es: {
-        nav_about: "Sobre mí",
-        nav_projects: "Proyectos",
-        nav_stack: "Stack",
-        nav_experience: "Trayectoria",
-        nav_contact: "Contacto",
-        nav_cta: "Trabajemos juntos",
+        nav_about: "Sobre mí", nav_projects: "Proyectos", nav_stack: "Stack",
+        nav_experience: "Trayectoria", nav_contact: "Contacto", nav_cta: "Trabajemos juntos",
         hero_location: "Caracas, VE · Disponible para proyectos",
-        hero_subtitle: "Full-Stack Developer & Data Analyst",
+        hero_subtitle: "Full-Stack Developer &amp; Data Analyst",
         hero_tagline: "Contador Público e Ingeniero Informático. Construyo soluciones técnicas que resuelven problemas reales de negocio, del modelado de datos a la interfaz.",
         hero_cta_projects: "Ver proyectos",
-        stat_projects: "Proyectos publicados",
-        stat_degrees: "Títulos profesionales",
-        stat_tech: "Tecnologías",
-        stat_years: "Años construyendo",
+        stat_projects: "Proyectos publicados", stat_degrees: "Títulos profesionales",
+        stat_tech: "Tecnologías", stat_years: "Años construyendo",
         about_label: "01 / Sobre mí",
-        about_title: "Desarrollador con visión de negocio",
+        about_title: "Desarrollador con <span class=\"accent\">visión de negocio</span>",
         about_p1: "Mi formación dual en Contaduría Pública e Ingeniería Informática me permite traducir necesidades del negocio en soluciones técnicas claras, estables y escalables.",
         about_p2: "He participado en sistemas críticos para contingencias satelitales, salud, combustible y visualización de datos, siempre con foco en resultados medibles: menos trabajo manual, datos confiables y decisiones más rápidas.",
         about_li1: "Arquitectura full-stack de extremo a extremo",
@@ -1043,44 +1102,31 @@
         about_li3: "Dashboards y modelos semánticos en Power BI",
         about_li4: "Despliegue, Docker y administración Linux",
         projects_label: "02 / Proyectos",
-        projects_title: "Trabajo seleccionado",
+        projects_title: "Trabajo <span class=\"accent\">seleccionado</span>",
         projects_desc: "Plataformas full-stack, interfaces, tableros de BI, modelado de bases de datos SQL y NoSQL y prácticas de DevOps sobre Linux.",
-        filter_all: "Todos",
-        filter_fullstack: "Full-Stack",
-        filter_frontend: "Frontend",
-        filter_databi: "Data BI",
-        filter_data: "Datos",
-        filter_devops: "DevOps",
+        filter_all: "Todos", filter_fullstack: "Full-Stack", filter_frontend: "Frontend",
+        filter_databi: "Data BI", filter_data: "Datos", filter_devops: "DevOps",
         stack_label: "03 / Stack",
-        stack_title: "Herramientas que uso a diario",
-        stack_langs: "Lenguajes",
-        stack_frameworks: "Frameworks",
-        stack_data: "Datos y BI",
+        stack_title: "Herramientas que uso <span class=\"accent\">a diario</span>",
+        stack_langs: "Lenguajes", stack_frameworks: "Frameworks", stack_data: "Datos y BI",
         timeline_label: "04 / Trayectoria",
-        timeline_title: "Experiencia y formación",
+        timeline_title: "Experiencia y <span class=\"accent\">formación</span>",
         contact_label: "05 / Contacto",
-        contact_title: "¿Tienes un proyecto en mente?",
+        contact_title: "¿Tienes un proyecto <span class=\"accent\">en mente?</span>",
         contact_desc: "Disponible para nuevos proyectos, oportunidades laborales o conversar sobre datos y software.",
-        footer_copy: "© 2026 Darwin Colmenares",
         footer_location: "Caracas, Venezuela"
       },
       en: {
-        nav_about: "About",
-        nav_projects: "Projects",
-        nav_stack: "Stack",
-        nav_experience: "Experience",
-        nav_contact: "Contact",
-        nav_cta: "Let's work together",
+        nav_about: "About", nav_projects: "Projects", nav_stack: "Stack",
+        nav_experience: "Experience", nav_contact: "Contact", nav_cta: "Let's work together",
         hero_location: "Caracas, VE · Available for projects",
-        hero_subtitle: "Full-Stack Developer & Data Analyst",
+        hero_subtitle: "Full-Stack Developer &amp; Data Analyst",
         hero_tagline: "Public Accountant and Computer Engineer. I build technical solutions that solve real business problems, from data modeling to the user interface.",
         hero_cta_projects: "View projects",
-        stat_projects: "Published projects",
-        stat_degrees: "Professional degrees",
-        stat_tech: "Technologies",
-        stat_years: "Years building",
+        stat_projects: "Published projects", stat_degrees: "Professional degrees",
+        stat_tech: "Technologies", stat_years: "Years building",
         about_label: "01 / About",
-        about_title: "Developer with business vision",
+        about_title: "Developer with <span class=\"accent\">business vision</span>",
         about_p1: "My dual background in Public Accounting and Computer Engineering helps me translate business needs into clear, stable, and scalable technical solutions.",
         about_p2: "I have worked on critical systems for satellite contingencies, health, fuel, and data visualization, always focusing on measurable results: less manual work, reliable data, and faster decisions.",
         about_li1: "End-to-end full-stack architecture",
@@ -1088,49 +1134,38 @@
         about_li3: "Dashboards and semantic models in Power BI",
         about_li4: "Deployment, Docker, and Linux administration",
         projects_label: "02 / Projects",
-        projects_title: "Selected work",
+        projects_title: "Selected <span class=\"accent\">work</span>",
         projects_desc: "Full-stack platforms, interfaces, BI dashboards, SQL and NoSQL database modeling, and DevOps practices on Linux.",
-        filter_all: "All",
-        filter_fullstack: "Full-Stack",
-        filter_frontend: "Frontend",
-        filter_databi: "Data BI",
-        filter_data: "Data",
-        filter_devops: "DevOps",
+        filter_all: "All", filter_fullstack: "Full-Stack", filter_frontend: "Frontend",
+        filter_databi: "Data BI", filter_data: "Data", filter_devops: "DevOps",
         stack_label: "03 / Stack",
-        stack_title: "Tools I use daily",
-        stack_langs: "Languages",
-        stack_frameworks: "Frameworks",
-        stack_data: "Data & BI",
+        stack_title: "Tools I use <span class=\"accent\">daily</span>",
+        stack_langs: "Languages", stack_frameworks: "Frameworks", stack_data: "Data &amp; BI",
         timeline_label: "04 / Experience",
-        timeline_title: "Experience and education",
+        timeline_title: "Experience and <span class=\"accent\">education</span>",
         contact_label: "05 / Contact",
-        contact_title: "Do you have a project in mind?",
+        contact_title: "Do you have a project <span class=\"accent\">in mind?</span>",
         contact_desc: "Available for new projects, job opportunities, or to talk about data and software.",
-        footer_copy: "© 2026 Darwin Colmenares",
         footer_location: "Caracas, Venezuela"
       }
     };
 
-    let currentLang = localStorage.getItem('lang') || 'es';
     const langToggle = document.getElementById('langToggle');
-
     function setLanguage(lang) {
       currentLang = lang;
-      localStorage.setItem('lang', lang);
+      safeSetItem('lang', lang);
       langToggle.textContent = lang.toUpperCase();
+      langToggle.setAttribute('aria-label', `Cambiar idioma (actual: ${lang === 'es' ? 'español' : 'english'})`);
       document.querySelectorAll('[data-i18n]').forEach(el => {
         const key = el.getAttribute('data-i18n');
         if (translations[lang] && translations[lang][key]) {
-          // Si el elemento tiene HTML (como <span>), lo reemplazamos con innerHTML
           el.innerHTML = translations[lang][key];
         }
       });
-      // Actualizar también los textos de los proyectos (que están en el grid)
-      // Como los proyectos no tienen data-i18n, no se actualizan automáticamente.
-      // Podríamos añadir data-i18n a cada proyecto, pero es más complejo.
-      // Por ahora, mantenemos los títulos en español fijos, o podríamos tener dos arrays.
-      // Para simplificar, dejamos los títulos de proyectos en el idioma original (español)
-      // ya que son nombres propios y no requieren traducción.
+      // Re-renderizar proyectos y timeline con el nuevo idioma
+      const activeFilter = document.querySelector('.filter-btn.active')?.dataset.filter || 'all';
+      renderProjects(activeFilter);
+      renderTimeline();
     }
 
     langToggle.addEventListener('click', () => {
@@ -1138,7 +1173,11 @@
       setLanguage(nextLang);
     });
 
-    // Inicializar con el idioma guardado
+    // ----- COPYRIGHT DINÁMICO -----
+    document.getElementById('footerCopy').innerHTML = 
+      `© ${new Date().getFullYear()} Darwin Colmenares`;
+
+    // ----- INICIALIZACIÓN -----
     setLanguage(currentLang);
   </script>
 
