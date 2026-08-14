@@ -129,6 +129,11 @@
       color: var(--text-muted-dim);
     }
     .hairline { border-top: 1px solid var(--border-solid); }
+    .sr-only {
+      position: absolute; width: 1px; height: 1px;
+      padding: 0; margin: -1px; overflow: hidden;
+      clip: rect(0 0 0 0); white-space: nowrap; border: 0;
+    }
     .grid-backdrop {
       background-image:
         linear-gradient(rgba(255,255,255,0.04) 1px, transparent 1px),
@@ -329,13 +334,32 @@
       margin-top: 0.5rem;
     }
     .hero h1 .muted { color: var(--text-muted); }
+
+    /* Subtítulo terminal con typewriter */
     .hero .subtitle {
-      display: block;
-      font-size: clamp(1.2rem, 2.8vw, 1.8rem);
-      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace;
+      font-size: clamp(1.1rem, 2.6vw, 1.7rem);
+      font-weight: 500;
       color: var(--accent);
-      margin-top: 0.4rem;
+      margin-top: 0.6rem;
+      min-height: 1.6em; /* evita saltos de layout al borrar */
     }
+    .tw-prompt { color: var(--text-muted-dim); }
+    .tw-cursor {
+      display: inline-block;
+      width: 0.55ch;
+      height: 1.15em;
+      background: var(--accent);
+      animation: blink 1.1s steps(2, start) infinite;
+    }
+    @keyframes blink { 50% { opacity: 0; } }
+    @media (prefers-reduced-motion: reduce) {
+      .tw-cursor { animation: none; }
+    }
+
     .hero .tagline {
       max-width: 580px;
       margin-top: 1.5rem;
@@ -791,7 +815,12 @@
           Darwin
           <br>
           <span class="muted">Colmenares</span>
-          <span class="subtitle" data-i18n="hero_subtitle">Full-Stack Developer &amp; Data Analyst</span>
+          <span class="subtitle">
+            <span class="tw-prompt" aria-hidden="true">&gt;_</span>
+            <span id="twText" aria-hidden="true">Full-Stack Developer</span>
+            <span class="tw-cursor" aria-hidden="true"></span>
+            <span class="sr-only">Full-Stack Developer &amp; Data Analyst · Ingeniero Informático · Contador Público</span>
+          </span>
         </h1>
         <p class="tagline" data-i18n="hero_tagline">
           Contador Público e Ingeniero Informático. Construyo soluciones técnicas que resuelven problemas reales de negocio, del modelado de datos a la interfaz.
@@ -1193,7 +1222,6 @@
         nav_experience: "Trayectoria", nav_contact: "Contacto",
         nav_cta: "Trabajemos juntos", nav_cta_short: "Hablemos",
         hero_location: "Caracas, VE · Disponible para proyectos",
-        hero_subtitle: "Full-Stack Developer &amp; Data Analyst",
         hero_tagline: "Contador Público e Ingeniero Informático. Construyo soluciones técnicas que resuelven problemas reales de negocio, del modelado de datos a la interfaz.",
         hero_cta_projects: "Ver proyectos",
         stat_projects: "Proyectos publicados", stat_degrees: "Títulos profesionales",
@@ -1226,7 +1254,6 @@
         nav_experience: "Experience", nav_contact: "Contact",
         nav_cta: "Let's work together", nav_cta_short: "Let's talk",
         hero_location: "Caracas, VE · Available for projects",
-        hero_subtitle: "Full-Stack Developer &amp; Data Analyst",
         hero_tagline: "Public Accountant and Computer Engineer. I build technical solutions that solve real business problems, from data modeling to the user interface.",
         hero_cta_projects: "View projects",
         stat_projects: "Published projects", stat_degrees: "Professional degrees",
@@ -1267,6 +1294,36 @@
     if (mqCompact.addEventListener) mqCompact.addEventListener('change', refreshNavCta);
     else mqCompact.addListener(refreshNavCta); // Safari antiguo
 
+    // ----- TYPEWRITER TERMINAL (velocidad rápida) -----
+    const twText = document.getElementById('twText');
+    const rolesByLang = {
+      es: ['Full-Stack Developer', 'Data Analyst', 'Ingeniero Informático', 'Contador Público', 'Power BI Developer'],
+      en: ['Full-Stack Developer', 'Data Analyst', 'Computer Engineer', 'Public Accountant', 'Power BI Developer']
+    };
+    let twTimer = null;
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    function startTypewriter() {
+      if (twTimer) clearTimeout(twTimer);
+      const roles = rolesByLang[currentLang] || rolesByLang.es;
+      if (reduceMotion) { twText.textContent = roles[0]; return; }
+      let r = 0, c = 0, del = false;
+      (function tick() {
+        const role = roles[r];
+        if (!del) {
+          c++;
+          twText.textContent = role.slice(0, c);
+          if (c === role.length) { del = true; twTimer = setTimeout(tick, 1200); return; }
+          twTimer = setTimeout(tick, 40 + Math.random() * 40); // tecoleo rápido pero humano
+        } else {
+          c--;
+          twText.textContent = role.slice(0, c);
+          if (c === 0) { del = false; r = (r + 1) % roles.length; twTimer = setTimeout(tick, 350); return; }
+          twTimer = setTimeout(tick, 22);
+        }
+      })();
+    }
+
     function setLanguage(lang) {
       currentLang = lang;
       safeSetItem('lang', lang);
@@ -1279,6 +1336,7 @@
         }
       });
       refreshNavCta();
+      startTypewriter();
       const activeFilter = document.querySelector('.filter-btn.active')?.dataset.filter || 'all';
       renderProjects(activeFilter);
       renderTimeline();
