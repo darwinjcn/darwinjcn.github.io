@@ -345,7 +345,7 @@
       font-weight: 500;
       color: var(--accent);
       margin-top: 0.6rem;
-      min-height: 1.6em; /* evita saltos de layout al borrar */
+      min-height: 1.6em;
     }
     .tw-prompt { color: var(--text-muted-dim); }
     .tw-cursor {
@@ -453,7 +453,7 @@
       font-weight: 600;
     }
 
-    /* Marquee (cinta) - con pausa al hover */
+    /* Marquee (cinta) */
     .marquee {
       overflow: hidden;
       border-top: 1px solid var(--border-solid);
@@ -772,13 +772,11 @@
       </nav>
       <div class="nav-actions">
         <button class="theme-toggle" id="themeToggle" aria-label="Cambiar tema">
-          <!-- Sol: visible en modo oscuro -->
           <svg class="icon-sun" width="16" height="16" viewBox="0 0 24 24" fill="none"
                stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
             <circle cx="12" cy="12" r="3.5"/>
             <path d="M12 4v.01M12 20v.01M4 12h.01M20 12h.01M6.3 6.3v.01M17.7 17.7v.01M6.3 17.7v.01M17.7 6.3v.01"/>
           </svg>
-          <!-- Luna: visible en modo claro -->
           <svg class="icon-moon" width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
             <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
           </svg>
@@ -885,7 +883,6 @@
             <span>MongoDB <span class="dot">◆</span></span>
             <span>Docker <span class="dot">◆</span></span>
             <span>Angular <span class="dot">◆</span></span>
-            <!-- duplicado para efecto infinito -->
             <span>Python <span class="dot">◆</span></span>
             <span>Laravel <span class="dot">◆</span></span>
             <span>React <span class="dot">◆</span></span>
@@ -1293,7 +1290,7 @@
       navCta.textContent = translations[currentLang][mqCompact.matches ? 'nav_cta_short' : 'nav_cta'];
     }
     if (mqCompact.addEventListener) mqCompact.addEventListener('change', refreshNavCta);
-    else mqCompact.addListener(refreshNavCta); // Safari antiguo
+    else mqCompact.addListener(refreshNavCta);
 
     // ----- TYPEWRITER TERMINAL (velocidad rápida) -----
     const twText = document.getElementById('twText');
@@ -1315,7 +1312,7 @@
           c++;
           twText.textContent = role.slice(0, c);
           if (c === role.length) { del = true; twTimer = setTimeout(tick, 1200); return; }
-          twTimer = setTimeout(tick, 40 + Math.random() * 40); // tecoleo rápido pero humano
+          twTimer = setTimeout(tick, 40 + Math.random() * 40);
         } else {
           c--;
           twText.textContent = role.slice(0, c);
