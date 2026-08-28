@@ -535,6 +535,8 @@
       transition: background 0.2s;
       animation: reveal-up 0.4s cubic-bezier(0.16, 1, 0.3, 1) both;
     }
+    /* FIX: sin animación al cambiar idioma (evita efecto "recarga") */
+    .project-card.no-anim { animation: none; }
     .project-card:hover { background: var(--surface); }
     .project-card .num { font-size: 0.75rem; color: var(--accent); font-weight: 600; }
     .project-card .year { font-size: 0.7rem; color: var(--text-muted); letter-spacing: 0.05em; }
@@ -1062,11 +1064,11 @@
       { label: "WhatsApp", value: "+58 426 515 2896", href: "https://wa.me/584265152896" }
     ];
 
-    // ----- RENDER PROJECTS (con traducciones) -----
+    // ----- RENDER PROJECTS (con traducciones y control de animación) -----
     const grid = document.getElementById('projectsGrid');
     let currentLang = safeGetItem('lang', 'es');
 
-    function renderProjects(filter = 'all') {
+    function renderProjects(filter = 'all', animate = true) {
       const filtered = filter === 'all' ? projects : projects.filter(p => p.category === filter);
       if (filtered.length === 0) {
         grid.innerHTML = `<p class="no-results">${currentLang === 'en' ? 'No projects in this category' : 'No hay proyectos en esta categoría'}</p>`;
@@ -1076,7 +1078,7 @@
         const title = currentLang === 'en' && p.title_en ? p.title_en : p.title;
         const desc = currentLang === 'en' && p.description_en ? p.description_en : p.description;
         return `
-          <div class="project-card" data-category="${p.category}" style="animation-delay: ${i * 0.05}s">
+          <div class="project-card${animate ? '' : ' no-anim'}" data-category="${p.category}" ${animate ? `style="animation-delay: ${i * 0.05}s"` : ''}>
             <div class="meta">
               <span class="num">${p.num}</span>
               <span class="year">${p.year}</span>
@@ -1096,7 +1098,7 @@
     }
     renderProjects();
 
-    // ----- FILTROS -----
+    // ----- FILTROS (mantienen animación) -----
     const filterBtns = document.querySelectorAll('.filter-btn');
     filterBtns.forEach(btn => {
       btn.addEventListener('click', function() {
@@ -1337,7 +1339,7 @@
       refreshNavCta();
       startTypewriter();
       const activeFilter = document.querySelector('.filter-btn.active')?.dataset.filter || 'all';
-      renderProjects(activeFilter);
+      renderProjects(activeFilter, false); // FIX: sin animación al traducir
       renderTimeline();
     }
 
