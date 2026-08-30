@@ -1,6 +1,4 @@
-# darwinjcn.github.io
-
-## Portafolio Personal
+# 🌐 Portafolio Personal | [darwinjcn.github.io](https://darwinjcn.github.io)
 
 **Darwin Colmenares** — Full-Stack Developer & Data Analyst
 
@@ -48,6 +46,7 @@ Contador Público + Ingeniero Informático. Construyo soluciones técnicas que r
 |---|---|---|
 | [Linux Terminal Guide](https://github.com/darwinjcn/linux-terminal-guide) | Guía interactiva de comandos para ingenieros | Linux, Bash, Markdown |
 | [Tic-Tac-Toe](https://github.com/darwinjcn/tic-tac-toe) | Juego clásico de Tres en Raya para terminal | Python, CLI |
+| [CRUD Python SQLite](https://github.com/darwinjcn/crud-python-sqlite) | Sistema de gestión de usuarios (Create, Read, Update, Delete) | Python, SQLite3 |
 | [GCS](https://github.com/darwinjcn/gcs-project) | Gestión de Contingencias Satelitales (CANTV) | React, Laravel, PostgreSQL |
 | [APIGCS MongoDB](https://github.com/darwinjcn/apigcs-mongodb-nosql) | Gestión de contingencias satelitales con NoSQL | MongoDB, mongosh, Compass |
 | [Comedor Universitario](https://github.com/darwinjcn/comedor-universitario) | Sistema de gestión integral para comedores universitarios | Node.js, Express, MongoDB, Tailwind CSS |
