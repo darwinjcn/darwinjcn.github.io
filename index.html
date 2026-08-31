@@ -766,25 +766,25 @@
           <a href="https://github.com/darwinjcn" target="_blank" rel="noopener noreferrer" class="btn btn-outline">GitHub</a>
         </div>
 
-        <!-- Stats -->
-<div class="stats-grid" id="statsGrid">
-  <div class="stat">
-    <div class="value" data-target="18" data-suffix="">0</div>
-    <div class="label" data-i18n="stat_projects">Proyectos publicados</div>
-  </div>
-  <div class="stat">
-    <div class="value" data-target="2" data-suffix="">0</div>
-    <div class="label" data-i18n="stat_degrees">Títulos profesionales</div>
-  </div>
-  <div class="stat">
-    <div class="value" data-target="15" data-suffix="+">0</div>
-    <div class="label" data-i18n="stat_tech">Tecnologías</div>
-  </div>
-  <div class="stat">
-    <div class="value" data-target="3" data-suffix="">0</div>
-    <div class="label" data-i18n="stat_years">Años construyendo</div>
-  </div>
-</div>
+        <div class="stats-grid" id="statsGrid">
+          <div class="stat">
+            <div class="value" data-target="18" data-suffix="">0</div>
+            <div class="label" data-i18n="stat_projects">Proyectos publicados</div>
+          </div>
+          <div class="stat">
+            <div class="value" data-target="2" data-suffix="">0</div>
+            <div class="label" data-i18n="stat_degrees">Títulos profesionales</div>
+          </div>
+          <div class="stat">
+            <div class="value" data-target="15" data-suffix="+">0</div>
+            <div class="label" data-i18n="stat_tech">Tecnologías</div>
+          </div>
+          <div class="stat">
+            <div class="value" data-target="3" data-suffix="">0</div>
+            <div class="label" data-i18n="stat_years">Años construyendo</div>
+          </div>
+        </div>
+      </div>
     </section>
 
     <section id="sobre-mi" aria-labelledby="about-title">
@@ -1095,6 +1095,7 @@
       window.scrollTo({ top: 0, behavior: 'smooth' });
     });
 
+    // ----- CONTADORES ANIMADOS (fix: duración adaptativa por target) -----
     const statsObserver = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
@@ -1103,9 +1104,9 @@
             const target = parseInt(val.dataset.target);
             const suffix = val.dataset.suffix || '';
             let current = 0;
-            const duration = 1200;
-            const steps = 40;
-            const increment = target / steps;
+            const duration = target >= 10 ? 1200 : 600;
+            const steps = target;
+            const increment = 1;
             const interval = duration / steps;
             const timer = setInterval(() => {
               current += increment;
