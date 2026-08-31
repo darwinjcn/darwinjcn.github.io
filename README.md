@@ -30,6 +30,7 @@ Contador Público + Ingeniero Informático. Construyo soluciones técnicas que r
 [![MongoDB](https://img.shields.io/badge/MongoDB-47A248?style=for-the-badge&logo=mongodb&logoColor=white)](https://www.mongodb.com/)
 [![SQLite](https://img.shields.io/badge/SQLite-003B57?style=for-the-badge&logo=sqlite&logoColor=white)](https://www.sqlite.org/)
 [![SQL Server](https://img.shields.io/badge/SQL_Server-CC2927?style=for-the-badge&logo=microsoft-sql-server&logoColor=white)](https://www.microsoft.com/sql-server)
+[![Microsoft Excel](https://img.shields.io/badge/Microsoft_Excel-217346?style=for-the-badge&logo=microsoft-excel&logoColor=white)](https://www.microsoft.com/microsoft-365/excel)
 [![Power BI](https://img.shields.io/badge/Power_BI-F2C811?style=for-the-badge&logo=power-bi&logoColor=black)](https://powerbi.microsoft.com/)
 
 **DevOps & Herramientas:**
@@ -58,6 +59,7 @@ Contador Público + Ingeniero Informático. Construyo soluciones técnicas que r
 | [Crypto Monitor](https://github.com/darwinjcn/crypto-monitor) | Monitoreo de criptoactivos en tiempo real | Angular, TypeScript |
 | [Node Express TS](https://github.com/darwinjcn/node-express-typescript-logic) | API REST con tipado estricto | Node.js, TypeScript, Docker |
 | [Power BI](https://github.com/darwinjcn/powerbi-proyectos) | Dashboards de Business Intelligence | Power BI, DAX |
+| [Excel Proyectos](https://github.com/darwinjcn/excel-proyectos) | Colección de dashboards interactivos, KPIs y análisis de datos | Microsoft Excel, Data Analysis, KPIs |
 | [Ionic App](https://github.com/darwinjcn/mi-app-ionic-app) | App móvil multiplataforma | Ionic, Angular |
 | [Sistema Salud](https://github.com/darwinjcn/sistema_salud) | Gestión de salud (CANTV NEA) | Python, Django |
 | [SQL ONG Ayuda Acción](https://github.com/darwinjcn/sql-ong-ayuda-accion) | Base de datos para gestión de proyectos humanitarios | SQL, Modelado de BD |
