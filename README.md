@@ -21,6 +21,7 @@ Contador Público + Ingeniero Informático. Construyo soluciones técnicas que r
 
 **CSS & Frontend:**
 
+[![Bootstrap](https://img.shields.io/badge/Bootstrap-7952B3?style=for-the-badge&logo=bootstrap&logoColor=white)](https://getbootstrap.com/)
 [![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-06B6D4?style=for-the-badge&logo=tailwind-css&logoColor=white)](https://tailwindcss.com/)
 
 **Bases de Datos & BI:**
@@ -52,13 +53,14 @@ Contador Público + Ingeniero Informático. Construyo soluciones técnicas que r
 | [Comedor Universitario](https://github.com/darwinjcn/comedor-universitario) | Sistema de gestión integral para comedores universitarios | Node.js, Express, MongoDB, Tailwind CSS |
 | [Nexus BAAS](https://github.com/darwinjcn/nexus-bass-caja-pandora) | Orquestador de BD y API mocking 100% en el navegador (Client-Side) | React, JavaScript, Vite, localStorage |
 | [Inventario Farmacia](https://github.com/darwinjcn/inventario-farmacia) | Sistema de gestión y control de inventario para farmacias | Laravel, PHP, Blade, SQL |
+| [Sistema Web de Gestión](https://github.com/darwinjcn/proyecto-web-php-bootstrap-javascript) | App full-stack con autenticación y CRUD de productos (persistencia JSON) | PHP, Bootstrap 5, JavaScript |
 | [Sistema Combustible](https://github.com/darwinjcn/sistema-gestion-combustible) | Control de generadores y combustible | Django, React, PostgreSQL |
 | [Crypto Monitor](https://github.com/darwinjcn/crypto-monitor) | Monitoreo de criptoactivos en tiempo real | Angular, TypeScript |
 | [Node Express TS](https://github.com/darwinjcn/node-express-typescript-logic) | API REST con tipado estricto | Node.js, TypeScript, Docker |
 | [Power BI](https://github.com/darwinjcn/powerbi-proyectos) | Dashboards de Business Intelligence | Power BI, DAX |
 | [Ionic App](https://github.com/darwinjcn/mi-app-ionic-app) | App móvil multiplataforma | Ionic, Angular |
 | [Sistema Salud](https://github.com/darwinjcn/sistema_salud) | Gestión de salud (CANTV NEA) | Python, Django |
-| [SQL ONG Ayuda Acción](https://github.com/darwinjcn/sql_ong_ayuda_accion) | Base de datos para gestión de proyectos humanitarios | SQL, Modelado de BD |
+| [SQL ONG Ayuda Acción](https://github.com/darwinjcn/sql-ong-ayuda-accion) | Base de datos para gestión de proyectos humanitarios | SQL, Modelado de BD |
 | [SQL Willy Wonka](https://github.com/darwinjcn/sql_proyecto_willy_wonka) | Sistema de gestión para fábrica de chocolates | SQL, PostgreSQL, Modelado de BD |
 
 ### Contacto
