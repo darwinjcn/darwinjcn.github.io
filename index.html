@@ -47,7 +47,8 @@
     ],
     "knowsAbout": [
       "Python", "JavaScript", "TypeScript", "PHP", "React", "Angular",
-      "Laravel", "Django", "Node.js", "PostgreSQL", "MongoDB", "Power BI", "Docker", "Linux"
+      "Laravel", "Django", "Node.js", "PostgreSQL", "MongoDB", "Power BI", "Docker", "Linux",
+      "AWS", "Azure", "GitHub Actions", "OpenAI", "Claude", "Gemini"
     ],
     "address": {
       "@type": "PostalAddress",
@@ -552,8 +553,14 @@
       background: var(--bg);
     }
 
+    /* ---------- STACK (5 grupos: 3 arriba + 2 centrados) ---------- */
     .stack-grid { display: grid; gap: 2rem; margin-top: 2rem; }
-    @media (min-width: 640px) { .stack-grid { grid-template-columns: repeat(3, 1fr); } }
+    @media (min-width: 640px) {
+      .stack-grid { grid-template-columns: repeat(6, 1fr); }
+      .stack-group { grid-column: span 2; }
+      /* Centra la segunda fila (grupos 4 y 5) */
+      .stack-group:nth-child(4) { grid-column: 2 / span 2; }
+    }
     .stack-group h4 {
       font-size: 0.9rem;
       font-weight: 600;
@@ -855,6 +862,7 @@
       </div>
     </section>
 
+    <!-- STACK (5 grupos) -->
     <section id="stack" aria-labelledby="stack-title">
       <div class="container">
         <p class="section-label" data-i18n="stack_label">03 / Stack</p>
@@ -882,6 +890,21 @@
               <li>Power BI</li><li>DAX</li><li>Pandas</li>
               <li>NumPy</li><li>BigQuery</li><li>PostgreSQL</li>
               <li>MongoDB</li><li>Excel</li>
+            </ul>
+          </div>
+          <div class="stack-group">
+            <h4 data-i18n="stack_cloud">Cloud, ETL &amp; DevOps</h4>
+            <ul>
+              <li>AWS</li><li>Azure</li><li>Docker</li>
+              <li>GitHub Actions</li><li>Git</li><li>Linux</li>
+            </ul>
+          </div>
+          <div class="stack-group">
+            <h4 data-i18n="stack_ai">IA Generativa &amp; Herramientas Avanzadas</h4>
+            <ul>
+              <li>OpenAI</li><li>Claude</li><li>Gemini</li>
+              <li>DeepSeek</li><li>Qwen</li><li>Mistral AI</li>
+              <li>GitHub Copilot</li><li>Cursor</li><li>v0</li>
             </ul>
           </div>
         </div>
@@ -1095,7 +1118,7 @@
       window.scrollTo({ top: 0, behavior: 'smooth' });
     });
 
-    // ----- CONTADORES ANIMADOS (fix: duración adaptativa por target) -----
+    // ----- CONTADORES ANIMADOS (duración adaptativa por target) -----
     const statsObserver = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
@@ -1150,6 +1173,8 @@
         stack_label: "03 / Stack",
         stack_title: "Herramientas que uso <span class=\"accent\">a diario</span>",
         stack_langs: "Lenguajes", stack_frameworks: "Frameworks", stack_data: "Datos y BI",
+        stack_cloud: "Cloud, ETL &amp; DevOps",
+        stack_ai: "IA Generativa &amp; Herramientas Avanzadas",
         timeline_label: "04 / Trayectoria",
         timeline_title: "Experiencia y <span class=\"accent\">formación</span>",
         contact_label: "05 / Contacto",
@@ -1182,6 +1207,8 @@
         stack_label: "03 / Stack",
         stack_title: "Tools I use <span class=\"accent\">daily</span>",
         stack_langs: "Languages", stack_frameworks: "Frameworks", stack_data: "Data &amp; BI",
+        stack_cloud: "Cloud, ETL &amp; DevOps",
+        stack_ai: "Generative AI &amp; Advanced Tools",
         timeline_label: "04 / Experience",
         timeline_title: "Experience and <span class=\"accent\">education</span>",
         contact_label: "05 / Contact",
