@@ -32,6 +32,7 @@ Contador Público + Ingeniero Informático. Construyo soluciones técnicas que r
 [![DAX](https://img.shields.io/badge/DAX-000000?style=for-the-badge&logo=power-bi&logoColor=white)](https://learn.microsoft.com/en-us/dax/)
 [![Pandas](https://img.shields.io/badge/Pandas-150458?style=for-the-badge&logo=pandas&logoColor=white)](https://pandas.pydata.org/)
 [![NumPy](https://img.shields.io/badge/NumPy-013243?style=for-the-badge&logo=numpy&logoColor=white)](https://numpy.org/)
+[![Jupyter](https://img.shields.io/badge/Jupyter-F37626?style=for-the-badge&logo=jupyter&logoColor=white)](https://jupyter.org/)
 [![BigQuery](https://img.shields.io/badge/BigQuery-669DF6?style=for-the-badge&logo=google-bigquery&logoColor=white)](https://cloud.google.com/bigquery)
 [![PostgreSQL](https://img.shields.io/badge/PostgreSQL-336791?style=for-the-badge&logo=postgresql&logoColor=white)](https://www.postgresql.org/)
 [![MongoDB](https://img.shields.io/badge/MongoDB-47A248?style=for-the-badge&logo=mongodb&logoColor=white)](https://www.mongodb.com/)
@@ -79,7 +80,7 @@ Contador Público + Ingeniero Informático. Construyo soluciones técnicas que r
 | 15 | [Inventario Farmacia](https://github.com/darwinjcn/inventario-farmacia) | Sistema de gestión y control de inventario para farmacias | Laravel, PHP, Blade, SQL |
 | 16 | [CRUD Python SQLite](https://github.com/darwinjcn/crud-python-sqlite) | Sistema de gestión de usuarios (Create, Read, Update, Delete) | Python, SQLite3 |
 | 17 | [Sistema Web de Gestión](https://github.com/darwinjcn/proyecto-web-php-bootstrap-javascript) | App full-stack con autenticación y CRUD de productos (persistencia JSON) | PHP, Bootstrap 5, JavaScript |
-| 18 | [Excel Proyectos](https://github.com/darwinjcn/excel-proyectos) | Colección de dashboards interactivos, KPIs y análisis de datos | Microsoft Excel, Data Analysis, KPIs |
+| 18 | [Excel Proyectos](https://github.com/darwinjcn/excel-proyectos) | Colección de dashboards interactivos, KPIs y análisis de datos | Excel, Data Analysis, KPIs |
 
 ### Contacto
 
