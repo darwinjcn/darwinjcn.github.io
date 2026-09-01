@@ -51,33 +51,37 @@ Contador Público + Ingeniero Informático. Construyo soluciones técnicas que r
 **IA Generativa & Herramientas Avanzadas:**
 
 [![OpenAI](https://img.shields.io/badge/OpenAI-412991?style=for-the-badge&logo=openai&logoColor=white)](https://openai.com/)
-[![Claude](https://img.shields.io/badge/Claude-D97757?style=for-the-badge&logo=claude&logoColor=white)](https://www.anthropic.com/claude)
+[![Claude](https://img.shields.io/badge/Claude-D97757?style=for-the-badge&logo=anthropic&logoColor=white)](https://www.anthropic.com/claude)
 [![Gemini](https://img.shields.io/badge/Gemini-8E75B2?style=for-the-badge&logo=googlegemini&logoColor=white)](https://gemini.google.com/)
+[![DeepSeek](https://img.shields.io/badge/DeepSeek-4D6BFE?style=for-the-badge&logo=deepseek&logoColor=white)](https://www.deepseek.com/)
+[![Qwen](https://img.shields.io/badge/Qwen-615CED?style=for-the-badge&logo=qwen&logoColor=white)](https://qwenlm.github.io/)
+[![Mistral AI](https://img.shields.io/badge/Mistral_AI-F59E0B?style=for-the-badge&logo=mistral&logoColor=white)](https://mistral.ai/)
 [![GitHub Copilot](https://img.shields.io/badge/GitHub_Copilot-000000?style=for-the-badge&logo=githubcopilot&logoColor=white)](https://github.com/features/copilot)
 [![Cursor](https://img.shields.io/badge/Cursor-000000?style=for-the-badge&logo=cursor&logoColor=white)](https://www.cursor.com/)
+[![v0](https://img.shields.io/badge/v0-000000?style=for-the-badge&logo=v0&logoColor=white)](https://v0.dev/)
 
 ### Proyectos Destacados
 
-| Proyecto | Descripción | Tech |
-|---|---|---|
-| [Linux Terminal Guide](https://github.com/darwinjcn/linux-terminal-guide) | Guía interactiva de comandos para ingenieros | Linux, Bash, Markdown |
-| [Tic-Tac-Toe](https://github.com/darwinjcn/tic-tac-toe) | Juego clásico de Tres en Raya para terminal | Python, CLI |
-| [CRUD Python SQLite](https://github.com/darwinjcn/crud-python-sqlite) | Sistema de gestión de usuarios (Create, Read, Update, Delete) | Python, SQLite3 |
-| [GCS](https://github.com/darwinjcn/gcs-project) | Gestión de Contingencias Satelitales (CANTV) | React, Laravel, PostgreSQL |
-| [APIGCS MongoDB](https://github.com/darwinjcn/apigcs-mongodb-nosql) | Gestión de contingencias satelitales con NoSQL | MongoDB, mongosh, Compass |
-| [Comedor Universitario](https://github.com/darwinjcn/comedor-universitario) | Sistema de gestión integral para comedores universitarios | Node.js, Express, MongoDB, Tailwind CSS |
-| [Nexus BAAS](https://github.com/darwinjcn/nexus-bass-caja-pandora) | Orquestador de BD y API mocking 100% en el navegador (Client-Side) | React, JavaScript, Vite, localStorage |
-| [Inventario Farmacia](https://github.com/darwinjcn/inventario-farmacia) | Sistema de gestión y control de inventario para farmacias | Laravel, PHP, Blade, SQL |
-| [Sistema Web de Gestión](https://github.com/darwinjcn/proyecto-web-php-bootstrap-javascript) | App full-stack con autenticación y CRUD de productos (persistencia JSON) | PHP, Bootstrap 5, JavaScript |
-| [Sistema Combustible](https://github.com/darwinjcn/sistema-gestion-combustible) | Control de generadores y combustible | Django, React, PostgreSQL |
-| [Crypto Monitor](https://github.com/darwinjcn/crypto-monitor) | Monitoreo de criptoactivos en tiempo real | Angular, TypeScript |
-| [Node Express TS](https://github.com/darwinjcn/node-express-typescript-logic) | API REST con tipado estricto | Node.js, TypeScript, Docker |
-| [Power BI](https://github.com/darwinjcn/powerbi-proyectos) | Dashboards de Business Intelligence | Power BI, DAX |
-| [Excel Proyectos](https://github.com/darwinjcn/excel-proyectos) | Colección de dashboards interactivos, KPIs y análisis de datos | Microsoft Excel, Data Analysis, KPIs |
-| [Ionic App](https://github.com/darwinjcn/mi-app-ionic-app) | App móvil multiplataforma | Ionic, Angular |
-| [Sistema Salud](https://github.com/darwinjcn/sistema_salud) | Gestión de salud (CANTV NEA) | Python, Django |
-| [SQL ONG Ayuda Acción](https://github.com/darwinjcn/sql-ong-ayuda-accion) | Base de datos para gestión de proyectos humanitarios | SQL, Modelado de BD |
-| [SQL Willy Wonka](https://github.com/darwinjcn/sql_proyecto_willy_wonka) | Sistema de gestión para fábrica de chocolates | SQL, PostgreSQL, Modelado de BD |
+| # | Proyecto | Descripción | Tech |
+|---|---|---|---|
+| 01 | [GCS](https://github.com/darwinjcn/gcs-project) | Gestión de Contingencias Satelitales (CANTV) | React, Laravel, PostgreSQL |
+| 02 | [Sistema Combustible](https://github.com/darwinjcn/sistema-gestion-combustible) | Control de generadores y combustible | Django, React, PostgreSQL |
+| 03 | [Node Express TS](https://github.com/darwinjcn/node-express-typescript-logic) | API REST con tipado estricto | Node.js, TypeScript, Docker |
+| 04 | [Crypto Monitor](https://github.com/darwinjcn/crypto-monitor) | Monitoreo de criptoactivos en tiempo real | Angular, TypeScript |
+| 05 | [Ionic App](https://github.com/darwinjcn/mi-app-ionic-app) | App móvil multiplataforma | Ionic, Angular |
+| 06 | [Linux Terminal Guide](https://github.com/darwinjcn/linux-terminal-guide) | Guía interactiva de comandos para ingenieros | Linux, Bash, Markdown |
+| 07 | [Sistema Salud](https://github.com/darwinjcn/sistema_salud) | Gestión de salud (CANTV NEA) | Python, Django |
+| 08 | [Power BI](https://github.com/darwinjcn/powerbi-proyectos) | Dashboards de Business Intelligence | Power BI, DAX |
+| 09 | [SQL ONG Ayuda Acción](https://github.com/darwinjcn/sql-ong-ayuda-accion) | Base de datos para gestión de proyectos humanitarios | SQL, Modelado de BD |
+| 10 | [SQL Willy Wonka](https://github.com/darwinjcn/sql_proyecto_willy_wonka) | Sistema de gestión para fábrica de chocolates | SQL, PostgreSQL, Modelado de BD |
+| 11 | [APIGCS MongoDB](https://github.com/darwinjcn/apigcs-mongodb-nosql) | Gestión de contingencias satelitales con NoSQL | MongoDB, mongosh, Compass |
+| 12 | [Comedor Universitario](https://github.com/darwinjcn/comedor-universitario) | Sistema de gestión integral para comedores universitarios | Node.js, Express, MongoDB, Tailwind CSS |
+| 13 | [Tic-Tac-Toe](https://github.com/darwinjcn/tic-tac-toe) | Juego clásico de Tres en Raya para terminal | Python, CLI |
+| 14 | [Nexus BAAS](https://github.com/darwinjcn/nexus-bass-caja-pandora) | Orquestador de BD y API mocking 100% en el navegador (Client-Side) | React, JavaScript, Vite, localStorage |
+| 15 | [Inventario Farmacia](https://github.com/darwinjcn/inventario-farmacia) | Sistema de gestión y control de inventario para farmacias | Laravel, PHP, Blade, SQL |
+| 16 | [CRUD Python SQLite](https://github.com/darwinjcn/crud-python-sqlite) | Sistema de gestión de usuarios (Create, Read, Update, Delete) | Python, SQLite3 |
+| 17 | [Sistema Web de Gestión](https://github.com/darwinjcn/proyecto-web-php-bootstrap-javascript) | App full-stack con autenticación y CRUD de productos (persistencia JSON) | PHP, Bootstrap 5, JavaScript |
+| 18 | [Excel Proyectos](https://github.com/darwinjcn/excel-proyectos) | Colección de dashboards interactivos, KPIs y análisis de datos | Microsoft Excel, Data Analysis, KPIs |
 
 ### Contacto
 
