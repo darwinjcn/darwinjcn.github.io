@@ -246,14 +246,21 @@
     }
     @media (min-width: 768px) { .menu-toggle { display: none; } }
 
+    /* ---------- MENÚ MÓVIL: panel elevado con tono propio ---------- */
     .mobile-menu {
       display: none;
       border-top: 1px solid var(--border-solid);
-      background: rgba(11,15,18,0.95);
+      border-bottom: 1px solid var(--border-solid);
+      background: rgba(30, 38, 48, 0.92);      /* surface-hi oscuro translúcido */
       backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
       padding: 0.5rem 1rem;
+      box-shadow: 0 18px 40px -18px rgba(0, 0, 0, 0.55);
     }
-    [data-theme="light"] .mobile-menu { background: rgba(255,255,255,0.95); }
+    [data-theme="light"] .mobile-menu {
+      background: rgba(241, 245, 249, 0.92);   /* surface-hi claro translúcido */
+      box-shadow: 0 18px 40px -18px rgba(15, 23, 42, 0.12);
+    }
     .mobile-menu.open { display: block; }
     .mobile-menu a {
       display: block;
@@ -909,7 +916,7 @@
       </div>
     </section>
 
-    <!-- SECCIÓN 04: EXPERIENCIA PROFESIONAL (solo trabajos/pasantías) -->
+    <!-- 04 / EXPERIENCIA PROFESIONAL -->
     <section id="experiencia" aria-labelledby="experience-title">
       <div class="container">
         <p class="section-label" data-i18n="experience_label">04 / Experiencia</p>
@@ -918,7 +925,7 @@
       </div>
     </section>
 
-    <!-- SECCIÓN 05: FORMACIÓN ACADÉMICA (solo educación) -->
+    <!-- 05 / FORMACIÓN ACADÉMICA -->
     <section id="formacion" aria-labelledby="education-title">
       <div class="container">
         <p class="section-label" data-i18n="education_label">05 / Formación</p>
@@ -995,7 +1002,7 @@
       { num: "18", title: "Dashboards en Excel", title_en: "Excel Dashboards Collection", description: "Colección de dashboards interactivos con KPIs, segmentadores y visualizaciones para análisis de rendimiento académico y toma de decisiones.", description_en: "Collection of interactive dashboards with KPIs, slicers and visualizations for academic performance analysis and decision-making.", tags: ["Excel","Dashboards","KPIs","Data Analysis"], category: "Data BI", repo: "https://github.com/darwinjcn/excel-proyectos", year: "2026" }
     ];
 
-    // 04 / EXPERIENCIA PROFESIONAL (solo trabajos y pasantías)
+    // 04 / EXPERIENCIA PROFESIONAL
     const timelineData = [
       { kind: "Trabajo", kind_en: "Work", period: "2021 — Actualidad", period_en: "2021 — Present", title: "Full-Stack Developer / Data Analyst", title_en: "Full-Stack Developer / Data Analyst", org: "Freelance y proyectos propios", org_en: "Freelance and own projects", detail: "Soluciones web para entornos reales: plataformas satelitales, sistemas de combustible, monitoreo financiero, dashboards de BI y guías técnicas de Linux.", detail_en: "Web solutions for real environments: satellite platforms, fuel systems, financial monitoring, BI dashboards and Linux technical guides." },
       { kind: "Pasantía", kind_en: "Internship", period: "02/2025 — 06/2025", period_en: "02/2025 — 06/2025", title: "Desarrollador Sistema de Salud", title_en: "Health System Developer", org: "CANTV · Núcleo de Evaluación y Análisis (NEA)", org_en: "CANTV · Evaluation and Analysis Core (NEA)", detail: "Gestión de servicios de salud con roles y permisos. Primera experiencia en entorno corporativo.", detail_en: "Health services management with roles and permissions. First corporate environment experience." },
@@ -1005,7 +1012,7 @@
       { kind: "Trabajo", kind_en: "Work", period: "07/2016 — 03/2020", period_en: "07/2016 — 03/2020", title: "Especialista en Contabilidad", title_en: "Accounting Specialist", org: "Venezolana de Televisión", org_en: "Venezolana de Televisión", detail: "Contabilidad general, optimización de rutas e inventarios. Reducción del 10% en costos de transporte.", detail_en: "General accounting, route and inventory optimization. 10% reduction in transport costs." }
     ];
 
-    // 05 / FORMACIÓN ACADÉMICA (solo títulos y educación)
+    // 05 / FORMACIÓN ACADÉMICA
     const educationData = [
       { kind: "En curso", kind_en: "In Progress", period: "10/2025 — Presente", period_en: "10/2025 — Present", title: "Ingeniería en Informática", title_en: "Computer Engineering", org: "UNETI", org_en: "UNETI", detail: "Ingeniería de software, bases de datos, arquitectura de sistemas y desarrollo full-stack.", detail_en: "Software engineering, databases, systems architecture and full-stack development." },
       { kind: "Culminado", kind_en: "Completed", period: "10/2023 — 07/2025", period_en: "10/2023 — 07/2025", title: "TSU en Informática", title_en: "TSU in Computer Science", org: "UNETI", org_en: "UNETI", detail: "Técnico Superior Universitario en Informática con enfoque en desarrollo de software.", detail_en: "Associate Degree in Computer Science with focus on software development." },
@@ -1065,7 +1072,6 @@
       });
     });
 
-    // Render Experiencia (sección 04)
     const timelineContainer = document.getElementById('timelineContainer');
     function renderTimeline() {
       timelineContainer.innerHTML = timelineData.map(item => {
@@ -1089,7 +1095,6 @@
     }
     renderTimeline();
 
-    // Render Formación (sección 05)
     const educationContainer = document.getElementById('educationContainer');
     function renderEducation() {
       educationContainer.innerHTML = educationData.map(item => {
