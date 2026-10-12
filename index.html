@@ -553,12 +553,10 @@
       background: var(--bg);
     }
 
-    /* ---------- STACK (5 grupos: 3 arriba + 2 centrados) ---------- */
     .stack-grid { display: grid; gap: 2rem; margin-top: 2rem; }
     @media (min-width: 640px) {
       .stack-grid { grid-template-columns: repeat(6, 1fr); }
       .stack-group { grid-column: span 2; }
-      /* Centra la segunda fila (grupos 4 y 5) */
       .stack-group:nth-child(4) { grid-column: 2 / span 2; }
     }
     .stack-group h4 {
@@ -862,7 +860,6 @@
       </div>
     </section>
 
-    <!-- STACK (5 grupos) -->
     <section id="stack" aria-labelledby="stack-title">
       <div class="container">
         <p class="section-label" data-i18n="stack_label">03 / Stack</p>
@@ -875,7 +872,7 @@
               <li>PHP</li><li>SQL</li>
             </ul>
           </div>
-            <div class="stack-group">
+          <div class="stack-group">
             <h4 data-i18n="stack_frameworks">Frameworks</h4>
             <ul>
               <li>Laravel</li><li>Django</li><li>React</li>
@@ -883,7 +880,7 @@
               <li>Express</li><li>Tailwind</li><li>Bootstrap</li>
             </ul>
           </div>
-            <div class="stack-group">
+          <div class="stack-group">
             <h4 data-i18n="stack_data">Datos y BI</h4>
             <ul>
               <li>Power BI</li><li>DAX</li><li>Pandas</li>
@@ -966,7 +963,7 @@
     });
 
     const projects = [
-      { num: "01", title: "Gestión de Contingencias Satelitales", title_en: "Satellite Contingency Management", description: "Plataforma web para gestionar contingencias operativas en infraestructura satelital: roles, trazabilidad y reportes en PDF.", description_en: "Web platform to manage operational contingencies in satellite infrastructure: roles, traceability and PDF reports.", tags: ["React","Laravel","PostgreSQL"], category: "Full-Stack", repo: "https://github.com/darwinjcn/gcs-project", year: "2025" },
+      { num: "01", title: "Gestión de Contingencias Satelitales", title_en: "Satellite Contingency Management", description: "Plataforma web para gestionar contingencias operativas en infraestructura satelital: roles, trazabilidad y reportes en PDF.", description_en: "Web platform to manage operational contingencies in satellite infrastructure: roles, traceability and PDF reports.", tags: ["React","Laravel","PostgreSQL"], category: "Full-Stack", repo: "https://github.com/darwinjcn/gcs-project", year: "2026" },
       { num: "02", title: "Sistema de Gestión de Combustible", title_en: "Fuel Management System", description: "Control de generadores, consumo y documentación técnica para operación continua de plantas.", description_en: "Generator control, consumption tracking and technical documentation for continuous plant operation.", tags: ["Django","React","PostgreSQL"], category: "Full-Stack", repo: "https://github.com/darwinjcn/sistema-gestion-combustible", year: "2025" },
       { num: "03", title: "Node Express TypeScript", title_en: "Node Express TypeScript", description: "Laboratorio técnico sobre rutas dinámicas, API REST tipada y arquitectura dockerizada.", description_en: "Technical lab on dynamic routes, typed REST API and dockerized architecture.", tags: ["Node.js","TypeScript","Docker"], category: "DevOps", repo: "https://github.com/darwinjcn/node-express-typescript-logic", year: "2025" },
       { num: "04", title: "Crypto Monitor", title_en: "Crypto Monitor", description: "Monitoreo de criptoactivos en tiempo real con consumo de APIs y visualización de series.", description_en: "Real-time crypto monitoring with API consumption and time series visualization.", tags: ["JavaScript","APIs","Visualización"], category: "Frontend", repo: "https://github.com/darwinjcn/crypto-monitor", year: "2024" },
@@ -987,11 +984,15 @@
     ];
 
     const timelineData = [
-      { kind: "Trabajo", kind_en: "Work", period: "2022 — Actualidad", period_en: "2022 — Present", title: "Full-Stack Developer / Data Analyst", org: "Freelance y proyectos propios", org_en: "Freelance and own projects", detail: "Soluciones web para entornos reales: plataformas satelitales, sistemas de combustible, monitoreo financiero, dashboards de BI y guías técnicas de Linux.", detail_en: "Web solutions for real environments: satellite platforms, fuel systems, financial monitoring, BI dashboards and Linux technical guides." },
-      { kind: "Pasantía", kind_en: "Internship", period: "2025 — 2026", title: "Desarrollador GCS · CANTV", title_en: "GCS Developer · CANTV", org: "Gerencia de Operaciones Satelitales", org_en: "Satellite Operations Management", detail: "Plataforma de gestión de contingencias con roles, trazabilidad, generación de PDFs y metodología SCRUM.", detail_en: "Contingency management platform with roles, traceability, PDF generation and SCRUM methodology." },
-      { kind: "Pasantía", kind_en: "Internship", period: "2023 — 2024", title: "Desarrollador Sistema de Salud · CANTV", title_en: "Health System Developer · CANTV", org: "Núcleo de Evaluación y Análisis (NEA)", org_en: "Evaluation and Analysis Core (NEA)", detail: "Gestión de servicios de salud con roles y permisos. Primera experiencia en entorno corporativo.", detail_en: "Health services management with roles and permissions. First corporate environment experience." },
-      { kind: "Formación", kind_en: "Education", period: "2023 — Presente", period_en: "2023 — Present", title: "Ingeniería Informática", title_en: "Computer Engineering", org: "TSU en Informática (Dic 2025)", org_en: "TSU in Computer Science (Dec 2025)", detail: "Ingeniería de software, bases de datos, arquitectura de sistemas y desarrollo full-stack.", detail_en: "Software engineering, databases, systems architecture and full-stack development." },
-      { kind: "Académico", kind_en: "Academic", period: "2018 — 2023", title: "Contador Público", title_en: "Public Accountant", org: "Contabilidad, finanzas y auditoría", org_en: "Accounting, finance and auditing", detail: "Contabilidad general, finanzas corporativas, auditoría y gestión tributaria.", detail_en: "General accounting, corporate finance, auditing and tax management." }
+      { kind: "Trabajo", kind_en: "Work", period: "2021 — Actualidad", period_en: "2021 — Present", title: "Full-Stack Developer / Data Analyst", org: "Freelance y proyectos propios", org_en: "Freelance and own projects", detail: "Soluciones web para entornos reales: plataformas satelitales, sistemas de combustible, monitoreo financiero, dashboards de BI y guías técnicas de Linux.", detail_en: "Web solutions for real environments: satellite platforms, fuel systems, financial monitoring, BI dashboards and Linux technical guides." },
+      { kind: "Pasantía", kind_en: "Internship", period: "02/2025 — 06/2025", title: "Desarrollador Sistema de Salud · CANTV", title_en: "Health System Developer · CANTV", org: "Núcleo de Evaluación y Análisis (NEA)", org_en: "Evaluation and Analysis Core (NEA)", detail: "Gestión de servicios de salud con roles y permisos. Primera experiencia en entorno corporativo.", detail_en: "Health services management with roles and permissions. First corporate environment experience." },
+      { kind: "Trabajo", kind_en: "Work", period: "03/2023 — 09/2023", title: "Analista de Datos", title_en: "Data Analyst", org: "VIVA Mercados", org_en: "VIVA Mercados", detail: "Soluciones BI en tiempo real para decisiones comerciales y logísticas. Pipelines ETL en Python/SQL y automatización de reportes.", detail_en: "Real-time BI solutions for commercial and logistics decisions. ETL pipelines in Python/SQL and report automation." },
+      { kind: "Trabajo", kind_en: "Work", period: "09/2022 — 03/2023", title: "Analista de Datos", title_en: "Data Analyst", org: "Banco Mercantil", org_en: "Banco Mercantil", detail: "Gestión de riesgo crediticio mediante análisis y visualización ejecutiva en Power BI.", detail_en: "Credit risk management through analysis and executive visualization in Power BI." },
+      { kind: "Trabajo", kind_en: "Work", period: "05/2021 — 05/2022", title: "Analista Financiero", title_en: "Financial Analyst", org: "American Distribution Venezuela", org_en: "American Distribution Venezuela", detail: "Optimización de cadena de suministro y análisis operativo. Reducción de costos logísticos del 10%.", detail_en: "Supply chain optimization and operational analysis. 10% logistics cost reduction." },
+      { kind: "Trabajo", kind_en: "Work", period: "07/2016 — 03/2020", title: "Especialista en Contabilidad", title_en: "Accounting Specialist", org: "Venezolana de Televisión", org_en: "Venezolana de Televisión", detail: "Contabilidad general, optimización de rutas e inventarios. Reducción del 10% en costos de transporte.", detail_en: "General accounting, route and inventory optimization. 10% reduction in transport costs." },
+      { kind: "Formación", kind_en: "Education", period: "10/2025 — Presente", period_en: "10/2025 — Present", title: "Ingeniería en Informática", title_en: "Computer Engineering", org: "UNETI", org_en: "UNETI", detail: "Ingeniería de software, bases de datos, arquitectura de sistemas y desarrollo full-stack.", detail_en: "Software engineering, databases, systems architecture and full-stack development." },
+      { kind: "Formación", kind_en: "Education", period: "10/2023 — 07/2025", title: "TSU en Informática", title_en: "TSU in Computer Science", org: "UNETI", org_en: "UNETI", detail: "Técnico Superior Universitario en Informática con enfoque en desarrollo de software.", detail_en: "Associate Degree in Computer Science with focus on software development." },
+      { kind: "Académico", kind_en: "Academic", period: "10/2019 — 07/2023", title: "Licenciatura en Contaduría Pública", title_en: "Bachelor in Public Accounting", org: "UNEXCA", org_en: "UNEXCA", detail: "Contabilidad general, finanzas corporativas, auditoría y gestión tributaria.", detail_en: "General accounting, corporate finance, auditing and tax management." }
     ];
 
     const contactChannels = [
@@ -1117,7 +1118,6 @@
       window.scrollTo({ top: 0, behavior: 'smooth' });
     });
 
-    // ----- CONTADORES ANIMADOS (duración adaptativa por target) -----
     const statsObserver = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
