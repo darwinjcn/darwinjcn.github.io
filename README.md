@@ -72,7 +72,7 @@ Contador Público + Ingeniero Informático. Construyo soluciones técnicas que r
 | 07 | [Sistema Salud](https://github.com/darwinjcn/sistema_salud) | Gestión de salud (CANTV NEA) | Python, Django |
 | 08 | [Power BI](https://github.com/darwinjcn/powerbi-proyectos) | Dashboards de Business Intelligence | Power BI, DAX |
 | 09 | [SQL ONG Ayuda Acción](https://github.com/darwinjcn/sql-ong-ayuda-accion) | Base de datos para gestión de proyectos humanitarios | SQL, Modelado de BD |
-| 10 | [SQL Willy Wonka](https://github.com/darwinjcn/sql_proyecto_willy_wonka) | Sistema de gestión para fábrica de chocolates | SQL, PostgreSQL, Modelado de BD |
+| 10 | [Wonka SQL](https://github.com/darwinjcn/wonka-sql) | Sistema de gestión para fábrica de chocolates | SQL, PostgreSQL, Modelado de BD |
 | 11 | [APIGCS MongoDB](https://github.com/darwinjcn/apigcs-mongodb-nosql) | Gestión de contingencias satelitales con NoSQL | MongoDB, mongosh, Compass |
 | 12 | [Comedor Universitario](https://github.com/darwinjcn/comedor-universitario) | Sistema de gestión integral para comedores universitarios | Node.js, Express, MongoDB, Tailwind CSS |
 | 13 | [Tic-Tac-Toe](https://github.com/darwinjcn/tic-tac-toe) | Juego clásico de Tres en Raya para terminal | Python, CLI |
