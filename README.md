@@ -2,7 +2,7 @@
 
 **Darwin Colmenares** — Full-Stack Developer & Data Analyst
 
-Contador Público + Ingeniero Informático. Construyo soluciones técnicas que responden a problemas reales de negocio.
+Ingeniero Informático y Contador Público. Traduzco necesidades de negocio en soluciones técnicas de software y datos, robustas y escalables.
 
 ### Stack Principal
 
