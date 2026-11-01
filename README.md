@@ -16,71 +16,69 @@ Contador Público + Ingeniero Informático. Construyo soluciones técnicas que r
 
 **Frameworks & Librerías:**
 
-[![Laravel](https://img.shields.io/badge/Laravel-FF2D20?style=for-the-badge&logo=laravel&logoColor=white)](https://laravel.com/)
-[![Django](https://img.shields.io/badge/Django-092E20?style=for-the-badge&logo=django&logoColor=white)](https://www.djangoproject.com/)
 [![React](https://img.shields.io/badge/React-61DAFB?style=for-the-badge&logo=react&logoColor=black)](https://react.dev/)
 [![Angular](https://img.shields.io/badge/Angular-DD0031?style=for-the-badge&logo=angular&logoColor=white)](https://angular.dev/)
-[![Ionic](https://img.shields.io/badge/Ionic-3880FF?style=for-the-badge&logo=ionic&logoColor=white)](https://ionicframework.com/)
+[![Django](https://img.shields.io/badge/Django-092E20?style=for-the-badge&logo=django&logoColor=white)](https://www.djangoproject.com/)
+[![Laravel](https://img.shields.io/badge/Laravel-FF2D20?style=for-the-badge&logo=laravel&logoColor=white)](https://laravel.com/)
 [![Node.js](https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=node.js&logoColor=white)](https://nodejs.org/)
 [![Express](https://img.shields.io/badge/Express-000000?style=for-the-badge&logo=express&logoColor=white)](https://expressjs.com/)
-[![Bootstrap](https://img.shields.io/badge/Bootstrap-7952B3?style=for-the-badge&logo=bootstrap&logoColor=white)](https://getbootstrap.com/)
 [![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-06B6D4?style=for-the-badge&logo=tailwind-css&logoColor=white)](https://tailwindcss.com/)
+[![Bootstrap](https://img.shields.io/badge/Bootstrap-7952B3?style=for-the-badge&logo=bootstrap&logoColor=white)](https://getbootstrap.com/)
+[![Streamlit](https://img.shields.io/badge/Streamlit-FF4B4B?style=for-the-badge&logo=streamlit&logoColor=white)](https://streamlit.io/)
 
-**Datos y BI:**
+**Bases de Datos & BI:**
 
+[![PostgreSQL](https://img.shields.io/badge/PostgreSQL-336791?style=for-the-badge&logo=postgresql&logoColor=white)](https://www.postgresql.org/)
+[![MongoDB](https://img.shields.io/badge/MongoDB-47A248?style=for-the-badge&logo=mongodb&logoColor=white)](https://www.mongodb.com/)
+[![MySQL](https://img.shields.io/badge/MySQL-4479A1?style=for-the-badge&logo=mysql&logoColor=white)](https://www.mysql.com/)
+[![SQLite](https://img.shields.io/badge/SQLite-003B57?style=for-the-badge&logo=sqlite&logoColor=white)](https://www.sqlite.org/)
 [![Power BI](https://img.shields.io/badge/Power_BI-F2C811?style=for-the-badge&logo=power-bi&logoColor=black)](https://powerbi.microsoft.com/)
 [![DAX](https://img.shields.io/badge/DAX-000000?style=for-the-badge&logo=power-bi&logoColor=white)](https://learn.microsoft.com/en-us/dax/)
 [![Pandas](https://img.shields.io/badge/Pandas-150458?style=for-the-badge&logo=pandas&logoColor=white)](https://pandas.pydata.org/)
-[![NumPy](https://img.shields.io/badge/NumPy-013243?style=for-the-badge&logo=numpy&logoColor=white)](https://numpy.org/)
-[![Jupyter](https://img.shields.io/badge/Jupyter-F37626?style=for-the-badge&logo=jupyter&logoColor=white)](https://jupyter.org/)
-[![BigQuery](https://img.shields.io/badge/BigQuery-669DF6?style=for-the-badge&logo=google-bigquery&logoColor=white)](https://cloud.google.com/bigquery)
-[![PostgreSQL](https://img.shields.io/badge/PostgreSQL-336791?style=for-the-badge&logo=postgresql&logoColor=white)](https://www.postgresql.org/)
-[![MongoDB](https://img.shields.io/badge/MongoDB-47A248?style=for-the-badge&logo=mongodb&logoColor=white)](https://www.mongodb.com/)
 [![Excel](https://img.shields.io/badge/Excel-217346?style=for-the-badge&logo=microsoft-excel&logoColor=white)](https://www.microsoft.com/microsoft-365/excel)
 
-**Cloud, ETL & DevOps:**
+**Cloud, DevOps & Herramientas:**
 
+[![Docker](https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white)](https://www.docker.com/)
+[![Git](https://img.shields.io/badge/Git-F05032?style=for-the-badge&logo=git&logoColor=white)](https://git-scm.com/)
+[![GitHub Actions](https://img.shields.io/badge/GitHub_Actions-2088FF?style=for-the-badge&logo=github-actions&logoColor=white)](https://github.com/features/actions)
 [![AWS](https://img.shields.io/badge/AWS-232F3E?style=for-the-badge&logo=amazon-aws&logoColor=white)](https://aws.amazon.com/)
 [![Azure](https://img.shields.io/badge/Azure-0078D4?style=for-the-badge&logo=microsoft-azure&logoColor=white)](https://azure.microsoft.com/)
-[![Docker](https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white)](https://www.docker.com/)
-[![GitHub Actions](https://img.shields.io/badge/GitHub_Actions-2088FF?style=for-the-badge&logo=github-actions&logoColor=white)](https://github.com/features/actions)
-[![Git](https://img.shields.io/badge/Git-F05032?style=for-the-badge&logo=git&logoColor=white)](https://git-scm.com/)
 [![Linux](https://img.shields.io/badge/Linux-FCC624?style=for-the-badge&logo=linux&logoColor=black)](https://www.linux.org/)
 
-**IA Generativa & Herramientas Avanzadas:**
+**IA & Agentes:**
 
-[![OpenAI](https://img.shields.io/badge/OpenAI-412991?style=for-the-badge&logo=openai&logoColor=white)](https://openai.com/)
+[![CrewAI](https://img.shields.io/badge/CrewAI-FF5A5F?style=for-the-badge&logo=crewai&logoColor=white)](https://www.crewai.com/)
+[![Ollama](https://img.shields.io/badge/Ollama-000000?style=for-the-badge&logo=ollama&logoColor=white)](https://ollama.com/)
+[![Qwen](https://img.shields.io/badge/Qwen-615CED?style=for-the-badge&logo=qwen&logoColor=white)](https://qwenlm.github.io/)
 [![Claude](https://img.shields.io/badge/Claude-D97757?style=for-the-badge&logo=anthropic&logoColor=white)](https://www.anthropic.com/claude)
 [![Gemini](https://img.shields.io/badge/Gemini-8E75B2?style=for-the-badge&logo=googlegemini&logoColor=white)](https://gemini.google.com/)
-[![DeepSeek](https://img.shields.io/badge/DeepSeek-4D6BFE?style=for-the-badge&logo=deepseek&logoColor=white)](https://www.deepseek.com/)
-[![Qwen](https://img.shields.io/badge/Qwen-615CED?style=for-the-badge&logo=qwen&logoColor=white)](https://qwenlm.github.io/)
-[![Mistral AI](https://img.shields.io/badge/Mistral_AI-F59E0B?style=for-the-badge&logo=mistral&logoColor=white)](https://mistral.ai/)
 [![GitHub Copilot](https://img.shields.io/badge/GitHub_Copilot-000000?style=for-the-badge&logo=githubcopilot&logoColor=white)](https://github.com/features/copilot)
 [![Cursor](https://img.shields.io/badge/Cursor-000000?style=for-the-badge&logo=cursor&logoColor=white)](https://www.cursor.com/)
-[![v0](https://img.shields.io/badge/v0-000000?style=for-the-badge&logo=v0&logoColor=white)](https://v0.dev/)
 
 ### Proyectos Destacados
 
 | # | Proyecto | Descripción | Tech |
 |---|---|---|---|
-| 01 | [GCS](https://github.com/darwinjcn/gcs-project) | Gestión de Contingencias Satelitales (CANTV) | React, Laravel, PostgreSQL |
-| 02 | [Sistema Combustible](https://github.com/darwinjcn/sistema-gestion-combustible) | Control de generadores y combustible | Django, React, PostgreSQL |
-| 03 | [Node Express TS](https://github.com/darwinjcn/node-express-typescript-logic) | API REST con tipado estricto | Node.js, TypeScript, Docker |
-| 04 | [Crypto Monitor](https://github.com/darwinjcn/crypto-monitor) | Monitoreo de criptoactivos en tiempo real | Angular, TypeScript |
-| 05 | [Ionic App](https://github.com/darwinjcn/mi-app-ionic-app) | App móvil multiplataforma | Ionic, Angular |
-| 06 | [Linux Terminal Guide](https://github.com/darwinjcn/linux-terminal-guide) | Guía interactiva de comandos para ingenieros | Linux, Bash, Markdown |
-| 07 | [Sistema Salud](https://github.com/darwinjcn/sistema_salud) | Gestión de salud (CANTV NEA) | Python, Django |
-| 08 | [Power BI](https://github.com/darwinjcn/powerbi-proyectos) | Dashboards de Business Intelligence | Power BI, DAX |
-| 09 | [SQL ONG Ayuda Acción](https://github.com/darwinjcn/sql-ong-ayuda-accion) | Base de datos para gestión de proyectos humanitarios | SQL, Modelado de BD |
-| 10 | [Wonka SQL](https://github.com/darwinjcn/wonka-sql) | Sistema de gestión para fábrica de chocolates | SQL, PostgreSQL, Modelado de BD |
-| 11 | [APIGCS MongoDB](https://github.com/darwinjcn/apigcs-mongodb-nosql) | Gestión de contingencias satelitales con NoSQL | MongoDB, mongosh, Compass |
-| 12 | [Comedor Universitario](https://github.com/darwinjcn/comedor-universitario) | Sistema de gestión integral para comedores universitarios | Node.js, Express, MongoDB, Tailwind CSS |
-| 13 | [Tic-Tac-Toe](https://github.com/darwinjcn/tic-tac-toe) | Juego clásico de Tres en Raya para terminal | Python, CLI |
-| 14 | [Nexus BAAS](https://github.com/darwinjcn/nexus-bass-caja-pandora) | Orquestador de BD y API mocking 100% en el navegador (Client-Side) | React, JavaScript, Vite, localStorage |
-| 15 | [Inventario Farmacia](https://github.com/darwinjcn/inventario-farmacia) | Sistema de gestión y control de inventario para farmacias | Laravel, PHP, Blade, SQL |
-| 16 | [CRUD Python SQLite](https://github.com/darwinjcn/crud-python-sqlite) | Sistema de gestión de usuarios (Create, Read, Update, Delete) | Python, SQLite3 |
-| 17 | [Sistema Web de Gestión](https://github.com/darwinjcn/proyecto-web-php-bootstrap-javascript) | App full-stack con autenticación y CRUD de productos (persistencia JSON) | PHP, Bootstrap 5, JavaScript |
-| 18 | [Excel Proyectos](https://github.com/darwinjcn/excel-proyectos) | Colección de dashboards interactivos, KPIs y análisis de datos | Excel, Data Analysis, KPIs |
+| 01 | [Agente Text-to-SQL Local](https://github.com/darwinjcn/local-text-to-sql-agent) | Agente de IA local (CrewAI + Ollama) que traduce lenguaje natural a SQL con cero alucinaciones | Python, CrewAI, Ollama, SQLite, Pandas, Streamlit |
+| 02 | [GCS](https://github.com/darwinjcn/gcs-project) | Gestión de Contingencias Satelitales (CANTV) | React, Laravel, PostgreSQL |
+| 03 | [Sistema Combustible](https://github.com/darwinjcn/sistema-gestion-combustible) | Control de generadores y combustible | Django, React, PostgreSQL |
+| 04 | [Node Express TS](https://github.com/darwinjcn/node-express-typescript-logic) | API REST con tipado estricto | Node.js, TypeScript, Docker |
+| 05 | [Crypto Monitor](https://github.com/darwinjcn/crypto-monitor) | Monitoreo de criptoactivos en tiempo real | Angular, TypeScript |
+| 06 | [Ionic App](https://github.com/darwinjcn/mi-app-ionic-app) | App móvil multiplataforma | Ionic, Angular |
+| 07 | [Linux Terminal Guide](https://github.com/darwinjcn/linux-terminal-guide) | Guía interactiva de comandos para ingenieros | Linux, Bash, Markdown |
+| 08 | [Sistema Salud](https://github.com/darwinjcn/sistema_salud) | Gestión de salud (CANTV NEA) | Python, Django |
+| 09 | [Power BI](https://github.com/darwinjcn/powerbi-proyectos) | Dashboards de Business Intelligence | Power BI, DAX |
+| 10 | [SQL ONG Ayuda Acción](https://github.com/darwinjcn/sql-ong-ayuda-accion) | Base de datos para gestión de proyectos humanitarios | SQL, Modelado de BD |
+| 11 | [Wonka SQL](https://github.com/darwinjcn/wonka-sql) | Sistema de gestión para fábrica de chocolates | SQL, PostgreSQL, Modelado de BD |
+| 12 | [APIGCS MongoDB](https://github.com/darwinjcn/apigcs-mongodb-nosql) | Gestión de contingencias satelitales con NoSQL | MongoDB, mongosh, Compass |
+| 13 | [Comedor Universitario](https://github.com/darwinjcn/comedor-universitario) | Sistema de gestión integral para comedores universitarios | Node.js, Express, MongoDB, Tailwind CSS |
+| 14 | [Tic-Tac-Toe](https://github.com/darwinjcn/tic-tac-toe) | Juego clásico de Tres en Raya para terminal | Python, CLI |
+| 15 | [Nexus BAAS](https://github.com/darwinjcn/nexus-bass-caja-pandora) | Orquestador de BD y API mocking 100% en el navegador (Client-Side) | React, JavaScript, Vite, localStorage |
+| 16 | [Inventario Farmacia](https://github.com/darwinjcn/inventario-farmacia) | Sistema de gestión y control de inventario para farmacias | Laravel, PHP, Blade, SQL |
+| 17 | [CRUD Python SQLite](https://github.com/darwinjcn/crud-python-sqlite) | Sistema de gestión de usuarios (Create, Read, Update, Delete) | Python, SQLite3 |
+| 18 | [Sistema Web de Gestión](https://github.com/darwinjcn/proyecto-web-php-bootstrap-javascript) | App full-stack con autenticación y CRUD de productos (persistencia JSON) | PHP, Bootstrap 5, JavaScript |
+| 19 | [Excel Proyectos](https://github.com/darwinjcn/excel-proyectos) | Colección de dashboards interactivos, KPIs y análisis de datos | Excel, Data Analysis, KPIs |
 
 ## 📬 Contacto y Redes
 
