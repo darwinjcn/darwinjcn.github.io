@@ -60,25 +60,26 @@ Ingeniero Informático y Contador Público. Traduzco necesidades de negocio en s
 
 | # | Proyecto | Descripción | Tech |
 |---|---|---|---|
-| 01 | [Agente Text-to-SQL Local](https://github.com/darwinjcn/local-text-to-sql-agent) | Agente de IA local (CrewAI + Ollama) que traduce lenguaje natural a SQL con cero alucinaciones | Python, CrewAI, Ollama, SQLite, Pandas, Streamlit |
-| 02 | [GCS](https://github.com/darwinjcn/gcs-project) | Gestión de Contingencias Satelitales (CANTV) | React, Laravel, PostgreSQL |
-| 03 | [Sistema Combustible](https://github.com/darwinjcn/sistema-gestion-combustible) | Control de generadores y combustible | Django, React, PostgreSQL |
-| 04 | [Node Express TS](https://github.com/darwinjcn/node-express-typescript-logic) | API REST con tipado estricto | Node.js, TypeScript, Docker |
-| 05 | [Crypto Monitor](https://github.com/darwinjcn/crypto-monitor) | Monitoreo de criptoactivos en tiempo real | Angular, TypeScript |
-| 06 | [Ionic App](https://github.com/darwinjcn/mi-app-ionic-app) | App móvil multiplataforma | Ionic, Angular |
-| 07 | [Linux Terminal Guide](https://github.com/darwinjcn/linux-terminal-guide) | Guía interactiva de comandos para ingenieros | Linux, Bash, Markdown |
-| 08 | [Sistema Salud](https://github.com/darwinjcn/sistema_salud) | Gestión de salud (CANTV NEA) | Python, Django |
-| 09 | [Power BI](https://github.com/darwinjcn/powerbi-proyectos) | Dashboards de Business Intelligence | Power BI, DAX |
-| 10 | [SQL ONG Ayuda Acción](https://github.com/darwinjcn/sql-ong-ayuda-accion) | Base de datos para gestión de proyectos humanitarios | SQL, Modelado de BD |
-| 11 | [Wonka SQL](https://github.com/darwinjcn/wonka-sql) | Sistema de gestión para fábrica de chocolates | SQL, PostgreSQL, Modelado de BD |
-| 12 | [APIGCS MongoDB](https://github.com/darwinjcn/apigcs-mongodb-nosql) | Gestión de contingencias satelitales con NoSQL | MongoDB, mongosh, Compass |
-| 13 | [Comedor Universitario](https://github.com/darwinjcn/comedor-universitario) | Sistema de gestión integral para comedores universitarios | Node.js, Express, MongoDB, Tailwind CSS |
-| 14 | [Tic-Tac-Toe](https://github.com/darwinjcn/tic-tac-toe) | Juego clásico de Tres en Raya para terminal | Python, CLI |
-| 15 | [Nexus BAAS](https://github.com/darwinjcn/nexus-bass-caja-pandora) | Orquestador de BD y API mocking 100% en el navegador (Client-Side) | React, JavaScript, Vite, localStorage |
-| 16 | [Inventario Farmacia](https://github.com/darwinjcn/inventario-farmacia) | Sistema de gestión y control de inventario para farmacias | Laravel, PHP, Blade, SQL |
-| 17 | [CRUD Python SQLite](https://github.com/darwinjcn/crud-python-sqlite) | Sistema de gestión de usuarios (Create, Read, Update, Delete) | Python, SQLite3 |
-| 18 | [Sistema Web de Gestión](https://github.com/darwinjcn/proyecto-web-php-bootstrap-javascript) | App full-stack con autenticación y CRUD de productos (persistencia JSON) | PHP, Bootstrap 5, JavaScript |
-| 19 | [Excel Proyectos](https://github.com/darwinjcn/excel-proyectos) | Colección de dashboards interactivos, KPIs y análisis de datos | Excel, Data Analysis, KPIs |
+| 01 | [Analista Financiero Local (IA)](https://github.com/darwinjcn/analista-financiero-local-ia) | Agente local que extrae cifras de estados financieros, calcula ratios en Python y redacta informes con CrewAI | Python, CrewAI, Ollama, Streamlit, ChromaDB, Docker |
+| 02 | [Agente Text-to-SQL Local](https://github.com/darwinjcn/local-text-to-sql-agent) | Agente de IA local que traduce lenguaje natural a SQL con arquitectura híbrida y cero alucinaciones | Python, CrewAI, Ollama, SQLite, Pandas, Streamlit |
+| 03 | [GCS](https://github.com/darwinjcn/gcs-project) | Gestión de Contingencias Satelitales (CANTV) | React, Laravel, PostgreSQL |
+| 04 | [Sistema Combustible](https://github.com/darwinjcn/sistema-gestion-combustible) | Control de generadores y combustible | Django, React, PostgreSQL |
+| 05 | [Node Express TS](https://github.com/darwinjcn/node-express-typescript-logic) | API REST con tipado estricto | Node.js, TypeScript, Docker |
+| 06 | [Crypto Monitor](https://github.com/darwinjcn/crypto-monitor) | Monitoreo de criptoactivos en tiempo real | Angular, TypeScript |
+| 07 | [Ionic App](https://github.com/darwinjcn/mi-app-ionic-app) | App móvil multiplataforma | Ionic, Angular |
+| 08 | [Linux Terminal Guide](https://github.com/darwinjcn/linux-terminal-guide) | Guía interactiva de comandos para ingenieros | Linux, Bash, Markdown |
+| 09 | [Sistema Salud](https://github.com/darwinjcn/sistema_salud) | Gestión de salud (CANTV NEA) | Python, Django |
+| 10 | [Power BI](https://github.com/darwinjcn/powerbi-proyectos) | Dashboards de Business Intelligence | Power BI, DAX |
+| 11 | [SQL ONG Ayuda Acción](https://github.com/darwinjcn/sql-ong-ayuda-accion) | Base de datos para gestión de proyectos humanitarios | SQL, Modelado de BD |
+| 12 | [Wonka SQL](https://github.com/darwinjcn/wonka-sql) | Sistema de gestión para fábrica de chocolates | SQL, PostgreSQL, Modelado de BD |
+| 13 | [APIGCS MongoDB](https://github.com/darwinjcn/apigcs-mongodb-nosql) | Gestión de contingencias satelitales con NoSQL | MongoDB, mongosh, Compass |
+| 14 | [Comedor Universitario](https://github.com/darwinjcn/comedor-universitario) | Sistema de gestión integral para comedores universitarios | Node.js, Express, MongoDB, Tailwind CSS |
+| 15 | [Tic-Tac-Toe](https://github.com/darwinjcn/tic-tac-toe) | Juego clásico de Tres en Raya para terminal | Python, CLI |
+| 16 | [Nexus BAAS](https://github.com/darwinjcn/nexus-bass-caja-pandora) | Orquestador de BD y API mocking 100% en el navegador (Client-Side) | React, JavaScript, Vite, localStorage |
+| 17 | [Inventario Farmacia](https://github.com/darwinjcn/inventario-farmacia) | Sistema de gestión y control de inventario para farmacias | Laravel, PHP, Blade, SQL |
+| 18 | [CRUD Python SQLite](https://github.com/darwinjcn/crud-python-sqlite) | Sistema de gestión de usuarios (Create, Read, Update, Delete) | Python, SQLite3 |
+| 19 | [Sistema Web de Gestión](https://github.com/darwinjcn/proyecto-web-php-bootstrap-javascript) | App full-stack con autenticación y CRUD de productos (persistencia JSON) | PHP, Bootstrap 5, JavaScript |
+| 20 | [Excel Proyectos](https://github.com/darwinjcn/excel-proyectos) | Colección de dashboards interactivos, KPIs y análisis de datos | Excel, Data Analysis, KPIs |
 
 ## 📬 Contacto y Redes
 
