@@ -1,12 +1,14 @@
 # 🌐 Portafolio Personal | [darwinjcn.github.io](https://darwinjcn.github.io)
 
 <div align="center">
-  <a href="#español"><b>🇪🇸 Español</b></a> &nbsp;|&nbsp; <a href="#english"><b>🇬🇧 English</b></a>
+  <a href="#espanol"><b>🇪🇸 Español</b></a> &nbsp;|&nbsp; <a href="#english"><b>🇬🇧 English</b></a>
 </div>
 
 ---
 
-## 🇪🇸 Español
+<a id="espanol"></a>
+
+## Español
 
 **Darwin Colmenares** — Desarrollador de Software Full-Stack & Analista de Datos
 
@@ -15,6 +17,7 @@ Ingeniero Informático y Contador Público. Traduzco necesidades de negocio en s
 ### Stack Principal
 
 **Lenguajes:**
+
 [![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)](https://www.python.org/)
 [![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
 [![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
@@ -22,6 +25,7 @@ Ingeniero Informático y Contador Público. Traduzco necesidades de negocio en s
 [![SQL](https://img.shields.io/badge/SQL-003B57?style=for-the-badge&logo=database&logoColor=white)](https://en.wikipedia.org/wiki/SQL)
 
 **Frameworks & Librerías:**
+
 [![React](https://img.shields.io/badge/React-61DAFB?style=for-the-badge&logo=react&logoColor=black)](https://react.dev/)
 [![Angular](https://img.shields.io/badge/Angular-DD0031?style=for-the-badge&logo=angular&logoColor=white)](https://angular.dev/)
 [![Django](https://img.shields.io/badge/Django-092E20?style=for-the-badge&logo=django&logoColor=white)](https://www.djangoproject.com/)
@@ -33,6 +37,7 @@ Ingeniero Informático y Contador Público. Traduzco necesidades de negocio en s
 [![Streamlit](https://img.shields.io/badge/Streamlit-FF4B4B?style=for-the-badge&logo=streamlit&logoColor=white)](https://streamlit.io/)
 
 **Bases de Datos & BI:**
+
 [![PostgreSQL](https://img.shields.io/badge/PostgreSQL-336791?style=for-the-badge&logo=postgresql&logoColor=white)](https://www.postgresql.org/)
 [![MongoDB](https://img.shields.io/badge/MongoDB-47A248?style=for-the-badge&logo=mongodb&logoColor=white)](https://www.mongodb.com/)
 [![MySQL](https://img.shields.io/badge/MySQL-4479A1?style=for-the-badge&logo=mysql&logoColor=white)](https://www.mysql.com/)
@@ -43,6 +48,7 @@ Ingeniero Informático y Contador Público. Traduzco necesidades de negocio en s
 [![Excel](https://img.shields.io/badge/Excel-217346?style=for-the-badge&logo=microsoft-excel&logoColor=white)](https://www.microsoft.com/microsoft-365/excel)
 
 **Cloud, DevOps & Herramientas:**
+
 [![Docker](https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white)](https://www.docker.com/)
 [![Git](https://img.shields.io/badge/Git-F05032?style=for-the-badge&logo=git&logoColor=white)](https://git-scm.com/)
 [![GitHub Actions](https://img.shields.io/badge/GitHub_Actions-2088FF?style=for-the-badge&logo=github-actions&logoColor=white)](https://github.com/features/actions)
@@ -51,6 +57,7 @@ Ingeniero Informático y Contador Público. Traduzco necesidades de negocio en s
 [![Linux](https://img.shields.io/badge/Linux-FCC624?style=for-the-badge&logo=linux&logoColor=black)](https://www.linux.org/)
 
 **IA & Agentes:**
+
 [![CrewAI](https://img.shields.io/badge/CrewAI-FF5A5F?style=for-the-badge&logo=crewai&logoColor=white)](https://www.crewai.com/)
 [![Ollama](https://img.shields.io/badge/Ollama-000000?style=for-the-badge&logo=ollama&logoColor=white)](https://ollama.com/)
 [![Qwen](https://img.shields.io/badge/Qwen-615CED?style=for-the-badge&logo=qwen&logoColor=white)](https://qwenlm.github.io/)
@@ -88,8 +95,10 @@ Ingeniero Informático y Contador Público. Traduzco necesidades de negocio en s
 
 ---
 
+<a id="english"></a>
+
 <details>
-<summary><h2>🇬🇧 Click to view in English</h2></summary>
+<summary><b>🇬🇧 Click to view in English</b></summary>
 
 **Darwin Colmenares** — Full-Stack Software Developer & Data Analyst
 
@@ -98,6 +107,7 @@ Computer Engineer and Public Accountant. I translate business needs into robust 
 ### Core Stack
 
 **Languages:**
+
 [![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)](https://www.python.org/)
 [![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
 [![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
@@ -105,6 +115,7 @@ Computer Engineer and Public Accountant. I translate business needs into robust 
 [![SQL](https://img.shields.io/badge/SQL-003B57?style=for-the-badge&logo=database&logoColor=white)](https://en.wikipedia.org/wiki/SQL)
 
 **Frameworks & Libraries:**
+
 [![React](https://img.shields.io/badge/React-61DAFB?style=for-the-badge&logo=react&logoColor=black)](https://react.dev/)
 [![Angular](https://img.shields.io/badge/Angular-DD0031?style=for-the-badge&logo=angular&logoColor=white)](https://angular.dev/)
 [![Django](https://img.shields.io/badge/Django-092E20?style=for-the-badge&logo=django&logoColor=white)](https://www.djangoproject.com/)
@@ -116,6 +127,7 @@ Computer Engineer and Public Accountant. I translate business needs into robust 
 [![Streamlit](https://img.shields.io/badge/Streamlit-FF4B4B?style=for-the-badge&logo=streamlit&logoColor=white)](https://streamlit.io/)
 
 **Databases & BI:**
+
 [![PostgreSQL](https://img.shields.io/badge/PostgreSQL-336791?style=for-the-badge&logo=postgresql&logoColor=white)](https://www.postgresql.org/)
 [![MongoDB](https://img.shields.io/badge/MongoDB-47A248?style=for-the-badge&logo=mongodb&logoColor=white)](https://www.mongodb.com/)
 [![MySQL](https://img.shields.io/badge/MySQL-4479A1?style=for-the-badge&logo=mysql&logoColor=white)](https://www.mysql.com/)
@@ -126,6 +138,7 @@ Computer Engineer and Public Accountant. I translate business needs into robust 
 [![Excel](https://img.shields.io/badge/Excel-217346?style=for-the-badge&logo=microsoft-excel&logoColor=white)](https://www.microsoft.com/microsoft-365/excel)
 
 **Cloud, DevOps & Tools:**
+
 [![Docker](https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white)](https://www.docker.com/)
 [![Git](https://img.shields.io/badge/Git-F05032?style=for-the-badge&logo=git&logoColor=white)](https://git-scm.com/)
 [![GitHub Actions](https://img.shields.io/badge/GitHub_Actions-2088FF?style=for-the-badge&logo=github-actions&logoColor=white)](https://github.com/features/actions)
@@ -134,6 +147,7 @@ Computer Engineer and Public Accountant. I translate business needs into robust 
 [![Linux](https://img.shields.io/badge/Linux-FCC624?style=for-the-badge&logo=linux&logoColor=black)](https://www.linux.org/)
 
 **AI & Agents:**
+
 [![CrewAI](https://img.shields.io/badge/CrewAI-FF5A5F?style=for-the-badge&logo=crewai&logoColor=white)](https://www.crewai.com/)
 [![Ollama](https://img.shields.io/badge/Ollama-000000?style=for-the-badge&logo=ollama&logoColor=white)](https://ollama.com/)
 [![Qwen](https://img.shields.io/badge/Qwen-615CED?style=for-the-badge&logo=qwen&logoColor=white)](https://qwenlm.github.io/)
