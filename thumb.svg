@@ -1,124 +1,134 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675">
   <defs>
-    <!-- Fondo oscuro del portafolio -->
+    <!-- Fondo y glow -->
     <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
       <stop offset="0%" stop-color="#0b0f12"/>
-      <stop offset="100%" stop-color="#161c22"/>
+      <stop offset="100%" stop-color="#0f1519"/>
     </linearGradient>
-    
-    <!-- Grid sutil como en el hero -->
-    <pattern id="grid" width="72" height="72" patternUnits="userSpaceOnUse">
-      <path d="M72 0L0 0 0 72" fill="none" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+    <radialGradient id="glow" cx="0.25" cy="0.8" r="0.55">
+      <stop offset="0%" stop-color="#a3e635" stop-opacity="0.08"/>
+      <stop offset="100%" stop-color="#a3e635" stop-opacity="0"/>
+    </radialGradient>
+    <pattern id="grid" width="32" height="32" patternUnits="userSpaceOnUse">
+      <path d="M32 0H0V32" fill="none" stroke="#fff" stroke-opacity="0.025"/>
     </pattern>
     
-    <!-- Glow para elementos destacados -->
-    <filter id="glow">
-      <feGaussianBlur stdDeviation="8" result="blur"/>
-      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
-    </filter>
+    <!-- Acentos del banner -->
+    <linearGradient id="gl" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#bef264"/>
+      <stop offset="100%" stop-color="#65a30d"/>
+    </linearGradient>
+    <linearGradient id="gv" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#c4b5fd"/>
+      <stop offset="100%" stop-color="#6d28d9"/>
+    </linearGradient>
+    <linearGradient id="gc" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#67e8f9"/>
+      <stop offset="100%" stop-color="#0e7490"/>
+    </linearGradient>
     
-    <!-- Mask radial para fade del grid (como en el hero) -->
-    <radialGradient id="gridMask" cx="50%" cy="40%" r="60%">
-      <stop offset="0%" stop-color="#000" stop-opacity="1"/>
-      <stop offset="100%" stop-color="#000" stop-opacity="0"/>
-    </radialGradient>
+    <!-- Sombra -->
+    <filter id="shadow">
+      <feDropShadow dx="0" dy="8" stdDeviation="20" flood-color="#000" flood-opacity="0.5"/>
+    </filter>
   </defs>
   
   <!-- Fondo base -->
   <rect width="1200" height="675" fill="url(#bg)"/>
-  <rect width="1200" height="675" fill="url(#grid)" mask="url(#gridMask)"/>
+  <rect width="1200" height="675" fill="url(#grid)"/>
+  <rect width="1200" height="675" fill="url(#glow)"/>
   
-  <!-- Glows sutiles -->
-  <circle cx="150" cy="180" r="200" fill="rgba(163,230,53,0.06)" filter="blur(80px)"/>
-  <circle cx="1050" cy="500" r="250" fill="rgba(163,230,53,0.04)" filter="blur(90px)"/>
+  <!-- Bloques geométricos decorativos (esquina derecha, adaptados a 1200x675) -->
+  <path d="M1080 0H1200V110H1120A60 60 0 0 1 1080 50Z" fill="url(#gl)"/>
+  <path d="M1010 175A50 50 0 0 1 1060 125H1200V225H1010Z" fill="url(#gv)"/>
+  <path d="M1080 240H1160A50 50 0 0 1 1200 290V675H1080Z" fill="url(#gc)"/>
   
-  <!-- Contenedor tipo ventana terminal -->
-  <rect x="120" y="110" width="960" height="455" rx="16" fill="#161c22" stroke="#2a3340" stroke-width="1.5"/>
+  <!-- Card principal -->
+  <rect x="80" y="80" width="1040" height="515" rx="24" fill="rgba(15,21,25,0.92)" stroke="rgba(163,230,53,0.25)" stroke-width="1.5" filter="url(#shadow)"/>
   
-  <!-- Barra superior de terminal (con dots macOS-style) -->
-  <rect x="120" y="110" width="960" height="40" rx="16" fill="#1e2630"/>
-  <rect x="120" y="134" width="960" height="16" fill="#1e2630"/>
-  <circle cx="148" cy="130" r="6" fill="#ef4444" opacity="0.8"/>
-  <circle cx="168" cy="130" r="6" fill="#eab308" opacity="0.8"/>
-  <circle cx="188" cy="130" r="6" fill="#22c55e" opacity="0.8"/>
-  <text x="600" y="135" font-family="ui-monospace, 'SF Mono', Menlo, Consolas, monospace" font-size="13" font-weight="500" text-anchor="middle" fill="#64748b">~/darwin.dev — portafolio</text>
+  <!-- Línea superior decorativa -->
+  <rect x="100" y="100" width="1000" height="2" rx="1" fill="#a3e635" opacity="0.6"/>
   
-  <!-- Contenido principal -->
-  <g transform="translate(600, 240)">
-    <!-- Prompt grande -->
-    <text x="-360" y="10" font-family="ui-monospace, 'SF Mono', Menlo, Consolas, monospace" font-size="72" font-weight="700" fill="#8a9aa8">&gt;_</text>
-    
-    <!-- Nombre -->
-    <text x="-180" y="10" font-family="'Space Grotesk', 'Inter', system-ui, sans-serif" font-size="72" font-weight="800" fill="#e8edf2" letter-spacing="-0.02em">Darwin</text>
-  </g>
+  <!-- Logo / Marca -->
+  <text x="110" y="130" font-family="'Cascadia Code','JetBrains Mono',Consolas,monospace" font-size="13" font-weight="700" letter-spacing="3" fill="#64748b">darwin.dev</text>
   
-  <text x="600" y="310" font-family="'Space Grotesk', 'Inter', system-ui, sans-serif" font-size="72" font-weight="800" text-anchor="middle" fill="#b0c4d9" letter-spacing="-0.02em">Colmenares</text>
+  <!-- Nombre principal -->
+  <text x="600" y="220" font-family="'Inter','Segoe UI','Helvetica Neue',Arial,sans-serif" font-size="56" font-weight="800" letter-spacing="-1" text-anchor="middle" fill="#f8fafc">DARWIN <tspan fill="#a3e635">COLMENARES</tspan></text>
   
-  <!-- Subtítulo con acento verde -->
-  <g transform="translate(600, 365)" text-anchor="middle">
-    <rect x="-280" y="-28" width="560" height="44" rx="22" fill="rgba(163,230,53,0.08)" stroke="rgba(163,230,53,0.3)" stroke-width="1"/>
-    <text x="0" y="0" font-family="'Space Grotesk', 'Inter', system-ui, sans-serif" font-size="26" font-weight="600" fill="#a3e635" letter-spacing="-0.01em">Full-Stack Developer &amp; Data Analyst</text>
-  </g>
-  
-  <!-- Tagline descriptiva -->
-  <text x="600" y="425" font-family="'Space Grotesk', 'Inter', system-ui, sans-serif" font-size="18" font-weight="400" text-anchor="middle" fill="#8a9aa8">
-    Contador Público · Ingeniero Informático · Caracas, VE
+  <!-- Roles -->
+  <text x="600" y="270" font-family="'Inter','Segoe UI','Helvetica Neue',Arial,sans-serif" font-size="22" font-weight="600" letter-spacing="2" text-anchor="middle">
+    <tspan fill="#a3e635">FULL-STACK</tspan>
+    <tspan fill="#64748b">  |  </tspan>
+    <tspan fill="#a78bfa">DATA &amp; BI</tspan>
+    <tspan fill="#64748b">  |  </tspan>
+    <tspan fill="#22d3ee">IA LOCAL</tspan>
   </text>
   
-  <!-- Stack en formato "prompt" -->
-  <g transform="translate(600, 480)" font-family="ui-monospace, 'SF Mono', Menlo, Consolas, monospace" font-size="15" fill="#b0c4d9">
-    <!-- Primera línea -->
-    <text x="-360" y="0" fill="#8a9aa8">$</text>
-    <text x="-340" y="0">python</text>
-    <text x="-270" y="0" fill="#a3e635">◆</text>
-    <text x="-250" y="0">laravel</text>
-    <text x="-160" y="0" fill="#a3e635">◆</text>
-    <text x="-140" y="0">react</text>
-    <text x="-80" y="0" fill="#a3e635">◆</text>
-    <text x="-60" y="0">typescript</text>
-    <text x="35" y="0" fill="#a3e635">◆</text>
-    <text x="55" y="0">django</text>
-    <text x="120" y="0" fill="#a3e635">◆</text>
-    <text x="140" y="0">node.js</text>
-    <text x="210" y="0" fill="#a3e635">◆</text>
-    <text x="230" y="0">angular</text>
-    
-    <!-- Segunda línea -->
-    <text x="-360" y="28" fill="#8a9aa8">$</text>
-    <text x="-340" y="28">powerbi</text>
-    <text x="-250" y="28" fill="#a3e635">◆</text>
-    <text x="-230" y="28">dax</text>
-    <text x="-185" y="28" fill="#a3e635">◆</text>
-    <text x="-165" y="28">pandas</text>
-    <text x="-90" y="28" fill="#a3e635">◆</text>
-    <text x="-70" y="28">postgresql</text>
-    <text x="40" y="28" fill="#a3e635">◆</text>
-    <text x="60" y="28">mongodb</text>
-    <text x="150" y="28" fill="#a3e635">◆</text>
-    <text x="170" y="28">docker</text>
-    <text x="235" y="28" fill="#a3e635">◆</text>
-    <text x="255" y="28">linux</text>
+  <!-- Línea separadora -->
+  <rect x="480" y="290" width="240" height="2" rx="1" fill="#a3e635" opacity="0.6"/>
+  
+  <!-- Descripción -->
+  <text x="600" y="330" font-family="'Inter','Segoe UI','Helvetica Neue',Arial,sans-serif" font-size="18" text-anchor="middle" fill="#f8fafc">Plataformas full-stack, tableros de datos y agentes de <tspan fill="#22d3ee">IA local</tspan></text>
+  <text x="600" y="358" font-family="'Inter','Segoe UI','Helvetica Neue',Arial,sans-serif" font-size="18" text-anchor="middle" fill="#94a3b8">que traducen requisitos de negocio en soluciones precisas.</text>
+  
+  <!-- Iconos de stack (paths nativos, estilo banner) -->
+  <g transform="translate(600, 420)" text-anchor="middle">
+    <!-- </> - Código -->
+    <g transform="translate(-240, 0)">
+      <path d="M-10,-8 L-16,0 L-10,8" fill="none" stroke="#a3e635" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+      <line x1="-6" y1="-8" x2="-2" y2="8" stroke="#a3e635" stroke-width="2.5" stroke-linecap="round"/>
+      <path d="M2,-8 L8,0 L2,8" fill="none" stroke="#a3e635" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+    </g>
+    <!-- BI - Gráfico -->
+    <g transform="translate(-80, 0)">
+      <polyline points="-14,6 -4,-6 4,2 14,-8" fill="none" stroke="#a78bfa" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+      <circle cx="-14" cy="6" r="2.5" fill="#a78bfa"/>
+      <circle cx="-4" cy="-6" r="2.5" fill="#a78bfa"/>
+      <circle cx="4" cy="2" r="2.5" fill="#a78bfa"/>
+      <circle cx="14" cy="-8" r="2.5" fill="#a78bfa"/>
+    </g>
+    <!-- IA - Red neuronal simplificada -->
+    <g transform="translate(80, 0)">
+      <circle cx="-10" cy="-6" r="3" fill="none" stroke="#22d3ee" stroke-width="1.5"/>
+      <circle cx="0" cy="-8" r="3" fill="none" stroke="#22d3ee" stroke-width="1.5"/>
+      <circle cx="10" cy="-6" r="3" fill="none" stroke="#22d3ee" stroke-width="1.5"/>
+      <circle cx="-6" cy="4" r="3" fill="none" stroke="#22d3ee" stroke-width="1.5"/>
+      <circle cx="6" cy="4" r="3" fill="none" stroke="#22d3ee" stroke-width="1.5"/>
+      <line x1="-10" y1="-6" x2="-6" y2="4" stroke="#22d3ee" stroke-width="1" opacity="0.6"/>
+      <line x1="0" y1="-8" x2="-6" y2="4" stroke="#22d3ee" stroke-width="1" opacity="0.6"/>
+      <line x1="0" y1="-8" x2="6" y2="4" stroke="#22d3ee" stroke-width="1" opacity="0.6"/>
+      <line x1="10" y1="-6" x2="6" y2="4" stroke="#22d3ee" stroke-width="1" opacity="0.6"/>
+      <line x1="-10" y1="-6" x2="0" y2="-8" stroke="#22d3ee" stroke-width="1" opacity="0.6"/>
+      <line x1="0" y1="-8" x2="10" y2="-6" stroke="#22d3ee" stroke-width="1" opacity="0.6"/>
+    </g>
+    <!-- SQL - Base de datos -->
+    <g transform="translate(240, 0)">
+      <ellipse cx="0" cy="-10" rx="12" ry="4" fill="none" stroke="#a3e635" stroke-width="2"/>
+      <path d="M-12,-10 L-12,6 Q0,12 12,6 L12,-10" fill="none" stroke="#a3e635" stroke-width="2"/>
+      <path d="M-12,-2 Q0,4 12,-2" fill="none" stroke="#a3e635" stroke-width="1.5"/>
+      <path d="M-12,4 Q0,10 12,4" fill="none" stroke="#a3e635" stroke-width="1.5" opacity="0.6"/>
+    </g>
   </g>
   
-  <!-- Footer con CTA -->
-  <g transform="translate(600, 580)">
-    <rect x="-260" y="-22" width="520" height="44" rx="22" fill="#a3e635"/>
-    <text x="0" y="6" font-family="'Space Grotesk', 'Inter', system-ui, sans-serif" font-size="18" font-weight="700" text-anchor="middle" fill="#0b0f12" letter-spacing="0.02em">✦ Trabajemos juntos · darwinjcn.github.io</text>
+  <!-- Textos descriptivos de stack -->
+  <g transform="translate(600, 455)" text-anchor="middle" font-family="'Inter','Segoe UI','Helvetica Neue',Arial,sans-serif" font-size="12" fill="#94a3b8">
+    <text x="-240" y="0">React · Laravel · Node</text>
+    <text x="-80" y="0">Power BI · DAX · ETL</text>
+    <text x="80" y="0">CrewAI · Ollama · RAG</text>
+    <text x="240" y="0">PostgreSQL · MongoDB</text>
   </g>
   
-  <!-- Esquinas decorativas estilo bracket (coherentes con el portafolio) -->
-  <g stroke="#a3e635" stroke-width="2" fill="none" opacity="0.6">
-    <path d="M60 60 L100 60 L100 100"/>
-    <path d="M1140 60 L1100 60 L1100 100"/>
-    <path d="M60 615 L100 615 L100 575"/>
-    <path d="M1140 615 L1100 615 L1100 575"/>
-  </g>
+  <!-- Línea inferior decorativa -->
+  <rect x="100" y="530" width="1000" height="2" rx="1" fill="#a3e635" opacity="0.6"/>
   
-  <!-- Detalles de código flotantes (decorativos) -->
-  <g font-family="ui-monospace, monospace" font-size="11" fill="#2a3340" opacity="0.6">
-    <text x="40" y="40">#!/usr/bin/env python3</text>
-    <text x="40" y="640">© 2026 · Caracas, VE</text>
-    <text x="960" y="40">v2.0 · live</text>
-    <text x="1000" y="640">git@darwin.dev</text>
-  </g>
+  <!-- CTA / Footer -->
+  <rect x="440" y="555" width="260" height="36" rx="8" fill="#a3e635"/>
+  <text x="570" y="578" text-anchor="middle" font-family="'Inter','Segoe UI','Helvetica Neue',Arial,sans-serif" font-size="15" font-weight="700" fill="#0b0f12">darwinjcn.github.io →</text>
+  <text x="730" y="578" font-family="'Inter','Segoe UI','Helvetica Neue',Arial,sans-serif" font-size="14" fill="#64748b">Caracas, VE · Disponible</text>
+  
+  <!-- Esquinas decorativas -->
+  <path d="M60 60 L100 60 L100 100" fill="none" stroke="rgba(163,230,53,0.3)" stroke-width="2"/>
+  <path d="M1140 60 L1100 60 L1100 100" fill="none" stroke="rgba(163,230,53,0.3)" stroke-width="2"/>
+  <path d="M60 615 L100 615 L100 575" fill="none" stroke="rgba(163,230,53,0.3)" stroke-width="2"/>
+  <path d="M1140 615 L1100 615 L1100 575" fill="none" stroke="rgba(163,230,53,0.3)" stroke-width="2"/>
 </svg>
