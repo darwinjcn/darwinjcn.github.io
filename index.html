@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
-  <title>Darwin Colmenares · Full‑Stack & Data</title>
+  <title>Darwin Colmenares · Full-Stack Developer & Data Analyst</title>
   <meta name="description" content="Portafolio de Darwin Colmenares – Ingeniero Informático y Contador Público. Desarrollo full-stack, agentes de IA locales y análisis de datos con Power BI." />
   <meta name="author" content="Darwin Colmenares" />
   <meta name="robots" content="index, follow" />
@@ -47,8 +47,9 @@
     ],
     "knowsAbout": [
       "Python", "JavaScript", "TypeScript", "PHP", "React", "Angular",
-      "Laravel", "Django", "Node.js", "PostgreSQL", "MongoDB", "Power BI", "Docker", "Linux",
-      "AWS", "Azure", "GitHub Actions", "OpenAI", "Claude", "Gemini", "CrewAI", "Ollama", "Streamlit"
+      "Laravel", "Django", "FastAPI", "Node.js", "PostgreSQL", "MongoDB", "Power BI", "Docker", "Linux",
+      "AWS", "Azure", "GitHub Actions", "OpenAI", "Claude", "Gemini", "CrewAI", "Ollama", "Streamlit",
+      "ChromaDB", "RAG", "Pydantic", "Altair", "pdfplumber", "LangChain", "SQLAlchemy", "Vite", "OpenRouter"
     ],
     "address": {
       "@type": "PostalAddress",
@@ -888,8 +889,8 @@
           <div class="stack-group">
             <h4 data-i18n="stack_frameworks">Frameworks</h4>
             <ul>
-              <li>Laravel</li><li>Django</li><li>React</li>
-              <li>Angular</li><li>Node.js</li><li>Express</li>
+              <li>Laravel</li><li>Django</li><li>FastAPI</li>
+              <li>React</li><li>Angular</li><li>Node.js</li>
               <li>Livewire</li><li>Streamlit</li>
             </ul>
           </div>
@@ -911,9 +912,9 @@
           <div class="stack-group">
             <h4 data-i18n="stack_ai">IA &amp; Agentes</h4>
             <ul>
-              <li>CrewAI</li><li>Ollama</li><li>Qwen</li>
-              <li>OpenAI</li><li>Claude</li><li>Gemini</li>
-              <li>GitHub Copilot</li><li>Cursor</li>
+              <li>CrewAI</li><li>LangChain</li><li>Ollama</li>
+              <li>Qwen</li><li>ChromaDB</li><li>RAG</li>
+              <li>OpenAI</li><li>Claude</li><li>OpenRouter</li>
             </ul>
           </div>
         </div>
@@ -988,7 +989,7 @@
     // ----- PROYECTOS (ordenados cronológicamente por año descendente) -----
     const projects = [
       // ===== 2026 (12 proyectos) =====
-      { num: "01", title: "Chatbot FAQ con IA", title_en: "AI FAQ Chatbot", description: "Chatbot de atención al cliente para bodegón usando IA local (Ollama). Responde preguntas frecuentes sobre productos, horarios y servicios con contexto personalizado del negocio.", description_en: "Customer service chatbot for a grocery store using local AI (Ollama). Answers frequently asked questions about products, schedules and services with personalized business context.", tags: ["JavaScript","Ollama","Fetch API","HTML/CSS"], category: "IA & Agentes", repo: "https://github.com/darwinjcn/chatbot-faq-ia-trade", year: "2026" },
+      { num: "01", title: "Chatbot FAQ · Bodegón El Buen Sabor", title_en: "FAQ Chatbot · Bodegón El Buen Sabor", description: "Asistente virtual con IA para atención al cliente de un comercio local: responde consultas de pagos, delivery, horarios y facturación con un System Prompt estricto que evita alucinaciones. JavaScript vanilla + API de OpenRouter (modelo gratuito), desplegado en Netlify con costo cero.", description_en: "AI-powered virtual assistant for customer service at a local store: answers queries about payments, delivery, hours and invoicing with a strict System Prompt that prevents hallucinations. Vanilla JavaScript + OpenRouter API (free model), deployed on Netlify at zero cost.", tags: ["JavaScript","HTML5/CSS3","OpenRouter","NLP","Netlify"], category: "IA & Agentes", repo: "https://github.com/darwinjcn/chatbot-faq-ia-trade", demo: "https://bodegon-el-buen-sabor-darwin.netlify.app/", year: "2026" },
       { num: "02", title: "Local AI Helpdesk", title_en: "Local AI Helpdesk", description: "Sistema de triaje inteligente para tickets de TI con LLM local, RAG y cero alucinaciones. Clasifica tickets en 5 categorías y 4 niveles de prioridad, consulta reglas del manual antes de decidir, y fuerza salidas JSON válidas con Pydantic. Full-stack con FastAPI + React 18 + PostgreSQL + ChromaDB, optimizado para 16GB RAM sin GPU.", description_en: "Intelligent triage system for IT tickets with local LLM, RAG and zero hallucinations. Classifies tickets into 5 categories and 4 priority levels, consults manual rules before deciding, and forces valid JSON outputs with Pydantic. Full-stack with FastAPI + React 18 + PostgreSQL + ChromaDB, optimized for 16GB RAM without GPU.", tags: ["Python","FastAPI","React","Ollama","LangChain","ChromaDB","Pydantic","PostgreSQL","Docker"], category: "IA & Agentes", repo: "https://github.com/darwinjcn/local-ai-helpdesk", year: "2026" },
       { num: "03", title: "Analista Financiero Local", title_en: "Local Financial Analyst", description: "Agente de IA 100% local que analiza estados financieros (PDF, Excel, CSV) con arquitectura híbrida: extracción determinista para Excel/CSV, LLM solo para PDFs ambiguos. Calcula ratios financieros, valida balances y genera informes con cero alucinaciones. Incluye RAG, gráficos de evolución e historial.", description_en: "100% local AI agent that analyzes financial statements (PDF, Excel, CSV) with hybrid architecture: deterministic extraction for Excel/CSV, LLM only for ambiguous PDFs. Calculates financial ratios, validates balances and generates reports with zero hallucinations. Includes RAG, evolution charts and history.", tags: ["Python","Ollama","ChromaDB","RAG","Pydantic","Streamlit","Altair","Docker"], category: "IA & Agentes", repo: "https://github.com/darwinjcn/analista-financiero-local-ia", year: "2026" },
       { num: "04", title: "Agente Text-to-SQL Local", title_en: "Local Text-to-SQL Agent", description: "Agente de IA local que traduce preguntas en lenguaje natural a consultas SQL. Arquitectura híbrida: CrewAI orquesta, SQLite/Pandas ejecutan cálculos deterministas y Qwen 2.5 (Ollama) redacta la respuesta, garantizando cero alucinaciones.", description_en: "Local AI agent that translates natural language questions into SQL queries. Hybrid architecture: CrewAI orchestrates, SQLite/Pandas perform deterministic calculations, and Qwen 2.5 (Ollama) drafts the response, ensuring zero hallucinations.", tags: ["Python","CrewAI","Ollama","SQLite","Pandas","Streamlit"], category: "IA & Agentes", repo: "https://github.com/darwinjcn/local-text-to-sql-agent", year: "2026" },
