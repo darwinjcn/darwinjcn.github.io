@@ -68,16 +68,19 @@ Computer Engineer and Public Accountant. I translate business needs into robust 
 
 | # | Project | Description | Tech |
 |---|---|---|---|
-| 01 | [Local Financial Analyst (AI)](https://github.com/darwinjcn/analista-financiero-local-ia) | 100% local system that extracts financial statement figures and calculates ratios deterministically. Generates quick reports with pure business rules and narrative reports using direct Ollama calls, eliminating agent overhead to speed up the flow and guarantee zero hallucinations. | Python, Ollama, Streamlit, ChromaDB, Docker, Pandas |
+| 01 | [Local Financial Analyst (AI)](https://github.com/darwinjcn/analista-financiero-local-ia) | 100% local system that extracts financial statement figures and calculates ratios deterministically. Generates quick reports with pure business rules and narrative reports using direct Ollama calls, eliminating agent overhead. | Python, Ollama, Streamlit, ChromaDB, Docker, Pandas |
 | 02 | [Local Text-to-SQL Agent](https://github.com/darwinjcn/local-text-to-sql-agent) | Local AI agent that translates natural language to SQL with hybrid architecture: CrewAI orchestrates the flow and Python executes deterministic calculations. | Python, CrewAI, Ollama, SQLite, Pandas, Streamlit |
-| 03 | [GCS](https://github.com/darwinjcn/gcs-project) | Satellite monitoring platform achieving a 25% reduction in incident response time. | React, Laravel, PostgreSQL |
-| 04 | [Fuel Management System](https://github.com/darwinjcn/sistema-gestion-combustible) | Client-server application with RESTful API and JWT authentication for generator control. | Django, React, PostgreSQL, JWT |
-| 05 | [Pharmacy Inventory](https://github.com/darwinjcn/inventario-farmacia) | System with real-time stock control, batch traceability, and role management. | Laravel, Livewire, Alpine.js, MySQL |
-| 06 | [University Dining Hall](https://github.com/darwinjcn/comedor-universitario) | CRUD for 5 entities, real-time dashboard, and REST API. | Node.js, Express, MongoDB, Tailwind CSS |
-| 07 | [Crypto Monitor](https://github.com/darwinjcn/crypto-monitor) | Real-time crypto asset monitoring using Web Workers for client-side performance optimization. | Angular, TypeScript, Web Workers |
-| 08 | [Business Intelligence Portfolio](https://github.com/darwinjcn/powerbi-proyectos) | Interactive dashboards for financial analysis, retail expansion, and logistics fleet control. | Power BI, DAX, Power Query, Star Schema |
-| 09 | [Wonka SQL](https://github.com/darwinjcn/wonka-sql) | Database normalization up to 3NF and materialized views for traceability reporting. | PostgreSQL, Advanced SQL, ER Design |
-| 10 | [SQL NGO Ayuda Acción](https://github.com/darwinjcn/sql-ong-ayuda-accion) | Database for humanitarian project management with donation traceability. | SQL, Database Modeling |
+| 03 | [Local AI Helpdesk](https://github.com/darwinjcn/local-ai-helpdesk) | Intelligent IT ticket triage system using local LLM and RAG. Guarantees zero hallucinations through strict Pydantic validation, optimized for 16GB RAM without GPU. | FastAPI, React, Ollama, ChromaDB, PostgreSQL, Docker |
+| 04 | [GCS](https://github.com/darwinjcn/gcs-project) | Satellite monitoring platform achieving a 25% reduction in incident response time. | React, Laravel, PostgreSQL |
+| 05 | [Fuel Management System](https://github.com/darwinjcn/sistema-gestion-combustible) | Client-server application with RESTful API and JWT authentication for generator control. | Django, React, PostgreSQL, JWT |
+| 06 | [Pharmacy Inventory](https://github.com/darwinjcn/inventario-farmacia) | System with real-time stock control, batch traceability, and role management. | Laravel, Livewire, Alpine.js, MySQL |
+| 07 | [University Dining Hall](https://github.com/darwinjcn/comedor-universitario) | CRUD for 5 entities, real-time dashboard, and REST API. | Node.js, Express, MongoDB, Tailwind CSS |
+| 08 | [Crypto Monitor](https://github.com/darwinjcn/crypto-monitor) | Real-time crypto asset monitoring using Web Workers for client-side performance optimization. | Angular, TypeScript, Web Workers |
+| 09 | [Chatbot FAQ IA Trade](https://github.com/darwinjcn/chatbot-faq-ia-trade) | NLP-powered virtual assistant to automate local business customer service, using OpenRouter API for contextualized responses with zero operational cost. | JavaScript, HTML5, CSS3, OpenRouter, Netlify |
+| 10 | [Business Intelligence Portfolio](https://github.com/darwinjcn/powerbi-proyectos) | Interactive dashboards for financial analysis, retail expansion, and logistics fleet control. | Power BI, DAX, Power Query, Star Schema |
+| 11 | [Wonka SQL](https://github.com/darwinjcn/wonka-sql) | Database normalization up to 3NF and materialized views for traceability reporting. | PostgreSQL, Advanced SQL, ER Design |
+| 12 | [Municipal Library Laravel API](https://github.com/darwinjcn/biblioteca-laravel-api) | Robust REST API for municipal library management, implementing CRUD, Form Request validations, and strict business rules. | Laravel, PHP, Eloquent, SQLite, REST API |
+| 13 | [SQL NGO Ayuda Acción](https://github.com/darwinjcn/sql-ong-ayuda-accion) | Database for humanitarian project management with donation traceability. | SQL, Database Modeling |
 
 ## 📬 Contact & Social
 
